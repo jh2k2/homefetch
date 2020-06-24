@@ -8,6 +8,13 @@
         <tr>
           <td>
             <mat-form-field>
+              <input matInput placeholder="Username" formControlName="username" name="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
               <input matInput placeholder="Fullname" formControlName="fullname" name="fullname" required>
             </mat-form-field>
           </td>
@@ -35,11 +42,22 @@
             </mat-form-field>
           </td>
         </tr>
+
+        <tr>
+          <td>
+            <select formControlName="role">
+              <option *ngFor="let role of roles" [ngValue]="role">
+                {{ role.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+
       </table>
     </form>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="register()" color="primary">Register</button>
-    <span>Allrady have an account ? <a [routerLink]="['/auth/login']">login</a> here</span>
+    <span>Already have an account? <a [routerLink]="['/auth/login']">login</a> here</span>
   </mat-card-actions>
 </mat-card>

@@ -1,0 +1,11 @@
+1. finish homepage setup and implement the logins(routing/nav)
+
+2. username, vendor/tenant
+
+3. vendor make listing
+	picture
+	name
+	location (google map api)
+	price
+	description
+	needs admin account to confirm

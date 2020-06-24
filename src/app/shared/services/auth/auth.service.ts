@@ -32,17 +32,21 @@ export class AuthService {
   }
 
   register(
+    username: string,
     fullname: string,
     email: string,
     password: string,
-    repeatPassword: string
+    repeatPassword: string,
+    role: string
   ): Observable<User> {
     return this.http
       .post<AuthResponse>('/api/auth/register', {
+        username,
         fullname,
         email,
         password,
         repeatPassword,
+        role
       })
       .pipe(
         tap(({ token, user }) => {
