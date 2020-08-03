@@ -1,0 +1,42 @@
+.hero-image {
+  background-image: url('../../../assets/images/hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 80vh;
+}
+
+body {
+  max-width:100vw;
+  overflow: hidden;
+}
+
+#slider-div {
+  margin: auto 0;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+#searchcontainer {
+  padding: 35vh 0;
+}
+
+#search {
+  border: 3px solid #d4d4d4;
+  width:90%;
+  border-radius:200px;
+  padding: 20px 30px;
+  font-size:20px;
+  font-family:"circular std bold"
+}
+
+#hero-text {
+  height: 80vh;
+  padding: 15% 3rem !important;
+  background-color:rgba(0,0,0,0.3);
+  color:white;
+}

@@ -1,0 +1,18 @@
+<div class="container" style="max-width:900px; text-align:center;">
+  <h2>My Waitlist</h2>
+
+  <div *ngIf="haveWaitlist">
+    <div class="card" style="width: 13rem; margin:5px 7px 5px; display:inline-block;">
+      <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
+      <div class="card-body" style="padding-top:5px;">
+        <h6 class="card-subtitle text-truncate">Waitlist</h6>
+
+        <!-- Payment Implementation -->
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!haveWaitlist">
+    <h6>You currently don't have any place waitlisted</h6>
+  </div>
+</div>
