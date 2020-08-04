@@ -106,7 +106,6 @@ export class ViewPropertyComponent implements OnInit, AfterViewInit {
             return actions.order.create({
               purchase_units: [
                 {
-                  description: this.property.title,
                   amount: {
                     currency_code: 'USD',
                     value: this.amount

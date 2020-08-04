@@ -17,7 +17,7 @@ export class PropertyFormComponent implements OnInit {
   autocompleteInput: string;
   queryWait: boolean;
 
-  @Input() prop: Property = { title: null, deposit: null, rooms: null, area: null, street: null };
+  @Input() prop: Property = { deposit: null, rooms: null, area: null, street: null,  city: null, country: null, state: null, zipcode: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
   public url = ["", "../../../assets/images/placeholder.jpg",
@@ -68,11 +68,14 @@ export class PropertyFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      title: new FormControl(this.prop.title, [Validators.required, Validators.minLength(3)]),
       deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(1000)]),
       rooms: new FormControl(this.prop.rooms, [Validators.required, Validators.min(1), Validators.max(10)]),
       area: new FormControl(this.prop.area, [Validators.required, Validators.min(10), Validators.max(10000)]),
       street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(3)]),
+      city: new FormControl(this.prop.city, [Validators.required, Validators.minLength(2)]),
+      country: new FormControl(this.prop.country, [Validators.required, Validators.minLength(2)]),
+      state: new FormControl(this.prop.state, [Validators.required, Validators.minLength(2)]),
+      zipcode: new FormControl(this.prop.zipcode, [Validators.required, Validators.minLength(5)]),
     });
 
     this.isClicked[1] = this.prop.internet;
@@ -107,11 +110,14 @@ export class PropertyFormComponent implements OnInit {
 
   onSubmit() {
     const property = new Property(
-      this.form.value.title,
       this.form.value.deposit,
       this.form.value.rooms,
       this.form.value.area,
       this.form.value.street,
+      this.form.value.city,
+      this.form.value.country,
+      this.form.value.state,
+      this.form.value.zipcode,
       this.isActive(1),
       this.isActive(2),
       this.isActive(3),

@@ -3,11 +3,14 @@ export class Property {
     constructor(
 
        //basic info
-       public title?:string,
        public deposit?:number,
        public rooms?:number,
        public area?:number,
        public street?:string,
+       public city?:string,
+       public country?:string,
+       public state?:string,
+       public zipcode?:number,
 
        //icons
        public internet?:boolean,
@@ -34,7 +37,7 @@ export class Property {
 
        //date
        public date?:Date,
-       
+
        public approved?:Number
     ) {}
 }

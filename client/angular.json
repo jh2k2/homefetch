@@ -30,7 +30,9 @@
               "node_modules/css-star-rating/css/star-rating.css",
               "node_modules/css-star-rating/css/star-rating.min.css"
             ],
-            "scripts": ["src/script.js"]
+            "scripts": ["src/script.js",
+              "node_modules/jquery/dist/jquery.js"
+            ]
           },
           "configurations": {
             "production": {

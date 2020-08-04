@@ -22,6 +22,7 @@ export class AdminPropertiesComponent implements OnInit {
   }
 
   showProperty(prop) { this.router.navigate(['/properties/view', prop._id]); }
+  editProperty(prop) { this.router.navigate(['/properties/edit', prop._id]); }
 
   deleteProp(prop) {
     this.adSr.deleteProp(prop).subscribe();

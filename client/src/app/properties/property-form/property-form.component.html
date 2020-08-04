@@ -4,21 +4,6 @@
   </div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <div class="form-row justify-content-center toCent" style="max-width:500px;">
-      <div class="form-group col-md-6">
-        <label for="inputTitle">Title</label>
-        <input type="text" class="form-control" id="inputTitle" placeholder="Enter title" formControlName="title">
-        <div *ngIf="form.controls['title'].errors && !form.controls['title'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['title'].errors.required">
-            Valid title is required.
-          </div>
-          <div [hidden]="!form.controls['title'].errors.minlength">
-            Title is too short.
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <div class="form-row justify-content-center toCent" style="max-width:500px">
       <div class="form-group col-md-6">
@@ -82,10 +67,70 @@
             Street name is too short.
           </div>
         </div>
-
       </div>
     </div>
 
+
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity" placeholder="Enter your city name" formControlName="city">
+        <div *ngIf="form.controls['city'].errors && !form.controls['city'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['city'].errors.required">
+            Valid city name is required.
+          </div>
+          <div [hidden]="!form.controls['city'].errors.min">
+            City name is too short (min 2).
+          </div>
+          <div [hidden]="!form.controls['city'].errors.max">
+            City name is too long (max 1000).
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputCountry">Country</label>
+        <input type="text" class="form-control" id="inputCountry" placeholder="Enter country name" formControlName="country">
+        <div *ngIf="form.controls['country'].errors && !form.controls['country'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['country'].errors.required">
+            Valid street is required.
+          </div>
+          <div [hidden]="!form.controls['country'].errors.minlength">
+            Street name is too short.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="form-row justify-content-center toCent" style="max-width:500px">
+          <div class="form-group col-md-6">
+            <label for="inputState">State</label>
+            <input type="text" class="form-control" id="inputState" placeholder="Enter your State" formControlName="state">
+            <div *ngIf="form.controls['state'].errors && !form.controls['state'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['state'].errors.required">
+                Valid state name is required.
+              </div>
+              <div [hidden]="!form.controls['state'].errors.min">
+                State name is too short (min 2).
+              </div>
+              <div [hidden]="!form.controls['state'].errors.max">
+                State name is too long (max 1000).
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputZipcode">Zipcode</label>
+            <input type="number" class="form-control" id="inputZipcode" placeholder="Enter your zipcode" formControlName="zipcode">
+            <div *ngIf="form.controls['zipcode'].errors && !form.controls['zipcode'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['zipcode'].errors.required">
+                Valid zipcode is required.
+              </div>
+              <div [hidden]="!form.controls['zipcode'].errors.minlength">
+                Valid zipcode is required.
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 

@@ -9,9 +9,18 @@
 
     <ul class="nav navbar-nav navbar-right ml-auto">
       <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" [routerLink]="['/users/landlordreg']">Publish My Properties</a>
+        <a class="nav-link" [routerLink]="['/mission']">Mission Statement</a>
       </li>
       <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/hiw']">How it works</a>
+      </li>
+      <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/faq']">FAQ</a>
+      </li>
+      <li class="nav-item" role="presentation" *ngIf="users.landlord!=0" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/users/landlordreg']">Become a Landlord</a>
+      </li>
+      <li class="nav-item" role="presentation" *ngIf="users.landlord==0" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" [routerLink]="['/search']">Find Home</a>
       </li>
       <div *ngIf="!isLoggedIn();then outProfiled else inProfiled"></div>
