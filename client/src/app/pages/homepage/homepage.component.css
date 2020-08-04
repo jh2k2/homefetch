@@ -4,7 +4,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 80vh;
+  height: 100vh;
+}
+
+.pagination {
+  margin-top: 40px;
 }
 
 body {
@@ -13,7 +17,7 @@ body {
 }
 
 #slider-div {
-  margin: auto 0;
+  padding: 100px 60px 0px;
 }
 
 .row {
@@ -22,7 +26,7 @@ body {
 }
 
 #searchcontainer {
-  padding: 35vh 0;
+  padding: 40vh 0;
 }
 
 #search {
@@ -31,12 +35,24 @@ body {
   border-radius:200px;
   padding: 20px 30px;
   font-size:20px;
-  font-family:"circular std bold"
+  font-family:"circular std bold", sans-serif;
+}
+
+#search:focus {
+  outline: none;
 }
 
 #hero-text {
   height: 80vh;
-  padding: 15% 3rem !important;
+  padding: 18% 3rem !important;
   background-color:rgba(0,0,0,0.3);
   color:white;
+}
+
+#new-landlord {
+  background-image: url("../../../assets/images/landlord.jpg");
+  background-size: cover;
+  background-position: top;
+  min-height: 700px;
+  color: white;
 }
