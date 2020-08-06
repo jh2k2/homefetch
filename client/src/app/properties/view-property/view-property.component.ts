@@ -36,7 +36,6 @@ export class ViewPropertyComponent implements OnInit {
   public property;
   public watcher: string;
   public activ = null;
-  public users: User;
   public request;
   public hasrequest;
   public isTenant;
@@ -49,6 +48,9 @@ export class ViewPropertyComponent implements OnInit {
       this.taken = params.get('id');
       this.propSer.viewProperty(this.taken).subscribe(
         data => {
+          if(data.prop.approved != 1) {
+            this.router.navigate(['/']);
+          }
           this.amount = data.prop.deposit;
           this.property = data.prop;
           this.property.user = data.user;
@@ -78,9 +80,8 @@ export class ViewPropertyComponent implements OnInit {
           this.isDataLoaded = true;
         });
     });
-
-
   }
+
 
   left() { if (this.pos == 0) { this.pos = this.images.length - 1; } else this.pos = this.pos - 1; }
 
@@ -100,6 +101,9 @@ export class ViewPropertyComponent implements OnInit {
     this.router.navigate(['/users/profile/', this.property.user.userName]);
   }
 
+  payProperty(prop) {
+    this.router.navigate(['/properties/payment', prop._id]);
+  }
 
   isActive(num) { return this.isClicked[num] == true; }
 

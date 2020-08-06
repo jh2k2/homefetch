@@ -8,12 +8,12 @@ import { AdminModule } from './admin/admin.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => PagesModule  },
-  { path: 'admin', loadChildren:() => AdminModule },
-  { path: 'users', loadChildren: () => UsersModule  },
-  { path: 'properties', loadChildren:() => PropertiesModule },
-  { path: 'not-found', component:NotFoundComponent },
-  { path: '**', redirectTo:'not-found' }
+  { path: '', loadChildren: () => PagesModule },
+  { path: 'admin', loadChildren: () => AdminModule },
+  { path: 'users', loadChildren: () => UsersModule },
+  { path: 'properties', loadChildren: () => PropertiesModule },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({

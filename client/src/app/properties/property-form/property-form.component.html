@@ -7,7 +7,7 @@
     <div class="form-row justify-content-center toCent" style="max-width:500px">
       <div class="form-group col-md-6">
         <label for="inputDeposit">Monthly Fee</label>
-        <input type="number" class="form-control" id="inputDeposit" placeholder="Enter monthly fee in dollars" formControlName="deposit">
+        <input type="number" class="form-control" id="inputDeposit" placeholder="Enter monthly fee in euros" formControlName="deposit">
         <div *ngIf="form.controls['deposit'].errors && !form.controls['deposit'].pristine" class="error-msg">
           <div [hidden]="!form.controls['deposit'].errors.required">
             Valid Fee is required.

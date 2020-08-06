@@ -17,7 +17,6 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit() { }
 
-
   sendData(data) {
     const property = data.property;
     var fileToUpload: File[] = data.files;

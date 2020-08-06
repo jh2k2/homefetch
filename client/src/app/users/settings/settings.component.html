@@ -46,20 +46,6 @@
           </div>
         </div>
         <div class="mb-3">
-          <label class="col-md-3 control-label">Username:</label>
-          <div class="col-md-8">
-            <input class="form-control" id="userName" formControlName="userName" type="text">
-          </div>
-          <div *ngIf="form.controls['userName'].errors && !form.controls['userName'].pristine" class="error-msg">
-            <div [hidden]="!form.controls['userName'].errors.required">
-              Valid username is required.
-            </div>
-            <div [hidden]="!form.controls['userName'].errors.minlength">
-              Username is too short.
-            </div>
-          </div>
-        </div>
-        <div class="mb-3">
           <label class="col-md-3 control-label">Email:</label>
           <div class="col-md-8">
             <input class="form-control" id="email" formControlName="email" type="email">

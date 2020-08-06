@@ -116,6 +116,7 @@ export class PropertyFormComponent implements OnInit {
     this.form.reset;
     this.event.emit(objToSend);
   }
+
   sendEditedImage(num) {
     if (this.isAdded(num) != true) return "no";
     else {
@@ -125,6 +126,7 @@ export class PropertyFormComponent implements OnInit {
       if (num == 4) if (!this.isThereAfile(4)) return this.prop.image4; else return "no";
     }
   }
+
   isThereAfile(num) { if (this.fileToUpload[num] == null || this.fileToUpload[num] == undefined) return false; else return true; }
 
   changeI(num) { if (this.isActive(num)) this.isClicked[num] = false; else this.isClicked[num] = true; }

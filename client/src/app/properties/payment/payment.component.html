@@ -1,0 +1,23 @@
+<div *ngIf='isDataLoaded' class="container mt-5" >
+  <h2>Stripe Checkout</h2>
+  <div class="row">
+    <tr>
+      <td>Tenant: {{users.fullname}}</td>
+      <td>Landlord: {{property.user.userName}}</td>
+      <td>Housing Address: {{property.street}}, {{property.remain}}</td>
+      <td>Available for Move in: {{property.available}}</td>
+      <td>Pricing: {{property.deposit}} €</td>
+      <td>Transaction Fee: {{fee}} €</td>
+      <td>Total fee: {{total}} €</td>
+    </tr>
+  </div>
+  <div class="row">
+    <div class="col align-self-center">
+      <button (click)="pay()" class="text-center btn btn-primary btn-block">Confirm Payment</button>
+    </div>
+
+  </div>
+  <p class="mt-5">
+    Try it out using the test card number <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any expiration date in the future, and a random five-digit U.S. ZIP code.
+  </p>
+</div>

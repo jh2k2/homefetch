@@ -9,6 +9,7 @@ import { ViewPropertyComponent } from './view-property/view-property.component';
 import { AddPropertyComponent } from './add-property/add-property.component';
 import { PropertyFormComponent } from './property-form/property-form.component';
 import { EditPropertyComponent } from './edit-property/edit-property.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,8 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
     ReactiveFormsModule,
     FormsModule,
     MatGoogleMapsAutocompleteModule,
-    MatCardModule
+    MatCardModule,
   ],
-  declarations: [AddPropertyComponent, ViewPropertyComponent, PropertyFormComponent, EditPropertyComponent]
+  declarations: [AddPropertyComponent, ViewPropertyComponent, PropertyFormComponent, EditPropertyComponent, PaymentComponent]
 })
 export class PropertiesModule { }
