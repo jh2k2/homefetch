@@ -8,13 +8,16 @@
         <img src="../../../assets/images/right.png" (click)="right()" class="right">
         <table class="table text-center " style="table-layout: fixed;width: 100%;">
           <tr>
-            <td style="text-align:right;">Area:</td>
-            <td>{{property.area}}m2</td>
-            <td style="text-align:right;">Street:</td>
-            <td>{{property.street}}</td>
+            <td class="text-center" colspan="4">{{property.street}}, {{property.remain}}</td>
           </tr>
           <tr>
-            <td style="text-align:right;">Deposit:</td>
+            <td style="text-align:right;">Area:</td>
+            <td>{{property.area}}m2</td>
+            <td style="text-align:right;">Availability</td>
+            <td>{{property.available|date:'MM/dd/yyyy'}}</td>
+          </tr>
+          <tr>
+            <td style="text-align:right;">Monthly Fee:</td>
             <td>${{property.deposit}}</td>
             <td style="text-align:right;">Rooms:</td>
             <td>{{property.rooms}}</td>
@@ -84,11 +87,7 @@
         <img [src]='url' class="avatar images rounded-circle img-thumbnail" alt="avatar">
         <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>
         <button type="button" (click)='goToProfile()' class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">View profile</button>
-        <div *ngIf="isTenant && isLoggedIn()">
-          <div [class.hide]="hasrequest" #paypal></div>
-          <!--<button  *ngIf="!hasrequest" type="button" (click)='addRequest()' #paypalRef>Pay and Request</button>-->
-          <button *ngIf="request" type="button" (click)='removeRequest()' class="btn btn-danger" style="margin-top:10px; margin-bottom:10px;">Request Refund</button>
-        </div>
+
       </div>
     </div>
 

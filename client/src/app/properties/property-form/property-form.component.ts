@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output, AfterViewInit, Input } from '@angular/core';
-import { } from '@types/googlemaps';
-
+import { formatDate } from '@angular/common'
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../model/property.model';
@@ -11,13 +10,9 @@ import { Property } from '../../model/property.model';
   styleUrls: ['./property-form.component.css']
 })
 export class PropertyFormComponent implements OnInit {
-  @Input() addressType: string;
-  @Output() setAddress: EventEmitter<any> = new EventEmitter();
-  @ViewChild('addresstext') addresstext: any;
-  autocompleteInput: string;
-  queryWait: boolean;
 
-  @Input() prop: Property = { deposit: null, rooms: null, area: null, street: null,  city: null, country: null, state: null, zipcode: null };
+
+  @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, street: null, remain: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
   public url = ["", "../../../assets/images/placeholder.jpg",
@@ -46,36 +41,13 @@ export class PropertyFormComponent implements OnInit {
 
   constructor(private propSer: PropertyService) { }
 
-  ngAfterViewInit() {
-    this.getPlaceAutocomplete();
-  }
-
-  private getPlaceAutocomplete() {
-    const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
-      {
-        componentRestrictions: { country: 'US' },
-        types: [this.addressType]  // 'establishment' / 'address' / 'geocode'
-      });
-    google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const place = autocomplete.getPlace();
-      this.invokeEvent(place);
-    });
-  }
-
-  invokeEvent(place: Object) {
-    this.setAddress.emit(place);
-  }
-
   ngOnInit() {
     this.form = new FormGroup({
-      deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(1000)]),
+      deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(10000)]),
       rooms: new FormControl(this.prop.rooms, [Validators.required, Validators.min(1), Validators.max(10)]),
       area: new FormControl(this.prop.area, [Validators.required, Validators.min(10), Validators.max(10000)]),
-      street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(3)]),
-      city: new FormControl(this.prop.city, [Validators.required, Validators.minLength(2)]),
-      country: new FormControl(this.prop.country, [Validators.required, Validators.minLength(2)]),
-      state: new FormControl(this.prop.state, [Validators.required, Validators.minLength(2)]),
-      zipcode: new FormControl(this.prop.zipcode, [Validators.required, Validators.minLength(5)]),
+      available: new FormControl(formatDate(this.prop.available, 'yyyy-MM-dd', 'en'), [Validators.required]),
+      street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(2)]),
     });
 
     this.isClicked[1] = this.prop.internet;
@@ -109,15 +81,19 @@ export class PropertyFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if (confirm("Are you sure about the accuracy of these informations?")) {
+    } else {
+      return;
+    }
+    const remain = this.form.value.street.formatted_address.split(this.form.value.street.name + ', ');
+
     const property = new Property(
       this.form.value.deposit,
       this.form.value.rooms,
       this.form.value.area,
-      this.form.value.street,
-      this.form.value.city,
-      this.form.value.country,
-      this.form.value.state,
-      this.form.value.zipcode,
+      this.form.value.available,
+      this.form.value.street.name,
+      remain[1],
       this.isActive(1),
       this.isActive(2),
       this.isActive(3),

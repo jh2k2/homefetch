@@ -30,7 +30,7 @@ export class SettingsComponent implements OnInit {
           phone: new FormControl(data.user.phone, [Validators.required, Validators.minLength(5)]),
           street: new FormControl(data.user.street, [Validators.required, Validators.minLength(5)]),
           street2: new FormControl(data.user.street2),
-          password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+          password: new FormControl(null, [Validators.required]),
 
         });
         this.url = this.userSer.getAvatarURL(data.user.avatar);

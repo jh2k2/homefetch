@@ -30,19 +30,23 @@ export class Register1Component implements OnInit {
 
 
   onSubmit() {
-    const user = new User(
-      this.form.value.email,
-      this.form.value.password,
-      this.form.value.firstName,
-      this.form.value.lastName,
-      this.form.value.userName.toLowerCase(),
-      this.form.value.phone,
-      this.form.value.street,
-      this.form.value.street2,
-      1
-    );
-    this.userSer.register(user).subscribe();
-    this.form.reset();
-    this.router.navigate(['/users/login']);
+    if (confirm("Are you sure these informations are accurate?")) {
+      const user = new User(
+        this.form.value.email,
+        this.form.value.password,
+        this.form.value.firstName,
+        this.form.value.lastName,
+        this.form.value.userName.toLowerCase(),
+        this.form.value.phone,
+        this.form.value.street,
+        this.form.value.street2,
+        1
+      );
+      this.userSer.register(user).subscribe();
+      this.form.reset();
+      this.router.navigate(['/users/login']);
+    } else {
+      return;
+    }
   }
 }

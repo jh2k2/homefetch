@@ -10,10 +10,6 @@ const PropertySchema = mongoose.Schema({
     ref: 'User',
     required: true
   },
-  title: {
-    type: String,
-    default: 'nothing'
-  },
   deposit: {
     type: Number,
     required: true
@@ -26,10 +22,14 @@ const PropertySchema = mongoose.Schema({
     type: Number,
     required: true
   },
+  available: {
+    type: Date,
+  },
   street: {
     type: String,
-    default: 'nothing',
-    unique: true
+  },
+  remain: {
+    type: String,
   },
   image1: {
     type: String,

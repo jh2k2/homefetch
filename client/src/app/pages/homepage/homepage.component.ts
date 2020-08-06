@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from "@angular/router";
 import { PropertyService } from "../../services/property.service";
 import { Property } from "../../model/property.model";
+import $ from "jquery";
 
-import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-homepage',
@@ -12,12 +12,7 @@ import { } from '@types/googlemaps';
   styles: ['height: 100%'],
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit, AfterViewInit {
-  @Input() addressType: string;
-  @Output() setAddress: EventEmitter<any> = new EventEmitter();
-  @ViewChild('addresstext') addresstext: any;
-  autocompleteInput: string;
-  queryWait: boolean;
+export class HomepageComponent implements OnInit {
 
   public properties: Property[];
   public toShow: Property[];
@@ -28,12 +23,27 @@ export class HomepageComponent implements OnInit, AfterViewInit {
 
   constructor(private router: Router, private propSer: PropertyService) { }
 
+
   ngOnInit() {
     this.propSer.getAllProperties({ params: {} }).subscribe(data => {
       this.properties = data.obj;
 
       this.sortNewest();
       this.createList();
+    });
+
+    $(window).scroll(function() {
+      if ($(document).scrollTop() > 50) {
+        $('.nav').addClass('affix');
+      } else {
+        $('.nav').removeClass('affix');
+      }
+    });
+
+    $('.navTrigger').click(function() {
+      $(this).toggleClass('active');
+      $("#mainListDiv").toggleClass("show_list");
+      $("#mainListDiv").fadeIn();
     });
 
   }
@@ -69,27 +79,6 @@ export class HomepageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // MAP
-  ngAfterViewInit() {
-    this.getPlaceAutocomplete();
-  }
-
-  private getPlaceAutocomplete() {
-    const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
-      {
-        componentRestrictions: { country: 'US' },
-        types: [this.addressType]
-      });
-    google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const place = autocomplete.getPlace();
-      this.invokeEvent(place);
-    });
-  }
-
-  invokeEvent(place: Object) {
-    this.setAddress.emit(place);
-  }
-  // MAP
   sliceon(num) {
     this.onNum = num;
     let prop = this.properties;
@@ -103,10 +92,5 @@ export class HomepageComponent implements OnInit, AfterViewInit {
   OneRight() { if (this.onNum == this.biggest) return; else this.sliceon(this.onNum + 1); }
 
   goForProp(prop) { this.router.navigate(['/properties/view', prop._id]); }
-
-  onSubmit(term) {
-    console.log(term);
-    this.router.navigate(['/search', term.target.value.toString()]);
-  }
 
 }

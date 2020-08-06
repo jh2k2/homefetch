@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PropertiesRoutingModule } from './properties-routing.module';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { MatCardModule } from '@angular/material/card';
 
 import { ViewPropertyComponent } from './view-property/view-property.component';
 import { AddPropertyComponent } from './add-property/add-property.component';
@@ -14,6 +16,8 @@ import { EditPropertyComponent } from './edit-property/edit-property.component';
     PropertiesRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    MatGoogleMapsAutocompleteModule,
+    MatCardModule
   ],
   declarations: [AddPropertyComponent, ViewPropertyComponent, PropertyFormComponent, EditPropertyComponent]
 })

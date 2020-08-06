@@ -6,11 +6,9 @@ export class Property {
        public deposit?:number,
        public rooms?:number,
        public area?:number,
+       public available?:Date,
        public street?:string,
-       public city?:string,
-       public country?:string,
-       public state?:string,
-       public zipcode?:number,
+       public remain?:string,
 
        //icons
        public internet?:boolean,

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output, AfterViewInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { } from '@types/googlemaps';
+import { } from 'googlemaps';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../../services/property.service';

@@ -1,19 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../../services/property.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
 import { Property } from '../../model/property.model';
 
-declare var paypal;
-
 @Component({
   selector: 'app-view-property',
   templateUrl: './view-property.component.html',
   styleUrls: ['./view-property.component.css']
 })
-export class ViewPropertyComponent implements OnInit, AfterViewInit {
-  @ViewChild('paypal') paypalElement: ElementRef;
+export class ViewPropertyComponent implements OnInit {
 
   public iconURL = ['', "../../../assets/icons/B-wireless-network.png",
     "../../../assets/icons/B-hdtv.png",
@@ -82,47 +79,7 @@ export class ViewPropertyComponent implements OnInit, AfterViewInit {
         });
     });
 
-    this.userSer.getSettings().subscribe(
-      data => {
-        this.users = data.user;
-        this.request = data.user.request.includes(this.taken);
-        if (data.user.request.length && data.user.request) {
-          this.hasrequest = true;
-        }
-        if (data.user.landlord == 0 || data.user.admin != 0) {
-          this.isTenant = true;
-        } else {
-          this.isTenant = false;
-        }
-      });
 
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      paypal
-        .Buttons({
-          createOrder: (data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    currency_code: 'USD',
-                    value: this.amount
-                  }
-                }
-              ]
-            });
-          },
-          onApprove: async (data, actions) => {
-            this.addRequest();
-          },
-          onError: err => {
-            console.log(err);
-          }
-        })
-        .render(this.paypalElement.nativeElement);
-    }, 1000);
   }
 
   left() { if (this.pos == 0) { this.pos = this.images.length - 1; } else this.pos = this.pos - 1; }
@@ -143,21 +100,6 @@ export class ViewPropertyComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/users/profile/', this.property.user.userName]);
   }
 
-  addRequest() {
-    this.users.request.push(this.property._id);
-    this.userSer.addRequest(this.users).subscribe();
-    this.hasrequest = true;
-    this.request = true;
-  }
-
-
-  removeRequest() {
-    let index = this.users.request.indexOf(this.taken);
-    this.users.request.splice(index, 1);
-    this.userSer.addRequest(this.users).subscribe();
-    this.hasrequest = false;
-    this.request = false;
-  }
 
   isActive(num) { return this.isClicked[num] == true; }
 

@@ -1,57 +1,37 @@
-<nav class="navbar navbar-expand-lg" id="navedit">
-  <a class="navbar-brand" [routerLink]="['/']" style="color:Black;">Home Fetch</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
-
-    <ul class="nav navbar-nav navbar-right ml-auto">
-      <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" [routerLink]="['/mission']">Mission Statement</a>
-      </li>
-      <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" [routerLink]="['/hiw']">How it works</a>
-      </li>
-      <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" [routerLink]="['/faq']">FAQ</a>
-      </li>
-      <li class="nav-item" role="presentation" *ngIf="users.landlord!=0" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" [routerLink]="['/users/landlordreg']">Become a Landlord</a>
-      </li>
-      <li class="nav-item" role="presentation" *ngIf="users.landlord==0" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" [routerLink]="['/search']">Find Home</a>
-      </li>
-      <div *ngIf="!isLoggedIn();then outProfiled else inProfiled"></div>
-      <ng-template #outProfiled>
-        <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link" [routerLink]="['/users/login']">Login</a>
-        </li>
-        <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <a class="nav-link" [routerLink]="['/users/register']">Register</a>
-        </li>
-      </ng-template>
-      <ng-template #inProfiled>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding:0px;">
-            <img [src]='url' id="avatarnav" class="rounded-circle" alt="Avatar">
-            {{users.name}}
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="padding:10px; margin-top:-3px;">
-            <div class="dropdown-item edit" style="background-color:#fefbf7;">{{users.fullname}}</div>
-            <div class="dropdown-item edit" style="background-color:#fefbf7;">{{users.email}}</div>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" *ngIf="users.admin!=0" [routerLink]="['/admin/panel']">Admin panel</a>
-            <a class="dropdown-item" *ngIf="users.landlord!=0" [routerLink]="['/users/property']">Apartments</a>
-            <a class="dropdown-item" *ngIf="users.landlord==0 || users.admin!=0" [routerLink]="['/users/waitlist']">Waitlist</a>
-            <a class="dropdown-item" *ngIf="users.landlord!=0" [routerLink]="['/users/request']">Request</a>
-            <a class="dropdown-item" style="cursor: pointer;" (click)="goToProfile()">Profile</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" style="cursor: pointer;" (click)="logOut()">Log out</a>
+<nav class="nav">
+  <div class="container-fluid">
+    <div class="logo" style="transform: translate(0, -4px);">
+      <a href="/"><img src="../../../assets/images/logo.png" style="width: 5rem; height: auto;">
+      </a>
+    </div>
+    <div id="mainListDiv" class="main_list">
+      <ul>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/mission']">About Us</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/hiw']">How It Works</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/faq']">FAQ's And Contact Us</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/landlordreg']">I am a landlord</a></li>
+        <div *ngIf="!isLoggedIn()">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/login']">Log In</a></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/register']">Sign Up</a></li>
+        </div>
+        <!--TODO add profile-->
+        <div class="row" *ngIf="isLoggedIn()">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-danger" id="dropdownBasic1" ngbDropdownToggle>{{users.fullname}}</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngIf="users.admin!=0" [routerLink]="['/admin/panel']">Admin panel</button>
+                <button ngbDropdownItem *ngIf="users.landlord!=0" [routerLink]="['/users/property']">Apartments</button>
+                <button ngbDropdownItem *ngIf="users.landlord==0 || users.admin!=0" [routerLink]="['/users/waitlist']">Waitlist</button>
+                <button ngbDropdownItem *ngIf="users.landlord!=0" [routerLink]="['/users/request']">Request</button>
+                <button ngbDropdownItem (click)="goToProfile()">Profile</button>
+                <button ngbDropdownItem (click)="logOut()">Log out</button>
+              </div>
+            </div>
           </div>
-        </li>
-      </ng-template>
-    </ul>
+        </div>
+        <!--TODO-->
+      </ul>
+    </div>
   </div>
 </nav>

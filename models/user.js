@@ -54,10 +54,10 @@ const UserSchema = mongoose.Schema({
     type: Boolean,
     default: false
   },
-  request: [{
+  request: {
     type: String,
     unique: true
-  }]
+  }
 });
 
 

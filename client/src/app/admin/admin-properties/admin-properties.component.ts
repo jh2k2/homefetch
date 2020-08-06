@@ -33,13 +33,19 @@ export class AdminPropertiesComponent implements OnInit {
   }
 
   approveProp(prop, num) {
-    if(num == 1) {
-      prop.approved = 1;
+    if (confirm("Are you sure to edit the state of this property?")) {
+      if (num == 1) {
+        prop.approved = 1;
+      } else {
+        prop.approved = 0;
+      }
+
+      this.adSr.approveProp(prop).subscribe();
     } else {
-      prop.approved = 0;
+      return;
     }
 
-    this.adSr.approveProp(prop).subscribe();
+
   }
 
 }

@@ -89,7 +89,7 @@ router.post('/add', upload.array('photo', 4), passport.authenticate('jwt', {
   }
   Property.addProperty(prop, (err) => {
     if (err)
-      return res.status(500).send("Server error!");
+      return res.status(500).send("Server error!" + err);
     return res.status(201).send("Apartment saved!");
   });
 });
@@ -114,10 +114,10 @@ router.get('/view/:id', (req, res, next) => {
 });
 
 // ***** user.toString user._id
-/* router.get('/edit/:id', passport.authenticate('jwt', {
+router.get('/edit/:id', passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
-  if (req.user.landlord < 1) return res.status(403).send("You are not a landlord");
+  if (req.user.admin < 1) return res.status(403).send("You are not an admin");
   Property.getPropertyById(req.params.id.toString(), (err, prop) => {
     if (err)
       return res.status(500).send("Server error!");
@@ -130,7 +130,7 @@ router.get('/view/:id', (req, res, next) => {
     });
   });
 });
-*/
+
 
 router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt', {
   session: false

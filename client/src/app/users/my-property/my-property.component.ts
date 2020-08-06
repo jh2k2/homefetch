@@ -12,6 +12,7 @@ import { PropertyService } from '../../services/property.service';
 })
 export class MyPropertyComponent implements OnInit {
   public propArray: Property[];
+  public add: Boolean;
   readData = 1;
   constructor(private propSer: PropertyService, private router: Router, private userSer: UserService) { }
 
@@ -28,20 +29,29 @@ export class MyPropertyComponent implements OnInit {
   getData() {
     if (this.readData == 1) {
       this.readData = 0;
-      this.userSer.getProperties().subscribe(data => { this.propArray = data.obj; });
+      this.userSer.getProperties().subscribe(data => {
+        this.propArray = data.obj;
+        if (data.obj.length < 5) {
+          this.add = true;
+        } else {
+          this.add = false;
+        }
+      });
     }
   }
 
   deleteProp(prop) {
-    this.propSer.deleteProperty(prop._id).subscribe();
-    var index = this.propArray.indexOf(prop);
-    if (index > -1) {
-      this.propArray.splice(index, 1);
+    if (confirm("Are you sure to delete this property?")) {
+      this.propSer.deleteProperty(prop._id).subscribe();
+      var index = this.propArray.indexOf(prop);
+      if (index > -1) {
+        this.propArray.splice(index, 1);
+      }
     }
   }
 
   approveProp(prop) {
-    if(prop.approved == 1) {
+    if (prop.approved == 1) {
       return true;
     } else {
       return false;
