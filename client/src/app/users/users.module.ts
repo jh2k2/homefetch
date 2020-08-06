@@ -9,7 +9,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { PasswordComponent } from './password/password.component';
 import { MyPropertyComponent } from './my-property/my-property.component';
 import { Register1Component } from './register1/register1.component';
-import { RequestComponent } from './request/request.component';
 import { WaitlistComponent } from './waitlist/waitlist.component';
 
 
@@ -20,6 +19,6 @@ import { WaitlistComponent } from './waitlist/waitlist.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  declarations: [LoginComponent, RegisterComponent, ProfileComponent, SettingsComponent, PasswordComponent, MyPropertyComponent, Register1Component, RequestComponent, WaitlistComponent]
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent, SettingsComponent, PasswordComponent, MyPropertyComponent, Register1Component, WaitlistComponent]
 })
 export class UsersModule { }

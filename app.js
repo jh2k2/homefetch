@@ -7,6 +7,7 @@ const cors = require('cors');
 const config = require('./config/database');
 var logger = require('morgan');
 
+const stripe = require("stripe")("sk_test_51H5eexCD60PLVDzGiWagEND9xj8oSC1qBHQFptBMha8a7gRSQuFdQSnoAiYfDi9nvsy59EzpO31HuW4iqiFwC2o700Wk5SWYM8");
 
 const users = require('./routes/users');
 const upload = require('./routes/upload');
@@ -42,6 +43,17 @@ app.use('/user', users);
 app.use('/admins', admin);
 app.use('/uploads', upload);
 app.use('/propertie', properties);
+
+app.post("/create-payment-intent", async (req, res, next) => {
+  const paymentIntent = await stripe.paymentIntents.create({
+    //TODO
+    amount: (req.body.deposit * 100) + (req.body.deposit * .3 * 100),
+    currency: "usd"
+  });
+  res.send({
+    clientSecret: paymentIntent.client_secret
+  });
+});
 
 app.get('**', (req, res) => {
   res.sendfile(__dirname + '/public/index.html');

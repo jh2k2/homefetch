@@ -30,15 +30,14 @@ export class ViewPropertyComponent implements OnInit {
   public taken;
   public isClicked = [];
   public url;
+  public users: User;
   public isDataLoaded = false;
   public images = [];
   public pos = 0;
   public property;
   public watcher: string;
   public activ = null;
-  public request;
-  public hasrequest;
-  public isTenant;
+  public hasWaitlist;
   public amount;
 
   constructor(private router: Router, private route: ActivatedRoute, private propSer: PropertyService, private userSer: UserService) { }
@@ -80,6 +79,17 @@ export class ViewPropertyComponent implements OnInit {
           this.isDataLoaded = true;
         });
     });
+
+    this.userSer.getSettings().subscribe(
+      data => {
+        this.users = data.user;
+        if(this.users.request == "none") {
+          this.hasWaitlist = false;
+        } else {
+          this.hasWaitlist = true;
+        }
+      });
+
   }
 
 

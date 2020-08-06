@@ -1,4 +1,4 @@
-<div *ngIf='isDataLoaded' class="container mt-5" >
+<div *ngIf='isDataLoaded' class="container mt-5">
   <h2>Stripe Checkout</h2>
   <div class="row">
     <tr>
@@ -11,12 +11,19 @@
       <td>Total fee: {{total}} €</td>
     </tr>
   </div>
-  <div class="row">
-    <div class="col align-self-center">
-      <button (click)="pay()" class="text-center btn btn-primary btn-block">Confirm Payment</button>
-    </div>
 
-  </div>
+  <hr>
+
+  <form id="payment-form">
+    <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+    <button id="submit">
+      <div class="spinner hidden" id="spinner"></div>
+      <span id="button-text">Pay</span>
+    </button>
+    <p id="card-error" role="alert"></p>
+  </form>
+
+
   <p class="mt-5">
     Try it out using the test card number <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any expiration date in the future, and a random five-digit U.S. ZIP code.
   </p>

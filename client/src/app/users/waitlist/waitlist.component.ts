@@ -14,22 +14,23 @@ export class WaitlistComponent implements OnInit {
   public haveWaitlist;
   public prop: Property;
   public users: User;
-  public usersRequest: string[];
+  public usersRequest: string;
   constructor(private propSer: PropertyService, private router: Router, private userSer: UserService) { }
 
   ngOnInit() {
     this.userSer.getSettings().subscribe(
       data => {
         this.usersRequest = data.user.request;
-        this.propSer.getAllPropertiesById({ params: { id: this.usersRequest } }).subscribe(
-          data => {
-            this.prop = data.obj;
-            if(this.prop == null) {
-              this.haveWaitlist = false;
-            } else {
+        if (this.usersRequest == "none") {
+          this.haveWaitlist = false;
+        } else {
+          this.propSer.getAllPropertiesById({ params: { id: this.usersRequest } }).subscribe(
+            data => {
+              this.prop = data.obj;
               this.haveWaitlist = true;
             }
-          });
+          );
+        }
       });
 
   }

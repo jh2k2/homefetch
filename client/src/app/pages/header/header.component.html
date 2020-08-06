@@ -8,28 +8,29 @@
       <ul>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/mission']">About Us</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/hiw']">How It Works</a></li>
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/faq']">FAQ's And Contact Us</a></li>
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/landlordreg']">I am a landlord</a></li>
-        <div *ngIf="!isLoggedIn()">
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/login']">Log In</a></li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/register']">Sign Up</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/faq']">FAQ's</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/landlordreg']">Becine a landlord</a></li>
+        <div *ngIf="!isLoggedIn();then outProfiled else inProfiled">
+          <ng-template #outProfiled>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/login']">Log In</a></li>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/register']">Sign Up</a></li>
+          </ng-template>
         </div>
         <!--TODO add profile-->
-        <div class="row" *ngIf="isLoggedIn()">
+        <ng-template #inProfiled>
           <div class="col">
             <div ngbDropdown class="d-inline-block">
               <button class="btn btn-outline-danger" id="dropdownBasic1" ngbDropdownToggle>{{users.fullname}}</button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 100%;">
                 <button ngbDropdownItem *ngIf="users.admin!=0" [routerLink]="['/admin/panel']">Admin panel</button>
                 <button ngbDropdownItem *ngIf="users.landlord!=0" [routerLink]="['/users/property']">Apartments</button>
                 <button ngbDropdownItem *ngIf="users.landlord==0 || users.admin!=0" [routerLink]="['/users/waitlist']">Waitlist</button>
-                <button ngbDropdownItem *ngIf="users.landlord!=0" [routerLink]="['/users/request']">Request</button>
                 <button ngbDropdownItem (click)="goToProfile()">Profile</button>
                 <button ngbDropdownItem (click)="logOut()">Log out</button>
               </div>
             </div>
           </div>
-        </div>
+        </ng-template>
         <!--TODO-->
       </ul>
     </div>

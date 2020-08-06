@@ -36,6 +36,6 @@ export class Property {
        //date
        public date?:Date,
 
-       public approved?:Number
+       public approved?:Number,
     ) {}
 }

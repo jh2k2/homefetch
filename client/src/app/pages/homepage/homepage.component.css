@@ -16,9 +16,14 @@ body {
   overflow: hidden;
 }
 
-#slider-div {
-  padding: 100px 60px 0px;
+#slider-div, #how-it-works {
+  padding: 70px 60px 0px;
 }
+
+#how-it-works {
+  padding-bottom: 70px;
+}
+
 
 .row {
   margin-right: 0 !important;

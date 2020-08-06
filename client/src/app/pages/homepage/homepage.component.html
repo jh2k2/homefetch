@@ -16,7 +16,10 @@
 
 
 <div class="container-fluid" id="slider-div">
-  <p class="lead font-weight-normal t-font" style="margin-bottom: 40px;">Our Newest Listings</p>
+  <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
+    <span style="color: #db2d8e;">New </span>
+    <span style="font-family:'Circular STD Book', sans-serif;">Listings</span>
+  </h1>
 
   <div class="container-fluid text-center" id="slider">
     <ng-container *ngFor="let prop of toShow">
@@ -50,7 +53,7 @@
 </div>
 
 <div class="container-fluid" id="new-landlord" style="padding: 0;">
-  <svg style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 60 1440 320">
+  <svg style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 320">
     <path fill="#ffffff" fill-opacity="1"
       d="M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
     </path>
@@ -58,7 +61,78 @@
 
   <div class="col-md-4" style="margin-left: 60px; padding: 50px 0 150px;">
     <h1 class="display-4 font-weight-normal h-font">Easy As Pie.</h1>
-    <p class="lead font-weight-normal t-font">Learn How to Rent Out Your Home Easily and Securely Today</p>
-    <button class="redirect" [routerLink]="['/hiw']">Learn More</button>
+    <p class="lead font-weight-normal t-font">Rent Out Your Home Easily and Securely Today</p>
+    <button class="redirect" [routerLink]="['/users/landlordreg']">Get Started Now</button>
   </div>
+</div>
+
+<div class="container-fluid" id="how-it-works">
+  <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
+    <span style="color: #db2d8e;">How </span>
+    <span style="font-family: 'Circular STD Book', sans-serif;">It Works</span>
+  </h1>
+
+  <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px;">LANDLORD</h1>
+
+  <div class="row" style="margin-bottom: 90px;">
+    <div class="col-md-4 text-center" style="padding-left: 0;">
+      <img src="../../../assets/images/form.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
+      <p class="text-left">
+        Register to become a landlord and fill out some basic information regarding your property.
+        Some of this info will include address of the property, rent, amenities, etc.
+      </p>
+    </div>
+    <div class="col-md-4 text-center">
+      <img src="../../../assets/images/camera.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
+      <p class="text-left">
+        Someone from our team will come to check out your property and record all your particulars
+        including video shoots. We'll also take some nice pictures to list with your property later
+        on.
+      </p>
+    </div>
+    <div class="col-md-4 text-center" style="padding-right: 0;">
+      <img src="../../../assets/images/party.png" style="height: 170px; width: auto; margin-bottom: 20px;">
+      <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+      <p class="text-left">
+        Make sure to set down all of your apartment rules, agreement rules, apartment availability
+        and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+        or the transaction is cancelled.
+      </p>
+    </div>
+  </div>
+
+  <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px;">TENANT</h1>
+
+  <div class="row">
+    <div class="col-md-4 text-center" style="padding-left: 0;">
+      <img src="../../../assets/images/house.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Explore Different Properties</p>
+      <p class="text-left">
+        Filter different properties by location, price, and other useful parameters to find your
+        ideal home. Browse through a number of professionally shot photographs to get a virtual picture
+        of the property in your mind.
+      </p>
+    </div>
+    <div class="col-md-4 text-center">
+      <img src="../../../assets/images/message.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      <p class="lead font-weight-normal t-font" style="color: #04274b;">2. Send A Request to Rent</p>
+      <p class="text-left">
+        Send the landlord a booking request by paying a down payment consisting of 30% the rent and no more than
+        450€. The landlord will receive your request and have 48 hours to accept or reject it. If they reject your
+        request, your payment will be automatically refunded to you.
+      </p>
+    </div>
+    <div class="col-md-4 text-center" style="padding-right: 0;">
+      <img src="../../../assets/images/handshake.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Get Ready to Move In</p>
+      <p class="text-left">
+        Congratulations! You can now move into your new home! Lay down ground rules with your landlord and that's
+        it. For your own peace of mind, we hold on to the security deposit until you've successfully begun your stay.
+        Let us know if anything comes up and we wish you the best.
+      </p>
+    </div>
+  </div>
+  <!--Once you’ve chosen your accommodation and it has been confirmed with the landlord, we will then be able to start the move-in process. • Following communication with your new landlord, you will be able to sign any necessary agreements, and arrange a date before finally collecting your keys. • Congratulations! You can now move into your new home! *For your own peace of mind and security, we do not transfer your booking payment to the landlord until after you have moved in. The funds are held for 24-48 hours after your move-in date, and only once you have settled in and everything is to your satisfaction, will we transfer the first month’s rental to the landlord.-->
 </div>
