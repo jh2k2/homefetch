@@ -21,6 +21,10 @@ export class PaymentComponent implements OnInit {
   public card;
   public form;
 
+  public name;
+  public email;
+  public billingAddress;
+
   private amount: any;
   private fee: any;
   private total;
@@ -79,6 +83,14 @@ export class PaymentComponent implements OnInit {
             });
 
             this.form = document.getElementById("payment-form");
+
+            this.name = this.form.querySelector('input[name=name]').value;
+            this.email = this.form.querySelector('input[name=email]').value;
+            this.billingAddress = {
+              line1: this.form.querySelector('input[name=address]').value,
+              postal_code: this.form.querySelector('input[name=postal_code]').value,
+            };
+
             this.form.addEventListener("submit", (e) => {
               event.preventDefault();
 
@@ -86,7 +98,7 @@ export class PaymentComponent implements OnInit {
               this.stripe
                 .confirmCardPayment(data.json().clientSecret, {
                   payment_method: {
-                    card: this.card
+                    card: this.card,
                   }
                 })
                 .then((result) => {

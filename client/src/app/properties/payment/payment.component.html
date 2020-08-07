@@ -1,5 +1,4 @@
 <div *ngIf='isDataLoaded' class="container mt-5">
-  <h2>Stripe Checkout</h2>
   <div class="row">
     <tr>
       <td>Tenant: {{users.fullname}}</td>
@@ -15,12 +14,42 @@
   <hr>
 
   <form id="payment-form">
-    <div id="card-element"><!--Stripe.js injects the Card Element--></div>
-    <button id="submit">
-      <div class="spinner hidden" id="spinner"></div>
-      <span id="button-text">Pay</span>
-    </button>
-    <p id="card-error" role="alert"></p>
+      <h2>Shipping &amp; Billing Information</h2>
+      <fieldset class="with-state">
+        <label>
+          <span>Name</span>
+          <input name="name" class="field" placeholder="Jenny Rosen" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
+        </label>
+        <label>
+          <span>Address</span>
+          <input name="address" class="field" placeholder="185 Berry Street Suite 550">
+        </label>
+        <label class="city">
+          <span>City</span>
+          <input name="city" class="field" placeholder="San Francisco">
+        </label>
+        <label class="state">
+          <span>State</span>
+          <input name="state" class="field" placeholder="CA">
+        </label>
+        <label class="zip">
+          <span>ZIP</span>
+          <input name="postal_code" class="field" placeholder="94107">
+        </label>
+      </fieldset>
+
+      <div id="card-element">
+        <!--Stripe.js injects the Card Element-->
+      </div>
+      <button id="submit">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Pay</span>
+      </button>
+      <p id="card-error" role="alert"></p>
   </form>
 
 
