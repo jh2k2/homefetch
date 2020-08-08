@@ -44,7 +44,9 @@ export class HeaderComponent implements OnInit {
           });
       }
       return true;
-    } else return false;
+    } else {
+      return false;
+    }
   }
 
   clearDataOfUser() {

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import { PropertyService } from "../../services/property.service";
 import { Property } from "../../model/property.model";
@@ -13,6 +13,7 @@ import $ from "jquery";
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  form: FormGroup;
 
   public properties: Property[];
   public toShow: Property[];
@@ -20,16 +21,22 @@ export class HomepageComponent implements OnInit {
   public onNum = 0;
   public biggest;
   public sort = 1;
+  public isLoaded = false;
 
-  constructor(private router: Router, private propSer: PropertyService) { }
-
+  constructor(private router: Router, private propSer: PropertyService, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      vicinity: new FormControl()
+    });
+
     this.propSer.getAllProperties({ params: {} }).subscribe(data => {
       this.properties = data.obj;
 
       this.sortNewest();
       this.createList();
+
+      this.isLoaded = true;
     });
 
     $(window).scroll(function() {
@@ -84,6 +91,11 @@ export class HomepageComponent implements OnInit {
     let prop = this.properties;
     this.toShow = prop.slice(4 * (num - 1), (4 * num));
   }
+
+  onSubmit() {
+    this.router.navigate(['/search', this.form.value.vicinity]);
+  }
+
 
   isActive(num) { return this.onNum == num; }
 

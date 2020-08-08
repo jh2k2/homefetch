@@ -25,10 +25,14 @@ export class AdminPropertiesComponent implements OnInit {
   editProperty(prop) { this.router.navigate(['/properties/edit', prop._id]); }
 
   deleteProp(prop) {
-    this.adSr.deleteProp(prop).subscribe();
-    var index = this.properties.indexOf(prop);
-    if (index > -1) {
-      this.properties.splice(index, 1);
+    if (confirm("Are you sure to edit the state of this property?")) {
+      this.adSr.deleteProp(prop).subscribe();
+      var index = this.properties.indexOf(prop);
+      if (index > -1) {
+        this.properties.splice(index, 1);
+      }
+    } else {
+      return;
     }
   }
 

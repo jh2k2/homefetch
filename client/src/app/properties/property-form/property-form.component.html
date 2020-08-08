@@ -64,7 +64,7 @@
     <div class="form-row justify-content-center toCent" style="max-width:500px">
       <div class="form-group col-md-6">
         <label for="inputStreet">Street</label>
-        <input type="text" class="form-control" id="inputStreet" placeholder="Enter your street" formControlName="street" matGoogleMapsAutocomplete matInput>
+        <input type="text" class="form-control" id="inputStreet" placeholder="Enter your street" formControlName="street" (onLocationSelected)="onLocationSelected($event)" matGoogleMapsAutocomplete matInput>
         <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
           <div [hidden]="!form.controls['street'].errors.required">
             Valid street name is required.

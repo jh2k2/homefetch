@@ -12,6 +12,7 @@ export class User {
         public avatar?:string,
         public admin?:number,
         public banned?:boolean,
-        public request?:string
+        public request?:string,
+        public userRequest?:string[]
     ) {}
 }

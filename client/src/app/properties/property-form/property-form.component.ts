@@ -3,6 +3,7 @@ import { formatDate } from '@angular/common'
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../model/property.model';
+import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
 
 @Component({
   selector: 'app-property-form',
@@ -10,11 +11,14 @@ import { Property } from '../../model/property.model';
   styleUrls: ['./property-form.component.css']
 })
 export class PropertyFormComponent implements OnInit {
-
+  public longitude;
+  public latitude;
+  public city;
 
   @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, street: null, remain: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
+
   public url = ["", "../../../assets/images/placeholder.jpg",
     "../../../assets/images/placeholder.jpg",
     "../../../assets/images/placeholder.jpg",
@@ -37,7 +41,6 @@ export class PropertyFormComponent implements OnInit {
   public fileToUpload: File[] = [];
   public isAddedFile = [];
   public isClicked = [];
-
 
   constructor(private propSer: PropertyService) { }
 
@@ -85,6 +88,7 @@ export class PropertyFormComponent implements OnInit {
     } else {
       return;
     }
+
     const remain = this.form.value.street.formatted_address.split(this.form.value.street.name + ', ');
 
     const property = new Property(
@@ -94,6 +98,9 @@ export class PropertyFormComponent implements OnInit {
       this.form.value.available,
       this.form.value.street.name,
       remain[1],
+      this.form.value.street.vicinity,
+      this.longitude,
+      this.latitude,
       this.isActive(1),
       this.isActive(2),
       this.isActive(3),
@@ -131,6 +138,10 @@ export class PropertyFormComponent implements OnInit {
 
   changeI(num) { if (this.isActive(num)) this.isClicked[num] = false; else this.isClicked[num] = true; }
 
+  onLocationSelected(location: Location) {
+    this.latitude = location.latitude;
+    this.longitude = location.longitude;
+  }
 
   isActive(num) { return this.isClicked[num] == true; }
 

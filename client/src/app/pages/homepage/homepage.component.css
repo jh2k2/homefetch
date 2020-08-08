@@ -30,6 +30,11 @@ body {
   margin-left: 0 !important;
 }
 
+#faq {
+  padding-bottom: 70px;
+  background-color: rgba(236, 233, 245, 0.53);
+}
+
 #searchcontainer {
   padding: 40vh 0;
 }
@@ -60,4 +65,84 @@ body {
   background-position: top;
   min-height: 700px;
   color: white;
+}
+
+details {
+  width: 90%;
+  min-height: 5px;
+  max-width: 700px;
+  padding: 45px;
+  margin: 0 auto;
+  position: relative;
+  font-size: 22px;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 15px;
+  box-sizing: border-box;
+  transition: all .3s;
+  background: white;
+}
+
+details + details {
+  margin-top: 20px;
+}
+
+details[open] {
+  min-height: 50px;
+  background-color: #f6f7f8;
+  box-shadow: 2px 2px 20px rgba(0,0,0,.2);
+}
+
+details p {
+  color: #96999d;
+  font-weight: 300;
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Circular Std Book", sans-serif;
+}
+
+summary:focus {
+  outline: none;
+
+}
+
+summary:focus::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 5px #db2d8e;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+.control-icon {
+  fill: #db2d8e;
+  transition: .3s ease;
+  pointer-events: none;
+}
+
+.control-icon-close {
+  display: none;
+}
+
+details[open] .control-icon-close {
+  display: initial;
+  transition: .3s ease;
+}
+
+details[open] .control-icon-expand {
+  display: none;
 }

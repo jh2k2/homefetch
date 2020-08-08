@@ -47,6 +47,16 @@ export class ViewPropertyComponent implements OnInit {
       this.taken = params.get('id');
       this.propSer.viewProperty(this.taken).subscribe(
         data => {
+          this.userSer.getSettings().subscribe(
+            data => {
+              this.users = data.user;
+              if(this.users.request == "none") {
+                this.hasWaitlist = false;
+              } else {
+                this.hasWaitlist = true;
+              }
+            });
+
           if(data.prop.approved != 1) {
             this.router.navigate(['/']);
           }
@@ -80,15 +90,7 @@ export class ViewPropertyComponent implements OnInit {
         });
     });
 
-    this.userSer.getSettings().subscribe(
-      data => {
-        this.users = data.user;
-        if(this.users.request == "none") {
-          this.hasWaitlist = false;
-        } else {
-          this.hasWaitlist = true;
-        }
-      });
+
 
   }
 

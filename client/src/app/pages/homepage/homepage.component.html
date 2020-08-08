@@ -1,4 +1,4 @@
-<div class="hero-image" id="hero-img">
+<div class="hero-image" id="hero-img" *ngIf="isLoaded">
   <div class="row">
     <div class="col-md-4 p-lg-5" id="hero-text">
       <h1 class="display-4 font-weight-normal h-font">Looking For A New Place?</h1>
@@ -6,8 +6,18 @@
     </div>
 
 
-    <div class="col-md-8 text-center" id="searchcontainer">
-      
+    <div class="col-md-8 text-center text-light" id="searchcontainer">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let prop of properties" [value]="prop.vicinity">
+              {{prop.vicinity}}
+            </mat-option>
+          </mat-autocomplete>
+          <button type="submit">Search</button>
+        </div>
+      </form>
     </div>
 
 
@@ -134,5 +144,142 @@
       </p>
     </div>
   </div>
-  <!--Once you’ve chosen your accommodation and it has been confirmed with the landlord, we will then be able to start the move-in process. • Following communication with your new landlord, you will be able to sign any necessary agreements, and arrange a date before finally collecting your keys. • Congratulations! You can now move into your new home! *For your own peace of mind and security, we do not transfer your booking payment to the landlord until after you have moved in. The funds are held for 24-48 hours after your move-in date, and only once you have settled in and everything is to your satisfaction, will we transfer the first month’s rental to the landlord.-->
 </div>
+
+<div class="container-fluid" id="faq">
+  <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
+    <span style="color: #db2d8e;">Frequently </span>
+    <span style="font-family: 'Circular STD Book', sans-serif;">Asked Questions</span>
+  </h1>
+
+  <div class="row">
+    <div class="col-md-6 px-0">
+      <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px; text-align: center;">TENANT</h1>
+      <details>
+        <summary>
+          Wouldn’t it be better for me to visit the property myself?
+
+        </summary>
+        <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.
+          They will do the exact same things that you would do if you were to visit the property yourself.
+          Every corner of the apartment or room will be inspected and, best of all, this will all be
+          documented in a video tour made available on the apartment listing. Multiple high-definition
+          photographs will also be available for you to see on the website. So there’s no need for a
+          physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be
+          missing out!</p>
+      </details>
+
+      <details>
+        <summary>
+          What if I change my mind or no longer like the room/apartment?
+
+        </summary>
+        <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48
+          hours, you will only receive a partial refund and will be charged a booking fee (30% of the first
+          month's rent). If you have already moved in and you genuinely find that the property is not the
+          way it appeared in the video tour, and you have pictures and evidence to prove this, you will be
+          eligible for a full refund. In fact, we will be more than happy to assist you with finding a new
+          apartment/room.</p>
+      </details>
+
+      <details>
+        <summary>
+          I need a place to stay for only 1 month. Is this possible?
+
+        </summary>
+        <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart
+          from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under
+          a full month. </p>
+      </details>
+
+      <details>
+        <summary>
+          Do you have any apartments in other cities, outside of Barcelona?
+
+        </summary>
+        <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other
+          cities in Spain and on to multiple European cities. </p>
+      </details>
+
+      <details>
+        <summary>
+          Is there a charge for using your services?
+
+        </summary>
+        <p>As a tenant, you will be charged an initial payment of 30% of your first month's rent. Our
+          market research shows that this is a very fair and reasonable fee. We understand that it is
+          already costly to move into a flat as landlords usually request at least a 2 month deposit,
+          plus deposit for utilities; and then there is the agency fee (usually an additional month).
+          That's why we charge the lowest possible fee for our unmatched services to make things easy for
+          you.</p>
+      </details>
+    </div>
+
+    <div class="col-md-6 px-0">
+      <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px; text-align: center;">LANDLORD</h1>
+      <details>
+        <summary>
+          How long will it take for my listing to be uploaded on your website?
+
+        </summary>
+        <p>Once we have taken professional photos of your apartment/room to be rented, as well as a floor
+          plan, we publish your apartment on our website with all the content within only 24 hours of our
+          visit!</p>
+      </details>
+
+      <details>
+        <summary>
+          Who Handles Agreements?
+
+        </summary>
+        <p> We are not involved with agreements; we simply act as the middle man, connecting the landlord
+          and the tenant. The agreement will be signed and negotiated between the landlord and tenant upon
+          arrival.</p>
+      </details>
+
+      <details>
+        <summary>
+          Is there a charge for using your services?
+
+        </summary>
+        <p>We charge a fraction of what a typical real estate agency or other online service provider
+          would typically charge you. Landlords will be charged a flat service fee of €250 for
+          apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room
+          is rented for the first time, you will only be charged €150 for an apartment and €50 a room for
+          subsequent rentals.</p>
+      </details>
+
+      <details>
+        <summary>
+          Is there a charge for using your services?
+
+        </summary>
+        <p>We charge a fraction of what a typical real estate agency or other online service provider
+          would typically charge you. Landlords will be charged a flat service fee of €250 for
+          apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room
+          is rented for the first time, you will only be charged €150 for an apartment and €50 a room for
+          subsequent rentals.</p>
+      </details>
+
+      <details>
+        <summary>
+          When will my property be checked by your team?
+
+        </summary>
+        <p>A team member will visit your property once you have contacted us and confirmed to publish your
+          home. Your property will not be published on our website unless we have visited it and recorded a
+          video tour. </p>
+      </details>
+
+      <details>
+        <summary>
+          What are the benefits of using your platform for my property?
+
+        </summary>
+        <p>Using Home Fetch for your property is an incredibly easy and cost-effective way of listing your
+          property. Not only are our fees very reasonable, we take the burden of searching for accommodation
+          off you. Everything is done quickly and efficiently on our website, so you can start renting out
+          your home ASAP. What’s not to love?</p>
+      </details>
+    </div>
+  </div>

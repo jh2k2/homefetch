@@ -9,6 +9,9 @@ export class Property {
        public available?:Date,
        public street?:string,
        public remain?:string,
+       public vicinity?:string,
+       public longitude?:number,
+       public latitude?:number,
 
        //icons
        public internet?:boolean,

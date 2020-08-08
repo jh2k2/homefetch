@@ -30,6 +30,7 @@ export class PaymentComponent implements OnInit {
   private total;
   private property;
   public users;
+  public owner;
   public taken;
   public isDataLoaded = false;
   public hasWaitlist = true;
@@ -46,11 +47,19 @@ export class PaymentComponent implements OnInit {
           if (data.prop.approved != 1) {
             this.router.navigate(['/']);
           }
+
           this.amount = data.prop.deposit;
           this.property = data.prop;
           this.property.user = data.user;
           this.fee = this.amount * .3;
           this.total = this.fee + this.amount;
+
+          this.userSer.getProfile(this.property.user.userName).subscribe(
+            data => {
+              this.owner = data.user;
+              this.owner.userRequest = data.user.userRequest;
+              console.log(data.user);
+            });
 
           //payment
           document.querySelector("button").disabled = true;
@@ -131,6 +140,11 @@ export class PaymentComponent implements OnInit {
     document.querySelector("button").disabled = true;
     this.users.request = this.property._id;
     this.userSer.addRequest(this.users).subscribe();
+
+    this.owner.userRequest.push(this.users.userName);
+    //this updates self setting, need to update owner's setting
+    //this.userSer.addRequest(this.owner).subscribe();
+
 
     this.toastr.success('Request sent!', '', {
       closeButton: true,

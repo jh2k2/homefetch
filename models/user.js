@@ -57,7 +57,10 @@ const UserSchema = mongoose.Schema({
   request: {
     type: String,
     default: "none"
-  }
+  },
+  userRequest: [{
+    type: String
+  }]
 });
 
 

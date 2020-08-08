@@ -32,28 +32,6 @@ var upload = multer({
   storage: storage
 });
 
-router.get('/id', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    line_items: [{
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: 'T-shirt',
-        },
-        unit_amount: 2000,
-      },
-      quantity: 1,
-    }],
-    mode: 'payment',
-    success_url: 'localhost:8080',
-    cancel_url: 'localhost:8080',
-  });
-  return res.status(200).json({
-    session_id: session.id
-  });
-});
-
 router.post('/register', (req, res, next) => {
   let newUser = new User(req.body);
   User.addUser(newUser, (err) => {
@@ -118,7 +96,8 @@ router.get('/profile/:username', passport.authenticate('jwt', {
           phone: user.phone,
           street: user.street,
           street2: user.street2,
-          avatar: user.avatar
+          avatar: user.avatar,
+          userRequest: user.userRequest
         },
         me: req.user.userName
       });
