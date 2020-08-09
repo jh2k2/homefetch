@@ -17,6 +17,13 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private userSer: UserService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    if (this.userSer.isLoggedIn()) {
+      this.router.navigate(['/']);
+      this.toastr.error('Please logout first!', '', {
+        closeButton: true,
+        positionClass: 'toast-bottom-right'
+      });
+    }
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       password: new FormControl(null, [Validators.required, Validators.minLength(3)]),

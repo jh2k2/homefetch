@@ -165,7 +165,7 @@ router.post('/settings', upload.single('avatar'), passport.authenticate('jwt', {
           if (fs.existsSync(path.join(__dirname, '../uploads/avatars/', req.user.avatar)))
             fs.unlink('./uploads/avatars/' + req.user.avatar, (err) => {
               if (err)
-                return res.status(500).send("Server error!");
+                return res.status(500).send("Server error! " + err);
             });
         }
       }
@@ -188,7 +188,7 @@ router.patch('/request', passport.authenticate('jwt', {
 }), (req, res, next) => {
   User.update(req.body, (err, user) => {
     if (err)
-      return res.status(500).send("Server Error!");
+      return res.status(500).send("Server Error! " + err);
     else
       return res.status(200).send("Request sent!");
   });

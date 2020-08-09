@@ -39,19 +39,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/faq/faq.component.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/faq/faq.component.html ***!
-  \************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  For Tenants:\n•\tWouldn’t it be better for me to visit the property myself?\nAt Home Fetch, we send a qualified member of our team to visit the property on your behalf. They will do the exact same things that you would do if you were to visit the property yourself. Every corner of the apartment or room will be inspected and, best of all, this will all be documented in a video tour made available on the apartment listing. Multiple high-definition photographs will also be available for you to see on the website. So there’s no need for a physical visit – we’ve done it all for you!  Don’t worry, we can assure you that you will not be missing out!\n\n•\tHow can I trust you?\nYour trust is important to us and we have done our best to ensure that you always feel secure. For one, when we receive your payment for an apartment/room booking, we do not transfer this payment to the landlord until after you have moved in. We want you to get completely settled in and then, after 24-48 hours, we will then transfer the first month’s rent to the landlord.\nAdditionally, within our videos, the member of our team conducting the video tour will be verified so that you know for certain that it is us visiting the property.\n•\tWhat if I change my mind or no longer like the room/apartment?\nYou have the right to cancel your booking free of charge up to 48 hours after booking. After 48 hours, you will only receive a partial refund and will be charged a booking fee (30% of the first month's rent).\nIf you have already moved in and you genuinely find that the property is not the way it appeared in the video tour, and you have pictures and evidence to prove this, you will be eligible for a full refund. In fact, we will be more than happy to assist you with finding a new apartment/room.\n\n•\tI need a place to stay for only 1 month. Is this possible?\nYes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under a full month.\n\n•\tDo you have any apartments in other cities, outside of Barcelona?\nCurrently, we are operating only in Barcelona. However, we plan to eventually expand to other cities in Spain and on to multiple European cities.\n\n\t•\tIs there a charge for using your services?\nAs a tenant, you will be charged an initial payment of 30% of your first month's rent. Our market research shows that this is a very fair and reasonable fee. We understand that it is already costly to move into a flat as landlords usually request at least a 2 month deposit, plus deposit for utilities; and then there is the agency fee (usually an additional month). That's why we charge the lowest possible fee for our unmatched services to make things easy for you.\n\nFor Landlords:\n\t•\tHow long will it take for my listing to be uploaded on your website?\nOnce we have taken professional photos of your apartment/room to be rented, as well as a floor plan, we publish your apartment on our website with all the content within only 24 hours of our visit!\n\n• \tWho Handles Agreements?\nWe are not involved with agreements; we simply act as the middle man, connecting the landlord and the tenant. The agreement will be signed and negotiated between the landlord and tenant upon arrival.\n\n•\tIs there a charge for using your services?\nWe charge a fraction of what a typical real estate agency or other online service provider would typically charge you. Landlords will be charged a flat service fee of €250 for apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room is rented for the first time, you will only be charged €150 for an apartment and €50 a room for subsequent rentals.\n\n•\tWhen will my property be checked by your team?\nA team member will visit your property once you have contacted us and confirmed to publish your home. Your property will not be published on our website unless we have visited it and recorded a video tour.\n\n•\tWhat are the benefits of using your platform for my property?\nUsing Home Fetch for your property is an incredibly easy and cost-effective way of listing your property. Not only are our fees very reasonable, we take the burden of searching for accommodation off you. Everything is done quickly and efficiently on our website, so you can start renting out your home ASAP. What’s not to love?\n\n</p>\n");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/footer/footer.component.html":
 /*!******************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/footer/footer.component.html ***!
@@ -74,20 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"nav\">\n  <div class=\"container-fluid\">\n    <div class=\"logo\" style=\"transform: translate(0, -4px);\">\n      <a href=\"/\"><img src=\"../../../assets/images/logo.png\" style=\"width: 5rem; height: auto;\">\n      </a>\n    </div>\n    <div id=\"mainListDiv\" class=\"main_list\">\n      <ul>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/mission']\">About Us</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/hiw']\">How It Works</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/faq']\">FAQ's</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/landlordreg']\">Become a landlord</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/login']\">Log In</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/register']\">Sign Up</a></li>\n\n        <div *ngIf=\"isLoggedIn()\">\n          <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-danger\" id=\"dropdownBasic1\" ngbDropdownToggle>{{users.fullname}}</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" style=\"width: 100%;\">\n              <button ngbDropdownItem *ngIf=\"users.admin!=0\" [routerLink]=\"['/admin/panel']\">Admin panel</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord!=0\" [routerLink]=\"['/users/property']\">Apartments</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord==0 || users.admin!=0\" [routerLink]=\"['/users/waitlist']\">Waitlist</button>\n              <button ngbDropdownItem (click)=\"goToProfile()\">Profile</button>\n              <button ngbDropdownItem (click)=\"logOut()\">Log out</button>\n            </div>\n          </div>\n        </div>\n      </ul>\n    </div>\n\n  </div>\n</nav>\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/hiw/hiw.component.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/hiw/hiw.component.html ***!
-  \************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  •\tYou contact us and let us know that you would like to publish your home on our website\n•\tWe will then send someone from our team to check out your property and record all your particulars including video shoots.\n•\tOnce that has been completed, we will list your apartment on our website with the video and pictures within 24 hours. You will need to lay out all of your apartment rules, agreement rules, apartment availability and type of tenant you prefer, and we will then find you the best fit.\n•\tOnce a tenant is interested, we will send you the booking request and you have 48 hours to accept or decline it.\n\nFor Tenants\n•\tYou explore the detailed videos and photographs of the different properties available on our website and then choose the apartment or room of your liking (our videos are very thorough and take you around the property very casually as if you were visiting it yourself).\n\n•\tIf you are interested in a property, the landlord will be sent your booking request and they will be able to accept or decline within 48 hours.\n\n•\tOnce you’ve chosen your accommodation and it has been confirmed with the landlord, we will then be able to start the move-in process.\n\n•\tFollowing communication with your new landlord, you will be able to sign any necessary agreements, and arrange a date before finally collecting your keys.\n\n•\tCongratulations! You can now move into your new home! *For your own peace of mind and security, we do not transfer your booking payment to the landlord until after you have moved in. The funds are held for 24-48 hours after your move-in date, and only once you have settled in and everything is to your satisfaction, will we transfer the first month’s rental to the landlord.\n</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"nav\">\n  <div class=\"container-fluid\">\n    <div class=\"logo\" style=\"transform: translate(0, -4px);\">\n      <a href=\"/\"><img src=\"../../../assets/images/logo.png\" style=\"width: 5rem; height: auto;\">\n      </a>\n    </div>\n    <div id=\"mainListDiv\" class=\"main_list\">\n      <ul>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/mission']\">About Us</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a href=\"#how-it-works\">How It Works</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a href=\"#faq\">FAQ's</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/landlordreg']\">Become a landlord</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/login']\">Log In</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/register']\">Sign Up</a></li>\n\n        <div *ngIf=\"isLoggedIn()\">\n          <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-danger\" id=\"dropdownBasic1\" ngbDropdownToggle>{{users.fullname}}</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" style=\"width: 100%;\">\n              <button ngbDropdownItem *ngIf=\"users.admin!=0\" [routerLink]=\"['/admin/panel']\">Admin panel</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord!=0\" [routerLink]=\"['/users/property']\">Apartments</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord==0 || users.admin!=0\" [routerLink]=\"['/users/waitlist']\">Waitlist</button>\n              <button ngbDropdownItem (click)=\"goToProfile()\">Profile</button>\n              <button ngbDropdownItem (click)=\"logOut()\">Log out</button>\n            </div>\n          </div>\n        </div>\n      </ul>\n    </div>\n\n  </div>\n</nav>\n");
 
 /***/ }),
 
@@ -100,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"hero-image\" id=\"hero-img\" *ngIf=\"isLoaded\">\n  <div class=\"row\">\n    <div class=\"p-lg-5\" id=\"hero-text\">\n      <h1 class=\"display-4 font-weight-normal h-font\">Stress Free,<br>Fair Fee,<br>Tenant to Be!</h1>\n\n      <div class=\"text-center text-light\" id=\"searchcontainer\">\n        <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n          <div class=\"form-group\">\n            <input  id=\"search\" formControlName=\"vicinity\" type=\"text\" placeholder=\"Find Vicinity\" aria-label=\"Number\" matInput [matAutocomplete]=\"auto\">\n            <mat-autocomplete #auto=\"matAutocomplete\">\n              <mat-option *ngFor=\"let prop of properties\" [value]=\"prop.vicinity\">\n                {{prop.vicinity}}\n              </mat-option>\n            </mat-autocomplete>\n            <button type=\"submit\" id=\"searchbutton\">Search</button>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div class=\"container-fluid\" id=\"why-div\">\n  <div class=\"rounded-pill\">\n    <div id=\"tenant\" class=\"pill-half active\">\n      Tenant\n    </div>\n\n    <div id=\"landlord\" class=\"pill-half\">\n      Landlord\n    </div>\n  </div>\n\n  <div id=\"why-tenant\" class=\"why active\">\n    <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n      <span style=\"color: #db2d8e;\">Why </span>\n      <span style=\"font-family:'Circular STD Book', sans-serif;\">Rent With HomeFetch</span>\n    </h1>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-4 text-center\" style=\"padding-left: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Let Us Know You Want to Publish</p>\n        <p>\n          Register to become a landlord and fill out some basic information regarding your property.\n          Some of this info will include address of the property, rent, amenities, etc.\n        </p>\n      </div>\n      <div class=\"col-md-4 text-center\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. We Take Some Pictures</p>\n        <p>\n          Someone from our team will come to check out your property and record all your particulars\n          including video shoots. We'll also take some nice pictures to list with your property later\n          on.\n        </p>\n      </div>\n      <div class=\"col-md-4 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p>\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"row justify-content-md-center\">\n      <div class=\"col-md-4 text-center\" style=\"padding-left: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p>\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n\n      <div class=\"col-md-4 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p>\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n    </div>\n\n  </div>\n\n  <div id=\"why-landlord\" class=\"why\">\n    <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n      <span style=\"color: #db2d8e;\">Why </span>\n      <span style=\"font-family:'Circular STD Book', sans-serif;\">Publish With HomeFetch</span>\n    </h1>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-3 text-center\" style=\"padding-left: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Let Us Know You Want to Publish</p>\n        <p>\n          Register to become a landlord and fill out some basic information regarding your property.\n          Some of this info will include address of the property, rent, amenities, etc.\n        </p>\n      </div>\n\n      <div class=\"col-md-3 text-center\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. We Take Some Pictures</p>\n        <p>\n          Someone from our team will come to check out your property and record all your particulars\n          including video shoots. We'll also take some nice pictures to list with your property later\n          on.\n        </p>\n      </div>\n\n      <div class=\"col-md-3 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p>\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n\n      <div class=\"col-md-3 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p>\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"new-landlord\" class=\"call-to-action\" style=\"padding: 0;\">\n  <svg style=\"width: 100%; height: auto;\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 100 1440 320\">\n    <path fill=\"#ffffff\" fill-opacity=\"1\"\n      d=\"M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z\">\n    </path>\n  </svg>\n\n  <div class=\"col-md-4\" style=\"margin-left: 60px; padding: 50px 0 150px;\">\n    <h1 class=\"display-4 font-weight-normal h-font\">Easy As Pie.</h1>\n    <p class=\"lead font-weight-normal t-font\">Rent Out Your Home Easily and Securely Today</p>\n    <button class=\"redirect\" [routerLink]=\"['/users/landlordreg']\">Get Started Now</button>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"new-tenant\" class=\"call-to-action active\" style=\"padding: 0;\">\n  <svg style=\"width: 100%; height: auto;\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 100 1440 320\">\n    <path fill=\"#ffffff\" fill-opacity=\"1\"\n          d=\"M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z\">\n    </path>\n  </svg>\n\n  <div class=\"col-md-4\" style=\"margin-left: 60px; padding: 50px 0 150px;\">\n    <h1 class=\"display-4 font-weight-normal h-font\">Built With Your Needs in Mind.</h1>\n    <p class=\"lead font-weight-normal t-font\">Find Your Dream Home Now.</p>\n    <button class=\"redirect\" [routerLink]=\"['/users/register']\">Get Started Now</button>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"how-it-works\">\n  <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n    <span style=\"color: #db2d8e;\">How </span>\n    <span style=\"font-family: 'Circular STD Book', sans-serif;\">It Works</span>\n  </h1>\n\n  <div id=\"how-tenant\" class=\"how-it-works active\">\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/house.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Explore Different Properties</p>\n        <p class=\"text-left\">\n          Filter different properties by location, price, and other useful parameters to find your\n          ideal home. Browse through a number of professionally shot photographs to get a virtual picture\n          of the property in your mind.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. Send A Request to Rent</p>\n        <p class=\"text-left\">\n          Send the landlord a booking request by paying a down payment consisting of 30% the rent and no more than\n          450€. The landlord will receive your request and have 48 hours to accept or reject it. If they reject your\n          request, your payment will be automatically refunded to you.\n        </p>\n      </div>\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/message.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/handshake.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Get Ready to Move In</p>\n        <p class=\"text-left\">\n          Congratulations! You can now move into your new home! Lay down ground rules with your landlord and that's\n          it. For your own peace of mind, we hold on to the security deposit until you've successfully begun your stay.\n          Let us know if anything comes up and we wish you the best.\n        </p>\n      </div>\n    </div>\n  </div>\n\n  <div id=\"how-landlord\" class=\"how-it-works\">\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/form.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Let Us Know You Want to Publish</p>\n        <p class=\"text-left\">\n          Register to become a landlord and fill out some basic information regarding your property.\n          Some of this info will include address of the property, rent, amenities, etc.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. We Take Some Pictures</p>\n        <p class=\"text-left\">\n          Someone from our team will come to check out your property and record all your particulars\n          including video shoots. We'll also take some nice pictures to list with your property later\n          on.\n        </p>\n      </div>\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/camera.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/party.png\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p class=\"text-left\">\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"faq\">\n  <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n    <span style=\"color: #db2d8e;\">Frequently </span>\n    <span style=\"font-family: 'Circular STD Book', sans-serif;\">Asked Questions</span>\n  </h1>\n\n  <div id=\"faq-tenant\" class=\"faq active\">\n    <div class=\"row\">\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Wouldn’t it be better for me to visit the property myself?\n\n          </summary>\n          <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.\n            They will do the exact same things that you would do if you were to visit the property yourself.\n            Every corner of the apartment or room will be inspected and, best of all, this will all be\n            documented in a video tour made available on the apartment listing. Multiple high-definition\n            photographs will also be available for you to see on the website. So there’s no need for a\n            physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be\n            missing out!</p>\n        </details>\n\n        <details>\n          <summary>\n            What if I change my mind or no longer like the room/apartment?\n\n          </summary>\n          <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48\n            hours, you will only receive a partial refund and will be charged a booking fee (30% of the first\n            month's rent). If you have already moved in and you genuinely find that the property is not the\n            way it appeared in the video tour, and you have pictures and evidence to prove this, you will be\n            eligible for a full refund. In fact, we will be more than happy to assist you with finding a new\n            apartment/room.</p>\n        </details>\n\n        <details>\n          <summary>\n            I need a place to stay for only 1 month. Is this possible?\n\n          </summary>\n          <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart\n            from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under\n            a full month. </p>\n        </details>\n      </div>\n\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Do you have any apartments in other cities, outside of Barcelona?\n\n          </summary>\n          <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other\n            cities in Spain and on to multiple European cities. </p>\n        </details>\n\n        <details>\n          <summary>\n            Is there a charge for using your services?\n\n          </summary>\n          <p>As a tenant, you will be charged an initial payment of 30% of your first month's rent. Our\n            market research shows that this is a very fair and reasonable fee. We understand that it is\n            already costly to move into a flat as landlords usually request at least a 2 month deposit,\n            plus deposit for utilities; and then there is the agency fee (usually an additional month).\n            That's why we charge the lowest possible fee for our unmatched services to make things easy for\n            you.</p>\n        </details>\n      </div>\n    </div>\n  </div>\n\n  <div id=\"faq-landlord\" class=\"faq\">\n    <div class=\"row\">\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Wouldn’t it be better for me to visit the property myself?\n\n          </summary>\n          <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.\n            They will do the exact same things that you would do if you were to visit the property yourself.\n            Every corner of the apartment or room will be inspected and, best of all, this will all be\n            documented in a video tour made available on the apartment listing. Multiple high-definition\n            photographs will also be available for you to see on the website. So there’s no need for a\n            physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be\n            missing out!</p>\n        </details>\n\n        <details>\n          <summary>\n            What if I change my mind or no longer like the room/apartment?\n\n          </summary>\n          <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48\n            hours, you will only receive a partial refund and will be charged a booking fee (30% of the first\n            month's rent). If you have already moved in and you genuinely find that the property is not the\n            way it appeared in the video tour, and you have pictures and evidence to prove this, you will be\n            eligible for a full refund. In fact, we will be more than happy to assist you with finding a new\n            apartment/room.</p>\n        </details>\n\n        <details>\n          <summary>\n            I need a place to stay for only 1 month. Is this possible?\n\n          </summary>\n          <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart\n            from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under\n            a full month. </p>\n        </details>\n\n        <details>\n          <summary>\n            Do you have any apartments in other cities, outside of Barcelona?\n\n          </summary>\n          <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other\n            cities in Spain and on to multiple European cities. </p>\n        </details>\n      </div>\n\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Is there a charge for using your services?\n\n          </summary>\n          <p>We charge a fraction of what a typical real estate agency or other online service provider\n            would typically charge you. Landlords will be charged a flat service fee of €250 for\n            apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room\n            is rented for the first time, you will only be charged €150 for an apartment and €50 a room for\n            subsequent rentals.</p>\n        </details>\n\n        <details>\n          <summary>\n            When will my property be checked by your team?\n\n          </summary>\n          <p>A team member will visit your property once you have contacted us and confirmed to publish your\n            home. Your property will not be published on our website unless we have visited it and recorded a\n            video tour. </p>\n        </details>\n\n        <details>\n          <summary>\n            What are the benefits of using your platform for my property?\n\n          </summary>\n          <p>Using Home Fetch for your property is an incredibly easy and cost-effective way of listing your\n            property. Not only are our fees very reasonable, we take the burden of searching for accommodation\n            off you. Everything is done quickly and efficiently on our website, so you can start renting out\n            your home ASAP. What’s not to love?</p>\n        </details>\n      </div>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"hero-image\" id=\"hero-img\" *ngIf=\"isLoaded\">\n  <div class=\"row\">\n    <div class=\"p-lg-5\" id=\"hero-text\">\n      <h1 class=\"display-4 font-weight-normal h-font\">Stress Free,<br>Fair Fee,<br>Tenant to Be!</h1>\n\n      <div class=\"text-center text-light\" id=\"searchcontainer\">\n        <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n          <div class=\"form-group\">\n            <input id=\"search\" formControlName=\"vicinity\" type=\"text\" placeholder=\"Find Vicinity\" aria-label=\"Number\" matInput [matAutocomplete]=\"auto\">\n            <mat-autocomplete #auto=\"matAutocomplete\" value=\"form.value.vicinity\">\n              <mat-option value=\"Barcelona\">Barcelona</mat-option>\n              <mat-option value=\"Berlin\">Berlin</mat-option>\n              <mat-option value=\"Brusseis\">Brusseis</mat-option>\n              <mat-option value=\"Dublin\">Dublin</mat-option>\n              <mat-option value=\"Lisbon\">Lisbon</mat-option>\n              <mat-option value=\"London\">London</mat-option>\n              <mat-option Value=\"Madrid\">Madrid</mat-option>\n              <mat-option value=\"Milan\">Milan</mat-option>\n              <mat-option value=\"Paris\">Paris</mat-option>\n              <mat-option value=\"Rome\">Rome</mat-option>\n              <mat-option value=\"Valencia\">Valencia</mat-option>\n            </mat-autocomplete>\n            <button type=\"submit\" id=\"searchbutton\">Search</button>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div class=\"container-fluid\" id=\"why-div\">\n  <div class=\"rounded-pill\">\n    <div id=\"tenant\" class=\"pill-half active\">\n      Tenant\n    </div>\n\n    <div id=\"landlord\" class=\"pill-half\">\n      Landlord\n    </div>\n  </div>\n\n  <div id=\"why-tenant\" class=\"why active\">\n    <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n      <span style=\"color: #db2d8e;\">Why </span>\n      <span style=\"font-family:'Circular STD Book', sans-serif;\">Rent With HomeFetch</span>\n    </h1>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-4 text-center\" style=\"padding-left: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. 100% Online</p>\n        <p>\n          No need to take time off your busy schedule to visit so many apartments. That's what's so great about Home Fetch - we do all the hard work for you!\n          With Homefetch you can easily find your ideal room or apartment from within the comfort of your own home.\n          The booking process is quick, cheap, easy and 100% online.\n          No longer do you have to deal with the stress of visiting multiple properties. It's stressful enough moving to a new country to study, starting a new job, or just moving!\n        </p>\n      </div>\n      <div class=\"col-md-4 text-center\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. Virtual Visits</p>\n        <p>\n          Let us be the ones who do all the legwork for you with an in-depth video tour, taking you around every nook and corner of the apartment from living room to the kitchen.\n          This way, you're able to view a wide variety of apartments without even having to leave your sofa.\n        </p>\n      </div>\n      <div class=\"col-md-4 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Support All the Way</p>\n        <p>\n          All we want is for you to have a comfortable and smooth-sailing experience with Home Fetch. Our customer service is available to answer any of your queries.\n          With a completely online service, our team is responsive and ever ready to help.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"row justify-content-md-center\">\n      <div class=\"col-md-4 text-center\" style=\"padding-left: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">4. No Charge until You're Settled</p>\n        <p>\n          For your own peace of mind and security, we do not trasnfer your booking fee to the landlord until after you've moved in.\n          We hold the funds for 24-48 hours after your move-in date - and only when you have settled in and find everything to your satisfaction.\n        </p>\n      </div>\n\n      <div class=\"col-md-4 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">5. Find the Right Fit</p>\n        <p>\n          With all the different apartments visible on our website, we're sure you will find exactly what you're looking for.\n          However, if for any reason you decide to change your mind, you will be able to cancel your booking free of charge for up to 48 hours after making that booking.\n        </p>\n      </div>\n    </div>\n\n  </div>\n\n  <div id=\"why-landlord\" class=\"why\">\n    <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n      <span style=\"color: #db2d8e;\">Why </span>\n      <span style=\"font-family:'Circular STD Book', sans-serif;\">Publish With HomeFetch</span>\n    </h1>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-3 text-center\" style=\"padding-left: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Affordable Fees</p>\n        <p>\n          Say goodbye to super high agency fees and endless paperwork. We understand just how expensive it can be to rent out your own property, from agent's fees, to maintenance, to advertising.\n          That's why Home Fetch have decided to charge the lowest possible fee for you to rent out your apartment or room.\n        </p>\n      </div>\n\n      <div class=\"col-md-3 text-center\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. Quick and Easy</p>\n        <p>\n          Within 24 hours of our visit to your apartment, your listing will be up on our website for your potential new tenant!\n          We are in charge of creating the video and photo content for your listing, so all you need to do is to sit back, relax, and wait for a booking!\n          The process is fast, and you'll have a new tenant in no time at all.\n        </p>\n      </div>\n\n      <div class=\"col-md-3 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Tenant Compatibility</p>\n        <p>\n          As landlord, you have full control over which type of tenant you would like to rent your apartment or room. Whether you prefer students, couples or professionals, the choice is yours.\n          Once a qualified tenant books your apartment and you approve, everything will be good to go.\n        </p>\n      </div>\n\n      <div class=\"col-md-3 text-center\" style=\"padding-right: 0;\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">4. New Locations Coming Soon</p>\n        <p>\n          Our current operations are based in Barcelona, but we plan to expand to many new cities, helping more people around the world to find their ideal home.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"new-landlord\" class=\"call-to-action\" style=\"padding: 0;\">\n  <svg style=\"width: 100%; height: auto;\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 100 1440 320\">\n    <path fill=\"#ffffff\" fill-opacity=\"1\"\n      d=\"M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z\">\n    </path>\n  </svg>\n\n  <div class=\"col-md-4\" style=\"margin-left: 60px; padding: 50px 0 150px;\">\n    <h1 class=\"display-4 font-weight-normal h-font\">Easy As Pie.</h1>\n    <p class=\"lead font-weight-normal t-font\">Rent Out Your Home Easily and Securely Today</p>\n    <button class=\"redirect\" [routerLink]=\"['/users/landlordreg']\">Get Started Now</button>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"new-tenant\" class=\"call-to-action active\" style=\"padding: 0;\">\n  <svg style=\"width: 100%; height: auto;\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 100 1440 320\">\n    <path fill=\"#ffffff\" fill-opacity=\"1\"\n      d=\"M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z\">\n    </path>\n  </svg>\n\n  <div class=\"col-md-4\" style=\"margin-left: 60px; padding: 50px 0 150px;\">\n    <h1 class=\"display-4 font-weight-normal h-font\">Built With Your Needs in Mind.</h1>\n    <p class=\"lead font-weight-normal t-font\">Find Your Dream Home Now.</p>\n    <button class=\"redirect\" [routerLink]=\"['/users/register']\">Get Started Now</button>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"how-it-works\">\n  <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n    <span style=\"color: #db2d8e;\">How </span>\n    <span style=\"font-family: 'Circular STD Book', sans-serif;\">It Works</span>\n  </h1>\n\n  <div id=\"how-tenant\" class=\"how-it-works active\">\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/house.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Explore Different Properties</p>\n        <p class=\"text-left\">\n          Filter different properties by location, price, and other useful parameters to find your\n          ideal home. Browse through a number of professionally shot photographs to get a virtual picture\n          of the property in your mind.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. Send A Request to Rent</p>\n        <p class=\"text-left\">\n          Send the landlord a booking request by paying a down payment consisting of 30% the rent and no more than\n          450€. The landlord will receive your request and have 48 hours to accept or reject it. If they reject your\n          request, your payment will be automatically refunded to you.\n        </p>\n      </div>\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/message.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/handshake.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Get Ready to Move In</p>\n        <p class=\"text-left\">\n          Congratulations! You can now move into your new home! Lay down ground rules with your landlord and that's\n          it. For your own peace of mind, we hold on to the security deposit until you've successfully begun your stay.\n          Let us know if anything comes up and we wish you the best.\n        </p>\n      </div>\n    </div>\n  </div>\n\n  <div id=\"how-landlord\" class=\"how-it-works\">\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/form.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">1. Let Us Know You Want to Publish</p>\n        <p class=\"text-left\">\n          Register to become a landlord and fill out some basic information regarding your property.\n          Some of this info will include address of the property, rent, amenities, etc.\n        </p>\n      </div>\n    </div>\n\n    <div class=\"row\" style=\"margin-bottom: 30px;\">\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">2. We Take Some Pictures</p>\n        <p class=\"text-left\">\n          Someone from our team will come to check out your property and record all your particulars\n          including video shoots. We'll also take some nice pictures to list with your property later\n          on.\n        </p>\n      </div>\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/camera.jpg\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-md-6 text-center\">\n        <img src=\"../../../assets/images/party.png\" style=\"height: 170px; width: auto; margin-bottom: 20px;\">\n      </div>\n      <div class=\"col-md-6\">\n        <p class=\"lead font-weight-normal t-font\" style=\"color: #04274b;\">3. Your Listing Goes Public</p>\n        <p class=\"text-left\">\n          Make sure to set down all of your apartment rules, agreement rules, apartment availability\n          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,\n          or the transaction is cancelled.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"container-fluid\" id=\"faq\">\n  <h1 class=\"display-4 font-weight-normal h-font\" style=\"margin-bottom: 60px; font-size: 3rem;\">\n    <span style=\"color: #db2d8e;\">Frequently </span>\n    <span style=\"font-family: 'Circular STD Book', sans-serif;\">Asked Questions</span>\n  </h1>\n\n  <div id=\"faq-tenant\" class=\"faq active\">\n    <div class=\"row\">\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Wouldn’t it be better for me to visit the property myself?\n\n          </summary>\n          <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.\n            They will do the exact same things that you would do if you were to visit the property yourself.\n            Every corner of the apartment or room will be inspected and, best of all, this will all be\n            documented in a video tour made available on the apartment listing. Multiple high-definition\n            photographs will also be available for you to see on the website. So there’s no need for a\n            physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be\n            missing out!</p>\n        </details>\n\n        <details>\n          <summary>\n            What if I change my mind or no longer like the room/apartment?\n\n          </summary>\n          <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48\n            hours, you will only receive a partial refund and will be charged a booking fee (30% of the first\n            month's rent). If you have already moved in and you genuinely find that the property is not the\n            way it appeared in the video tour, and you have pictures and evidence to prove this, you will be\n            eligible for a full refund. In fact, we will be more than happy to assist you with finding a new\n            apartment/room.</p>\n        </details>\n\n        <details>\n          <summary>\n            I need a place to stay for only 1 month. Is this possible?\n\n          </summary>\n          <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart\n            from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under\n            a full month. </p>\n        </details>\n      </div>\n\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Do you have any apartments in other cities, outside of Barcelona?\n\n          </summary>\n          <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other\n            cities in Spain and on to multiple European cities. </p>\n        </details>\n\n        <details>\n          <summary>\n            Is there a charge for using your services?\n\n          </summary>\n          <p>As a tenant, you will be charged an initial payment of 30% of your first month's rent. Our\n            market research shows that this is a very fair and reasonable fee. We understand that it is\n            already costly to move into a flat as landlords usually request at least a 2 month deposit,\n            plus deposit for utilities; and then there is the agency fee (usually an additional month).\n            That's why we charge the lowest possible fee for our unmatched services to make things easy for\n            you.</p>\n        </details>\n      </div>\n    </div>\n  </div>\n\n  <div id=\"faq-landlord\" class=\"faq\">\n    <div class=\"row\">\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Wouldn’t it be better for me to visit the property myself?\n\n          </summary>\n          <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.\n            They will do the exact same things that you would do if you were to visit the property yourself.\n            Every corner of the apartment or room will be inspected and, best of all, this will all be\n            documented in a video tour made available on the apartment listing. Multiple high-definition\n            photographs will also be available for you to see on the website. So there’s no need for a\n            physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be\n            missing out!</p>\n        </details>\n\n        <details>\n          <summary>\n            What if I change my mind or no longer like the room/apartment?\n\n          </summary>\n          <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48\n            hours, you will only receive a partial refund and will be charged a booking fee (30% of the first\n            month's rent). If you have already moved in and you genuinely find that the property is not the\n            way it appeared in the video tour, and you have pictures and evidence to prove this, you will be\n            eligible for a full refund. In fact, we will be more than happy to assist you with finding a new\n            apartment/room.</p>\n        </details>\n\n        <details>\n          <summary>\n            I need a place to stay for only 1 month. Is this possible?\n\n          </summary>\n          <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart\n            from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under\n            a full month. </p>\n        </details>\n\n        <details>\n          <summary>\n            Do you have any apartments in other cities, outside of Barcelona?\n\n          </summary>\n          <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other\n            cities in Spain and on to multiple European cities. </p>\n        </details>\n      </div>\n\n      <div class=\"col-md-6 px-0\">\n        <details>\n          <summary>\n            Is there a charge for using your services?\n\n          </summary>\n          <p>We charge a fraction of what a typical real estate agency or other online service provider\n            would typically charge you. Landlords will be charged a flat service fee of €250 for\n            apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room\n            is rented for the first time, you will only be charged €150 for an apartment and €50 a room for\n            subsequent rentals.</p>\n        </details>\n\n        <details>\n          <summary>\n            When will my property be checked by your team?\n\n          </summary>\n          <p>A team member will visit your property once you have contacted us and confirmed to publish your\n            home. Your property will not be published on our website unless we have visited it and recorded a\n            video tour. </p>\n        </details>\n\n        <details>\n          <summary>\n            What are the benefits of using your platform for my property?\n\n          </summary>\n          <p>Using Home Fetch for your property is an incredibly easy and cost-effective way of listing your\n            property. Not only are our fees very reasonable, we take the burden of searching for accommodation\n            off you. Everything is done quickly and efficiently on our website, so you can start renting out\n            your home ASAP. What’s not to love?</p>\n        </details>\n      </div>\n    </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -1061,8 +1035,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPropertiesComponent", function() { return AdminPropertiesComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/admin.service */ "./src/app/services/admin.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1148,8 +1122,8 @@ var AdminPropertiesComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminRoutingModule", function() { return AdminRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _panel_panel_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./panel/panel.component */ "./src/app/admin/panel/panel.component.ts");
 /* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -1204,8 +1178,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminUsersComponent", function() { return AdminUsersComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/admin.service */ "./src/app/services/admin.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1278,8 +1252,8 @@ var AdminUsersComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminModule", function() { return AdminModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _admin_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin-routing.module */ "./src/app/admin/admin-routing.module.ts");
 /* harmony import */ var _panel_panel_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./panel/panel.component */ "./src/app/admin/panel/panel.component.ts");
 /* harmony import */ var _admin_users_admin_users_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin-users/admin-users.component */ "./src/app/admin/admin-users/admin-users.component.ts");
@@ -1338,7 +1312,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PanelComponent", function() { return PanelComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1387,8 +1361,8 @@ var PanelComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _pages_pages_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/pages.module */ "./src/app/pages/pages.module.ts");
 /* harmony import */ var _users_users_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users/users.module */ "./src/app/users/users.module.ts");
 /* harmony import */ var _properties_properties_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./properties/properties.module */ "./src/app/properties/properties.module.ts");
@@ -1441,7 +1415,7 @@ var AppRoutingModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1476,18 +1450,18 @@ var AppComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm2015/card.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
-/* harmony import */ var _angular_material_extensions_google_maps_autocomplete__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular-material-extensions/google-maps-autocomplete */ "./node_modules/@angular-material-extensions/google-maps-autocomplete/fesm2015/angular-material-extensions-google-maps-autocomplete.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
+/* harmony import */ var _angular_material_extensions_google_maps_autocomplete__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular-material-extensions/google-maps-autocomplete */ "./node_modules/@angular-material-extensions/google-maps-autocomplete/__ivy_ngcc__/fesm2015/angular-material-extensions-google-maps-autocomplete.js");
 /* harmony import */ var _pages_pages_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/pages.module */ "./src/app/pages/pages.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _pages_header_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/header/header.component */ "./src/app/pages/header/header.component.ts");
@@ -1685,10 +1659,10 @@ var User = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorComponent", function() { return ErrorComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_error_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/error.service */ "./src/app/services/error.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1749,64 +1723,6 @@ var ErrorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/faq/faq.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/pages/faq/faq.component.css ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2ZhcS9mYXEuY29tcG9uZW50LmNzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/pages/faq/faq.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/pages/faq/faq.component.ts ***!
-  \********************************************/
-/*! exports provided: FAQComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FAQComponent", function() { return FAQComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-var FAQComponent = /** @class */ (function () {
-    function FAQComponent() {
-    }
-    FAQComponent.prototype.ngOnInit = function () {
-    };
-    FAQComponent.ctorParameters = function () { return []; };
-    FAQComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-faq',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./faq.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/faq/faq.component.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./faq.component.css */ "./src/app/pages/faq/faq.component.css")).default]
-        }),
-        __metadata("design:paramtypes", [])
-    ], FAQComponent);
-    return FAQComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/pages/footer/footer.component.css":
 /*!***************************************************!*\
   !*** ./src/app/pages/footer/footer.component.css ***!
@@ -1830,7 +1746,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1888,8 +1804,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1979,64 +1895,6 @@ var HeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/pages/hiw/hiw.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/pages/hiw/hiw.component.css ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hpdy9oaXcuY29tcG9uZW50LmNzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/pages/hiw/hiw.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/pages/hiw/hiw.component.ts ***!
-  \********************************************/
-/*! exports provided: HIWComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HIWComponent", function() { return HIWComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-var HIWComponent = /** @class */ (function () {
-    function HIWComponent() {
-    }
-    HIWComponent.prototype.ngOnInit = function () {
-    };
-    HIWComponent.ctorParameters = function () { return []; };
-    HIWComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-hiw',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./hiw.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/hiw/hiw.component.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./hiw.component.css */ "./src/app/pages/hiw/hiw.component.css")).default]
-        }),
-        __metadata("design:paramtypes", [])
-    ], HIWComponent);
-    return HIWComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/pages/homepage/homepage.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/pages/homepage/homepage.component.css ***!
@@ -2060,9 +1918,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomepageComponent", function() { return HomepageComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
@@ -2245,7 +2103,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MissionComponent", function() { return MissionComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2303,7 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundComponent", function() { return NotFoundComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2348,13 +2206,11 @@ var NotFoundComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagesRoutingModule", function() { return PagesRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./homepage/homepage.component */ "./src/app/pages/homepage/homepage.component.ts");
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search/search.component */ "./src/app/pages/search/search.component.ts");
-/* harmony import */ var _hiw_hiw_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hiw/hiw.component */ "./src/app/pages/hiw/hiw.component.ts");
-/* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/pages/faq/faq.component.ts");
-/* harmony import */ var _mission_mission_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mission/mission.component */ "./src/app/pages/mission/mission.component.ts");
+/* harmony import */ var _mission_mission_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mission/mission.component */ "./src/app/pages/mission/mission.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2366,15 +2222,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var routes = [
     { path: '', component: _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_2__["HomepageComponent"] },
     { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_3__["SearchComponent"] },
     { path: 'search/:param', component: _search_search_component__WEBPACK_IMPORTED_MODULE_3__["SearchComponent"] },
-    { path: 'mission', component: _mission_mission_component__WEBPACK_IMPORTED_MODULE_6__["MissionComponent"] },
-    { path: 'faq', component: _faq_faq_component__WEBPACK_IMPORTED_MODULE_5__["FAQComponent"] },
-    { path: 'hiw', component: _hiw_hiw_component__WEBPACK_IMPORTED_MODULE_4__["HIWComponent"] }
+    { path: 'mission', component: _mission_mission_component__WEBPACK_IMPORTED_MODULE_4__["MissionComponent"] }
 ];
 var PagesRoutingModule = /** @class */ (function () {
     function PagesRoutingModule() {
@@ -2402,21 +2254,19 @@ var PagesRoutingModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagesModule", function() { return PagesModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _pages_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages-routing.module */ "./src/app/pages/pages-routing.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_material_extensions_google_maps_autocomplete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular-material-extensions/google-maps-autocomplete */ "./node_modules/@angular-material-extensions/google-maps-autocomplete/fesm2015/angular-material-extensions-google-maps-autocomplete.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/fesm2015/select.js");
-/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/fesm2015/autocomplete.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_material_extensions_google_maps_autocomplete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular-material-extensions/google-maps-autocomplete */ "./node_modules/@angular-material-extensions/google-maps-autocomplete/__ivy_ngcc__/fesm2015/angular-material-extensions-google-maps-autocomplete.js");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
+/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/autocomplete.js");
 /* harmony import */ var _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./homepage/homepage.component */ "./src/app/pages/homepage/homepage.component.ts");
 /* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/pages/not-found/not-found.component.ts");
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./search/search.component */ "./src/app/pages/search/search.component.ts");
-/* harmony import */ var _hiw_hiw_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./hiw/hiw.component */ "./src/app/pages/hiw/hiw.component.ts");
-/* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/pages/faq/faq.component.ts");
-/* harmony import */ var _mission_mission_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mission/mission.component */ "./src/app/pages/mission/mission.component.ts");
-/* harmony import */ var _searchbar_searchbar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./searchbar/searchbar.component */ "./src/app/pages/searchbar/searchbar.component.ts");
+/* harmony import */ var _mission_mission_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mission/mission.component */ "./src/app/pages/mission/mission.component.ts");
+/* harmony import */ var _searchbar_searchbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./searchbar/searchbar.component */ "./src/app/pages/searchbar/searchbar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2437,15 +2287,13 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var PagesModule = /** @class */ (function () {
     function PagesModule() {
     }
     PagesModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             declarations: [
-                _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_8__["HomepageComponent"], _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_9__["NotFoundComponent"], _search_search_component__WEBPACK_IMPORTED_MODULE_10__["SearchComponent"], _hiw_hiw_component__WEBPACK_IMPORTED_MODULE_11__["HIWComponent"], _faq_faq_component__WEBPACK_IMPORTED_MODULE_12__["FAQComponent"], _mission_mission_component__WEBPACK_IMPORTED_MODULE_13__["MissionComponent"], _searchbar_searchbar_component__WEBPACK_IMPORTED_MODULE_14__["SearchbarComponent"],
+                _homepage_homepage_component__WEBPACK_IMPORTED_MODULE_8__["HomepageComponent"], _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_9__["NotFoundComponent"], _search_search_component__WEBPACK_IMPORTED_MODULE_10__["SearchComponent"], _mission_mission_component__WEBPACK_IMPORTED_MODULE_11__["MissionComponent"], _searchbar_searchbar_component__WEBPACK_IMPORTED_MODULE_12__["SearchbarComponent"],
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -2489,9 +2337,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2698,7 +2546,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchbarComponent", function() { return SearchbarComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2749,10 +2597,10 @@ var SearchbarComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPropertyComponent", function() { return AddPropertyComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2816,10 +2664,10 @@ var AddPropertyComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPropertyComponent", function() { return EditPropertyComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2907,12 +2755,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentComponent", function() { return PaymentComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _services_payment_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/payment.service */ "./src/app/services/payment.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3086,8 +2934,8 @@ var PaymentComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertiesRoutingModule", function() { return PropertiesRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _add_property_add_property_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./add-property/add-property.component */ "./src/app/properties/add-property/add-property.component.ts");
 /* harmony import */ var _view_property_view_property_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view-property/view-property.component */ "./src/app/properties/view-property/view-property.component.ts");
 /* harmony import */ var _edit_property_edit_property_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit-property/edit-property.component */ "./src/app/properties/edit-property/edit-property.component.ts");
@@ -3139,12 +2987,12 @@ var PropertiesRoutingModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertiesModule", function() { return PropertiesModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _properties_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./properties-routing.module */ "./src/app/properties/properties-routing.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_material_extensions_google_maps_autocomplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular-material-extensions/google-maps-autocomplete */ "./node_modules/@angular-material-extensions/google-maps-autocomplete/fesm2015/angular-material-extensions-google-maps-autocomplete.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/fesm2015/card.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_material_extensions_google_maps_autocomplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular-material-extensions/google-maps-autocomplete */ "./node_modules/@angular-material-extensions/google-maps-autocomplete/__ivy_ngcc__/fesm2015/angular-material-extensions-google-maps-autocomplete.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
 /* harmony import */ var _view_property_view_property_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view-property/view-property.component */ "./src/app/properties/view-property/view-property.component.ts");
 /* harmony import */ var _add_property_add_property_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./add-property/add-property.component */ "./src/app/properties/add-property/add-property.component.ts");
 /* harmony import */ var _property_form_property_form_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./property-form/property-form.component */ "./src/app/properties/property-form/property-form.component.ts");
@@ -3213,9 +3061,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyFormComponent", function() { return PropertyFormComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 /* harmony import */ var _model_property_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../model/property.model */ "./src/app/model/property.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -3431,8 +3279,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewPropertyComponent", function() { return ViewPropertyComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -3584,8 +3432,8 @@ var ViewPropertyComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminService", function() { return AdminService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _services_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/error.service */ "./src/app/services/error.service.ts");
@@ -3700,8 +3548,8 @@ var AdminService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3754,7 +3602,7 @@ var AuthGuardService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _model_error_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../model/error.model */ "./src/app/model/error.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3794,8 +3642,8 @@ var ErrorService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaymentService", function() { return PaymentService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -3848,8 +3696,8 @@ var PaymentService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyService", function() { return PropertyService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _services_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/error.service */ "./src/app/services/error.service.ts");
@@ -4012,8 +3860,8 @@ var PropertyService = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _services_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/error.service */ "./src/app/services/error.service.ts");
@@ -4176,11 +4024,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 /* harmony import */ var _model_user_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../model/user.model */ "./src/app/model/user.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4207,6 +4055,13 @@ var LoginComponent = /** @class */ (function () {
         this.toastr = toastr;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        if (this.userSer.isLoggedIn()) {
+            this.router.navigate(['/']);
+            this.toastr.error('Please logout first!', '', {
+                closeButton: true,
+                positionClass: 'toast-bottom-right'
+            });
+        }
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(3)]),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(3)]),
@@ -4269,8 +4124,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyPropertyComponent", function() { return MyPropertyComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -4404,11 +4259,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordComponent", function() { return PasswordComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4497,8 +4352,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4583,12 +4438,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _model_user_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../model/user.model */ "./src/app/model/user.model.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4684,12 +4539,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Register1Component", function() { return Register1Component; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var _model_user_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../model/user.model */ "./src/app/model/user.model.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4785,11 +4640,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsComponent", function() { return SettingsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
 /* harmony import */ var _model_user_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../model/user.model */ "./src/app/model/user.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4893,8 +4748,8 @@ var SettingsComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersRoutingModule", function() { return UsersRoutingModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login.component */ "./src/app/users/login/login.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register/register.component */ "./src/app/users/register/register.component.ts");
 /* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/users/profile/profile.component.ts");
@@ -4958,9 +4813,9 @@ var UsersRoutingModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersModule", function() { return UsersModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _users_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users-routing.module */ "./src/app/users/users-routing.module.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "./src/app/users/login/login.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./register/register.component */ "./src/app/users/register/register.component.ts");
@@ -5032,8 +4887,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WaitlistComponent", function() { return WaitlistComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -5146,8 +5001,8 @@ var environment = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/__ivy_ngcc__/fesm2015/platform-browser-dynamic.js");
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 
@@ -5170,7 +5025,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/dylanfeng/Desktop/github/tenantlandlordlogin/client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/jerryhsieh/Desktop/homefetch/mean/client/src/main.ts */"./src/main.ts");
 
 
 /***/ })

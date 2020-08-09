@@ -6,11 +6,19 @@
       <div class="text-center text-light" id="searchcontainer">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <input  id="search" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let prop of properties" [value]="prop.vicinity">
-                {{prop.vicinity}}
-              </mat-option>
+            <input id="search" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
+              <mat-option value="Barcelona">Barcelona</mat-option>
+              <mat-option value="Berlin">Berlin</mat-option>
+              <mat-option value="Brusseis">Brusseis</mat-option>
+              <mat-option value="Dublin">Dublin</mat-option>
+              <mat-option value="Lisbon">Lisbon</mat-option>
+              <mat-option value="London">London</mat-option>
+              <mat-option Value="Madrid">Madrid</mat-option>
+              <mat-option value="Milan">Milan</mat-option>
+              <mat-option value="Paris">Paris</mat-option>
+              <mat-option value="Rome">Rome</mat-option>
+              <mat-option value="Valencia">Valencia</mat-option>
             </mat-autocomplete>
             <button type="submit" id="searchbutton">Search</button>
           </div>
@@ -40,46 +48,44 @@
 
     <div class="row" style="margin-bottom: 30px;">
       <div class="col-md-4 text-center" style="padding-left: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. 100% Online</p>
         <p>
-          Register to become a landlord and fill out some basic information regarding your property.
-          Some of this info will include address of the property, rent, amenities, etc.
+          No need to take time off your busy schedule to visit so many apartments. That's what's so great about Home Fetch - we do all the hard work for you!
+          With Homefetch you can easily find your ideal room or apartment from within the comfort of your own home.
+          The booking process is quick, cheap, easy and 100% online.
+          No longer do you have to deal with the stress of visiting multiple properties. It's stressful enough moving to a new country to study, starting a new job, or just moving!
         </p>
       </div>
       <div class="col-md-4 text-center">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. Virtual Visits</p>
         <p>
-          Someone from our team will come to check out your property and record all your particulars
-          including video shoots. We'll also take some nice pictures to list with your property later
-          on.
+          Let us be the ones who do all the legwork for you with an in-depth video tour, taking you around every nook and corner of the apartment from living room to the kitchen.
+          This way, you're able to view a wide variety of apartments without even having to leave your sofa.
         </p>
       </div>
       <div class="col-md-4 text-center" style="padding-right: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Support All the Way</p>
         <p>
-          Make sure to set down all of your apartment rules, agreement rules, apartment availability
-          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
-          or the transaction is cancelled.
+          All we want is for you to have a comfortable and smooth-sailing experience with Home Fetch. Our customer service is available to answer any of your queries.
+          With a completely online service, our team is responsive and ever ready to help.
         </p>
       </div>
     </div>
 
     <div class="row justify-content-md-center">
       <div class="col-md-4 text-center" style="padding-left: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">4. No Charge until You're Settled</p>
         <p>
-          Make sure to set down all of your apartment rules, agreement rules, apartment availability
-          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
-          or the transaction is cancelled.
+          For your own peace of mind and security, we do not trasnfer your booking fee to the landlord until after you've moved in.
+          We hold the funds for 24-48 hours after your move-in date - and only when you have settled in and find everything to your satisfaction.
         </p>
       </div>
 
       <div class="col-md-4 text-center" style="padding-right: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">5. Find the Right Fit</p>
         <p>
-          Make sure to set down all of your apartment rules, agreement rules, apartment availability
-          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
-          or the transaction is cancelled.
+          With all the different apartments visible on our website, we're sure you will find exactly what you're looking for.
+          However, if for any reason you decide to change your mind, you will be able to cancel your booking free of charge for up to 48 hours after making that booking.
         </p>
       </div>
     </div>
@@ -94,37 +100,34 @@
 
     <div class="row" style="margin-bottom: 30px;">
       <div class="col-md-3 text-center" style="padding-left: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Affordable Fees</p>
         <p>
-          Register to become a landlord and fill out some basic information regarding your property.
-          Some of this info will include address of the property, rent, amenities, etc.
+          Say goodbye to super high agency fees and endless paperwork. We understand just how expensive it can be to rent out your own property, from agent's fees, to maintenance, to advertising.
+          That's why Home Fetch have decided to charge the lowest possible fee for you to rent out your apartment or room.
         </p>
       </div>
 
       <div class="col-md-3 text-center">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. Quick and Easy</p>
         <p>
-          Someone from our team will come to check out your property and record all your particulars
-          including video shoots. We'll also take some nice pictures to list with your property later
-          on.
+          Within 24 hours of our visit to your apartment, your listing will be up on our website for your potential new tenant!
+          We are in charge of creating the video and photo content for your listing, so all you need to do is to sit back, relax, and wait for a booking!
+          The process is fast, and you'll have a new tenant in no time at all.
         </p>
       </div>
 
       <div class="col-md-3 text-center" style="padding-right: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Tenant Compatibility</p>
         <p>
-          Make sure to set down all of your apartment rules, agreement rules, apartment availability
-          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
-          or the transaction is cancelled.
+          As landlord, you have full control over which type of tenant you would like to rent your apartment or room. Whether you prefer students, couples or professionals, the choice is yours.
+          Once a qualified tenant books your apartment and you approve, everything will be good to go.
         </p>
       </div>
 
       <div class="col-md-3 text-center" style="padding-right: 0;">
-        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">4. New Locations Coming Soon</p>
         <p>
-          Make sure to set down all of your apartment rules, agreement rules, apartment availability
-          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
-          or the transaction is cancelled.
+          Our current operations are based in Barcelona, but we plan to expand to many new cities, helping more people around the world to find their ideal home.
         </p>
       </div>
     </div>
@@ -148,7 +151,7 @@
 <div class="container-fluid" id="new-tenant" class="call-to-action active" style="padding: 0;">
   <svg style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 320">
     <path fill="#ffffff" fill-opacity="1"
-          d="M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+      d="M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
     </path>
   </svg>
 
