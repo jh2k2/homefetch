@@ -11,12 +11,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
-import { MissionComponent } from './mission/mission.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
-    HomepageComponent, NotFoundComponent, SearchComponent, MissionComponent, SearchbarComponent,
+    HomepageComponent, NotFoundComponent, SearchComponent, SearchbarComponent, AboutComponent,
   ],
   imports: [
     CommonModule,

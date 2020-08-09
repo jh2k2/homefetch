@@ -2,13 +2,21 @@
   <div class="text-center text-light" id="searchcontainer">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <input formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let prop of searchProp" [value]="prop.vicinity">
-            {{prop.vicinity}}
-          </mat-option>
+        <input id="search" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
+          <mat-option value="Barcelona">Barcelona</mat-option>
+          <mat-option value="Berlin">Berlin</mat-option>
+          <mat-option value="Brusseis">Brusseis</mat-option>
+          <mat-option value="Dublin">Dublin</mat-option>
+          <mat-option value="Lisbon">Lisbon</mat-option>
+          <mat-option value="London">London</mat-option>
+          <mat-option Value="Madrid">Madrid</mat-option>
+          <mat-option value="Milan">Milan</mat-option>
+          <mat-option value="Paris">Paris</mat-option>
+          <mat-option value="Rome">Rome</mat-option>
+          <mat-option value="Valencia">Valencia</mat-option>
         </mat-autocomplete>
-        <button type="submit">Search</button>
+        <button type="submit" id="searchbutton">Search</button>
       </div>
     </form>
   </div>
