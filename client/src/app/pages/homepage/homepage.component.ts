@@ -65,7 +65,9 @@ export class HomepageComponent implements OnInit {
         document.getElementsByClassName('why')[i].classList.remove('active');
       }
       const id = '#why-' + $(this).attr('id');
+      const id_title = '#why-' + $(this).attr('id') + '-title';
       $(id).addClass('active');
+      $(id_title).addClass('active');
 
       const how = document.getElementsByClassName('how-it-works');
       for (let i = 0; i < how.length; i++) {

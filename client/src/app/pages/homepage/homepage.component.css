@@ -7,6 +7,12 @@
   height: 100vh;
 }
 
+#icon {
+  width:50px;
+  padding-bottom:10px;
+  padding-right:10px;  
+}
+
 .pagination {
   margin-top: 40px;
 }
@@ -40,7 +46,7 @@ body {
 }
 
 #search {
-  border: 3px solid #db2d8e;
+  border: 3px solid #19AA59;
   width: 30%;
   padding: 20px 30px;
   font-size: 20px;
@@ -53,7 +59,7 @@ body {
 }
 
 #searchbutton {
-  border: 3px solid #db2d8e;
+  border: 3px solid #19AA59;
   padding: 20px 15px;
   font-size: 20px;
   font-family: "circular std bold", sans-serif;
@@ -61,7 +67,7 @@ body {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   color: white;
-  background: #bb277a;
+  background: #19AA59;
 }
 
 #searchbutton:focus {
@@ -192,7 +198,7 @@ details[open] .control-icon-expand {
 }
 
 .pill-half.active {
-  background: linear-gradient(90deg, #04274b, #db2d83);
+  background: #db2d83;
   color: white;
 }
 
