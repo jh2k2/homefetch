@@ -1,68 +1,137 @@
 <div class="hero-image" id="hero-img" *ngIf="isLoaded">
   <div class="row">
-    <div class="col-md-4 p-lg-5" id="hero-text">
-      <h1 class="display-4 font-weight-normal h-font">Looking For A New Place?</h1>
-      <p class="lead font-weight-normal t-font">Countless Homes at Your Fingertips</p>
-    </div>
+    <div class="p-lg-5" id="hero-text">
+      <h1 class="display-4 font-weight-normal h-font">Stress Free,<br>Fair Fee,<br>Tenant to Be!</h1>
 
-
-    <div class="col-md-8 text-center text-light" id="searchcontainer">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <input formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let prop of properties" [value]="prop.vicinity">
-              {{prop.vicinity}}
-            </mat-option>
-          </mat-autocomplete>
-          <button type="submit">Search</button>
-        </div>
-      </form>
-    </div>
-
-
-  </div>
-</div>
-
-
-<div class="container-fluid" id="slider-div">
-  <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
-    <span style="color: #db2d8e;">New </span>
-    <span style="font-family:'Circular STD Book', sans-serif;">Listings</span>
-  </h1>
-
-  <div class="container-fluid text-center" id="slider">
-    <ng-container *ngFor="let prop of toShow">
-      <div class="card" *ngIf="prop.approved!=0" (click)="goForProp(prop)" style="width: 18rem; margin:0 5px 5px; display:inline-block;">
-        <img class="card-img-top" [src]="getImage(prop)" style="width:100%; height:200px;" alt="Card image cap">
-        <div class="card-body" style="padding-bottom:5px; padding-top:10px;">
-          <h5 class="card-title">{{prop.street}}</h5>
-          <h6 style="text-align: left;" class="citystatezip">{{prop.remain}}</h6>
-          <h5 class="card-title" style="margin: 15px 0">
-            <span style="color: #b951f9" class="price">{{prop.deposit}}€</span> / month</h5>
-        </div>
+      <div class="text-center text-light" id="searchcontainer">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input  id="search" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let prop of properties" [value]="prop.vicinity">
+                {{prop.vicinity}}
+              </mat-option>
+            </mat-autocomplete>
+            <button type="submit" id="searchbutton">Search</button>
+          </div>
+        </form>
       </div>
-    </ng-container>
-
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" style="color:#007bff;" (click)="OneLeft()" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      <li class="page-item" *ngFor="let num of number" [class.boja]="isActive(num)" [class.boja2]="!isActive(num)"><a class="page-link" (click)="sliceon(num)">{{num}}</a></li>
-      <li class="page-item">
-        <a class="page-link" style="color:#007bff;" (click)="OneRight()" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
-    </ul>
+    </div>
   </div>
 </div>
 
-<div class="container-fluid" id="new-landlord" style="padding: 0;">
+
+<div class="container-fluid" id="why-div">
+  <div class="rounded-pill">
+    <div id="tenant" class="pill-half active">
+      Tenant
+    </div>
+
+    <div id="landlord" class="pill-half">
+      Landlord
+    </div>
+  </div>
+
+  <div id="why-tenant" class="why active">
+    <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
+      <span style="color: #db2d8e;">Why </span>
+      <span style="font-family:'Circular STD Book', sans-serif;">Rent With HomeFetch</span>
+    </h1>
+
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-4 text-center" style="padding-left: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
+        <p>
+          Register to become a landlord and fill out some basic information regarding your property.
+          Some of this info will include address of the property, rent, amenities, etc.
+        </p>
+      </div>
+      <div class="col-md-4 text-center">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
+        <p>
+          Someone from our team will come to check out your property and record all your particulars
+          including video shoots. We'll also take some nice pictures to list with your property later
+          on.
+        </p>
+      </div>
+      <div class="col-md-4 text-center" style="padding-right: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p>
+          Make sure to set down all of your apartment rules, agreement rules, apartment availability
+          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+          or the transaction is cancelled.
+        </p>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-md-4 text-center" style="padding-left: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p>
+          Make sure to set down all of your apartment rules, agreement rules, apartment availability
+          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+          or the transaction is cancelled.
+        </p>
+      </div>
+
+      <div class="col-md-4 text-center" style="padding-right: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p>
+          Make sure to set down all of your apartment rules, agreement rules, apartment availability
+          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+          or the transaction is cancelled.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="why-landlord" class="why">
+    <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
+      <span style="color: #db2d8e;">Why </span>
+      <span style="font-family:'Circular STD Book', sans-serif;">Publish With HomeFetch</span>
+    </h1>
+
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-3 text-center" style="padding-left: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
+        <p>
+          Register to become a landlord and fill out some basic information regarding your property.
+          Some of this info will include address of the property, rent, amenities, etc.
+        </p>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
+        <p>
+          Someone from our team will come to check out your property and record all your particulars
+          including video shoots. We'll also take some nice pictures to list with your property later
+          on.
+        </p>
+      </div>
+
+      <div class="col-md-3 text-center" style="padding-right: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p>
+          Make sure to set down all of your apartment rules, agreement rules, apartment availability
+          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+          or the transaction is cancelled.
+        </p>
+      </div>
+
+      <div class="col-md-3 text-center" style="padding-right: 0;">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p>
+          Make sure to set down all of your apartment rules, agreement rules, apartment availability
+          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+          or the transaction is cancelled.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" id="new-landlord" class="call-to-action" style="padding: 0;">
   <svg style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 320">
     <path fill="#ffffff" fill-opacity="1"
       d="M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
@@ -76,72 +145,110 @@
   </div>
 </div>
 
+<div class="container-fluid" id="new-tenant" class="call-to-action active" style="padding: 0;">
+  <svg style="width: 100%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 320">
+    <path fill="#ffffff" fill-opacity="1"
+          d="M0,256L48,240C96,224,192,192,288,176C384,160,480,160,576,170.7C672,181,768,203,864,218.7C960,235,1056,245,1152,250.7C1248,256,1344,256,1392,256L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+    </path>
+  </svg>
+
+  <div class="col-md-4" style="margin-left: 60px; padding: 50px 0 150px;">
+    <h1 class="display-4 font-weight-normal h-font">Built With Your Needs in Mind.</h1>
+    <p class="lead font-weight-normal t-font">Find Your Dream Home Now.</p>
+    <button class="redirect" [routerLink]="['/users/register']">Get Started Now</button>
+  </div>
+</div>
+
 <div class="container-fluid" id="how-it-works">
   <h1 class="display-4 font-weight-normal h-font" style="margin-bottom: 60px; font-size: 3rem;">
     <span style="color: #db2d8e;">How </span>
     <span style="font-family: 'Circular STD Book', sans-serif;">It Works</span>
   </h1>
 
-  <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px;">LANDLORD</h1>
+  <div id="how-tenant" class="how-it-works active">
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-6 text-center">
+        <img src="../../../assets/images/house.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      </div>
+      <div class="col-md-6">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Explore Different Properties</p>
+        <p class="text-left">
+          Filter different properties by location, price, and other useful parameters to find your
+          ideal home. Browse through a number of professionally shot photographs to get a virtual picture
+          of the property in your mind.
+        </p>
+      </div>
+    </div>
 
-  <div class="row" style="margin-bottom: 90px;">
-    <div class="col-md-4 text-center" style="padding-left: 0;">
-      <img src="../../../assets/images/form.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
-      <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
-      <p class="text-left">
-        Register to become a landlord and fill out some basic information regarding your property.
-        Some of this info will include address of the property, rent, amenities, etc.
-      </p>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-6">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. Send A Request to Rent</p>
+        <p class="text-left">
+          Send the landlord a booking request by paying a down payment consisting of 30% the rent and no more than
+          450€. The landlord will receive your request and have 48 hours to accept or reject it. If they reject your
+          request, your payment will be automatically refunded to you.
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="../../../assets/images/message.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      </div>
     </div>
-    <div class="col-md-4 text-center">
-      <img src="../../../assets/images/camera.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
-      <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
-      <p class="text-left">
-        Someone from our team will come to check out your property and record all your particulars
-        including video shoots. We'll also take some nice pictures to list with your property later
-        on.
-      </p>
-    </div>
-    <div class="col-md-4 text-center" style="padding-right: 0;">
-      <img src="../../../assets/images/party.png" style="height: 170px; width: auto; margin-bottom: 20px;">
-      <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
-      <p class="text-left">
-        Make sure to set down all of your apartment rules, agreement rules, apartment availability
-        and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
-        or the transaction is cancelled.
-      </p>
+
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <img src="../../../assets/images/handshake.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      </div>
+      <div class="col-md-6">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Get Ready to Move In</p>
+        <p class="text-left">
+          Congratulations! You can now move into your new home! Lay down ground rules with your landlord and that's
+          it. For your own peace of mind, we hold on to the security deposit until you've successfully begun your stay.
+          Let us know if anything comes up and we wish you the best.
+        </p>
+      </div>
     </div>
   </div>
 
-  <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px;">TENANT</h1>
+  <div id="how-landlord" class="how-it-works">
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-6 text-center">
+        <img src="../../../assets/images/form.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      </div>
+      <div class="col-md-6">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Let Us Know You Want to Publish</p>
+        <p class="text-left">
+          Register to become a landlord and fill out some basic information regarding your property.
+          Some of this info will include address of the property, rent, amenities, etc.
+        </p>
+      </div>
+    </div>
 
-  <div class="row">
-    <div class="col-md-4 text-center" style="padding-left: 0;">
-      <img src="../../../assets/images/house.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
-      <p class="lead font-weight-normal t-font" style="color: #04274b;">1. Explore Different Properties</p>
-      <p class="text-left">
-        Filter different properties by location, price, and other useful parameters to find your
-        ideal home. Browse through a number of professionally shot photographs to get a virtual picture
-        of the property in your mind.
-      </p>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-6">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">2. We Take Some Pictures</p>
+        <p class="text-left">
+          Someone from our team will come to check out your property and record all your particulars
+          including video shoots. We'll also take some nice pictures to list with your property later
+          on.
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="../../../assets/images/camera.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
+      </div>
     </div>
-    <div class="col-md-4 text-center">
-      <img src="../../../assets/images/message.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
-      <p class="lead font-weight-normal t-font" style="color: #04274b;">2. Send A Request to Rent</p>
-      <p class="text-left">
-        Send the landlord a booking request by paying a down payment consisting of 30% the rent and no more than
-        450€. The landlord will receive your request and have 48 hours to accept or reject it. If they reject your
-        request, your payment will be automatically refunded to you.
-      </p>
-    </div>
-    <div class="col-md-4 text-center" style="padding-right: 0;">
-      <img src="../../../assets/images/handshake.jpg" style="height: 170px; width: auto; margin-bottom: 20px;">
-      <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Get Ready to Move In</p>
-      <p class="text-left">
-        Congratulations! You can now move into your new home! Lay down ground rules with your landlord and that's
-        it. For your own peace of mind, we hold on to the security deposit until you've successfully begun your stay.
-        Let us know if anything comes up and we wish you the best.
-      </p>
+
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <img src="../../../assets/images/party.png" style="height: 170px; width: auto; margin-bottom: 20px;">
+      </div>
+      <div class="col-md-6">
+        <p class="lead font-weight-normal t-font" style="color: #04274b;">3. Your Listing Goes Public</p>
+        <p class="text-left">
+          Make sure to set down all of your apartment rules, agreement rules, apartment availability
+          and type of tenant you prefer. If a tenant decides to rent with you, you have 48 hours to reply,
+          or the transaction is cancelled.
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -152,134 +259,157 @@
     <span style="font-family: 'Circular STD Book', sans-serif;">Asked Questions</span>
   </h1>
 
-  <div class="row">
-    <div class="col-md-6 px-0">
-      <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px; text-align: center;">TENANT</h1>
-      <details>
-        <summary>
-          Wouldn’t it be better for me to visit the property myself?
+  <div id="faq-tenant" class="faq active">
+    <div class="row">
+      <div class="col-md-6 px-0">
+        <details>
+          <summary>
+            Wouldn’t it be better for me to visit the property myself?
 
-        </summary>
-        <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.
-          They will do the exact same things that you would do if you were to visit the property yourself.
-          Every corner of the apartment or room will be inspected and, best of all, this will all be
-          documented in a video tour made available on the apartment listing. Multiple high-definition
-          photographs will also be available for you to see on the website. So there’s no need for a
-          physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be
-          missing out!</p>
-      </details>
+          </summary>
+          <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.
+            They will do the exact same things that you would do if you were to visit the property yourself.
+            Every corner of the apartment or room will be inspected and, best of all, this will all be
+            documented in a video tour made available on the apartment listing. Multiple high-definition
+            photographs will also be available for you to see on the website. So there’s no need for a
+            physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be
+            missing out!</p>
+        </details>
 
-      <details>
-        <summary>
-          What if I change my mind or no longer like the room/apartment?
+        <details>
+          <summary>
+            What if I change my mind or no longer like the room/apartment?
 
-        </summary>
-        <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48
-          hours, you will only receive a partial refund and will be charged a booking fee (30% of the first
-          month's rent). If you have already moved in and you genuinely find that the property is not the
-          way it appeared in the video tour, and you have pictures and evidence to prove this, you will be
-          eligible for a full refund. In fact, we will be more than happy to assist you with finding a new
-          apartment/room.</p>
-      </details>
+          </summary>
+          <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48
+            hours, you will only receive a partial refund and will be charged a booking fee (30% of the first
+            month's rent). If you have already moved in and you genuinely find that the property is not the
+            way it appeared in the video tour, and you have pictures and evidence to prove this, you will be
+            eligible for a full refund. In fact, we will be more than happy to assist you with finding a new
+            apartment/room.</p>
+        </details>
 
-      <details>
-        <summary>
-          I need a place to stay for only 1 month. Is this possible?
+        <details>
+          <summary>
+            I need a place to stay for only 1 month. Is this possible?
 
-        </summary>
-        <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart
-          from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under
-          a full month. </p>
-      </details>
+          </summary>
+          <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart
+            from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under
+            a full month. </p>
+        </details>
+      </div>
 
-      <details>
-        <summary>
-          Do you have any apartments in other cities, outside of Barcelona?
+      <div class="col-md-6 px-0">
+        <details>
+          <summary>
+            Do you have any apartments in other cities, outside of Barcelona?
 
-        </summary>
-        <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other
-          cities in Spain and on to multiple European cities. </p>
-      </details>
+          </summary>
+          <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other
+            cities in Spain and on to multiple European cities. </p>
+        </details>
 
-      <details>
-        <summary>
-          Is there a charge for using your services?
+        <details>
+          <summary>
+            Is there a charge for using your services?
 
-        </summary>
-        <p>As a tenant, you will be charged an initial payment of 30% of your first month's rent. Our
-          market research shows that this is a very fair and reasonable fee. We understand that it is
-          already costly to move into a flat as landlords usually request at least a 2 month deposit,
-          plus deposit for utilities; and then there is the agency fee (usually an additional month).
-          That's why we charge the lowest possible fee for our unmatched services to make things easy for
-          you.</p>
-      </details>
-    </div>
-
-    <div class="col-md-6 px-0">
-      <h1 style="font-weight: 100; font-size: 2rem; letter-spacing: 6px; margin-bottom: 50px; text-align: center;">LANDLORD</h1>
-      <details>
-        <summary>
-          How long will it take for my listing to be uploaded on your website?
-
-        </summary>
-        <p>Once we have taken professional photos of your apartment/room to be rented, as well as a floor
-          plan, we publish your apartment on our website with all the content within only 24 hours of our
-          visit!</p>
-      </details>
-
-      <details>
-        <summary>
-          Who Handles Agreements?
-
-        </summary>
-        <p> We are not involved with agreements; we simply act as the middle man, connecting the landlord
-          and the tenant. The agreement will be signed and negotiated between the landlord and tenant upon
-          arrival.</p>
-      </details>
-
-      <details>
-        <summary>
-          Is there a charge for using your services?
-
-        </summary>
-        <p>We charge a fraction of what a typical real estate agency or other online service provider
-          would typically charge you. Landlords will be charged a flat service fee of €250 for
-          apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room
-          is rented for the first time, you will only be charged €150 for an apartment and €50 a room for
-          subsequent rentals.</p>
-      </details>
-
-      <details>
-        <summary>
-          Is there a charge for using your services?
-
-        </summary>
-        <p>We charge a fraction of what a typical real estate agency or other online service provider
-          would typically charge you. Landlords will be charged a flat service fee of €250 for
-          apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room
-          is rented for the first time, you will only be charged €150 for an apartment and €50 a room for
-          subsequent rentals.</p>
-      </details>
-
-      <details>
-        <summary>
-          When will my property be checked by your team?
-
-        </summary>
-        <p>A team member will visit your property once you have contacted us and confirmed to publish your
-          home. Your property will not be published on our website unless we have visited it and recorded a
-          video tour. </p>
-      </details>
-
-      <details>
-        <summary>
-          What are the benefits of using your platform for my property?
-
-        </summary>
-        <p>Using Home Fetch for your property is an incredibly easy and cost-effective way of listing your
-          property. Not only are our fees very reasonable, we take the burden of searching for accommodation
-          off you. Everything is done quickly and efficiently on our website, so you can start renting out
-          your home ASAP. What’s not to love?</p>
-      </details>
+          </summary>
+          <p>As a tenant, you will be charged an initial payment of 30% of your first month's rent. Our
+            market research shows that this is a very fair and reasonable fee. We understand that it is
+            already costly to move into a flat as landlords usually request at least a 2 month deposit,
+            plus deposit for utilities; and then there is the agency fee (usually an additional month).
+            That's why we charge the lowest possible fee for our unmatched services to make things easy for
+            you.</p>
+        </details>
+      </div>
     </div>
   </div>
+
+  <div id="faq-landlord" class="faq">
+    <div class="row">
+      <div class="col-md-6 px-0">
+        <details>
+          <summary>
+            Wouldn’t it be better for me to visit the property myself?
+
+          </summary>
+          <p>At Home Fetch, we send a qualified member of our team to visit the property on your behalf.
+            They will do the exact same things that you would do if you were to visit the property yourself.
+            Every corner of the apartment or room will be inspected and, best of all, this will all be
+            documented in a video tour made available on the apartment listing. Multiple high-definition
+            photographs will also be available for you to see on the website. So there’s no need for a
+            physical visit – we’ve done it all for you! Don’t worry, we can assure you that you will not be
+            missing out!</p>
+        </details>
+
+        <details>
+          <summary>
+            What if I change my mind or no longer like the room/apartment?
+
+          </summary>
+          <p>You have the right to cancel your booking free of charge up to 48 hours after booking. After 48
+            hours, you will only receive a partial refund and will be charged a booking fee (30% of the first
+            month's rent). If you have already moved in and you genuinely find that the property is not the
+            way it appeared in the video tour, and you have pictures and evidence to prove this, you will be
+            eligible for a full refund. In fact, we will be more than happy to assist you with finding a new
+            apartment/room.</p>
+        </details>
+
+        <details>
+          <summary>
+            I need a place to stay for only 1 month. Is this possible?
+
+          </summary>
+          <p>Yes, this is absolutely possible. The minimum stay for tenants in Barcelona is 31 days. Apart
+            from “tourist households,” the law in Barcelona prohibits short-term rental occupancies of under
+            a full month. </p>
+        </details>
+
+        <details>
+          <summary>
+            Do you have any apartments in other cities, outside of Barcelona?
+
+          </summary>
+          <p>Currently, we are operating only in Barcelona. However, we plan to eventually expand to other
+            cities in Spain and on to multiple European cities. </p>
+        </details>
+      </div>
+
+      <div class="col-md-6 px-0">
+        <details>
+          <summary>
+            Is there a charge for using your services?
+
+          </summary>
+          <p>We charge a fraction of what a typical real estate agency or other online service provider
+            would typically charge you. Landlords will be charged a flat service fee of €250 for
+            apartments/€85 for a room (video, professional pictures, floor plan). Once your apartment/room
+            is rented for the first time, you will only be charged €150 for an apartment and €50 a room for
+            subsequent rentals.</p>
+        </details>
+
+        <details>
+          <summary>
+            When will my property be checked by your team?
+
+          </summary>
+          <p>A team member will visit your property once you have contacted us and confirmed to publish your
+            home. Your property will not be published on our website unless we have visited it and recorded a
+            video tour. </p>
+        </details>
+
+        <details>
+          <summary>
+            What are the benefits of using your platform for my property?
+
+          </summary>
+          <p>Using Home Fetch for your property is an incredibly easy and cost-effective way of listing your
+            property. Not only are our fees very reasonable, we take the burden of searching for accommodation
+            off you. Everything is done quickly and efficiently on our website, so you can start renting out
+            your home ASAP. What’s not to love?</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>

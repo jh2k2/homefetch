@@ -16,8 +16,12 @@ body {
   overflow: hidden;
 }
 
-#slider-div, #how-it-works {
-  padding: 70px 60px 0px;
+#searchcontainer {
+  margin-top: 7rem;
+}
+
+#why-div, #how-it-works, #faq {
+  padding: 70px calc(3rem + 15px) 0px;
 }
 
 #how-it-works {
@@ -32,35 +36,56 @@ body {
 
 #faq {
   padding-bottom: 70px;
-  background-color: rgba(236, 233, 245, 0.53);
-}
-
-#searchcontainer {
-  padding: 40vh 0;
+  background-color: rgba(197, 191, 195, 0.18);
 }
 
 #search {
   border: 3px solid #db2d8e;
-  width: 90%;
-  border-radius: 8px;
+  width: 30%;
   padding: 20px 30px;
   font-size: 20px;
   font-family: "circular std bold", sans-serif;
+  border-radius: 8px 0 0 8px;
 }
 
 #search:focus {
   outline: none;
 }
 
+#searchbutton {
+  border: 3px solid #db2d8e;
+  padding: 20px 15px;
+  font-size: 20px;
+  font-family: "circular std bold", sans-serif;
+  border-left: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: white;
+  background: #bb277a;
+}
+
+#searchbutton:focus {
+  outline: none;
+}
+
 #hero-text {
   height: 100vh;
-  padding: 18% 3rem !important;
+  width: 100vw;
+  padding: 18% calc(3rem + 15px) !important;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
 }
 
 #new-landlord {
   background-image: url("../../../assets/images/landlord.jpg");
+  background-size: cover;
+  background-position: top;
+  min-height: 700px;
+  color: white;
+}
+
+#new-tenant {
+  background-image: url("../../../assets/images/tenant-background.jpg");
   background-size: cover;
   background-position: top;
   min-height: 700px;
@@ -145,4 +170,60 @@ details[open] .control-icon-close {
 
 details[open] .control-icon-expand {
   display: none;
+}
+
+.rounded-pill {
+  width: 40%;
+  border-radius: 200px;
+  overflow: hidden;
+  border: 3px solid #db2d83;
+  margin: 0 auto 60px;
+}
+
+.pill-half {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Circular Std Book", sans-serif;
+  padding: 20px 0;
+  cursor: pointer;
+  color: black;
+}
+
+.pill-half.active {
+  background: linear-gradient(90deg, #04274b, #db2d83);
+  color: white;
+}
+
+.why {
+  display: none;
+}
+
+.why.active {
+  display: block;
+}
+
+.how-it-works {
+  display: none;
+}
+
+.how-it-works.active {
+  display: block;
+}
+
+.faq {
+  display: none;
+}
+
+.faq.active {
+  display: block;
+}
+
+.call-to-action {
+  display: none;
+}
+
+.call-to-action.active {
+  display: block;
 }
