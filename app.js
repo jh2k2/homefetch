@@ -7,6 +7,7 @@ const cors = require('cors');
 const config = require('./config/database');
 var logger = require('morgan');
 
+
 const stripe = require("stripe")("sk_test_51H5eexCD60PLVDzGiWagEND9xj8oSC1qBHQFptBMha8a7gRSQuFdQSnoAiYfDi9nvsy59EzpO31HuW4iqiFwC2o700Wk5SWYM8");
 
 const users = require('./routes/users');
