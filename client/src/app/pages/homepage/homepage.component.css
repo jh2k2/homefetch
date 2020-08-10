@@ -8,9 +8,9 @@
 }
 
 #icon {
-  width:50px;
-  padding-bottom:10px;
-  padding-right:10px;  
+  width: 50px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
 
 .pagination {
@@ -34,7 +34,6 @@ body {
   padding-bottom: 70px;
 }
 
-
 .row {
   margin-right: 0 !important;
   margin-left: 0 !important;
@@ -45,13 +44,18 @@ body {
   background-color: rgba(197, 191, 195, 0.18);
 }
 
+::ng-deep .mat-autocomplete-panel {
+    width: calc(100% - 60px) !important;
+    margin-left: 30px !important;
+}
+
 #search {
+  border-radius: 200px;
+  width: calc(30% + 112px);
   border: 3px solid #19AA59;
-  width: 30%;
-  padding: 20px 30px;
+  padding: 20px 120px 20px 30px;
   font-size: 20px;
   font-family: "circular std bold", sans-serif;
-  border-radius: 8px 0 0 8px;
 }
 
 #search:focus {
@@ -60,14 +64,14 @@ body {
 
 #searchbutton {
   border: 3px solid #19AA59;
-  padding: 20px 15px;
   font-size: 20px;
   font-family: "circular std bold", sans-serif;
   border-left: 0;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
   color: white;
   background: #19AA59;
+  margin-left: -116px;
+  padding: 12px 20px;
+  border-radius: 200px;
 }
 
 #searchbutton:focus {
@@ -106,21 +110,21 @@ details {
   margin: 0 auto;
   position: relative;
   font-size: 22px;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 15px;
   box-sizing: border-box;
   transition: all .3s;
   background: white;
 }
 
-details + details {
+details+details {
   margin-top: 20px;
 }
 
 details[open] {
   min-height: 50px;
   background-color: #f6f7f8;
-  box-shadow: 2px 2px 20px rgba(0,0,0,.2);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
 }
 
 details p {
@@ -141,7 +145,6 @@ summary {
 
 summary:focus {
   outline: none;
-
 }
 
 summary:focus::after {
