@@ -10,8 +10,8 @@
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="#how-it-works">How It Works</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a href="#faq">FAQ's</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/landlordreg']">Become a landlord</a></li>
+        <li *ngIf="!isLoggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/register']">Tenant Signup</a></li>
         <li *ngIf="!isLoggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/login']">Log In</a></li>
-        <li *ngIf="!isLoggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/register']">Sign Up</a></li>
 
         <div *ngIf="isLoggedIn()">
           <div ngbDropdown class="d-inline-block">
