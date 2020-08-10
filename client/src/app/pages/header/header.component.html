@@ -16,7 +16,7 @@
         <div *ngIf="isLoggedIn()">
           <div ngbDropdown class="d-inline-block">
             <button class="btn btn-outline-danger" id="dropdownBasic1" ngbDropdownToggle>{{users.fullname}}</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 100%;">
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 90%;">
               <button ngbDropdownItem *ngIf="users.admin!=0" [routerLink]="['/admin/panel']">Admin panel</button>
               <button ngbDropdownItem *ngIf="users.landlord!=0 || users.admin !=0" [routerLink]="['/users/property']">Apartments</button>
               <button ngbDropdownItem *ngIf="users.landlord==0 || users.admin!=0" [routerLink]="['/users/waitlist']">Waitlist</button>
