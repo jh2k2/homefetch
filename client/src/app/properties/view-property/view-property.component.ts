@@ -32,6 +32,7 @@ export class ViewPropertyComponent implements OnInit {
   public url;
   public users: User;
   public isDataLoaded = false;
+  public userLoaded = false;
   public images = [];
   public pos = 0;
   public property;
@@ -55,6 +56,8 @@ export class ViewPropertyComponent implements OnInit {
               } else {
                 this.hasWaitlist = true;
               }
+
+              this.userLoaded = true;
             });
 
           if(data.prop.approved != 1) {

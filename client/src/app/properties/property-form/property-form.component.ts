@@ -3,6 +3,9 @@ import { formatDate } from '@angular/common'
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../model/property.model';
+import { UserService } from '../../services/user.service';
+import { User } from '../../model/user.model';
+import { Router } from '@angular/router';
 import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
 
 @Component({
@@ -14,6 +17,8 @@ export class PropertyFormComponent implements OnInit {
   public longitude;
   public latitude;
   public city;
+
+  public user: User;
 
   @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, street: null, remain: null };
   @Output() public event = new EventEmitter();
@@ -42,9 +47,17 @@ export class PropertyFormComponent implements OnInit {
   public isAddedFile = [];
   public isClicked = [];
 
-  constructor(private propSer: PropertyService) { }
+  constructor(private router: Router, private propSer: PropertyService, private userSer: UserService) { }
 
   ngOnInit() {
+    this.userSer.getSettings().subscribe(
+      data => {
+        this.user = data.user;
+        if(this.user.landlord != 1 && this.user.admin == 0) {
+          this.router.navigate(['/']);
+        }
+      });
+
     this.form = new FormGroup({
       deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(10000)]),
       rooms: new FormControl(this.prop.rooms, [Validators.required, Validators.min(1), Validators.max(10)]),

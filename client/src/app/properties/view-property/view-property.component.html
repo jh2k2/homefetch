@@ -1,4 +1,4 @@
-<div class="container" *ngIf='isDataLoaded' style="margin:0 auto 5px; max-width:1000px;">
+<div class="container" *ngIf='isDataLoaded && userLoaded' style="margin:0 auto 5px; max-width:1000px;">
   <div class="row" style="margin-top:10px;">
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="max-width:800px;">
@@ -8,7 +8,7 @@
         <img src="../../../assets/images/right.png" (click)="right()" class="right">
         <table class="table text-center " style="table-layout: fixed;width: 100%;">
           <tr>
-            <td class="text-center" colspan="4">{{property.street}}, {{property.remain}}</td>
+            <td class="text-center" colspan="4">{{property.street}}, {{property.vicinity}}</td>
           </tr>
           <tr>
             <td style="text-align:right;">Area:</td>
@@ -87,7 +87,7 @@
         <img [src]='url' class="avatar images rounded-circle img-thumbnail" alt="avatar">
         <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>
         <button type="button" (click)='goToProfile()' class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">View profile</button>
-        <button *ngIf="!hasWaitlist" (click)="payProperty(property)" class="btn btn-primary btn-block">Pay</button>
+        <button *ngIf="!hasWaitlist && users.landlord!=1" (click)="payProperty(property)" class="btn btn-primary btn-block">Pay</button>
       </div>
     </div>
 

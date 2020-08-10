@@ -14,9 +14,18 @@ export class MyPropertyComponent implements OnInit {
   public propArray: Property[];
   public add: Boolean;
   readData = 1;
+  public dataLoaded = false;
   constructor(private propSer: PropertyService, private router: Router, private userSer: UserService) { }
 
   ngOnInit() {
+    this.userSer.getSettings().subscribe(
+      data => {
+        if(data.user.landlord != 1 && data.user.admin == 0) {
+          this.router.navigate(['/']);
+        }
+        this.dataLoaded=true;
+      });
+
     this.propSer.currentMessage.subscribe(message => {
       if (message == 1) {
         this.readData = 1;

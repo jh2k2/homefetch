@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table\" style=\"margin-top:20px;\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">First</th>\n      <th scope=\"col\">Last</th>\n      <th scope=\"col\">Username</th>\n      <th scope=\"xol\">Role</th>\n      <th scope=\"col\" *ngIf=\"status==2\">Head</th>\n      <th scope=\"col\" *ngIf=\"status==2\">Admin</th>\n      <th scope=\"col\">View</th>\n      <th scope=\"col\">Ban</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let user of users; index as i;\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{user.firstName}}</td>\n      <td>{{user.lastName}}</td>\n      <td>{{user.userName}}</td>\n      <td *ngIf=\"user.landlord==1 && user.admin==0\">Landlord</td>\n      <td *ngIf=\"user.landlord==0\">Tenant</td>\n      <td *ngIf=\"user.admin==1\">Admin</td>\n      <td *ngIf=\"status==2\"><button type=\"button\" (click)=\"setAdmin(user,2)\" [class.btn-success]=\"user.admin==2\" [class.btn-danger]=\"user.admin!=2\" class=\"btn btn-danger\">Head</button></td>\n      <td *ngIf=\"status==2\"><button type=\"button\" (click)=\"setAdmin(user,1)\" [class.btn-success]=\"user.admin==1\" [class.btn-danger]=\"user.admin!=1\" class=\"btn\">Admin</button></td>\n      <td><button type=\"button\" (click)=\"showProfile(user.userName)\" class=\"btn btn-success\">View</button></td>\n      <td *ngIf=\"user.banned==true\"><button type=\"button\" (click)=\"banUser(user)\" class=\"btn btn-success\">Unban</button></td>\n      <td *ngIf=\"user.banned==false\"><button type=\"button\" (click)=\"banUser(user)\" class=\"btn btn-danger\">Ban</button></td>\n    </tr>\n  </tbody>\n</table>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<table class=\"table\" style=\"margin-top:20px;\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">First</th>\n      <th scope=\"col\">Last</th>\n      <th scope=\"col\">Username</th>\n      <th scope=\"xol\">Role</th>\n      <th scope=\"col\" *ngIf=\"status==2\">Head</th>\n      <th scope=\"col\" *ngIf=\"status==2\">Admin</th>\n      <th scope=\"col\">View</th>\n      <th scope=\"col\">Ban</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let user of users; index as i;\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{user.firstName}}</td>\n      <td>{{user.lastName}}</td>\n      <td>{{user.userName}}</td>\n      <td *ngIf=\"user.landlord==1 && user.admin==0\">Landlord</td>\n      <td *ngIf=\"user.landlord==0 && user.admin==0\">Tenant</td>\n      <td *ngIf=\"user.admin==1\">Admin</td>\n      <td *ngIf=\"status==2\"><button type=\"button\" (click)=\"setAdmin(user,2)\" [class.btn-success]=\"user.admin==2\" [class.btn-danger]=\"user.admin!=2\" class=\"btn btn-danger\">Head</button></td>\n      <td *ngIf=\"status==2\"><button type=\"button\" (click)=\"setAdmin(user,1)\" [class.btn-success]=\"user.admin==1\" [class.btn-danger]=\"user.admin!=1\" class=\"btn\">Admin</button></td>\n      <td><button type=\"button\" (click)=\"showProfile(user.userName)\" class=\"btn btn-success\">View</button></td>\n      <td *ngIf=\"user.banned==true\"><button type=\"button\" (click)=\"banUser(user)\" class=\"btn btn-success\">Unban</button></td>\n      <td *ngIf=\"user.banned==false\"><button type=\"button\" (click)=\"banUser(user)\" class=\"btn btn-danger\">Ban</button></td>\n    </tr>\n  </tbody>\n</table>\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"text-align:center;\">\n  <h2 style=\"margin-bottom:10px;\">Welcome to admin panel!</h2>\n  <button class=\"btn btn-outline-primary btn-lg move\" (click)=\"setChoise(1)\"><i class=\"fa fa-user\"></i> Users</button>\n  <button class=\"btn btn-outline-secondary btn-lg move \" (click)=\"setChoise(2)\"><i class=\"fa fa-home\"></i> Properties</button>\n  <app-admin-users *ngIf=\"chouse==1\"></app-admin-users>\n  <app-admin-properties *ngIf=\"chouse==2\"></app-admin-properties>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"isLoaded\">\n  <div *ngIf=\"user.admin!=0\" class=\"container\" style=\"text-align:center;\">\n    <h2 style=\"margin-bottom:10px;\">Welcome to admin panel!</h2>\n    <button class=\"btn btn-outline-primary btn-lg move\" (click)=\"setChoise(1)\"><i class=\"fa fa-user\"></i> Users</button>\n    <button class=\"btn btn-outline-secondary btn-lg move \" (click)=\"setChoise(2)\"><i class=\"fa fa-home\"></i> Properties</button>\n    <app-admin-users *ngIf=\"chouse==1\"></app-admin-users>\n    <app-admin-properties *ngIf=\"chouse==2\"></app-admin-properties>\n  </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"nav\">\n  <div class=\"container-fluid\">\n    <div class=\"logo\" style=\"transform: translate(0, -4px);\">\n      <a href=\"/\"><img src=\"../../../assets/images/logo.png\" style=\"width: 5rem; height: auto;\">\n      </a>\n    </div>\n    <div id=\"mainListDiv\" class=\"main_list\">\n      <ul>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/about']\">About Us</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a href=\"#how-it-works\">How It Works</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a href=\"#faq\">FAQ's</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/landlordreg']\">Become a landlord</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/login']\">Log In</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/register']\">Sign Up</a></li>\n\n        <div *ngIf=\"isLoggedIn()\">\n          <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-danger\" id=\"dropdownBasic1\" ngbDropdownToggle>{{users.fullname}}</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" style=\"width: 100%;\">\n              <button ngbDropdownItem *ngIf=\"users.admin!=0\" [routerLink]=\"['/admin/panel']\">Admin panel</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord!=0\" [routerLink]=\"['/users/property']\">Apartments</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord==0 || users.admin!=0\" [routerLink]=\"['/users/waitlist']\">Waitlist</button>\n              <button ngbDropdownItem (click)=\"goToProfile()\">Profile</button>\n              <button ngbDropdownItem (click)=\"logOut()\">Log out</button>\n            </div>\n          </div>\n        </div>\n      </ul>\n    </div>\n\n  </div>\n</nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"nav\">\n  <div class=\"container-fluid\">\n    <div class=\"logo\" style=\"transform: translate(0, -4px);\">\n      <a href=\"/\"><img src=\"../../../assets/images/logo.png\" style=\"width: 5rem; height: auto;\">\n      </a>\n    </div>\n    <div id=\"mainListDiv\" class=\"main_list\">\n      <ul>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/about']\">About Us</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a href=\"#how-it-works\">How It Works</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a href=\"#faq\">FAQ's</a></li>\n        <li routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/landlordreg']\">Become a landlord</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/login']\">Log In</a></li>\n        <li *ngIf=\"!isLoggedIn()\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/users/register']\">Sign Up</a></li>\n\n        <div *ngIf=\"isLoggedIn()\">\n          <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-danger\" id=\"dropdownBasic1\" ngbDropdownToggle>{{users.fullname}}</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" style=\"width: 100%;\">\n              <button ngbDropdownItem *ngIf=\"users.admin!=0\" [routerLink]=\"['/admin/panel']\">Admin panel</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord!=0 || users.admin !=0\" [routerLink]=\"['/users/property']\">Apartments</button>\n              <button ngbDropdownItem *ngIf=\"users.landlord==0 || users.admin!=0\" [routerLink]=\"['/users/waitlist']\">Waitlist</button>\n              <button ngbDropdownItem (click)=\"goToProfile()\">Profile</button>\n              <button ngbDropdownItem (click)=\"logOut()\">Log out</button>\n            </div>\n          </div>\n        </div>\n      </ul>\n    </div>\n\n  </div>\n</nav>\n");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"overall\" *ngIf=\"isLoaded\">\n  <div class=\"text-center text-light\" id=\"searchcontainer\">\n    <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n      <div class=\"form-group\">\n        <input id=\"search\" formControlName=\"vicinity\" type=\"text\" placeholder=\"Find Vicinity\" aria-label=\"Number\" matInput [matAutocomplete]=\"auto\">\n        <mat-autocomplete #auto=\"matAutocomplete\" value=\"form.value.vicinity\">\n          <mat-option value=\"Barcelona\">Barcelona</mat-option>\n          <!-- TODO: Other -->\n        </mat-autocomplete>\n        <button type=\"submit\" id=\"searchbutton\">Search</button>\n      </div>\n    </form>\n  </div>\n\n  <div class=\"container\" style=\"margin-top:20px; min-height:800px; margin-bottom:10px; max-width:1000px;\">\n    <div class=\"form-group ml-auto\" style=\"width:180px;\">\n      <select class=\"form-control\" (change)=\"sorting($event)\" id=\"sel1\">\n        <option>Date - newest</option>\n        <option>Date - oldest</option>\n        <option>Price - low to high</option>\n        <option>Price - high to low</option>\n      </select>\n    </div>\n\n    <ng-container *ngFor=\"let prop of toShow\">\n      <div class=\"card\" *ngIf=\"prop.approved!=0\" (click)=\"goForProp(prop)\" style=\"width: 18rem; margin:0 5px 5px; display:inline-block;\">\n        <img class=\"card-img-top\" [src]=\"getImage(prop)\" style=\"width:100%; height:200px;\" alt=\"Card image cap\">\n        <div class=\"card-body\" style=\"padding-bottom:5px; padding-top:10px;\">\n          <h5 class=\"card-title\">{{prop.street}}</h5>\n          <h6 style=\"text-align: left;\" class=\"citystatezip\">{{prop.remain}}</h6>\n          <h5 class=\"card-title\" style=\"margin: 15px 0\">\n            <span style=\"color: #b951f9\" class=\"price\">{{prop.deposit}}€</span> / month</h5>\n        </div>\n      </div>\n    </ng-container>\n\n\n  </div>\n\n  <ul *ngIf=\"isThereAList()\" class=\"pagination justify-content-center\">\n    <li class=\"page-item\">\n      <a class=\"page-link\" style=\"color:#007bff;\" (click)=\"OneLeft()\" aria-label=\"Previous\">\n        <span aria-hidden=\"true\">&laquo;</span>\n        <span class=\"sr-only\">Previous</span>\n      </a>\n    </li>\n    <li class=\"page-item\" *ngFor=\"let num of number\" [class.boja]=\"isActive(num)\" [class.boja2]=\"!isActive(num)\"><a class=\"page-link\" (click)=\"sliceon(num)\">{{num}}</a></li>\n    <li class=\"page-item\">\n      <a class=\"page-link\" style=\"color:#007bff;\" (click)=\"OneRight()\" aria-label=\"Next\">\n        <span aria-hidden=\"true\">&raquo;</span>\n        <span class=\"sr-only\">Next</span>\n      </a>\n    </li>\n  </ul>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"overall\" *ngIf=\"isLoaded\">\n  <div class=\"text-center text-light\" id=\"searchcontainer\">\n    <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n      <div class=\"form-group\">\n        <input id=\"search\" formControlName=\"vicinity\" type=\"text\" placeholder=\"Find Vicinity\" aria-label=\"Number\" matInput [matAutocomplete]=\"auto\">\n        <mat-autocomplete #auto=\"matAutocomplete\" value=\"form.value.vicinity\">\n          <mat-option value=\"Barcelona\">Barcelona</mat-option>\n          <!-- TODO: Other -->\n        </mat-autocomplete>\n        <button type=\"submit\" id=\"searchbutton\">Search</button>\n      </div>\n    </form>\n  </div>\n\n  <div class=\"container\" style=\"margin-top:20px; min-height:800px; margin-bottom:10px; max-width:1000px;\">\n    <div class=\"form-group ml-auto\" style=\"width:180px;\">\n      <select class=\"form-control\" (change)=\"sorting($event)\" id=\"sel1\">\n        <option>Date - newest</option>\n        <option>Date - oldest</option>\n        <option>Price - low to high</option>\n        <option>Price - high to low</option>\n      </select>\n    </div>\n\n    <ng-container *ngFor=\"let prop of toShow\">\n      <div class=\"card\" *ngIf=\"prop.approved!=0\" (click)=\"goForProp(prop)\" style=\"width: 18rem; margin:0 5px 5px; display:inline-block;\">\n        <img class=\"card-img-top\" [src]=\"getImage(prop)\" style=\"width:100%; height:200px;\" alt=\"Card image cap\">\n        <div class=\"card-body\" style=\"padding-bottom:5px; padding-top:10px;\">\n          <h5 class=\"card-title\">{{prop.street}}</h5>\n          <h6 style=\"text-align: left;\" class=\"citystatezip\">{{prop.vicinity}}</h6>\n          <h5 class=\"card-title\" style=\"margin: 15px 0\">\n            <span style=\"color: #b951f9\" class=\"price\">{{prop.deposit}}€</span> / month</h5>\n        </div>\n      </div>\n    </ng-container>\n\n\n  </div>\n\n  <ul *ngIf=\"isThereAList()\" class=\"pagination justify-content-center\">\n    <li class=\"page-item\">\n      <a class=\"page-link\" style=\"color:#007bff;\" (click)=\"OneLeft()\" aria-label=\"Previous\">\n        <span aria-hidden=\"true\">&laquo;</span>\n        <span class=\"sr-only\">Previous</span>\n      </a>\n    </li>\n    <li class=\"page-item\" *ngFor=\"let num of number\" [class.boja]=\"isActive(num)\" [class.boja2]=\"!isActive(num)\"><a class=\"page-link\" (click)=\"sliceon(num)\">{{num}}</a></li>\n    <li class=\"page-item\">\n      <a class=\"page-link\" style=\"color:#007bff;\" (click)=\"OneRight()\" aria-label=\"Next\">\n        <span aria-hidden=\"true\">&raquo;</span>\n        <span class=\"sr-only\">Next</span>\n      </a>\n    </li>\n  </ul>\n</div>\n");
 
 /***/ }),
 
@@ -165,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf='isDataLoaded' style=\"margin:0 auto 5px; max-width:1000px;\">\n  <div class=\"row\" style=\"margin-top:10px;\">\n    <!-- edit form column -->\n    <div class=\"col-md-8 col-sm-6 col-xs-12 personal-info\" style=\"max-width:800px;\">\n      <div class=\"bordr text-center\" style=\"margin-bottom:5px;\">\n        <img [src]=\"images[pos]\" style=\"margin-top:0px; width:100%; height:330px;\" class=\"images\">\n        <img src=\"../../../assets/images/left.png\" (click)=\"left()\" class=\"left\">\n        <img src=\"../../../assets/images/right.png\" (click)=\"right()\" class=\"right\">\n        <table class=\"table text-center \" style=\"table-layout: fixed;width: 100%;\">\n          <tr>\n            <td class=\"text-center\" colspan=\"4\">{{property.street}}, {{property.remain}}</td>\n          </tr>\n          <tr>\n            <td style=\"text-align:right;\">Area:</td>\n            <td>{{property.area}}m2</td>\n            <td style=\"text-align:right;\">Availability</td>\n            <td>{{property.available|date:'MM/dd/yyyy'}}</td>\n          </tr>\n          <tr>\n            <td style=\"text-align:right;\">Monthly Fee:</td>\n            <td>{{property.deposit}} €</td>\n            <td style=\"text-align:right;\">Rooms:</td>\n            <td>{{property.rooms}}</td>\n          </tr>\n        </table>\n\n        <table align='center' class=\"ikonice\" style=\"width: 100%;\">\n          <tr>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(1)\" class=\"iconEdit\" [src]='iconURL[1]'>\n              <label [class.overLine]=\"!isActive(1)\">Internet</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(2)\" class=\"iconEdit\" [src]='iconURL[2]'>\n              <label [class.overLine]=\"!isActive(2)\">Cable TV</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(3)\" class=\"iconEdit\" [src]='iconURL[3]'>\n              <label [class.overLine]=\"!isActive(3)\">Double bed</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(4)\" class=\"iconEdit\" [src]='iconURL[4]'>\n              <label [class.overLine]=\"!isActive(4)\">Single bed</label>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(5)\" class=\"iconEdit\" [src]='iconURL[5]'>\n              <label [class.overLine]=\"!isActive(5)\">Air conditioning</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(6)\" class=\"iconEdit\" [src]='iconURL[6]'>\n              <label [class.overLine]=\"!isActive(6)\">Fridge</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(7)\" class=\"iconEdit\" [src]='iconURL[7]'>\n              <label [class.overLine]=\"!isActive(7)\">Stove</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(8)\" class=\"iconEdit\" [src]='iconURL[8]'>\n              <label [class.overLine]=\"!isActive(8)\">Washing machine</label>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(9)\" class=\"iconEdit\" [src]='iconURL[9]'>\n              <label [class.overLine]=\"!isActive(9)\">Bathtub</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(10)\" class=\"iconEdit\" [src]='iconURL[10]'>\n              <label [class.overLine]=\"!isActive(10)\">Microwave</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(11)\" class=\"iconEdit\" [src]='iconURL[11]'>\n              <label [class.overLine]=\"!isActive(11)\">Landline</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(12)\" class=\"iconEdit\" [src]='iconURL[12]'>\n              <label [class.overLine]=\"!isActive(12)\">Fireplace</label>\n            </td>\n          </tr>\n        </table>\n      </div>\n    </div>\n    <div class=\"col-md-4 col-sm-6 col-xs-12\">\n      <div class=\"text-center bordr rightIm\">\n        <img [src]='url' class=\"avatar images rounded-circle img-thumbnail\" alt=\"avatar\">\n        <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>\n        <button type=\"button\" (click)='goToProfile()' class=\"btn btn-info\" style=\"margin-top:10px; margin-bottom:10px;\">View profile</button>\n        <button *ngIf=\"!hasWaitlist\" (click)=\"payProperty(property)\" class=\"btn btn-primary btn-block\">Pay</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf='isDataLoaded && userLoaded' style=\"margin:0 auto 5px; max-width:1000px;\">\n  <div class=\"row\" style=\"margin-top:10px;\">\n    <!-- edit form column -->\n    <div class=\"col-md-8 col-sm-6 col-xs-12 personal-info\" style=\"max-width:800px;\">\n      <div class=\"bordr text-center\" style=\"margin-bottom:5px;\">\n        <img [src]=\"images[pos]\" style=\"margin-top:0px; width:100%; height:330px;\" class=\"images\">\n        <img src=\"../../../assets/images/left.png\" (click)=\"left()\" class=\"left\">\n        <img src=\"../../../assets/images/right.png\" (click)=\"right()\" class=\"right\">\n        <table class=\"table text-center \" style=\"table-layout: fixed;width: 100%;\">\n          <tr>\n            <td class=\"text-center\" colspan=\"4\">{{property.street}}, {{property.vicinity}}</td>\n          </tr>\n          <tr>\n            <td style=\"text-align:right;\">Area:</td>\n            <td>{{property.area}}m2</td>\n            <td style=\"text-align:right;\">Availability</td>\n            <td>{{property.available|date:'MM/dd/yyyy'}}</td>\n          </tr>\n          <tr>\n            <td style=\"text-align:right;\">Monthly Fee:</td>\n            <td>{{property.deposit}} €</td>\n            <td style=\"text-align:right;\">Rooms:</td>\n            <td>{{property.rooms}}</td>\n          </tr>\n        </table>\n\n        <table align='center' class=\"ikonice\" style=\"width: 100%;\">\n          <tr>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(1)\" class=\"iconEdit\" [src]='iconURL[1]'>\n              <label [class.overLine]=\"!isActive(1)\">Internet</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(2)\" class=\"iconEdit\" [src]='iconURL[2]'>\n              <label [class.overLine]=\"!isActive(2)\">Cable TV</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(3)\" class=\"iconEdit\" [src]='iconURL[3]'>\n              <label [class.overLine]=\"!isActive(3)\">Double bed</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(4)\" class=\"iconEdit\" [src]='iconURL[4]'>\n              <label [class.overLine]=\"!isActive(4)\">Single bed</label>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(5)\" class=\"iconEdit\" [src]='iconURL[5]'>\n              <label [class.overLine]=\"!isActive(5)\">Air conditioning</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(6)\" class=\"iconEdit\" [src]='iconURL[6]'>\n              <label [class.overLine]=\"!isActive(6)\">Fridge</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(7)\" class=\"iconEdit\" [src]='iconURL[7]'>\n              <label [class.overLine]=\"!isActive(7)\">Stove</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(8)\" class=\"iconEdit\" [src]='iconURL[8]'>\n              <label [class.overLine]=\"!isActive(8)\">Washing machine</label>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(9)\" class=\"iconEdit\" [src]='iconURL[9]'>\n              <label [class.overLine]=\"!isActive(9)\">Bathtub</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(10)\" class=\"iconEdit\" [src]='iconURL[10]'>\n              <label [class.overLine]=\"!isActive(10)\">Microwave</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(11)\" class=\"iconEdit\" [src]='iconURL[11]'>\n              <label [class.overLine]=\"!isActive(11)\">Landline</label>\n            </td>\n            <td class=\"celija\">\n              <img [class.opi]=\"!isActive(12)\" class=\"iconEdit\" [src]='iconURL[12]'>\n              <label [class.overLine]=\"!isActive(12)\">Fireplace</label>\n            </td>\n          </tr>\n        </table>\n      </div>\n    </div>\n    <div class=\"col-md-4 col-sm-6 col-xs-12\">\n      <div class=\"text-center bordr rightIm\">\n        <img [src]='url' class=\"avatar images rounded-circle img-thumbnail\" alt=\"avatar\">\n        <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>\n        <button type=\"button\" (click)='goToProfile()' class=\"btn btn-info\" style=\"margin-top:10px; margin-bottom:10px;\">View profile</button>\n        <button *ngIf=\"!hasWaitlist && users.landlord!=1\" (click)=\"payProperty(property)\" class=\"btn btn-primary btn-block\">Pay</button>\n      </div>\n    </div>\n\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"max-width:900px; text-align:center; padding-top: 200px\">\n  <h2>My Apartments</h2>\n\n\n  <div class=\"card\" *ngFor=\"let prop of propArray\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\">\n    <img class=\"card-img-top fixSize\" [src]=\"getImage(prop)\" alt=\"Card image cap\">\n    <img src=\"../../../assets/images/clear.png\" class=\"delet\" (click)=\"deleteProp(prop)\">\n    <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n    <div class=\"card-body\" style=\"padding-top:5px;\">\n      <h6 class=\"card-subtitle text-truncate\">{{prop.street}}</h6>\n      <h6 class=\"card-subtitle text-truncate\" *ngIf=\"approveProp(prop)\">Approved By Admin!</h6>\n      <h6 class=\"card-subtitle text-truncate\" *ngIf=\"!approveProp(prop)\">Awaiting Approval.</h6>\n    </div>\n  </div>\n\n\n  <div *ngIf=\"add\" class=\"card newAdd\" (click)=\"goForNew()\" style=\"width: 13rem; border:none; display:inline-block;\">\n    <img class=\"card-img-top\" src=\"../../../assets/images/addnew.png\" alt=\"Card image cap\">\n    <div class=\"card-body\" style=\"padding-top:0px;\">\n      <h5 class=\"card-title text-center\">create new</h5>\n      <h6>(Up to five max)</h6>\n    </div>\n  </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"max-width:900px; text-align:center; padding-top: 200px\" *ngIf=\"dataLoaded\">\n  <h2>My Apartments</h2>\n\n\n  <div class=\"card\" *ngFor=\"let prop of propArray\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\">\n    <img class=\"card-img-top fixSize\" [src]=\"getImage(prop)\" alt=\"Card image cap\">\n    <img src=\"../../../assets/images/clear.png\" class=\"delet\" (click)=\"deleteProp(prop)\">\n    <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n    <div class=\"card-body\" style=\"padding-top:5px;\">\n      <h6 class=\"card-subtitle text-truncate\">{{prop.street}}</h6>\n      <h6 class=\"card-subtitle text-truncate\" *ngIf=\"approveProp(prop)\">Approved By Admin!</h6>\n      <h6 class=\"card-subtitle text-truncate\" *ngIf=\"!approveProp(prop)\">Awaiting Approval.</h6>\n    </div>\n  </div>\n\n\n  <div *ngIf=\"add\" class=\"card newAdd\" (click)=\"goForNew()\" style=\"width: 13rem; border:none; display:inline-block;\">\n    <img class=\"card-img-top\" src=\"../../../assets/images/addnew.png\" alt=\"Card image cap\">\n    <div class=\"card-body\" style=\"padding-top:0px;\">\n      <h5 class=\"card-title text-center\">create new</h5>\n      <h6>(Up to five max)</h6>\n    </div>\n  </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -247,6 +247,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/users/request/request.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/users/request/request.component.html ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>request works!</p>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/users/settings/settings.component.html":
 /*!**********************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/users/settings/settings.component.html ***!
@@ -269,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" style=\"max-width:900px; text-align:center;\">\n  <h2>My Waitlist</h2>\n\n  <div *ngIf=\"haveWaitlist\">\n    <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\">\n      <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n      <div class=\"card-body\" style=\"padding-top:5px;\">\n        <h6 class=\"card-subtitle text-truncate\">Waitlist</h6>\n\n        <!-- Payment Implementation -->\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"!haveWaitlist\">\n    <h6>You currently don't have any place waitlisted</h6>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"loaded\" class=\"container\" style=\"max-width:900px; text-align:center;\">\n  <h2>My Waitlist</h2>\n\n  <div *ngIf=\"haveWaitlist\">\n    <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\">\n      <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n      <div class=\"card-body\" style=\"padding-top:5px;\">\n        <h6 class=\"card-subtitle text-truncate\">Waitlist</h6>\n\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"!haveWaitlist\">\n    <h6>You currently don't have any place waitlisted</h6>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -1313,6 +1326,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PanelComponent", function() { return PanelComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1326,23 +1341,39 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+
 var PanelComponent = /** @class */ (function () {
-    function PanelComponent() {
+    function PanelComponent(userSer, router) {
+        this.userSer = userSer;
+        this.router = router;
         this.chouse = 1;
+        this.isLoaded = false;
     }
     PanelComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userSer.getSettings().subscribe(function (data) {
+            _this.user = data.user;
+            if (data.user.admin == 0) {
+                _this.router.navigate(['/']);
+            }
+            _this.isLoaded = true;
+        });
     };
     PanelComponent.prototype.setChoise = function (num) {
         this.chouse = num;
     };
-    PanelComponent.ctorParameters = function () { return []; };
+    PanelComponent.ctorParameters = function () { return [
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    ]; };
     PanelComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-panel',
             template: __importDefault(__webpack_require__(/*! raw-loader!./panel.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/panel/panel.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./panel.component.css */ "./src/app/admin/panel/panel.component.css")).default]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], PanelComponent);
     return PanelComponent;
 }());
@@ -1626,7 +1657,7 @@ var Property = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 var User = /** @class */ (function () {
-    function User(email, password, firstName, lastName, userName, phone, street, street2, landlord, avatar, admin, banned, request, userRequest) {
+    function User(email, password, firstName, lastName, userName, phone, street, street2, landlord, avatar, admin, banned, request, userRequest, _id) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -1641,6 +1672,7 @@ var User = /** @class */ (function () {
         this.banned = banned;
         this.request = request;
         this.userRequest = userRequest;
+        this._id = _id;
     }
     return User;
 }());
@@ -2809,7 +2841,6 @@ var PaymentComponent = /** @class */ (function () {
                 _this.userSer.getProfile(_this.property.user.userName).subscribe(function (data) {
                     _this.owner = data.user;
                     _this.owner.userRequest = data.user.userRequest;
-                    console.log(data.user);
                 });
                 //payment
                 document.querySelector("button").disabled = true;
@@ -2878,15 +2909,15 @@ var PaymentComponent = /** @class */ (function () {
         this.loading(false);
         document.querySelector("button").disabled = true;
         this.users.request = this.property._id;
-        this.userSer.addRequest(this.users).subscribe();
         this.owner.userRequest.push(this.users.userName);
         //this updates self setting, need to update owner's setting
-        //this.userSer.addRequest(this.owner).subscribe();
+        this.userSer.setData(this.users).subscribe();
+        this.userSer.setData(this.owner).subscribe();
         this.toastr.success('Request sent!', '', {
             closeButton: true,
             positionClass: 'toast-bottom-right'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/users/waitlist']);
     };
     ;
     PaymentComponent.prototype.loading = function (isLoading) {
@@ -3068,6 +3099,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
 /* harmony import */ var _model_property_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../model/property.model */ "./src/app/model/property.model.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3085,9 +3118,13 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
 var PropertyFormComponent = /** @class */ (function () {
-    function PropertyFormComponent(propSer) {
+    function PropertyFormComponent(router, propSer, userSer) {
+        this.router = router;
         this.propSer = propSer;
+        this.userSer = userSer;
         this.prop = { deposit: null, rooms: null, area: null, available: null, street: null, remain: null };
         this.event = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.url = ["", "../../../assets/images/placeholder.jpg",
@@ -3112,6 +3149,13 @@ var PropertyFormComponent = /** @class */ (function () {
         this.isClicked = [];
     }
     PropertyFormComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userSer.getSettings().subscribe(function (data) {
+            _this.user = data.user;
+            if (_this.user.landlord != 1 && _this.user.admin == 0) {
+                _this.router.navigate(['/']);
+            }
+        });
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             deposit: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.prop.deposit, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].min(50), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].max(10000)]),
             rooms: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.prop.rooms, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].min(1), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].max(10)]),
@@ -3237,7 +3281,9 @@ var PropertyFormComponent = /** @class */ (function () {
         element.click();
     };
     PropertyFormComponent.ctorParameters = function () { return [
-        { type: _services_property_service__WEBPACK_IMPORTED_MODULE_3__["PropertyService"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+        { type: _services_property_service__WEBPACK_IMPORTED_MODULE_3__["PropertyService"] },
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] }
     ]; };
     PropertyFormComponent.propDecorators = {
         prop: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
@@ -3249,7 +3295,7 @@ var PropertyFormComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./property-form.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/properties/property-form/property-form.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./property-form.component.css */ "./src/app/properties/property-form/property-form.component.css")).default]
         }),
-        __metadata("design:paramtypes", [_services_property_service__WEBPACK_IMPORTED_MODULE_3__["PropertyService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _services_property_service__WEBPACK_IMPORTED_MODULE_3__["PropertyService"], _services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"]])
     ], PropertyFormComponent);
     return PropertyFormComponent;
 }());
@@ -3322,6 +3368,7 @@ var ViewPropertyComponent = /** @class */ (function () {
         ];
         this.isClicked = [];
         this.isDataLoaded = false;
+        this.userLoaded = false;
         this.images = [];
         this.pos = 0;
         this.activ = null;
@@ -3339,6 +3386,7 @@ var ViewPropertyComponent = /** @class */ (function () {
                     else {
                         _this.hasWaitlist = true;
                     }
+                    _this.userLoaded = true;
                 });
                 if (data.prop.approved != 1) {
                     _this.router.navigate(['/']);
@@ -3903,7 +3951,7 @@ var UserService = /** @class */ (function () {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
         }));
     };
-    UserService.prototype.addRequest = function (user) {
+    UserService.prototype.setData = function (user) {
         var _this = this;
         var body = JSON.stringify(user);
         var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_1__["Headers"]({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('token') });
@@ -4152,9 +4200,16 @@ var MyPropertyComponent = /** @class */ (function () {
         this.router = router;
         this.userSer = userSer;
         this.readData = 1;
+        this.dataLoaded = false;
     }
     MyPropertyComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.userSer.getSettings().subscribe(function (data) {
+            if (data.user.landlord != 1 && data.user.admin == 0) {
+                _this.router.navigate(['/']);
+            }
+            _this.dataLoaded = true;
+        });
         this.propSer.currentMessage.subscribe(function (message) {
             if (message == 1) {
                 _this.readData = 1;
@@ -4619,6 +4674,85 @@ var Register1Component = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/users/request/request.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/users/request/request.component.css ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXJzL3JlcXVlc3QvcmVxdWVzdC5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/users/request/request.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/users/request/request.component.ts ***!
+  \****************************************************/
+/*! exports provided: RequestComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequestComponent", function() { return RequestComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _services_property_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/property.service */ "./src/app/services/property.service.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/user.service */ "./src/app/services/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var RequestComponent = /** @class */ (function () {
+    function RequestComponent(userSer, propSer, router) {
+        this.userSer = userSer;
+        this.propSer = propSer;
+        this.router = router;
+        this.loaded = false;
+    }
+    RequestComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userSer.getSettings().subscribe(function (data) {
+            if (data.user.landlord == 0 && data.user.admin == 0) {
+                _this.router.navigate(['/']);
+            }
+            _this.loaded = true;
+        });
+    };
+    RequestComponent.ctorParameters = function () { return [
+        { type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+        { type: _services_property_service__WEBPACK_IMPORTED_MODULE_2__["PropertyService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
+    ]; };
+    RequestComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-request',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./request.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/users/request/request.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./request.component.css */ "./src/app/users/request/request.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _services_property_service__WEBPACK_IMPORTED_MODULE_2__["PropertyService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], RequestComponent);
+    return RequestComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/users/settings/settings.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/users/settings/settings.component.css ***!
@@ -4760,7 +4894,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _password_password_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./password/password.component */ "./src/app/users/password/password.component.ts");
 /* harmony import */ var _my_property_my_property_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./my-property/my-property.component */ "./src/app/users/my-property/my-property.component.ts");
 /* harmony import */ var _waitlist_waitlist_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./waitlist/waitlist.component */ "./src/app/users/waitlist/waitlist.component.ts");
-/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _request_request_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./request/request.component */ "./src/app/users/request/request.component.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4778,15 +4913,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"] },
     { path: 'landlordreg', component: _register1_register1_component__WEBPACK_IMPORTED_MODULE_6__["Register1Component"] },
-    { path: 'profile/:username', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_4__["ProfileComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]] },
-    { path: 'settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_5__["SettingsComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]] },
-    { path: 'password', component: _password_password_component__WEBPACK_IMPORTED_MODULE_7__["PasswordComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]] },
-    { path: 'property', component: _my_property_my_property_component__WEBPACK_IMPORTED_MODULE_8__["MyPropertyComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]] },
-    { path: 'waitlist', component: _waitlist_waitlist_component__WEBPACK_IMPORTED_MODULE_9__["WaitlistComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_10__["AuthGuardService"]] },
+    { path: 'profile/:username', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_4__["ProfileComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]] },
+    { path: 'settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_5__["SettingsComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]] },
+    { path: 'password', component: _password_password_component__WEBPACK_IMPORTED_MODULE_7__["PasswordComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]] },
+    { path: 'property', component: _my_property_my_property_component__WEBPACK_IMPORTED_MODULE_8__["MyPropertyComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]] },
+    { path: 'request', component: _request_request_component__WEBPACK_IMPORTED_MODULE_10__["RequestComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]] },
+    { path: 'waitlist', component: _waitlist_waitlist_component__WEBPACK_IMPORTED_MODULE_9__["WaitlistComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_11__["AuthGuardService"]] },
     { path: '**', redirectTo: '/not-found' },
 ];
 var UsersRoutingModule = /** @class */ (function () {
@@ -4827,12 +4964,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _my_property_my_property_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./my-property/my-property.component */ "./src/app/users/my-property/my-property.component.ts");
 /* harmony import */ var _register1_register1_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./register1/register1.component */ "./src/app/users/register1/register1.component.ts");
 /* harmony import */ var _waitlist_waitlist_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./waitlist/waitlist.component */ "./src/app/users/waitlist/waitlist.component.ts");
+/* harmony import */ var _request_request_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./request/request.component */ "./src/app/users/request/request.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -4856,7 +4995,7 @@ var UsersModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             ],
-            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_5__["RegisterComponent"], _profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_7__["SettingsComponent"], _password_password_component__WEBPACK_IMPORTED_MODULE_8__["PasswordComponent"], _my_property_my_property_component__WEBPACK_IMPORTED_MODULE_9__["MyPropertyComponent"], _register1_register1_component__WEBPACK_IMPORTED_MODULE_10__["Register1Component"], _waitlist_waitlist_component__WEBPACK_IMPORTED_MODULE_11__["WaitlistComponent"]]
+            declarations: [_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_5__["RegisterComponent"], _profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_7__["SettingsComponent"], _password_password_component__WEBPACK_IMPORTED_MODULE_8__["PasswordComponent"], _my_property_my_property_component__WEBPACK_IMPORTED_MODULE_9__["MyPropertyComponent"], _register1_register1_component__WEBPACK_IMPORTED_MODULE_10__["Register1Component"], _waitlist_waitlist_component__WEBPACK_IMPORTED_MODULE_11__["WaitlistComponent"], _request_request_component__WEBPACK_IMPORTED_MODULE_12__["RequestComponent"]]
         })
     ], UsersModule);
     return UsersModule;
@@ -4914,10 +5053,14 @@ var WaitlistComponent = /** @class */ (function () {
         this.propSer = propSer;
         this.router = router;
         this.userSer = userSer;
+        this.loaded = false;
     }
     WaitlistComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userSer.getSettings().subscribe(function (data) {
+            if (data.user.landlord == 1) {
+                _this.router.navigate(['/']);
+            }
             _this.usersRequest = data.user.request;
             if (_this.usersRequest == "none") {
                 _this.haveWaitlist = false;
@@ -4928,6 +5071,10 @@ var WaitlistComponent = /** @class */ (function () {
                     _this.haveWaitlist = true;
                 });
             }
+            if (data.user.landlord == 1) {
+                _this.router.navigate(['/']);
+            }
+            _this.loaded = true;
         });
     };
     WaitlistComponent.prototype.getImage = function (prop) {

@@ -1,4 +1,4 @@
-<div class="container" style="max-width:900px; text-align:center;">
+<div *ngIf="loaded" class="container" style="max-width:900px; text-align:center;">
   <h2>My Waitlist</h2>
 
   <div *ngIf="haveWaitlist">
@@ -7,7 +7,6 @@
       <div class="card-body" style="padding-top:5px;">
         <h6 class="card-subtitle text-truncate">Waitlist</h6>
 
-        <!-- Payment Implementation -->
       </div>
     </div>
   </div>

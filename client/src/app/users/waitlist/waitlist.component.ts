@@ -15,11 +15,16 @@ export class WaitlistComponent implements OnInit {
   public prop: Property;
   public users: User;
   public usersRequest: string;
+  public loaded = false;
+
   constructor(private propSer: PropertyService, private router: Router, private userSer: UserService) { }
 
   ngOnInit() {
     this.userSer.getSettings().subscribe(
       data => {
+        if(data.user.landlord==1) {
+          this.router.navigate(['/']);
+        }
         this.usersRequest = data.user.request;
         if (this.usersRequest == "none") {
           this.haveWaitlist = false;
@@ -31,6 +36,12 @@ export class WaitlistComponent implements OnInit {
             }
           );
         }
+
+        if(data.user.landlord == 1) {
+          this.router.navigate(['/']);
+        }
+
+        this.loaded = true;
       });
 
   }

@@ -10,6 +10,7 @@ import { PasswordComponent } from './password/password.component';
 import { MyPropertyComponent } from './my-property/my-property.component';
 import { Register1Component } from './register1/register1.component';
 import { WaitlistComponent } from './waitlist/waitlist.component';
+import { RequestComponent } from './request/request.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { WaitlistComponent } from './waitlist/waitlist.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  declarations: [LoginComponent, RegisterComponent, ProfileComponent, SettingsComponent, PasswordComponent, MyPropertyComponent, Register1Component, WaitlistComponent]
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent, SettingsComponent, PasswordComponent, MyPropertyComponent, Register1Component, WaitlistComponent, RequestComponent]
 })
 export class UsersModule { }

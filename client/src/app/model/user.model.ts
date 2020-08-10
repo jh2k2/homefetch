@@ -5,6 +5,7 @@ export class User {
         public firstName?:string,
         public lastName?:string,
         public userName?:string,
+
         public phone?:string,
         public street?:string,
         public street2?:string,
@@ -12,7 +13,9 @@ export class User {
         public avatar?:string,
         public admin?:number,
         public banned?:boolean,
+
         public request?:string,
-        public userRequest?:string[]
+        public userRequest?:string[],
+        public _id?:string
     ) {}
 }

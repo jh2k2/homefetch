@@ -55,7 +55,6 @@ router.get('/allbyid', (req, res, next) => {
 router.post('/add', upload.array('photo', 4), passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
-  if (req.user.landlord < 1) return res.status(403).send("You are not a landlord");
   var itsMe = JSON.parse(req.body.thisProp);
   let prop = new Property(itsMe);
   prop.user = req.user._id;

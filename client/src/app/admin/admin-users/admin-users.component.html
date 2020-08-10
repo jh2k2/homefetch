@@ -19,7 +19,7 @@
       <td>{{user.lastName}}</td>
       <td>{{user.userName}}</td>
       <td *ngIf="user.landlord==1 && user.admin==0">Landlord</td>
-      <td *ngIf="user.landlord==0">Tenant</td>
+      <td *ngIf="user.landlord==0 && user.admin==0">Tenant</td>
       <td *ngIf="user.admin==1">Admin</td>
       <td *ngIf="status==2"><button type="button" (click)="setAdmin(user,2)" [class.btn-success]="user.admin==2" [class.btn-danger]="user.admin!=2" class="btn btn-danger">Head</button></td>
       <td *ngIf="status==2"><button type="button" (click)="setAdmin(user,1)" [class.btn-success]="user.admin==1" [class.btn-danger]="user.admin!=1" class="btn">Admin</button></td>

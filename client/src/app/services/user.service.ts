@@ -33,7 +33,7 @@ export class UserService {
     );
   }
 
-  addRequest(user: User) {
+  setData(user: User) {
     var body = JSON.stringify(user);
     const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('token') });
     return this.http.patch(this.rootUrl + 'request', body, { headers: headers }).pipe(

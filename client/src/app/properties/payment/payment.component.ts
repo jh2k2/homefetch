@@ -35,7 +35,7 @@ export class PaymentComponent implements OnInit {
   public isDataLoaded = false;
   public hasWaitlist = true;
 
-  constructor(private router: Router, private toastr: ToastrService, private route: ActivatedRoute, private paySer: PaymentService, private propSer: PropertyService, private userSer: UserService) { }
+  constructor( private router: Router, private toastr: ToastrService, private route: ActivatedRoute, private paySer: PaymentService, private propSer: PropertyService, private userSer: UserService) { }
 
   ngOnInit(): void {
 
@@ -58,7 +58,6 @@ export class PaymentComponent implements OnInit {
             data => {
               this.owner = data.user;
               this.owner.userRequest = data.user.userRequest;
-              console.log(data.user);
             });
 
           //payment
@@ -138,19 +137,20 @@ export class PaymentComponent implements OnInit {
   orderComplete(paymentIntentId) {
     this.loading(false);
     document.querySelector("button").disabled = true;
-    this.users.request = this.property._id;
-    this.userSer.addRequest(this.users).subscribe();
 
+    this.users.request = this.property._id;
     this.owner.userRequest.push(this.users.userName);
     //this updates self setting, need to update owner's setting
-    //this.userSer.addRequest(this.owner).subscribe();
+
+    this.userSer.setData(this.users).subscribe();
+    this.userSer.setData(this.owner).subscribe();
 
 
     this.toastr.success('Request sent!', '', {
       closeButton: true,
       positionClass: 'toast-bottom-right'
     });
-    this.router.navigate(['/']);
+    this.router.navigate(['/users/waitlist']);
   };
 
   loading(isLoading) {

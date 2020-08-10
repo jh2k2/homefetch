@@ -89,6 +89,7 @@ router.get('/profile/:username', passport.authenticate('jwt', {
 
       return res.status(200).json({
         user: {
+          _id: user._id,
           firstName: user.firstName,
           lastName: user.lastName,
           userName: user.userName,
@@ -112,7 +113,7 @@ router.get('/settings', passport.authenticate('jwt', {
   user = req.user;
   return res.status(200).json({
     user: {
-      id: user._id,
+      _id: user._id,
       name: user.firstName,
       last: user.lastName,
       userName: user.userName,
@@ -186,13 +187,13 @@ router.post('/settings', upload.single('avatar'), passport.authenticate('jwt', {
 router.patch('/request', passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
-  User.update(req.body, (err, user) => {
+  console.log(req.body);
+  User.updateOne(req.body, (err) => {
     if (err)
-      return res.status(500).send("Server Error! " + err);
-    else
-      return res.status(200).send("Request sent!");
+      return res.status(500).send("Server error!");
   });
 });
+
 
 router.get('/property', passport.authenticate('jwt', {
   session: false
