@@ -53,7 +53,7 @@ export class PropertyFormComponent implements OnInit {
     this.userSer.getSettings().subscribe(
       data => {
         this.user = data.user;
-        if(this.user.landlord != 1 && this.user.admin == 0) {
+        if (this.user.landlord != 1 && this.user.admin == 0) {
           this.router.navigate(['/']);
         }
       });
@@ -102,7 +102,8 @@ export class PropertyFormComponent implements OnInit {
       return;
     }
 
-    const remain = this.form.value.street.formatted_address.split(this.form.value.street.name + ', ');
+    let test = this.form.value.street.formatted_address.split(' ');
+    test = test[test.length - 2] + ' ' + test[test.length - 1];
 
     const property = new Property(
       this.form.value.deposit,
@@ -110,7 +111,7 @@ export class PropertyFormComponent implements OnInit {
       this.form.value.area,
       this.form.value.available,
       this.form.value.street.name,
-      remain[1],
+      test,
       this.form.value.street.vicinity,
       this.longitude,
       this.latitude,

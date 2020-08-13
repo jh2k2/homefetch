@@ -12,6 +12,7 @@ import { PropertyService } from '../../services/property.service';
 })
 export class MyPropertyComponent implements OnInit {
   public propArray: Property[];
+  public admin = false;
   public add: Boolean;
   readData = 1;
   public dataLoaded = false;
@@ -20,6 +21,9 @@ export class MyPropertyComponent implements OnInit {
   ngOnInit() {
     this.userSer.getSettings().subscribe(
       data => {
+        if(data.user.admin!=0) {
+          this.admin = true;
+        }
         if(data.user.landlord != 1 && data.user.admin == 0) {
           this.router.navigate(['/']);
         }

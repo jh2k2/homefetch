@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../model/property.model';
+
+declare let google: any;
 import { AgmMap } from '@agm/core';
 
 @Component({
@@ -17,8 +19,8 @@ export class SearchComponent implements OnInit {
   form: FormGroup;
 
   //views
-  lat: number = 37.5482697;
-  long: number = -121.9885719;
+  latitude: Number;
+  longitude: Number;
   searchProp: Property[];
   properties: Property[];
   toShow: Property[];
@@ -33,31 +35,43 @@ export class SearchComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
+  mapReady() {
+    let geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': this.param }, (results, status) => {
+      if (status == 'OK') {
+        this.latitude = results[0].geometry.location.lat();
+        this.longitude = results[0].geometry.location.lng();
+      }
+    });
+  }
 
   ngOnInit() {
+    document.getElementsByClassName('nav')[0].classList.add('affix');
+
     this.form = new FormGroup({
       vicinity: new FormControl()
     });
 
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.param = params.get('param');
-      this.isLoaded = true;
-    });
 
-    this.propSer.getAllProperties({ params: {} }).subscribe(data => {
-      this.searchProp = data.obj;
-    });
-
-    if (this.param == null) {
-      this.router.navigate(['/']);
-    } else {
-      this.propSer.getAllProperties({ params: { vicinity: this.param } }).subscribe(data => {
-        this.properties = data.obj;
-
-        this.sortList();
-        this.createList();
+      this.propSer.getAllProperties({ params: {} }).subscribe(data => {
+        this.searchProp = data.obj;
       });
-    }
+
+      if (this.param == null) {
+        this.router.navigate(['/']);
+      } else {
+        this.propSer.getAllProperties({ params: { remain: this.param } }).subscribe(data => {
+          this.properties = data.obj;
+
+          this.sortList();
+          this.createList();
+        });
+      }
+
+    });
+
   }
 
   //views
@@ -101,6 +115,7 @@ export class SearchComponent implements OnInit {
       this.toShow = this.properties;
       this.number.length = 0;
     }
+    this.isLoaded = true;
 
   }
 

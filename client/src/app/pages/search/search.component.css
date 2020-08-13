@@ -1,23 +1,65 @@
 agm-map {
-  height:300px;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
 
-#searchbutton {
-  border: 3px solid #db2d8e;
-  padding: 20px 15px;
-  font-size: 20px;
-  font-family: "circular std bold", sans-serif;
-  border-left: 0;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  color: white;
-  background: #19AA59;
+.card {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  flex-direction: row;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #dad8d882 !important;
+  margin: 0 auto !important;
+}
+
+.card-body {
+  padding: 0 0 0 1.25rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+}
+
+#properties-list {
+  padding: 20px 0 20px 0 !important;
+}
+
+#search2 {
+  margin-left: 40px;
+  width: 30%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#search-container {
+  height: 8vh;
+}
+
+#scroll-container {
+  height: calc(92vh - 105px);
+  max-height: calc(100vh - 65px);
+  overflow: auto;
+  padding: 0 30px 0 40px;
+}
+
+#filter {
+  position: absolute;
+  top: 20px;
+  right: 30px;
 }
 
 .overall {
-  padding-top:150px !important;
+  padding-top: 65px !important;
 }
+
 .pagination {
   margin-top: 40px;
 }
@@ -36,16 +78,10 @@ body {
 }
 
 
-.row {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-}
-
 #faq {
   padding-bottom: 70px;
   background-color: rgba(236, 233, 245, 0.53);
 }
-
 
 #search {
   border: 3px solid #db2d8e;
@@ -83,21 +119,21 @@ details {
   margin: 0 auto;
   position: relative;
   font-size: 22px;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 15px;
   box-sizing: border-box;
   transition: all .3s;
   background: white;
 }
 
-details + details {
+details+details {
   margin-top: 20px;
 }
 
 details[open] {
   min-height: 50px;
   background-color: #f6f7f8;
-  box-shadow: 2px 2px 20px rgba(0,0,0,.2);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
 }
 
 details p {
@@ -118,7 +154,6 @@ summary {
 
 summary:focus {
   outline: none;
-
 }
 
 summary:focus::after {

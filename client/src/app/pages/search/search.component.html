@@ -1,59 +1,70 @@
 <div class="overall" *ngIf="isLoaded ">
-  <div class="text-center text-light" id="searchcontainer">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <input id="search" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
-          <mat-option value="Barcelona">Barcelona</mat-option>
-          <!-- TODO: Other -->
-        </mat-autocomplete>
-        <button type="submit" id="searchbutton">Search</button>
-      </div>
-    </form>
-  </div>
 
-  <agm-map #agmMap [latitude]="37.5482697" [longitude]="-121.9885719" [scrollwheel]="false" [zoom]="zoom">
-    <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
-  </agm-map>
+  <div class="row">
+    <div class="container col-md-7 px-0" id="properties-list">
+      <div id="search-container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input class="form-control" id="search2" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
+              <mat-option value="Barcelona">Barcelona</mat-option>
+              <mat-option value="Madrid, Spain">Madrid, Spain</mat-option>
+              <!-- TODO: Other -->
+            </mat-autocomplete>
+            <button type="submit" class="btn btn-success">Search</button>
+          </div>
+        </form>
 
-  <div class="container" style="margin-top:20px; min-height:800px; margin-bottom:10px; max-width:1000px;">
-    <div class="form-group ml-auto" style="width:180px;">
-      <select class="form-control" (change)="sorting($event)" id="sel1">
-        <option>Date - newest</option>
-        <option>Date - oldest</option>
-        <option>Price - low to high</option>
-        <option>Price - high to low</option>
-      </select>
-    </div>
-
-    <ng-container *ngFor="let prop of toShow">
-      <div class="card" *ngIf="prop.approved!=0" (click)="goForProp(prop)" style="width: 18rem; margin:0 5px 5px; display:inline-block;">
-        <img class="card-img-top" [src]="getImage(prop)" style="width:100%; height:200px;" alt="Card image cap">
-        <div class="card-body" style="padding-bottom:5px; padding-top:10px;">
-          <h5 class="card-title">{{prop.street}}</h5>
-          <h6 style="text-align: left;" class="citystatezip">{{prop.vicinity}}</h6>
-          <h5 class="card-title" style="margin: 15px 0">
-            <span style="color: #b951f9" class="price">{{prop.deposit}}€</span> / month</h5>
+        <div class="form-group ml-auto" id="filter" style="width:180px;">
+          <select class="form-control" (change)="sorting($event)" id="sel1">
+            <option>Date - newest</option>
+            <option>Date - oldest</option>
+            <option>Price - low to high</option>
+            <option>Price - high to low</option>
+          </select>
         </div>
       </div>
-    </ng-container>
 
+      <div id="scroll-container">
+        <ng-container *ngFor="let prop of toShow">
+          <div class="card row" *ngIf="prop.approved!=0" (click)="goForProp(prop)">
+            <div class="col-md-5 px-0">
+              <img class="card-img-top" [src]="getImage(prop)" alt="Card image cap">
+            </div>
 
+            <div class="col-md-7 px-0">
+              <div class="card-body">
+                <h5 class="card-title">{{prop.street}}</h5>
+                <h6 style="text-align: left;" class="citystatezip">{{prop.vicinity}}</h6>
+                <h5 style="margin: 0; position: absolute; bottom: 0; right: 0;">
+                  <span style="color: #b951f9" class="price">{{prop.deposit}}€</span> / month</h5>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ul *ngIf="isThereAList()" class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" style="color:#007bff;" (click)="OneLeft()" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let num of number" [class.boja]="isActive(num)" [class.boja2]="!isActive(num)"><a class="page-link" (click)="sliceon(num)">{{num}}</a></li>
+          <li class="page-item">
+            <a class="page-link" style="color:#007bff;" (click)="OneRight()" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-5 px-0">
+      <agm-map #agmMap (mapReady)="mapReady()" [latitude]="latitude" [longitude]="longitude">
+        <agm-marker *ngFor="let prop of properties" [latitude]="prop.latitude" [longitude]="prop.longitude"></agm-marker>
+      </agm-map>
+    </div>
   </div>
-
-  <ul *ngIf="isThereAList()" class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" style="color:#007bff;" (click)="OneLeft()" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item" *ngFor="let num of number" [class.boja]="isActive(num)" [class.boja2]="!isActive(num)"><a class="page-link" (click)="sliceon(num)">{{num}}</a></li>
-    <li class="page-item">
-      <a class="page-link" style="color:#007bff;" (click)="OneRight()" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
 </div>

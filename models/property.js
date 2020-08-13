@@ -27,18 +27,20 @@ const PropertySchema = mongoose.Schema({
   },
   street: {
     type: String,
+    require:true
   },
   remain: {
     type: String,
+    required:true
   },
   vicinity: {
     type: String,
   },
-  longitude: {
+  latitude: {
     type: Number,
     required: true
   },
-  latitude: {
+  longitude: {
     type: Number,
     required: true
   },
@@ -138,9 +140,9 @@ module.exports.findUserPropertys = function(id, callback) {
 }
 
 module.exports.findAllProperties = function(query, callback) {
-  if (query.vicinity != undefined)
-    query.vicinity = {
-      '$regex': query.vicinity,
+  if (query.remain != undefined)
+    query.remain = {
+      '$regex': query.remain,
       '$options': 'i'
     };
   Property.find(query).populate().exec(callback);

@@ -21,10 +21,7 @@ import { AboutComponent } from './about/about.component';
     HomepageComponent, NotFoundComponent, SearchComponent, SearchbarComponent, AboutComponent,
   ],
   imports: [
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDLUqRbtCSwCnz3a9wTjhE22otxiTR-2LI',
-      libraries: ['places']
-    }),
+    AgmCoreModule,
     CommonModule,
     PagesRoutingModule,
     NgbModule,
