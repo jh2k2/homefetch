@@ -1,4 +1,4 @@
-<div class="overall" *ngIf="isLoaded">
+<div class="overall" *ngIf="isLoaded ">
   <div class="text-center text-light" id="searchcontainer">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -11,6 +11,10 @@
       </div>
     </form>
   </div>
+
+  <agm-map #agmMap [latitude]="37.5482697" [longitude]="-121.9885719" [scrollwheel]="false" [zoom]="zoom">
+    <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+  </agm-map>
 
   <div class="container" style="margin-top:20px; min-height:800px; margin-bottom:10px; max-width:1000px;">
     <div class="form-group ml-auto" style="width:180px;">

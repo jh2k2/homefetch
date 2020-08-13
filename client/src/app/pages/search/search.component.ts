@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../model/property.model';
+import { AgmMap } from '@agm/core';
 
 @Component({
   selector: 'app-search',
@@ -11,9 +12,13 @@ import { Property } from '../../model/property.model';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @ViewChild('agmMap') agmMap: AgmMap
+
   form: FormGroup;
 
   //views
+  lat: number = 37.5482697;
+  long: number = -121.9885719;
   searchProp: Property[];
   properties: Property[];
   toShow: Property[];
@@ -27,6 +32,7 @@ export class SearchComponent implements OnInit {
   constructor(private propSer: PropertyService, private router: Router, private route: ActivatedRoute) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
+
 
   ngOnInit() {
     this.form = new FormGroup({

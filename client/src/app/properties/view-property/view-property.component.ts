@@ -60,9 +60,6 @@ export class ViewPropertyComponent implements OnInit {
               this.userLoaded = true;
             });
 
-          if(data.prop.approved != 1) {
-            this.router.navigate(['/']);
-          }
           this.amount = data.prop.deposit;
           this.property = data.prop;
           this.property.user = data.user;
