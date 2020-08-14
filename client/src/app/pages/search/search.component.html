@@ -7,7 +7,7 @@
           <div class="form-group">
             <input class="form-control" id="search2" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
-              <mat-option value="Barcelona">Barcelona</mat-option>
+              <mat-option value="Barcelona, Spain">Barcelona, Spain</mat-option>
               <mat-option value="Madrid, Spain">Madrid, Spain</mat-option>
               <!-- TODO: Other -->
             </mat-autocomplete>
@@ -62,8 +62,8 @@
     </div>
 
     <div class="col-md-5 px-0">
-      <agm-map #agmMap (mapReady)="mapReady()" [latitude]="latitude" [longitude]="longitude">
-        <agm-marker *ngFor="let prop of properties" [latitude]="prop.latitude" [longitude]="prop.longitude"></agm-marker>
+      <agm-map #agmMap (mapReady)="mapReady()" [latitude]="latitude" [longitude]="longitude" [fitBounds]="true">
+        <agm-marker *ngFor="let prop of properties" [latitude]="prop.latitude" [longitude]="prop.longitude" [agmFitBounds]="true" [label]="{color: 'black', text: prop.deposit}"></agm-marker>
       </agm-map>
     </div>
   </div>
