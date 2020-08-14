@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 105vh;
+  height: 120vh;
 }
 
 #icon {
@@ -23,7 +23,7 @@ body {
 }
 
 #searchcontainer {
-  margin-top: 7rem;
+  margin-top: 6rem;
 }
 
 #why-div, #how-it-works, #faq {
@@ -81,7 +81,7 @@ body {
 #hero-text {
   height: 100vh;
   width: 100vw;
-  padding: 18% calc(3rem + 15px) !important;
+  padding: 16% calc(3rem + 15px) !important;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
 }
