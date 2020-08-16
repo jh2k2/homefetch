@@ -15,7 +15,7 @@ import { AgmMap } from '@agm/core';
 })
 export class SearchComponent implements OnInit {
   @ViewChild('agmMap') agmMap: AgmMap
-
+  
   form: FormGroup;
 
   //views

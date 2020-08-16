@@ -1,3 +1,7 @@
+.hiw-container {
+  padding-top:100px;  
+}
+
 .hero-image {
   background-image: url('../../../assets/images/hero.jpg');
   background-position: center;
@@ -6,7 +10,6 @@
   position: relative;
   height: 120vh;
 }
-
 
 #icon {
   width: 50px;
@@ -130,7 +133,7 @@ details[open] {
 
 details p {
   color: #96999d;
-  font-weight: lighter;
+  font-weight: 300;
   margin-top: 20px;
   font-size: 17px;
 }
@@ -139,9 +142,9 @@ summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: lighter;
+  font-weight: 500;
   cursor: pointer;
-  font-family: "Circular Std Book";
+  font-family: "Circular Std Book", sans-serif;
 }
 
 summary:focus {

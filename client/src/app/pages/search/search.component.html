@@ -35,7 +35,9 @@
             <div class="col-md-7 px-0">
               <div class="card-body">
                 <h5 class="card-title">{{prop.street}}</h5>
-                <h6 style="text-align: left;" class="citystatezip">{{prop.vicinity}}</h6>
+                <h6 style="text-align: left;" class="citystatezip">{{prop.remain}}</h6>
+                <h6 style="text-align: left;" class="citystatezip">Rooms: {{prop.rooms}}</h6>
+                <h6 style="text-align: left;" class="citystatezip">Area: {{prop.area}}m^2</h6>
                 <h5 style="margin: 0; position: absolute; bottom: 0; right: 0;">
                   <span style="color: #b951f9" class="price">{{prop.deposit}}€</span> / month</h5>
               </div>
@@ -63,7 +65,7 @@
 
     <div class="col-md-5 px-0">
       <agm-map #agmMap (mapReady)="mapReady()" [latitude]="latitude" [longitude]="longitude" [fitBounds]="true">
-        <agm-marker *ngFor="let prop of properties" [latitude]="prop.latitude" [longitude]="prop.longitude" [agmFitBounds]="true" [label]="{color: 'black', text: prop.deposit}"></agm-marker>
+        <agm-marker *ngFor="let prop of properties" (markerClick)="goForProp(prop)" [latitude]="prop.latitude" [longitude]="prop.longitude" [agmFitBounds]="true"></agm-marker>
       </agm-map>
     </div>
   </div>
