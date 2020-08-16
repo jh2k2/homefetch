@@ -16,10 +16,11 @@ import { SearchComponent } from './search/search.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { AboutComponent } from './about/about.component';
 import { HiwComponent } from './hiw/hiw.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
-    HomepageComponent, NotFoundComponent, SearchComponent, SearchbarComponent, AboutComponent, HiwComponent,
+    HomepageComponent, NotFoundComponent, SearchComponent, SearchbarComponent, AboutComponent, HiwComponent, ContactComponent,
   ],
   imports: [
     AgmCoreModule,

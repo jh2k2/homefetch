@@ -4,9 +4,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 120vh;
+  height: 110vh;
 }
 
+a {
+  z-index:100;
+  position:relative;
+}
 
 #icon {
   width: 50px;
@@ -46,11 +50,13 @@ body {
 }
 
 ::ng-deep .mat-autocomplete-panel {
-    width: calc(100% - 60px) !important;
-    margin-left: 30px !important;
+  width: calc(100% - 60px) !important;
+  margin-left: 30px !important;
 }
 
 #search {
+  z-index: 99;
+  position: relative;
   border-radius: 200px;
   width: calc(30% + 112px);
   border: 3px solid #19AA59;
@@ -64,6 +70,8 @@ body {
 }
 
 #searchbutton {
+  position:relative;
+  z-index: 100;
   border: 3px solid #19AA59;
   font-size: 20px;
   font-family: "circular std bold", sans-serif;
@@ -141,7 +149,7 @@ summary {
   align-items: center;
   font-weight: lighter;
   cursor: pointer;
-  font-family: "Circular Std Book";
+  
 }
 
 summary:focus {

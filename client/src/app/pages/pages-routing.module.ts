@@ -4,11 +4,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { HiwComponent } from './hiw/hiw.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'search', component: SearchComponent },
   { path: 'hiw', component: HiwComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'search/:param', component: SearchComponent },
   { path: 'about', component: AboutComponent }
 ];

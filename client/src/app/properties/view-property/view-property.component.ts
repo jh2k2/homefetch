@@ -48,17 +48,6 @@ export class ViewPropertyComponent implements OnInit {
       this.taken = params.get('id');
       this.propSer.viewProperty(this.taken).subscribe(
         data => {
-          this.userSer.getSettings().subscribe(
-            data => {
-              this.users = data.user;
-              if(this.users.request == "none") {
-                this.hasWaitlist = false;
-              } else {
-                this.hasWaitlist = true;
-              }
-
-              this.userLoaded = true;
-            });
 
           this.amount = data.prop.deposit;
           this.property = data.prop;
@@ -90,8 +79,21 @@ export class ViewPropertyComponent implements OnInit {
         });
     });
 
+    if (this.isLoggedIn()) {
+      this.userSer.getSettings().subscribe(
+        data => {
+          this.users = data.user;
+          if (this.users.request == "none") {
+            this.hasWaitlist = false;
+          } else {
+            this.hasWaitlist = true;
+          }
 
-
+          this.userLoaded = true;
+        });
+    } else {
+      return;
+    }
   }
 
 
