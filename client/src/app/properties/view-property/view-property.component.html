@@ -87,7 +87,7 @@
         <img [src]='url' class="avatar images rounded-circle img-thumbnail" alt="avatar">
         <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>
         <button type="button" (click)='goToProfile()' class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">View profile</button>
-        <button *ngIf="!hasWaitlist && users.landlord!=1 && property.approved==1" (click)="payProperty(property)" class="btn btn-primary btn-block">Pay</button>
+        <button *ngIf="!hasWaitlist && users.landlord!=1 && property.approved==1" (click)="payProperty(property)" class="btn btn-primary btn-block">Book now</button>
       </div>
     </div>
 
