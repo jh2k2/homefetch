@@ -5,6 +5,7 @@ import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { HiwComponent } from './hiw/hiw.component';
 import { ContactComponent } from './contact/contact.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'hiw', component: HiwComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'search/:param', component: SearchComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
