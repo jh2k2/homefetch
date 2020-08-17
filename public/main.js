@@ -3704,11 +3704,7 @@ var ViewPropertyComponent = /** @class */ (function () {
                         else {
                             _this.hasWaitlist = true;
                         }
-                        _this.userLoaded = true;
                     });
-                }
-                else {
-                    return;
                 }
                 _this.isDataLoaded = true;
             });

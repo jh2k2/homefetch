@@ -85,10 +85,7 @@ export class ViewPropertyComponent implements OnInit {
                   this.hasWaitlist = true;
                 }
 
-                this.userLoaded = true;
               });
-          } else {
-            return;
           }
 
           this.isDataLoaded = true;
