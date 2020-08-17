@@ -4,7 +4,100 @@
   </div>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!--Title/Area-->
     <div class="form-row justify-content-center toCent" style="max-width:500px">
+
+      <div class="form-group col-md-6">
+        <label for="inputTitle">Title</label>
+        <input type="text" class="form-control" id="inputTitle" placeholder="Enter an attractive title" formControlName="title">
+        <div *ngIf="form.controls['title'].errors && !form.controls['title'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['title'].errors.required">
+            Valid Title is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputArea">Area</label>
+        <input type="number" class="form-control" id="inputArea" placeholder="Enter area in m2" formControlName="area">
+        <div *ngIf="form.controls['area'].errors && !form.controls['area'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['area'].errors.required">
+            Valid area number is required.
+          </div>
+          <div [hidden]="!form.controls['area'].errors.min">
+            Area is too small (min 3).
+          </div>
+          <div [hidden]="!form.controls['area'].errors.max">
+            Area is too big (max 1000).
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--Description/Rules-->
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+
+      <div class="form-group col-md-6">
+        <label for="inputDescription">Description</label>
+        <textarea type="textarea" class="form-control" id="inputDescription" placeholder="Provide a detailed description of your home" formControlName="description"></textarea>
+        <div *ngIf="form.controls['description'].errors && !form.controls['description'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['description'].errors.required">
+            Valid Description is needed!
+          </div>
+          <div [hidden]="!form.controls['description'].errors.minlength">
+            Description is too short (min 40).
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputRules">Rules</label>
+        <textarea type="number" class="form-control" id="inputRules" placeholder="Provide a set of rules for your tenant" formControlName="rules"></textarea>
+        <div *ngIf="form.controls['rules'].errors && !form.controls['rules'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['rules'].errors.required">
+            Valid Rule Sets are required.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--Room/bathroom-->
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+
+      <div class="form-group col-md-6">
+        <label for="inputBathrooms">Bathrooms</label>
+        <input type="number" class="form-control" id="inputBathrooms" placeholder="Enter number of bath rooms" formControlName="bathrooms">
+        <div *ngIf="form.controls['bathrooms'].errors && !form.controls['bathrooms'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['bathrooms'].errors.required">
+            Valid bathrooms number is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputRooms">Bedrooms</label>
+        <input type="number" class="form-control" id="inputRooms" placeholder="Enter number of rooms" formControlName="rooms">
+        <div *ngIf="form.controls['rooms'].errors && !form.controls['rooms'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['rooms'].errors.required">
+            Valid rooms number is required.
+          </div>
+          <div [hidden]="!form.controls['rooms'].errors.min">
+            Room number is too small(min 1)
+          </div>
+          <div [hidden]="!form.controls['rooms'].errors.max">
+            Room number is too big(max 10)
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--Fee/availability-->
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+
       <div class="form-group col-md-6">
         <label for="inputDeposit">Monthly Fee</label>
         <input type="number" class="form-control" id="inputDeposit" placeholder="Enter monthly fee in euros" formControlName="deposit">
@@ -19,48 +112,16 @@
             Fee is too big (max 10000).
           </div>
         </div>
-
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputRooms">Rooms</label>
-        <input type="number" class="form-control" id="inputRooms" placeholder="Enter number of rooms" formControlName="rooms">
-        <div *ngIf="form.controls['rooms'].errors && !form.controls['rooms'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['rooms'].errors.required">
-            Valid rooms number is required.
-          </div>
-          <div [hidden]="!form.controls['rooms'].errors.min">
-            Room number is too small(min 1)
-          </div>
-          <div [hidden]="!form.controls['rooms'].errors.max">
-            Room number is too big(max 10)
-          </div>
-        </div>
-      </div>
-    </div>
 
-
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
-      <div class="form-group col-md-6">
-        <label for="inputArea">Area</label>
-        <input type="number" class="form-control" id="inputArea" placeholder="Enter area in m2" formControlName="area">
-        <div *ngIf="form.controls['area'].errors && !form.controls['area'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['area'].errors.required">
-            Valid area number is required.
-          </div>
-          <div [hidden]="!form.controls['area'].errors.min">
-            Area is too small (min 10).
-          </div>
-          <div [hidden]="!form.controls['area'].errors.max">
-            Area is too big (max 1000).
-          </div>
-        </div>
-      </div>
       <div class="form-group col-md-6">
         <label for="inputAvailable">Available Date</label>
         <input type="date" class="form-control" id="inputAvailable" formControlName="available">
       </div>
+
     </div>
 
+    <!--Street-->
     <div class="form-row justify-content-center toCent" style="max-width:500px">
       <div class="form-group col-md-6">
         <label for="inputStreet">Street</label>

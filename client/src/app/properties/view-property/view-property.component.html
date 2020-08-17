@@ -1,28 +1,17 @@
-<div class="container" *ngIf='isDataLoaded' style="margin:0 auto 5px; max-width:1000px; padding-top:120px;">
+<div class="container-fluid" *ngIf='isDataLoaded' style="margin:0 auto 5px; padding-top:100px; background-color: #F7F5F5">
   <div class="row" style="margin-top:10px;">
     <!-- edit form column -->
-    <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="max-width:800px;">
-      <div class="bordr text-center" style="margin-bottom:5px;">
-        <img [src]="images[pos]" style="margin-top:0px; width:100%; height:330px;" class="images">
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="max-width:900px;">
+      <div class="bordr text-center" style="margin-bottom:5px; background-color:white;">
+        <img [src]="images[pos]" style="margin-top:0px; width:100%; height:100%; border-radius: 10px 10px 0px 0px;" class="images">
         <img src="../../../assets/images/left.png" (click)="left()" class="left">
         <img src="../../../assets/images/right.png" (click)="right()" class="right">
-        <table class="table text-center " style="table-layout: fixed;width: 100%;">
-          <tr>
-            <td class="text-center" colspan="4">{{property.street}}, {{property.vicinity}}</td>
-          </tr>
-          <tr>
-            <td style="text-align:right;">Area:</td>
-            <td>{{property.area}}m2</td>
-            <td style="text-align:right;">Availability</td>
-            <td>{{property.available|date:'MM/dd/yyyy'}}</td>
-          </tr>
-          <tr>
-            <td style="text-align:right;">Monthly Fee:</td>
-            <td>{{property.deposit}} €</td>
-            <td style="text-align:right;">Rooms:</td>
-            <td>{{property.rooms}}</td>
-          </tr>
-        </table>
+        <div class="col-md-8">
+          <p class="title">{{property.title}}</p>
+          <p class="" style="text-align: left;"><b>{{property.rooms}} </b>bedrooms · <b>{{property.bathrooms}}</b> bathrooms · <b>{{property.area}}</b> m2</p>
+        </div>
+
+
 
         <table align='center' class="ikonice" style="width: 100%;">
           <tr>
@@ -82,8 +71,9 @@
         </table>
       </div>
     </div>
+    
     <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="text-center bordr rightIm">
+      <div class="text-center bordr rightIm" style="background-color:white;">
         <img [src]='url' class="avatar images rounded-circle img-thumbnail" alt="avatar">
         <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>
         <button type="button" (click)='goToProfile()' class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">View profile</button>

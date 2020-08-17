@@ -25,6 +25,18 @@ const PropertySchema = mongoose.Schema({
   available: {
     type: Date,
   },
+  title: {
+    type:String
+  },
+  description: {
+    type:String
+  },
+  rules: {
+    type:String
+  },
+  bathrooms: {
+    type:Number
+  },
   street: {
     type: String,
     require:true

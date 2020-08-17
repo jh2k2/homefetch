@@ -7,6 +7,11 @@ export class Property {
        public rooms?:number,
        public area?:number,
        public available?:Date,
+       public title?:string,
+       public description?:string,
+       public rules?:string,
+       public bathrooms?:number,
+
        public street?:string,
        public remain?:string,
        public vicinity?:string,

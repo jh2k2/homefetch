@@ -28,16 +28,17 @@
       <div id="scroll-container">
         <ng-container *ngFor="let prop of toShow">
           <div class="card row" *ngIf="prop.approved!=0" (click)="goForProp(prop)">
-            <div class="col-md-5 px-0">
+            <div class="col-md-5 px-0 my-auto">
               <img class="card-img-top" [src]="getImage(prop)" alt="Card image cap">
             </div>
 
             <div class="col-md-7 px-0">
               <div class="card-body">
-                <h5 class="card-title">{{prop.street}}</h5>
-                <h6 style="text-align: left;" class="citystatezip">{{prop.remain}}</h6>
-                <h6 style="text-align: left;" class="citystatezip">Rooms: {{prop.rooms}}</h6>
-                <h6 style="text-align: left;" class="citystatezip">Area: {{prop.area}}m^2</h6>
+                <h5 class="card-title">{{prop.title}}</h5>
+                <h6 style="text-align: left;" class="citystatezip">{{prop.street}}</h6>
+                <hr style="width:20%; margin-left:0">
+                <h6 style="text-align: left;" class="citystatezip" style="font-size:14px; color: #717171">{{prop.rooms}} Bed · {{prop.bathrooms}} Bath</h6>
+                <h6 style="text-align: left;" class="citystatezip" style="font-size:14px; color: #717171">{{prop.description.slice(0, 80)}}...</h6>
                 <h5 style="margin: 0; position: absolute; bottom: 0; right: 0;">
                   <span style="color: #b951f9" class="price">{{prop.deposit}}€</span> / month</h5>
               </div>

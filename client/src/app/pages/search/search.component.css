@@ -16,6 +16,7 @@ agm-map {
 
 .card-body {
   padding: 0 0 0 1.25rem;
+  width: 60%;
 }
 
 .card-title {

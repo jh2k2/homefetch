@@ -42,7 +42,7 @@ router.get('/all', (req, res, next) => {
 
 router.get('/allbyid', (req, res, next) => {
   Property.findById(req.query.id).exec((err, prop) => {
-    if(err) {
+    if (err) {
       return res.status(500).send("server error" + err);
     } else {
       return res.status(200).json({
@@ -134,7 +134,6 @@ router.get('/edit/:id', passport.authenticate('jwt', {
 router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
-  if (req.user.landlord < 1) return res.status(403).send("You are not a landlord");
   Property.getPropertyById(req.params.id.toString(), (err, prop) => {
     if (err)
       return res.status(500).send("Server error!");
@@ -192,7 +191,6 @@ router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt',
 router.delete('/delete/:id', passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
-  if (req.user.landlord < 1) return res.status(403).send("You are not a landlord");
   Property.getPropertyById(req.params.id.toString(), (err, prop) => {
     if (err)
       return res.status(500).send("Server error!");
