@@ -32,7 +32,6 @@ export class ViewPropertyComponent implements OnInit {
   public url;
   public users: User;
   public isDataLoaded = false;
-  public userLoaded = false;
   public images = [];
   public pos = 0;
   public property;
@@ -75,25 +74,27 @@ export class ViewPropertyComponent implements OnInit {
             this.images.push(this.propSer.getImateUrl(this.property.image4));
           if (this.images.length == 0)
             this.images.push(this.propSer.getImateUrl("no"));
+
+          if (this.isLoggedIn()) {
+            this.userSer.getSettings().subscribe(
+              data => {
+                this.users = data.user;
+                if (this.users.request == "none") {
+                  this.hasWaitlist = false;
+                } else {
+                  this.hasWaitlist = true;
+                }
+
+                this.userLoaded = true;
+              });
+          } else {
+            return;
+          }
+
           this.isDataLoaded = true;
         });
     });
 
-    if (this.isLoggedIn()) {
-      this.userSer.getSettings().subscribe(
-        data => {
-          this.users = data.user;
-          if (this.users.request == "none") {
-            this.hasWaitlist = false;
-          } else {
-            this.hasWaitlist = true;
-          }
-
-          this.userLoaded = true;
-        });
-    } else {
-      return;
-    }
   }
 
 
@@ -119,6 +120,15 @@ export class ViewPropertyComponent implements OnInit {
     this.router.navigate(['/properties/payment', prop._id]);
   }
 
-  isActive(num) { return this.isClicked[num] == true; }
+  isActive(num) {
+    return this.isClicked[num] == true;
+  }
+
+  getDate(s) {
+    var b = s.split(/\D+/);
+    var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+    var result = c.toString().split(" ");
+    return result[1] + " " + result[2] + ", " + result[3];
+  }
 
 }

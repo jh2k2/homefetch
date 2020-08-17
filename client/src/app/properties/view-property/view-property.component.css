@@ -88,6 +88,7 @@
 
 .ikonice {
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .img-thumbnail {
@@ -101,7 +102,7 @@
 }
 
 .title {
-  font-family: "Circular Std Bold";
+  font-family: "Circular Std Book";
   font-size: 30px;
   margin-top: 14px;
   text-align: left;
@@ -132,4 +133,10 @@
   font-size: 1.1rem;
   margin: .6rem 0;
   font-weight: 100;
+}
+
+.overview {
+  font-weight: lighter;
+  font-size: 1.1rem;
+  text-align: left;
 }
