@@ -29,14 +29,6 @@
     padding-top: 20px;
   }
 
-  .bordr {
-    margin-left: 10px
-  }
-
-  .rightIm {
-    margin-top: 30px;
-  }
-
   .celija {
     padding: 5px;
     text-align: left;
@@ -113,4 +105,31 @@
   font-size: 30px;
   margin-top: 14px;
   text-align: left;
+}
+
+.rightIm {
+  background-color: white;
+  /*position: sticky;*/
+  margin: auto;
+  /*top: 100px;*/
+  padding: 20px;
+}
+
+.custom {
+  background-color: #DA2D8D;
+  color: #eee;
+  font-family: 'Circular Std Bold';
+}
+
+#contact-landlord {
+  padding: calc(17px - .6rem);
+  text-align: center;
+  margin-top: 30px;
+}
+
+.bordr h6 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  margin: .6rem 0;
+  font-weight: 100;
 }
