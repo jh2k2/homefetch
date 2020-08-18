@@ -20,7 +20,7 @@ export class PropertyFormComponent implements OnInit {
 
   public user: User;
 
-  @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, title: null, description: null, rules: null, bathrooms: null, street: null };
+  @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
 
@@ -66,6 +66,8 @@ export class PropertyFormComponent implements OnInit {
       title: new FormControl(this.prop.title, [Validators.required]),
       description: new FormControl(this.prop.description, [Validators.required, Validators.minLength(40)]),
       rules: new FormControl(this.prop.rules, [Validators.required]),
+      documents: new FormControl(this.prop.description, [Validators.required, Validators.minLength(40)]),
+      landlordrules: new FormControl(this.prop.rules, [Validators.required]),
       bathrooms: new FormControl(this.prop.bathrooms, [Validators.required]),
       street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(2)]),
     });
@@ -117,6 +119,8 @@ export class PropertyFormComponent implements OnInit {
       this.form.value.title,
       this.form.value.description,
       this.form.value.rules,
+      this.form.value.documents,
+      this.form.value.landlordrules,
       this.form.value.bathrooms,
       this.form.value.street.name,
       test,

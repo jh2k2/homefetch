@@ -34,6 +34,12 @@ const PropertySchema = mongoose.Schema({
   rules: {
     type:String
   },
+  documents: {
+    type:String
+  },
+  landlordrules: {
+    type:String
+  },
   bathrooms: {
     type:Number
   },

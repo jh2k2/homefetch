@@ -64,6 +64,31 @@
 
     </div>
 
+    <!--Documents/Landlord policies-->
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+
+      <div class="form-group col-md-6">
+        <label for="inputDocuments">Documents</label>
+        <textarea type="textarea" class="form-control" id="inputDescription" placeholder="Provide needed documents from the tenants" formControlName="document"></textarea>
+        <div *ngIf="form.controls['document'].errors && !form.controls['document'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['document'].errors.required">
+            Valid Document is needed!
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputLandlordrules">Landlord Rules</label>
+        <textarea type="number" class="form-control" id="inputLandlordrules" placeholder="Provide a set of rules for yourself for the tenants to see" formControlName="rules"></textarea>
+        <div *ngIf="form.controls['landlordrules'].errors && !form.controls['landlordrules'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['landlordrules'].errors.required">
+            Valid Rule Sets are required.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!--Room/bathroom-->
     <div class="form-row justify-content-center toCent" style="max-width:500px">
 

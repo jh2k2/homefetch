@@ -10,6 +10,8 @@ export class Property {
        public title?:string,
        public description?:string,
        public rules?:string,
+       public documents?:string,
+       public landlordrules?:string,
        public bathrooms?:number,
 
        public street?:string,
