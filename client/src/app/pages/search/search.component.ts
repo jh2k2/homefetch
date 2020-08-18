@@ -45,7 +45,9 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.getElementsByClassName('nav')[0].classList.add('affix');
+    document.getElementById('navbar').classList.add('affix-permanent');
+
+    document.getElementById('navbar').classList.remove('nav');
 
     this.form = new FormGroup({
       vicinity: new FormControl()

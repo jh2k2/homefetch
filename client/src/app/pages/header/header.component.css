@@ -187,7 +187,7 @@
   animation-direction: reverse;
 }
 
-.navTrigger.active i:nth-child(1) {
+.navTrigger i:nth-child(1) {
   -webkit-animation: inT 0.8s forwards;
   animation: inT 0.8s forwards;
 }
@@ -334,15 +334,136 @@
   }
 }
 
-.affix {
+
+.affix-permanent {
   padding: 0;
   background-color: #111;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  z-index: 200;
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  line-height: 65px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
 }
 
+.affix-permanent div.logo {
+  float: left;
+  width: auto;
+  height: auto;
+  padding-left: 3rem;
+}
 
+.affix-permanent div.logo a {
+  text-decoration: none;
+  color: #db2d8e;
+  font-size: 1rem;
+}
 
+.affix-permanent div.logo a:hover {
+  color: #fff;
+  transition-duration: 0.2s;
+}
 
+.affix-permanent div.main_list {
+  height: 65px;
+  float: right;
+}
 
+.affix-permanent div.main_list ul {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.affix-permanent div.main_list ul li {
+  width: auto;
+  height: 65px;
+  padding: 0;
+  padding-right: 3rem;
+}
+
+.affix-permanent div.main_list ul li a {
+  text-decoration: none;
+  color: #db2d8e;
+  line-height: 65px;
+  font-size: 1rem;
+  transition-duration: 0.2s;
+}
+
+.affix-permanent div.main_list ul li a:hover {
+  color: #fff;
+}
+
+@media screen and (max-width:768px) {
+  #navbar div.logo {
+    margin-left: 15px;
+  }
+
+  .affix-permanent div.main_list {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .affix-permanent div.show_list {
+    height: auto;
+    display: none;
+  }
+
+  .affix-permanent div.main_list ul {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #111;
+    /*same background color of affix-permanentbar*/
+    background-position: center top;
+  }
+
+  .affix-permanent div.main_list ul li {
+    width: 100%;
+    text-align: right;
+  }
+
+  .affix-permanent div.main_list ul li a {
+    text-align: center;
+    width: 100%;
+    font-size: 2.4rem;
+    padding: 20px;
+  }
+
+  .affix-permanent div.media_button {
+    display: block;
+  }
+}
+
+.affix {
+  padding: 0;
+  background-color: #111
+}
+
+.black {
+  display:none;
+}
+
+.affix .black {
+  display:block!important;
+}
+
+.affix .transparent {
+  display:none!important;
+}
 
 .myH2 {
   text-align:center;

@@ -3,6 +3,10 @@ agm-map {
   width: 100%;
 }
 
+.citystatezip {
+  width: 55%;
+}
+
 .card {
   width: 100%;
   border: none;
@@ -16,7 +20,7 @@ agm-map {
 
 .card-body {
   padding: 0 0 0 1.25rem;
-  width: 60%;
+  width: 100%;
 }
 
 .card-title {
@@ -77,7 +81,6 @@ body {
 #how-it-works {
   padding-bottom: 70px;
 }
-
 
 #faq {
   padding-bottom: 70px;

@@ -20,7 +20,7 @@ export class PropertyFormComponent implements OnInit {
 
   public user: User;
 
-  @Input() prop: Property = { deposit: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null, electricity: null, water: null, gas: null, wifi: null };
+  @Input() prop: Property = { deposit: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null, electricity: 'included', water: 'included', gas: 'included', wifi:'included' };
   @Output() public event = new EventEmitter();
   form: FormGroup;
 
