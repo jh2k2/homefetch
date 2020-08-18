@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output, AfterViewInit, Input } from '@angular/core';
-import { formatDate } from '@angular/common'
+import { formatDate } from '@angular/common';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PropertyService } from '../../services/property.service';
 import { Property } from '../../model/property.model';
@@ -74,7 +74,7 @@ export class PropertyFormComponent implements OnInit {
       bathrooms: new FormControl(this.prop.bathrooms, [Validators.required]),
       street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(2)]),
       electricity: new FormControl(this.prop.electricity),
-      water: new FormControl(this.prop.water ),
+      water: new FormControl(this.prop.water),
       gas: new FormControl(this.prop.gas),
       wifi: new FormControl(this.prop.wifi),
     });
@@ -106,6 +106,10 @@ export class PropertyFormComponent implements OnInit {
     if (this.prop.image4 != "no" && this.prop.image4 != undefined) {
       this.url[4] = this.propSer.getImateUrl(this.prop.image4);
       this.isAddedFile[4] = true;
+    }
+    if (this.prop.image5 != "no" && this.prop.image5 != undefined) {
+      this.url[5] = this.propSer.getImateUrl(this.prop.image5);
+      this.isAddedFile[5] = true;
     }
   }
 
@@ -157,7 +161,8 @@ export class PropertyFormComponent implements OnInit {
       this.sendEditedImage(1),
       this.sendEditedImage(2),
       this.sendEditedImage(3),
-      this.sendEditedImage(4)
+      this.sendEditedImage(4),
+      this.sendEditedImage(5)
     );
     var objToSend = { property: property, files: this.fileToUpload };
     this.form.reset;
@@ -171,6 +176,7 @@ export class PropertyFormComponent implements OnInit {
       if (num == 2) if (!this.isThereAfile(2)) return this.prop.image2; else return "no";
       if (num == 3) if (!this.isThereAfile(3)) return this.prop.image3; else return "no";
       if (num == 4) if (!this.isThereAfile(4)) return this.prop.image4; else return "no";
+      if (num == 5) if (!this.isThereAfile(5)) return this.prop.image5; else return "no";
     }
   }
 
@@ -213,6 +219,7 @@ export class PropertyFormComponent implements OnInit {
     if (num == 2) element = document.getElementById('upload2') as HTMLElement;
     if (num == 3) element = document.getElementById('upload3') as HTMLElement;
     if (num == 4) element = document.getElementById('upload4') as HTMLElement;
+    if (num == 5) element = document.getElementById('upload5') as HTMLElement;
     element.click();
   }
 

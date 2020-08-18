@@ -50,6 +50,7 @@ export class Property {
        public image2?:string,
        public image3?:string,
        public image4?:string,
+       public image5?:string,
 
        //date
        public date?:Date,

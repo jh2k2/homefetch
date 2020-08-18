@@ -86,6 +86,14 @@ router.post('/add', upload.array('photo', 4), passport.authenticate('jwt', {
       unique_filename: false
     });
   }
+  if (req.files[4] != undefined) {
+    prop.image5 = req.files[4].filename;
+    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[4].filename, {
+      use_filename: true,
+      unique_filename: false
+    });
+  }
+
   Property.addProperty(prop, (err) => {
     if (err)
       return res.status(500).send("Server error!" + err);
@@ -148,7 +156,7 @@ router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt',
         if (itsMe.image2 != prop.image2 && itsMe.image2 == "no") deleteFile(prop.image2);
         if (itsMe.image3 != prop.image3 && itsMe.image3 == "no") deleteFile(prop.image3);
         if (itsMe.image4 != prop.image4 && itsMe.image4 == "no") deleteFile(prop.image4);
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 6; i++) {
           if (req.files[i] != undefined)
             if (itsMe.image1 == "no") {
               itsMe.image1 = req.files[i].filename;
@@ -171,6 +179,12 @@ router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt',
             });
           } else if (itsMe.image4 == "no") {
             itsMe.image4 = req.files[i].filename;
+            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
+              use_filename: true,
+              unique_filename: false
+            });
+          }  else if (itsMe.image5 == "no") {
+            itsMe.image5 = req.files[i].filename;
             cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
               use_filename: true,
               unique_filename: false

@@ -244,6 +244,17 @@
     </div>
 
 
+  <!--Floor plan-->
+  <div class="card">
+    <img class="card-img-top" [src]='url[5]' alt="Card image cap">
+    <img *ngIf="isAdded(5)" (click)="clearImage(5)" src="../../../assets/images/delete.png" class="over">
+    <div class="card-body">
+      <a (click)="openUpload($event,5)" class="test btn">+</a>
+      <input id="upload5" name="photo" accept="image/*" (change)="onImageAdded($event,5)" type="file" style="display:none;" />
+    </div>
+  </div>
+
+
 
 
     <div class="row justify-content-center" style="margin-top:20px;">

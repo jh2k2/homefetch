@@ -32,7 +32,7 @@ export class EditPropertyComponent implements OnInit {
   sendData(data) {
     this.property = data.property;
     var fileToUpload: File[] = data.files;
-    this.propSer.saveProperty(this.taken, this.property, fileToUpload[1], fileToUpload[2], fileToUpload[3], fileToUpload[4]).subscribe(data => {
+    this.propSer.saveProperty(this.taken, this.property, fileToUpload[1], fileToUpload[2], fileToUpload[3], fileToUpload[4], fileToUpload[5]).subscribe(data => {
 
       this.toastr.success('apartment saved', '', {
         closeButton: true,

@@ -21,7 +21,7 @@ export class AddPropertyComponent implements OnInit {
     const property = data.property;
     var fileToUpload: File[] = data.files;
 
-    this.propSer.addProperty(property, fileToUpload[1], fileToUpload[2], fileToUpload[3], fileToUpload[4]).subscribe(data => {
+    this.propSer.addProperty(property, fileToUpload[1], fileToUpload[2], fileToUpload[3], fileToUpload[4], fileToUpload[5]).subscribe(data => {
       this.toastr.success('apartment created', '', {
         closeButton: true,
         positionClass: 'toast-bottom-right'

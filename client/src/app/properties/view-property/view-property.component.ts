@@ -34,6 +34,7 @@ export class ViewPropertyComponent implements OnInit {
   public users: User;
   public isDataLoaded = false;
   public images = [];
+  public floorplan = [];
   public pos = 0;
   public property;
   public watcher: string;
@@ -84,8 +85,12 @@ export class ViewPropertyComponent implements OnInit {
             this.images.push(this.propSer.getImateUrl(this.property.image3));
           if (this.property.image4 != "no")
             this.images.push(this.propSer.getImateUrl(this.property.image4));
+          if (this.property.image5 != "no")
+            this.floorplan.push(this.propSer.getImateUrl(this.property.image5));
           if (this.images.length == 0)
             this.images.push(this.propSer.getImateUrl("no"));
+
+
 
           if (this.isLoggedIn()) {
             this.userSer.getSettings().subscribe(
