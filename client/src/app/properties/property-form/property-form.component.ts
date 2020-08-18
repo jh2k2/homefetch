@@ -20,7 +20,7 @@ export class PropertyFormComponent implements OnInit {
 
   public user: User;
 
-  @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null };
+  @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null, electricity: null, water: null, gas: null, wifi: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
 
@@ -60,16 +60,22 @@ export class PropertyFormComponent implements OnInit {
 
     this.form = new FormGroup({
       deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(10000)]),
-      rooms: new FormControl(this.prop.rooms, [Validators.required, Validators.min(1), Validators.max(10)]),
+      rooms: new FormControl(this.prop.rooms, [Validators.required, Validators.max(10)]),
       area: new FormControl(this.prop.area, [Validators.required, Validators.min(3), Validators.max(10000)]),
       available: new FormControl(formatDate(this.prop.available, 'yyyy-MM-dd', 'en'), [Validators.required]),
+      minstay: new FormControl(this.prop.minstay, [Validators.required]),
+      maxstay: new FormControl(this.prop.maxstay, [Validators.required]),
       title: new FormControl(this.prop.title, [Validators.required]),
       description: new FormControl(this.prop.description, [Validators.required, Validators.minLength(40)]),
       rules: new FormControl(this.prop.rules, [Validators.required]),
-      documents: new FormControl(this.prop.description, [Validators.required, Validators.minLength(40)]),
+      documents: new FormControl(this.prop.description, [Validators.required]),
       landlordrules: new FormControl(this.prop.rules, [Validators.required]),
       bathrooms: new FormControl(this.prop.bathrooms, [Validators.required]),
       street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(2)]),
+      electricity: new FormControl(this.prop.electricity),
+      water: new FormControl(this.prop.water ),
+      gas: new FormControl(this.prop.gas),
+      wifi: new FormControl(this.prop.wifi),
     });
 
     this.isClicked[1] = this.prop.internet;
@@ -116,12 +122,18 @@ export class PropertyFormComponent implements OnInit {
       this.form.value.rooms,
       this.form.value.area,
       this.form.value.available,
+      this.form.value.minstay,
+      this.form.value.maxstay,
       this.form.value.title,
       this.form.value.description,
       this.form.value.rules,
       this.form.value.documents,
       this.form.value.landlordrules,
       this.form.value.bathrooms,
+      this.form.value.electricity,
+      this.form.value.water,
+      this.form.value.gas,
+      this.form.value.wifi,
       this.form.value.street.name,
       test,
       this.form.value.street.vicinity,

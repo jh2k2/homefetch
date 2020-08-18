@@ -1,9 +1,30 @@
+.header {
+  width: 100%;
+  height: 500px;
+  background-image: url('../../../assets/images/how-it-works.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .hiw-container {
-  padding-top:100px;
+  padding: 50px 0;
+}
+
+.hiw-container hr {
+  width: 10%;
+  border-top: 2px solid #000;
+  border-bottom: none;
+}
+
+.hiw-container h1 {
+  text-align: center;
+  color: #1EADFF;
+  margin: 0 0 10px 0;
+  font-size: 50px;
 }
 
 img {
-  
+
 }
 
 .hero-image {
@@ -194,7 +215,7 @@ details[open] .control-icon-expand {
   border-radius: 200px;
   overflow: hidden;
   border: 3px solid #db2d83;
-  margin: 0 auto 60px;
+  margin: 50px auto 20px;
 }
 
 .pill-half {

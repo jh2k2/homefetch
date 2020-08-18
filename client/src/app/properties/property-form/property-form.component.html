@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid" style="padding-top:120px">
   <div style="text-align:center;">
     <h2>Apartments</h2>
   </div>
@@ -79,7 +79,7 @@
 
       <div class="form-group col-md-6">
         <label for="inputLandlordrules">Landlord Policies</label>
-        <textarea type="number" class="form-control" id="inputLandlordrules" placeholder="Provide a set of rules for yourself for the tenants to see" formControlName="rules"></textarea>
+        <textarea type="number" class="form-control" id="inputLandlordrules" placeholder="Provide a set of rules for yourself for the tenants to see" formControlName="landlordrules"></textarea>
         <div *ngIf="form.controls['landlordrules'].errors && !form.controls['landlordrules'].pristine" class="error-msg">
           <div [hidden]="!form.controls['landlordrules'].errors.required">
             Valid Rule Sets are required.
@@ -89,7 +89,7 @@
 
     </div>
 
-    <!--Room/bathroom-->
+    <!--Room/Bathrooms-->
     <div class="form-row justify-content-center toCent" style="max-width:500px">
 
       <div class="form-group col-md-6">
@@ -108,9 +108,6 @@
         <div *ngIf="form.controls['rooms'].errors && !form.controls['rooms'].pristine" class="error-msg">
           <div [hidden]="!form.controls['rooms'].errors.required">
             Valid rooms number is required.
-          </div>
-          <div [hidden]="!form.controls['rooms'].errors.min">
-            Room number is too small(min 1)
           </div>
           <div [hidden]="!form.controls['rooms'].errors.max">
             Room number is too big(max 10)
@@ -142,6 +139,74 @@
       <div class="form-group col-md-6">
         <label for="inputAvailable">Available Date</label>
         <input type="date" class="form-control" id="inputAvailable" formControlName="available">
+      </div>
+
+    </div>
+
+    <!--bills-->
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+
+      <div class="form-group col-md-6">
+        <label for="inputElec">Electricity bill</label>
+        <select class="inputElec form-control" formControlName="electricity">
+          <option value="" disabled>Is eletricity included in the bill?</option>
+          <option value="">Included</option>
+          <option value="">Not Included</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputWater">Water bill</label>
+        <select class="inputWater form-control" formControlName="water">
+          <option value="" disabled>Is Water included in the bill?</option>
+          <option value="">Included</option>
+          <option value="">Not Included</option>
+        </select>
+
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputGas">Gas bill</label>
+        <select class="inputGas form-control" formControlName="gas">
+          <option value="" disabled>Is gas included in the bill?</option>
+          <option value="">Included</option>
+          <option value="">Not Included</option>
+        </select>
+
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputWifi">Wifi bill</label>
+        <select class="inputWifi form-control" formControlName="wifi">
+          <option value="" disabled>Is wifi included in the bill?</option>
+          <option value="">Included</option>
+          <option value="">Not Included</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!--Minstay/Maxstay-->
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+
+      <div class="form-group col-md-6">
+        <label for="inputMinstay">Minimum Months Stay</label>
+        <input type="number" class="form-control" id="inputMinstay" placeholder="Enter Minimum stay in months" formControlName="minstay">
+        <div *ngIf="form.controls['minstay'].errors && !form.controls['minstay'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['minstay'].errors.required">
+            Valid minimum stay is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputMaxstay">Maximum Months Stay(0 if none)</label>
+        <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in months(0 if none)" formControlName="maxstay">
+        <div *ngIf="form.controls['maxstay'].errors && !form.controls['maxstay'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['maxstay'].errors.required">
+            Valid maximum stay is required.
+          </div>
+        </div>
       </div>
 
     </div>

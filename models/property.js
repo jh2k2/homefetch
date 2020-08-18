@@ -25,31 +25,53 @@ const PropertySchema = mongoose.Schema({
   available: {
     type: Date,
   },
+  minstay: {
+    type: Number,
+  },
+  maxstay: {
+    type: Number,
+  },
   title: {
-    type:String
+    type: String
   },
   description: {
-    type:String
+    type: String
   },
   rules: {
-    type:String
+    type: String
   },
   documents: {
-    type:String
+    type: String
   },
   landlordrules: {
-    type:String
+    type: String
   },
   bathrooms: {
-    type:Number
+    type: Number
+  },
+  electricity: {
+    type: String,
+    default: "included"
+  },
+  water: {
+    type: String,
+    default: "included"
+  },
+  gas: {
+    type: String,
+    default: "included"
+  },
+  wifi: {
+    type: String,
+    default: "included"
   },
   street: {
     type: String,
-    require:true
+    require: true
   },
   remain: {
     type: String,
-    required:true
+    required: true
   },
   vicinity: {
     type: String,

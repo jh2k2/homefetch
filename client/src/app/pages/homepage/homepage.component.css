@@ -1,6 +1,6 @@
 .hero-image {
-  background-image: url('../../../assets/images/hero.jpg');
-  background-position: center;
+  background-image: url('../../../assets/images/2.png');
+  background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -88,7 +88,7 @@ body {
 }
 
 #hero-text {
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   padding: 16% calc(3rem + 15px) !important;
   background-color: rgba(0, 0, 0, 0.3);
@@ -149,7 +149,7 @@ summary {
   align-items: center;
   font-weight: lighter;
   cursor: pointer;
-  
+
 }
 
 summary:focus {

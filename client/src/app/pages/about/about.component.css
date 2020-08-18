@@ -22,7 +22,6 @@ nav {
 .header {
   width: 100%;
   height: 500px;
-  opacity: .8;
   background-color: rgb(30, 173, 255);
   background-image: url('../../../assets/images/aboutus.jpg');
   background-size: cover;
@@ -46,8 +45,6 @@ nav {
 
 .about .left {
   padding: 2% 0;
-  float: left;
-  width: 50%;
   display: inline-block;
 }
 
@@ -67,7 +64,7 @@ nav {
 }
 
 .about .left hr {
-  width: 20%;
+  width: 10%;
   border-top: 2px solid #000;
   border-bottom: none;
 }
@@ -87,13 +84,10 @@ nav {
 
 .mission .right {
   padding: 2% 0;
-  width: 50%;
   display: inline-block;
 }
 
 .mission .left {
-  float: left;
-  width: 50%;
   display: inline-block;
 }
 
@@ -108,7 +102,7 @@ nav {
 }
 
 .mission .right hr {
-  width: 35%;
+  width: 10%;
   border-top: 2px solid #000;
   border-bottom: none;
 }
@@ -131,7 +125,7 @@ nav {
 }
 
 .team h1 hr {
-  width: 15%;
+  width: 10%;
   border-top: 2px solid #000;
   background-color: transperant;
   border-bottom: none;
