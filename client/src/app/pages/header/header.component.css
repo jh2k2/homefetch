@@ -334,6 +334,13 @@
   }
 }
 
+.affix-permanent .black {
+  display:block!important;
+}
+
+.affix-permanent .transparent {
+  display:none!important;  
+}
 
 .affix-permanent {
   padding: 0;
