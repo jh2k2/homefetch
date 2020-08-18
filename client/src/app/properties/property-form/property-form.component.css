@@ -89,3 +89,10 @@ table{
     height: 2rem;
     padding: 0px;
 }
+
+.login {
+  background-color: #DA2D8D;
+  color: #eee;
+  font-family: 'Circular Std Bold';
+  margin-bottom:20px;
+}
