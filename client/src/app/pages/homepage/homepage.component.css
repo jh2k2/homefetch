@@ -4,12 +4,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 110vh;
+  height: 100vh;
 }
 
 a {
-  z-index:100;
-  position:relative;
+  z-index: 100;
+  position: relative;
 }
 
 #icon {
@@ -70,7 +70,7 @@ body {
 }
 
 #searchbutton {
-  position:relative;
+  position: relative;
   z-index: 100;
   border: 3px solid #19AA59;
   font-size: 20px;
@@ -88,7 +88,7 @@ body {
 }
 
 #hero-text {
-  height: 110vh;
+  height: 100vh;
   width: 100vw;
   padding: 16% calc(3rem + 15px) !important;
   background-color: rgba(0, 0, 0, 0.3);
@@ -149,7 +149,6 @@ summary {
   align-items: center;
   font-weight: lighter;
   cursor: pointer;
-
 }
 
 summary:focus {

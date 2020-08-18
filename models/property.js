@@ -14,6 +14,10 @@ const PropertySchema = mongoose.Schema({
     type: Number,
     required: true
   },
+  monthly: {
+    type: Number,
+    required: true
+  },
   rooms: {
     type: Number,
     required: true

@@ -117,28 +117,39 @@
 
     </div>
 
-    <!--Fee/availability-->
+    <!--Deposit/Fee-->
     <div class="form-row justify-content-center toCent" style="max-width:500px">
 
       <div class="form-group col-md-6">
-        <label for="inputDeposit">Monthly Fee</label>
-        <input type="number" class="form-control" id="inputDeposit" placeholder="Enter monthly fee in euros" formControlName="deposit">
+        <label for="inputDeposit">Deposit</label>
+        <input type="number" class="form-control" id="inputDeposit" placeholder="Enter deposit in euros" formControlName="deposit">
         <div *ngIf="form.controls['deposit'].errors && !form.controls['deposit'].pristine" class="error-msg">
           <div [hidden]="!form.controls['deposit'].errors.required">
-            Valid Fee is required.
+            Valid Deposit is required.
           </div>
           <div [hidden]="!form.controls['deposit'].errors.min">
-            Fee is too small (min 50).
+            Deposit is too small (min 50).
           </div>
           <div [hidden]="!form.controls['deposit'].errors.max">
-            Fee is too big (max 10000).
+            Deposit is too big (max 10000).
           </div>
         </div>
       </div>
 
       <div class="form-group col-md-6">
-        <label for="inputAvailable">Available Date</label>
-        <input type="date" class="form-control" id="inputAvailable" formControlName="available">
+        <label for="inputMonthly">Monthly Fee</label>
+        <input type="number" class="form-control" id="inputMonthly" placeholder="Enter monthly fee in euros" formControlName="monthly">
+        <div *ngIf="form.controls['monthly'].errors && !form.controls['monthly'].pristine" class="error-msg">
+          <div [hidden]="!form.controls['monthly'].errors.required">
+            Valid Monthly Fee is required.
+          </div>
+          <div [hidden]="!form.controls['monthly'].errors.min">
+            Fee is too small (min 50).
+          </div>
+          <div [hidden]="!form.controls['monthly'].errors.max">
+            Fee is too big (max 10000).
+          </div>
+        </div>
       </div>
 
     </div>
@@ -190,8 +201,8 @@
     <div class="form-row justify-content-center toCent" style="max-width:500px">
 
       <div class="form-group col-md-6">
-        <label for="inputMinstay">Minimum Months Stay</label>
-        <input type="number" class="form-control" id="inputMinstay" placeholder="Enter Minimum stay in months" formControlName="minstay">
+        <label for="inputMinstay">Minimum days stay</label>
+        <input type="number" class="form-control" id="inputMinstay" placeholder="Enter Minimum stay in days" formControlName="minstay">
         <div *ngIf="form.controls['minstay'].errors && !form.controls['minstay'].pristine" class="error-msg">
           <div [hidden]="!form.controls['minstay'].errors.required">
             Valid minimum stay is required.
@@ -200,8 +211,8 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="inputMaxstay">Maximum Months Stay(0 if none)</label>
-        <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in months(0 if none)" formControlName="maxstay">
+        <label for="inputMaxstay">Maximum days stay(0 if none)</label>
+        <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in days(0 if none)" formControlName="maxstay">
         <div *ngIf="form.controls['maxstay'].errors && !form.controls['maxstay'].pristine" class="error-msg">
           <div [hidden]="!form.controls['maxstay'].errors.required">
             Valid maximum stay is required.
@@ -224,6 +235,11 @@
             Valid street Name is required.
           </div>
         </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputAvailable">Available Date</label>
+        <input type="date" class="form-control" id="inputAvailable" formControlName="available">
       </div>
     </div>
 

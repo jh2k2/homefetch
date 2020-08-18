@@ -4,6 +4,8 @@ import { PropertiesRoutingModule } from './properties-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { ViewPropertyComponent } from './view-property/view-property.component';
 import { AddPropertyComponent } from './add-property/add-property.component';
@@ -19,6 +21,12 @@ import { PaymentComponent } from './payment/payment.component';
     FormsModule,
     MatGoogleMapsAutocompleteModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [AddPropertyComponent, ViewPropertyComponent, PropertyFormComponent, EditPropertyComponent, PaymentComponent]
 })

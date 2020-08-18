@@ -44,32 +44,49 @@
 }
 
 .left {
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  justify-content: center;
   position: absolute;
-  top: 33%;
-  left: 7%;
-  width: 40px;
-  height: 40px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  border: none;
+  top: 0;
+  width: 70px;
+  z-index: 1;
+  pointer-events: none;
+  background-color: rgba(0,0,0,0.4);
   cursor: pointer;
 }
 
 .right {
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  justify-content: center;
   position: absolute;
-  top: 33%;
-  left: 93%;
-  width: 40px;
-  height: 40px;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  border: none;
+  top: 0;
+  width: 70px;
+  z-index: 1;
+  pointer-events: none;
+  right: 0;
+  background-color: rgba(0,0,0,0.4);
   cursor: pointer;
 }
 
+.right svg, .left svg {
+  fill: white;
+  pointer-events: all;
+}
+
+.left svg {
+  transform: rotate(180deg);
+}
+
 .bordr {
-  border: 5px solid #e0e0e0;
-  border-radius: 15px;
+  padding: 35px 35px 49px;
 }
 
 .text-center {
@@ -123,9 +140,7 @@
 }
 
 #contact-landlord {
-  padding: calc(17px - .6rem);
-  text-align: center;
-  margin-top: 30px;
+  padding: calc(20px);
 }
 
 .bordr h6 {
@@ -139,4 +154,132 @@
   font-weight: lighter;
   font-size: 1.1rem;
   text-align: left;
+}
+
+#check-availability {
+  margin-top: 40px;
+}
+
+.datepicker__input-container__DatePicker___OmV4c {
+  border: 1px solid #F2F2F2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.datepicker__input-wrapper__DatePicker___OmV4c {
+  display: inline-block;
+  flex: 1;
+  padding: 4px;
+  position: relative;
+}
+
+.datepicker__input__DatePicker___OmV4c {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: #283947;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 24px 0;
+  text-align: center;
+  transition: padding-bottom .4s cubic-bezier(.22, .61, .36, 1);
+  width: 100%;
+}
+
+datepicker__input__DatePicker___OmV4c:focus {
+  outline: none;
+}
+
+.datepicker__input-wrapper--selected__DatePicker___OmV4c:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 7px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #35c2a9;
+}
+
+.datepicker__arrow__DatePicker___OmV4c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50px;
+  position: relative;
+}
+
+.datepicker__arrow__DatePicker___OmV4c::before {
+  height: 1px;
+  background-color: #ccd6dd;
+  width: calc(50px*0.9);
+  content: "";
+  display: block;
+}
+
+.datepicker__arrow__DatePicker___OmV4c::after {
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #ccd6dd;
+  border-bottom: 5px solid transparent;
+  content: "";
+  display: block;
+}
+
+.datepicker__input-wrapper--disabled__DatePicker___OmV4c {
+  pointer-events: none;
+}
+
+.celija {
+  float: left;
+  padding: .5rem;
+  margin: 0 12px 12px 0;
+  font-size: 12px;
+  background-color: #F2F2F2;
+  border-radius: 4px;
+  font-weight: 100;
+  transform: translate(-12px, 0);
+}
+
+.celija.opi {
+  display: none;
+}
+
+.celija label {
+  margin-bottom: 0;
+}
+
+.iconEdit {
+  height: 16px;
+  width: auto;
+  margin-right: 3px;
+}
+
+.body-row {
+  border-bottom: 1px solid #ecf2f5;
+}
+
+.body-row .label {
+  width: 70%;
+}
+
+.body-row td {
+  text-transform: capitalize;
+  font-weight: 100;
+}
+
+#pricing-values td, #availability-values td {
+  padding: 20px 0;
 }

@@ -2,124 +2,209 @@
   <div class="row" style="margin-top:10px;">
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <div class="bordr text-center" style="margin-bottom:30px; background-color:white;">
-        <img [src]="images[pos]" style="margin-top:0px; width:100%; height:100%; border-radius: 10px 10px 0px 0px;" class="images">
-        <img src="../../../assets/images/left.png" (click)="left()" class="left">
-        <img src="../../../assets/images/right.png" (click)="right()" class="right">
-        <div class="col-md-8">
+      <div class="text-center" style="margin-bottom:30px; background-color:white;">
+        <div style="position: relative;">
+          <img [src]="images[pos]" style="margin-top:0px; width:100%; height:100%;" class="images">
+          <div class="left">
+            <svg (click)="left()" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+          </div>
+          <div class="right">
+            <svg (click)="left()" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+          </div>
+        </div>
+        <div style="padding: 35px;">
           <p class="title">{{property.title}}</p>
           <hr>
-          <p class="" style="text-align: left;"><b>{{property.rooms}} </b>bedrooms · <b>{{property.bathrooms}}</b> bathrooms · <b>{{property.area}}</b> m2</p>
+          <p class="" style="text-align: left; font-size: 14px; color: #727679; font-weight: 100;"><b>{{property.rooms}} </b>bed · <b>{{property.bathrooms}}</b> bath · <b>{{property.area}}</b> sq m</p>
         </div>
       </div>
 
       <!--Overview/features-->
       <div class="bordr text-center" style="margin-bottom:30px; background-color:white;">
-        <div class="col-md-10">
+        <div>
           <p class="title">Overview</p>
-          <hr>
           <p class="overview" style="text-align: left; word-wrap: break-word;">{{property.description}}</p>
         </div>
-        <div class="col-md-8" style="padding-top:20px">
-          <p class="title">Property features</p>
-          <hr>
+        <div style="padding-top: 10px; margin-top: 0;">
+          <p class="title" style="font-size: 20px;">Property features</p>
         </div>
 
-        <table align='center' class="ikonice" style="width: 100%;">
-          <tr>
-            <td class="celija">
-              <img [class.opi]="!isActive(1)" class="iconEdit" [src]='iconURL[1]'>
-              <label [class.overLine]="!isActive(1)">Internet</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(2)" class="iconEdit" [src]='iconURL[2]'>
-              <label [class.overLine]="!isActive(2)">Cable TV</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(3)" class="iconEdit" [src]='iconURL[3]'>
-              <label [class.overLine]="!isActive(3)">Double bed</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(4)" class="iconEdit" [src]='iconURL[4]'>
-              <label [class.overLine]="!isActive(4)">Single bed</label>
-            </td>
-          </tr>
-          <tr>
-            <td class="celija">
-              <img [class.opi]="!isActive(5)" class="iconEdit" [src]='iconURL[5]'>
-              <label [class.overLine]="!isActive(5)">Air conditioning</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(6)" class="iconEdit" [src]='iconURL[6]'>
-              <label [class.overLine]="!isActive(6)">Fridge</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(7)" class="iconEdit" [src]='iconURL[7]'>
-              <label [class.overLine]="!isActive(7)">Stove</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(8)" class="iconEdit" [src]='iconURL[8]'>
-              <label [class.overLine]="!isActive(8)">Washing machine</label>
-            </td>
-          </tr>
-          <tr>
-            <td class="celija">
-              <img [class.opi]="!isActive(9)" class="iconEdit" [src]='iconURL[9]'>
-              <label [class.overLine]="!isActive(9)">Bathtub</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(10)" class="iconEdit" [src]='iconURL[10]'>
-              <label [class.overLine]="!isActive(10)">Microwave</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(11)" class="iconEdit" [src]='iconURL[11]'>
-              <label [class.overLine]="!isActive(11)">Landline</label>
-            </td>
-            <td class="celija">
-              <img [class.opi]="!isActive(12)" class="iconEdit" [src]='iconURL[12]'>
-              <label [class.overLine]="!isActive(12)">Fireplace</label>
-            </td>
-          </tr>
-        </table>
+        <div class="ikonice" style="width: 100%; margin-bottom: 14px;">
+          <div class="celija" [class.opi]="!isActive(1)">
+            <img [class.opi]="!isActive(1)" class="iconEdit" [src]='iconURL[1]'>
+            <label [class.overLine]="!isActive(1)">Internet</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(2)">
+            <img [class.opi]="!isActive(2)" class="iconEdit" [src]='iconURL[2]'>
+            <label [class.overLine]="!isActive(2)">Cable TV</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(3)">
+            <img [class.opi]="!isActive(3)" class="iconEdit" [src]='iconURL[3]'>
+            <label [class.overLine]="!isActive(3)">Double bed</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(4)">
+            <img [class.opi]="!isActive(4)" class="iconEdit" [src]='iconURL[4]'>
+            <label [class.overLine]="!isActive(4)">Single bed</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(5)">
+            <img [class.opi]="!isActive(5)" class="iconEdit" [src]='iconURL[5]'>
+            <label [class.overLine]="!isActive(5)">Air conditioning</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(6)">
+            <img [class.opi]="!isActive(6)" class="iconEdit" [src]='iconURL[6]'>
+            <label [class.overLine]="!isActive(6)">Fridge</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(7)">
+            <img [class.opi]="!isActive(7)" class="iconEdit" [src]='iconURL[7]'>
+            <label [class.overLine]="!isActive(7)">Stove</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(8)">
+            <img [class.opi]="!isActive(8)" class="iconEdit" [src]='iconURL[8]'>
+            <label [class.overLine]="!isActive(8)">Washing machine</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(9)">
+            <img [class.opi]="!isActive(9)" class="iconEdit" [src]='iconURL[9]'>
+            <label [class.overLine]="!isActive(9)">Bathtub</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(10)">
+            <img [class.opi]="!isActive(10)" class="iconEdit" [src]='iconURL[10]'>
+            <label [class.overLine]="!isActive(10)">Microwave</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(11)">
+            <img [class.opi]="!isActive(11)" class="iconEdit" [src]='iconURL[11]'>
+            <label [class.overLine]="!isActive(11)">Landline</label>
+          </div>
+          <div class="celija" [class.opi]="!isActive(12)">
+            <img [class.opi]="!isActive(12)" class="iconEdit" [src]='iconURL[12]'>
+            <label [class.overLine]="!isActive(12)">Fireplace</label>
+          </div>
+        </div>
+        <div class="spacer" style="clear: both;"></div>
       </div>
 
       <!--Pricing/Availability-->
-      <div class="bordr text-center" style="margin-bottom:30px; background-color:white;">
-        <div class="col-md-10">
+      <div class="bordr" style="margin-bottom:30px; background-color:white;">
+        <div>
           <p class="title">Pricing</p>
-          <hr>
-          <p class="overview" style="text-align: left; word-wrap: break-word;"><b>{{property.deposit}}</b>€ per month</p>
-        </div>
-        <div class="col-md-8" style="padding-top:20px">
-          <p class="title">Availability</p>
-          <hr>
-          <p class="overview" style="text-align: left; word-wrap: break-word;">{{getDate(property.available)}}</p>
-        </div>
+          <div>
+            <table style="width: 100%;" id="pricing-values">
+              <tr class="header-row">
+                <th>
+                  To Pay Per Month
+                </th>
+              </tr>
 
+              <tr class="body-row">
+                <td class="label">Monthly Rent</td>
+                <td>{{property.monthly}} €</td>
+              </tr>
+
+              <tr>
+                <th style="padding-top: 50px;">
+                  Bills
+                </th>
+              </tr>
+
+              <tr class="body-row">
+                <td class="label">Electricity</td>
+                <td>{{property.electricity}}</td>
+              </tr>
+
+              <tr class="body-row">
+                <td class="label">Water</td>
+                <td>{{property.water}}</td>
+              </tr>
+
+              <tr class="body-row">
+                <td class="label">Gas</td>
+                <td>{{property.gas}}</td>
+              </tr>
+
+              <tr class="body-row">
+                <td class="label">Wifi</td>
+                <td>{{property.wifi}}</td>
+              </tr>
+
+              <tr>
+                <th style="padding-top: 50px;">
+                  To Pay on Move In
+                </th>
+              </tr>
+
+              <tr class="body-row">
+                <td class="label">Deposit</td>
+                <td>{{property.deposit}} €</td>
+              </tr>
+
+              <tr class="body-row">
+                <td class="label">HomeFetch Fee</td>
+                <td>{{0.3*property.deposit}} €</td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
 
       <!--Rules-->
       <div class="bordr text-center" style="margin-bottom:30px; background-color:white;">
         <div class="col-md-10">
           <p class="title">House Rules</p>
-          <hr>
           <p class="overview" style="text-align: left; word-wrap: break-word;">{{property.rules}}</p>
+
+          <div style="padding-top: 10px; margin-top: 0;">
+            <p class="title" style="font-size: 20px;">Landlord Policies</p>
+          </div>
+
+          <p class="overview" style="text-align: left; word-wrap: break-word;">{{property.landlordrules}}</p>
         </div>
+      </div>
+
+      <div class="bordr" style="margin-bottom:30px; padding-bottom: 60px; background-color:white;">
+        <p class="title">Availability</p>
+
+        <table style="width: 100%;" id="availability-values">
+          <tr class="body-row">
+            <td class="label">Available From</td>
+            <td>{{getDate(property.available)}}</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Min. Stay</td>
+            <td>{{property.minstay}} Days</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Max. Stay</td>
+            <td>{{property.maxstay}} Days</td>
+          </tr>
+        </table>
       </div>
 
     </div>
 
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div style="position: sticky; top: 100px;">
-        <div class="text-center bordr rightIm" style="background-color:white;">
-          <img [src]='url' class="avatar images rounded-circle img-thumbnail" alt="avatar">
-          <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>
-          <button type="button" (click)='goToProfile()' class="btn btn-lg btn-block custom" style="margin-top:25px;">View profile</button>
-          <button (click)="payProperty(property)" class="btn btn-primary btn-block" style="margin-top: 25px;">Book now</button>
-        </div>
 
         <div class="bordr" id="contact-landlord" style="background-color: white;">
-          <h6><i class="fas fa-phone-alt"></i> Check For Availability</h6>
+          <h6><b>{{property.monthly}} € per month</b></h6>
+
+          <form id="check-availability" [formGroup]="form">
+            <div class="datepicker__input-container__DatePicker___OmV4c">
+
+              <input class="datepicker__input__DatePicker___OmV4c" placeholder="Move In Date" matInput [matDatepicker]="picker" [min]="minDate" formControlName="from">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker><</mat-datepicker>
+
+              <span class="datepicker__arrow__DatePicker___OmV4c"></span>
+
+              <input class="datepicker__input__DatePicker___OmV4c" placeholder="Move Out Date" matInput [matDatepicker]="picker2" [min]="minDate" formControlName="til">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+
+            </div>
+
+            <button (click)="payProperty(property)" class="btn btn-lg btn-block custom" style="margin-top: 25px;" [disabled]="!form.valid">Request to Book</button>
+          </form>
         </div>
       </div>
     </div>

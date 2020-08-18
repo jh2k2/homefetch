@@ -4,6 +4,7 @@ export class Property {
 
        //basic info
        public deposit?:number,
+       public monthly?:number,
        public rooms?:number,
        public area?:number,
        public available?:Date,

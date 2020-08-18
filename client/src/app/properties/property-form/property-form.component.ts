@@ -20,7 +20,7 @@ export class PropertyFormComponent implements OnInit {
 
   public user: User;
 
-  @Input() prop: Property = { deposit: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null, electricity: null, water: null, gas: null, wifi: null };
+  @Input() prop: Property = { deposit: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null, electricity: null, water: null, gas: null, wifi: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
 
@@ -60,6 +60,7 @@ export class PropertyFormComponent implements OnInit {
 
     this.form = new FormGroup({
       deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(10000)]),
+      monthly: new FormControl(this.prop.monthly, [Validators.required, Validators.min(50), Validators.max(10000)]),
       rooms: new FormControl(this.prop.rooms, [Validators.required, Validators.max(10)]),
       area: new FormControl(this.prop.area, [Validators.required, Validators.min(3), Validators.max(10000)]),
       available: new FormControl(formatDate(this.prop.available, 'yyyy-MM-dd', 'en'), [Validators.required]),
@@ -119,6 +120,7 @@ export class PropertyFormComponent implements OnInit {
 
     const property = new Property(
       this.form.value.deposit,
+      this.form.value.monthly,
       this.form.value.rooms,
       this.form.value.area,
       this.form.value.available,

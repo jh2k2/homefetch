@@ -15,7 +15,7 @@ import { AgmMap } from '@agm/core';
 })
 export class SearchComponent implements OnInit {
   @ViewChild('agmMap') agmMap: AgmMap
-  
+
   form: FormGroup;
 
   //views
@@ -39,8 +39,7 @@ export class SearchComponent implements OnInit {
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': this.param }, (results, status) => {
       if (status == 'OK') {
-        this.latitude = results[0].geometry.location.lat();
-        this.longitude = results[0].geometry.location.lng();
+        return;
       }
     });
   }
@@ -64,6 +63,12 @@ export class SearchComponent implements OnInit {
       } else {
         this.propSer.getAllProperties({ params: { remain: this.param } }).subscribe(data => {
           this.properties = data.obj;
+          for (var i = 0; i < this.properties.length; i++) {
+            if (this.properties[i].approved == 0) {
+              this.properties.splice(i, 1);
+
+            }
+          }
 
           this.sortList();
           this.createList();
@@ -75,15 +80,6 @@ export class SearchComponent implements OnInit {
   }
 
   //views
-  goSearch(data) {
-    this.properties.length = 0;
-    this.propSer.getAllProperties({ params: { vicinity: data.target.value.toString() } }).subscribe(data => {
-      this.properties = data.obj;
-
-      this.sortList();
-      this.createList();
-    });
-  }
 
   sliceon(num) {
     this.onNum = num;

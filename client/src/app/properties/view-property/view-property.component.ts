@@ -5,13 +5,14 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
 import { Property } from '../../model/property.model';
 
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+
 @Component({
   selector: 'app-view-property',
   templateUrl: './view-property.component.html',
   styleUrls: ['./view-property.component.css']
 })
 export class ViewPropertyComponent implements OnInit {
-
   public iconURL = ['', "../../../assets/icons/B-wireless-network.png",
     "../../../assets/icons/B-hdtv.png",
     "../../../assets/icons/B-bed.png",
@@ -39,10 +40,21 @@ export class ViewPropertyComponent implements OnInit {
   public activ = null;
   public hasWaitlist;
   public amount;
+  public minDate: Date;
+  form: FormGroup;
 
   constructor(private router: Router, private route: ActivatedRoute, private propSer: PropertyService, private userSer: UserService) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      from: new FormControl('', [Validators.required]),
+      til: new FormControl('', [Validators.required])
+    });
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDate = new Date().getDate();
+    this.minDate = new Date(currentYear, currentMonth, currentDate);
+
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.taken = params.get('id');
       this.propSer.viewProperty(this.taken).subscribe(
@@ -93,7 +105,6 @@ export class ViewPropertyComponent implements OnInit {
     });
 
   }
-
 
   left() { if (this.pos == 0) { this.pos = this.images.length - 1; } else this.pos = this.pos - 1; }
 
