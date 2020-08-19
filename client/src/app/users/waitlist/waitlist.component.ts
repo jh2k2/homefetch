@@ -13,31 +13,52 @@ import { Property } from '../../model/property.model';
 export class WaitlistComponent implements OnInit {
   public haveWaitlist;
   public prop: Property;
+  public reject: Property;
+  public accept: Property;
   public users: User;
   public usersRequest: string;
   public loaded = false;
+  public haveReject = false;
+  public haveAccept = false;
 
   constructor(private propSer: PropertyService, private router: Router, private userSer: UserService) { }
 
   ngOnInit() {
     this.userSer.getSettings().subscribe(
       data => {
-        if(data.user.landlord==1) {
+        if (data.user.landlord == 1) {
           this.router.navigate(['/']);
         }
+
         this.usersRequest = data.user.request;
         if (this.usersRequest == "none") {
           this.haveWaitlist = false;
+
+          if (data.user.reject != "none" && data.user.reject != undefined) {
+            this.propSer.getAllPropertiesById({ params: { id: data.user.reject } }).subscribe(
+              data => {
+                this.reject = data.obj;
+                this.haveReject = true;
+              });
+          }
+
+
+          if (data.user.accept != "none" && data.user.accept != undefined) {
+            this.propSer.getAllPropertiesById({ params: { id: data.user.accept } }).subscribe(
+              data => {
+                this.reject = data.obj;
+                this.haveAccept = true;
+              });
+          }
         } else {
           this.propSer.getAllPropertiesById({ params: { id: this.usersRequest } }).subscribe(
             data => {
               this.prop = data.obj;
               this.haveWaitlist = true;
-            }
-          );
+            });
         }
 
-        if(data.user.landlord == 1) {
+        if (data.user.landlord == 1) {
           this.router.navigate(['/']);
         }
 

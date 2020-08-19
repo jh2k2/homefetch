@@ -48,6 +48,7 @@ export class PaymentComponent implements OnInit {
       this.from = final[1];
       this.til = final[2];
 
+
       this.propSer.viewProperty(this.taken).subscribe(
         data => {
 
@@ -146,6 +147,9 @@ export class PaymentComponent implements OnInit {
     document.querySelector("button").disabled = true;
 
     this.users.request = this.property._id;
+    this.users.from = this.from;
+    this.users.til = this.til;
+    this.users.paymentId = paymentIntentId;
     this.owner.userRequest.push(this.users.userName);
     //this updates self setting, need to update owner's setting
 

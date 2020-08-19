@@ -37,6 +37,9 @@ export class RegisterComponent implements OnInit {
         this.form.value.firstName,
         this.form.value.lastName,
         this.form.value.userName.toLowerCase(),
+        "none",
+        "none",
+        "none",
         this.form.value.phone,
         this.form.value.street,
         this.form.value.street2

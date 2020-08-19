@@ -29,6 +29,7 @@ export class Property {
        public latitude?:number,
 
        public address_object?:string,
+       public youtube?:string,
        //icons
        public internet?:boolean,
        public cableTV?:boolean,

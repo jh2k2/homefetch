@@ -43,6 +43,7 @@
     "ngx-stripe": "^10.1.1",
     "ngx-toastr": "^13.0.0",
     "rxjs": "^6.6.2",
+    "rxjs-compat": "^6.6.2",
     "stripe": "^8.83.0",
     "zone.js": "^0.10.3"
   },

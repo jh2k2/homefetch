@@ -29,6 +29,9 @@ const PropertySchema = mongoose.Schema({
     type: Number,
     required: true
   },
+  youtube: {
+    type: String
+  },
   available: {
     type: Date,
   },

@@ -14,7 +14,33 @@
               <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" /></svg>
           </div>
         </div>
-        <div style="padding: 35px;">
+
+        <div id="pop-ups">
+          <div class="row" style="width: 100%; margin: 20px 0 0;">
+            <div class="col-md-4" style="padding-left: 35px; padding-right: 5px;">
+              <div class="pop-up" (click)="dispPopup('floor_plan')" name="floor_plan">
+                <span class="track-container__icon"><svg width="21px" height="16px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Slider" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Slider_MVP2_1_DesktopHD" transform="translate(-64.000000, -685.000000)" stroke="white" stroke-width="1.2"><g id="Carousel-Tabs" transform="translate(32.000000, 658.000000)"><g id="Photos"><g id="Photos_lb" transform="translate(32.361766, 27.000000)"><g id="Photos_icon"><circle id="Oval" cx="6.1875" cy="5.45955882" r="2.03216912"></circle><rect id="Rectangle" x="0.515625" y="0.515625" width="16.4393382" height="16.4393382"></rect><polyline id="Path-3" points="0.727941176 13.7460021 4.83173584 10.232669 7.61628973 12.3846646 12.7805729 7.27941176 17.0575325 11.4059885"></polyline></g></g></g></g></g></g></svg></span>
+                Floor Plan
+              </div>
+            </div>
+
+            <div class="col-md-4" style="padding-left: 20px; padding-right: 20px;">
+              <div class="pop-up" (click)="dispPopup('map')" name="map">
+                <span class="track-container__icon"><svg width="16px" height="21px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Slider" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Slider_MVP2_1_DesktopHD" transform="translate(-532.000000, -685.000000)" stroke="white" stroke-width="1.2"><g id="Carousel-Tabs" transform="translate(32.000000, 658.000000)"><g id="Map" transform="translate(457.000000, 0.000000)"><g id="Map_lb" transform="translate(41.448383, 27.000000)"><g id="Map_icon"><circle id="Oval" cx="8.73529412" cy="6.55147059" r="2.39613971"></circle><path d="M2.33547794,6.62147719 C2.33556992,8.75239431 4.46403005,12.1503134 8.73697723,16.7184791 C13.0077735,12.1502466 15.1351103,8.75231416 15.1351104,6.62161541 C15.1333075,3.25774377 12.2755718,0.520833194 8.73757987,0.515624752 C5.19708434,0.519097215 2.33735897,3.25645481 2.33547794,6.62147719 Z M2.33547794,6.62147719 C2.33547792,6.62152323 2.33547789,6.62156927 2.33547787,6.62161531 L2.33547794,6.62133907 C2.33547794,6.62138511 2.33547794,6.62143115 2.33547794,6.62147719 Z" id="Fill-1"></path></g></g></g></g></g></g></svg></span>
+                Map
+              </div>
+            </div>
+
+            <div class="col-md-4" style="padding-left: 5px; padding-right: 35px;">
+              <div class="pop-up" (click)="dispPopup('video')" name="video">
+                <span class="track-container__icon"><svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Slider" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Slider_MVP2_1_DesktopHD" transform="translate(-220.000000, -685.000000)" stroke="white"><g id="Carousel-Tabs" transform="translate(32.000000, 658.000000)"><g id="Video" transform="translate(153.000000, 0.000000)"><g id="Video_lb" transform="translate(35.448383, 27.000000)"><g id="Video_icon"><g id="Play_icon"><circle id="Oval" stroke-width="1.2" cx="8.73529412" cy="8.73529412" r="8.21966912"></circle><path d="M12.173385,8.73529412 L7.06709559,5.33110118 L7.06709559,12.1394871 L12.173385,8.73529412 Z" id="Triangle" stroke-width="1.2"></path></g></g></g></g></g></g></g></svg></span>
+                Video
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 35px; padding-top: 10px;">
           <p class="title">{{property.title}}</p>
           <p class="" style="text-align: left; font-size: 14px; color: #727679; font-weight: 100;">{{property.street}}, {{property.remain}}</p>
           <hr>
@@ -212,6 +238,40 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
+<div id="floor_plan" class="modal" *ngIf='isDataLoaded' >
+  <span class="close" (click)="closeModal('floor_plan')">
+    <img src="../../../assets/images/close.svg">
+  </span>
+  <div class="modal-cont">
+    <img [src]="floorplan[0]" style="width: 500px; height: auto;">
+  </div>
+</div>
+
+<div id="map" class="modal" *ngIf='isDataLoaded'>
+  <span class="close" (click)="closeModal('map')">
+    <img src="../../../assets/images/close.svg">
+  </span>
+  <div class="modal-cont" style="width: 560px; height: 315px;">
+    <agm-map #agmMap [latitude]="latitude" [longitude]="longitude" [fitBounds]="true">
+      <agm-marker (markerClick)="goForProp(prop)" [latitude]="property.latitude" [longitude]="property.longitude" [agmFitBounds]="true"></agm-marker>
+    </agm-map>
+  </div>
+</div>
+
+<div id="video" class="modal" *ngIf='isDataLoaded' >
+  <span class="close" (click)="closeModal('video')">
+    <img src="../../../assets/images/close.svg">
+  </span>
+  <div class="modal-cont">
+    <iframe width="560"
+            height="315"
+            [src]="property.youtube"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
   </div>
 </div>

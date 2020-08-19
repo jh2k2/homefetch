@@ -98,7 +98,12 @@ router.get('/profile/:username', passport.authenticate('jwt', {
           street: user.street,
           street2: user.street2,
           avatar: user.avatar,
-          userRequest: user.userRequest
+          request: user.request,
+          userRequest: user.userRequest,
+          from: user.from,
+          til: user.til,
+          paymentId: user.paymentId
+
         },
         me: req.user.userName
       });
@@ -125,7 +130,11 @@ router.get('/settings', passport.authenticate('jwt', {
       admin: user.admin,
       banned: user.banned,
       landlord: user.landlord,
-      request: user.request
+      request: user.request,
+      userRequest: user.userRequest,
+      paymentId: user.paymentId,
+      reject: user.reject,
+      accept: user.accept
     }
   });
 });

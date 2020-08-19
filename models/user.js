@@ -17,6 +17,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  paymentId: {
+    type: String,
+    default: 'none'
+  },
   lastName: {
     type: String,
     required: true
@@ -57,6 +61,20 @@ const UserSchema = mongoose.Schema({
   request: {
     type: String,
     default: "none"
+  },
+  reject: {
+    type: String,
+    default: "none"
+  },
+  accept: {
+    type: String,
+    default: "none"
+  },
+  from: {
+    type: String
+  },
+  til: {
+    type: String
   },
   userRequest: [{
     type: String

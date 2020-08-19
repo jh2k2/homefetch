@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../../services/property.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
 import { Property } from '../../model/property.model';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import $ from 'jquery';
+declare let google: any;
+import { AgmMap } from '@agm/core';
 
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
@@ -13,6 +17,10 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./view-property.component.css']
 })
 export class ViewPropertyComponent implements OnInit {
+    @ViewChild('agmMap') agmMap: AgmMap
+
+  latitude: Number;
+  longitude: Number;
   public iconURL = ['', "../../../assets/icons/B-wireless-network.png",
     "../../../assets/icons/B-hdtv.png",
     "../../../assets/icons/B-bed.png",
@@ -44,9 +52,19 @@ export class ViewPropertyComponent implements OnInit {
   public minDate: Date;
   form: FormGroup;
 
-  constructor(private router: Router, private route: ActivatedRoute, private propSer: PropertyService, private userSer: UserService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private propSer: PropertyService, private userSer: UserService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('floor_plan') ||
+        event.target === document.getElementById('map') ||
+        event.target === document.getElementById('video')) {
+        for (let i = 0; i < document.getElementsByClassName('modal').length; i++) {
+          document.getElementsByClassName('modal')[i].style.display = 'none';
+        }
+      }
+    }
+
     this.form = new FormGroup({
       from: new FormControl('', [Validators.required]),
       til: new FormControl('', [Validators.required])
@@ -64,6 +82,9 @@ export class ViewPropertyComponent implements OnInit {
 
           this.amount = data.prop.deposit;
           this.property = data.prop;
+          this.property.youtube = this.sanitizer.bypassSecurityTrustResourceUrl(data.prop.youtube.replace('watch?v=','embed/'));
+          this.property.longitude = data.prop.longitude;
+          this.property.latitude = data.prop.latitude;
           this.property.user = data.user;
           this.isClicked[1] = data.prop.internet,
             this.isClicked[2] = data.prop.cableTV,
@@ -109,7 +130,6 @@ export class ViewPropertyComponent implements OnInit {
           this.isDataLoaded = true;
         });
     });
-
   }
 
   left() { if (this.pos == 0) { this.pos = this.images.length - 1; } else this.pos = this.pos - 1; }
@@ -141,6 +161,8 @@ export class ViewPropertyComponent implements OnInit {
     return this.isClicked[num] == true;
   }
 
+  goForProp(prop) { this.router.navigate(['/properties/view', prop._id]); }
+
   getDate(s) {
     var b = s.split(/\D+/);
     var c = new Date(Date.UTC(b[0], --b[1], b[2]));
@@ -148,4 +170,11 @@ export class ViewPropertyComponent implements OnInit {
     return result[1] + " " + result[2] + ", " + result[3];
   }
 
+  dispPopup(elm) {
+    document.getElementById(elm).style.display = 'flex';
+  }
+
+  closeModal(elm) {
+    document.getElementById(elm).style.display = 'none';
+  }
 }

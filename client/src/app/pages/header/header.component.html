@@ -6,7 +6,7 @@
     </div>
     <div id="mainListDiv" class="main_list">
       <ul>
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/search/Barcelona,%20Spain']">Search Properties</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/search/Barcelona, Spain']">Search Properties</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/hiw']">How It Works</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/about']">About Us</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/landlordreg']">Become a landlord</a></li>
@@ -18,6 +18,7 @@
             <button class="btn btn-outline-danger" id="dropdownBasic1" ngbDropdownToggle>{{users.fullname}}</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="width: 90%;">
               <button ngbDropdownItem *ngIf="users.admin!=0" [routerLink]="['/admin/panel']">Admin panel</button>
+              <button ngbDropdownItem *ngIf="users.landlord!=0 || users.admin !=0" [routerLink]="['/users/request']">Requests</button>
               <button ngbDropdownItem *ngIf="users.landlord!=0 || users.admin !=0" [routerLink]="['/users/property']">Apartments</button>
               <button ngbDropdownItem *ngIf="users.landlord==0 || users.admin!=0" [routerLink]="['/users/waitlist']">Waitlist</button>
               <button ngbDropdownItem (click)="goToProfile()">Profile</button>

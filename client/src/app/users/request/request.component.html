@@ -1,1 +1,15 @@
-<p>request works!</p>
+<div class="container" *ngIf="loaded" style="padding-top:120px">
+  <div class="" *ngIf="!noRequest">
+    <h3> User Request:</h3>
+    <hr>
+    <h6> {{tenant.userName}}</h6>
+    <h6>{{tenant.from}} -> {{tenant.til}}</h6>
+    <button class="btn btn-danger" type="button" (click)="refund()">Reject and Refund</button>
+    <button class="btn btn-success" type="button" (click)="accept()">Accept and notify</button>
+  </div>
+
+  <div class="container" *ngIf="noRequest">
+    <h1> No Request</h1>
+
+  </div>
+</div>

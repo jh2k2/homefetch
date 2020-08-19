@@ -6,6 +6,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AgmCoreModule } from '@agm/core';
 
 import { ViewPropertyComponent } from './view-property/view-property.component';
 import { AddPropertyComponent } from './add-property/add-property.component';
@@ -22,7 +23,8 @@ import { PaymentComponent } from './payment/payment.component';
     MatGoogleMapsAutocompleteModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    AgmCoreModule
   ],
   providers: [
     MatDatepickerModule,

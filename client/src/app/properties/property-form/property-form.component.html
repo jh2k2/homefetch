@@ -1,6 +1,6 @@
 <div class="container-fluid" style="padding: 120px 100px; background-color: #F7F5F5;">
   <div style="text-align:center;">
-    <h2>Apartments</h2>
+    <h2>Create New Listing</h2>
   </div>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -21,11 +21,11 @@
         </div>
 
         <div class="form-group col-md-2">
-          <label for="inputArea">Area</label>
+          <label for="inputArea">Size (sq. m)</label>
           <input type="number" class="form-control" id="inputArea" placeholder="Enter area in m2" formControlName="area">
           <div *ngIf="form.controls['area'].errors && !form.controls['area'].pristine" class="error-msg">
             <div [hidden]="!form.controls['area'].errors.required">
-              Valid area number is required.
+              Valid area is required.
             </div>
             <div [hidden]="!form.controls['area'].errors.min">
               Area is too small (min 3).
@@ -113,7 +113,7 @@
       <!--Minstay/Maxstay-->
       <div class="form-row justify-content-center toCent">
         <div class="form-group col-md-4 pl-0">
-          <label for="inputMinstay">Minimum days stay</label>
+          <label for="inputMinstay">Minimum Rental Period</label>
           <input type="number" class="form-control" id="inputMinstay" placeholder="Enter Minimum stay in days" formControlName="minstay">
           <div *ngIf="form.controls['minstay'].errors && !form.controls['minstay'].pristine" class="error-msg">
             <div [hidden]="!form.controls['minstay'].errors.required">
@@ -123,8 +123,8 @@
         </div>
 
         <div class="form-group col-md-4">
-          <label for="inputMaxstay">Maximum days stay(0 if none)</label>
-          <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in days(0 if none)" formControlName="maxstay">
+          <label for="inputMaxstay">Maximum Rental Period (0 If None)</label>
+          <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in days" formControlName="maxstay">
           <div *ngIf="form.controls['maxstay'].errors && !form.controls['maxstay'].pristine" class="error-msg">
             <div [hidden]="!form.controls['maxstay'].errors.required">
               Valid maximum stay is required.
@@ -133,14 +133,14 @@
         </div>
 
         <div class="form-group col-md-4 pr-0">
-          <label for="inputAvailable">Available Date</label>
+          <label for="inputAvailable">Date Available</label>
           <input type="date" class="form-control" id="inputAvailable" formControlName="available">
         </div>
       </div>
 
       <div class="form-row justify-content-center toCent">
         <div class="form-group col-md-12 px-0">
-          <label for="inputDescription">Description</label>
+          <label for="inputDescription">Property Description</label>
           <textarea type="textarea" class="form-control" id="inputDescription" placeholder="Provide a detailed description of your home" formControlName="description"></textarea>
           <div *ngIf="form.controls['description'].errors && !form.controls['description'].pristine" class="error-msg">
             <div [hidden]="!form.controls['description'].errors.required">
@@ -160,7 +160,7 @@
       <!--Description/Rules-->
       <div class="form-row justify-content-center toCent">
         <div class="form-group col-md-12 px-0">
-          <label for="inputRules">Rules</label>
+          <label for="inputRules">House Rules</label>
           <textarea type="number" class="form-control" id="inputRules" placeholder="Provide a set of rules for your tenant" formControlName="rules"></textarea>
           <div *ngIf="form.controls['rules'].errors && !form.controls['rules'].pristine" class="error-msg">
             <div [hidden]="!form.controls['rules'].errors.required">
@@ -172,7 +172,7 @@
 
       <div class="form-row justify-content-center toCent">
         <div class="form-group col-md-6 pl-0">
-          <label for="inputDocuments">Documents</label>
+          <label for="inputDocuments">Additional Documents</label>
           <textarea type="textarea" class="form-control" id="inputDocuments" placeholder="Provide needed documents from the tenants" formControlName="documents"></textarea>
           <div *ngIf="form.controls['documents'].errors && !form.controls['documents'].pristine" class="error-msg">
             <div [hidden]="!form.controls['documents'].errors.required">
@@ -306,51 +306,64 @@
       <h2>Upload Media</h2>
 
       <!--Floor plan-->
-      <div class="card">
-        <img class="card-img-top" [src]='url[5]' alt="Card image cap">
-        <img *ngIf="isAdded(5)" (click)="clearImage(5)" src="../../../assets/images/delete.png" class="over">
-        <div class="card-body">
-          <a (click)="openUpload($event,5)" class="test btn">+</a>
-          <input id="upload5" name="photo" accept="image/*" (change)="onImageAdded($event,5)" type="file" style="display:none;" />
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Floor Plan</h3>
+          <div class="card">
+            <img class="card-img-top" [src]='url[5]' alt="Card image cap">
+            <img *ngIf="isAdded(5)" (click)="clearImage(5)" src="../../../assets/images/delete.png" class="over">
+            <div class="card-body">
+              <a (click)="openUpload($event,5)" class="test btn">+</a>
+              <input id="upload5" name="photo" accept="image/*" (change)="onImageAdded($event,5)" type="file" style="display:none;" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-0">
+          <h3>Pictures</h3>
+          <div class="row">
+            <div class="card pictures">
+              <img class="card-img-top" [src]='url[1]' alt="Card image cap">
+              <img *ngIf="isAdded(1)" (click)="clearImage(1)" src="../../../assets/images/delete.png" class="over">
+              <div class="card-body">
+                <a (click)="openUpload($event,1)" class="test btn">+</a>
+                <input id="upload" name="photo" accept="image/*" (change)="onImageAdded($event,1)" type="file" style="display:none;" />
+              </div>
+            </div>
+
+            <div class="card pictures">
+              <img class="card-img-top" [src]='url[2]' alt="Card image cap">
+              <img *ngIf="isAdded(2)" (click)="clearImage(2)" src="../../../assets/images/delete.png" class="over">
+              <div class="card-body">
+                <a (click)="openUpload($event,2)" class="test btn ">+</a>
+                <input id="upload2" name="photo" accept="image/*" (change)="onImageAdded($event,2)" type="file" style="display:none;" />
+              </div>
+            </div>
+
+            <div class="card pictures">
+              <img class="card-img-top" [src]='url[3]' alt="Card image cap">
+              <img *ngIf="isAdded(3)" (click)="clearImage(3)" src="../../../assets/images/delete.png" class="over">
+              <div class="card-body">
+                <a (click)="openUpload($event,3)" class="test btn">+</a>
+                <input id="upload3" name="photo" accept="image/*" (change)="onImageAdded($event,3)" type="file" style="display:none;" />
+              </div>
+            </div>
+
+            <div class="card pictures">
+              <img class="card-img-top" [src]='url[4]' alt="Card image cap">
+              <img *ngIf="isAdded(4)" (click)="clearImage(4)" src="../../../assets/images/delete.png" class="over">
+              <div class="card-body">
+                <a (click)="openUpload($event,4)" class="test btn">+</a>
+                <input id="upload4" name="photo" accept="image/*" (change)="onImageAdded($event,4)" type="file" style="display:none;" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="row justify-content-center" style="margin-top:20px;">
-        <div class="card ">
-          <img class="card-img-top" [src]='url[1]' alt="Card image cap">
-          <img *ngIf="isAdded(1)" (click)="clearImage(1)" src="../../../assets/images/delete.png" class="over">
-          <div class="card-body">
-            <a (click)="openUpload($event,1)" class="test btn">+</a>
-            <input id="upload" name="photo" accept="image/*" (change)="onImageAdded($event,1)" type="file" style="display:none;" />
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="card-img-top" [src]='url[2]' alt="Card image cap">
-          <img *ngIf="isAdded(2)" (click)="clearImage(2)" src="../../../assets/images/delete.png" class="over">
-          <div class="card-body">
-            <a (click)="openUpload($event,2)" class="test btn ">+</a>
-            <input id="upload2" name="photo" accept="image/*" (change)="onImageAdded($event,2)" type="file" style="display:none;" />
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="card-img-top" [src]='url[3]' alt="Card image cap">
-          <img *ngIf="isAdded(3)" (click)="clearImage(3)" src="../../../assets/images/delete.png" class="over">
-          <div class="card-body">
-            <a (click)="openUpload($event,3)" class="test btn">+</a>
-            <input id="upload3" name="photo" accept="image/*" (change)="onImageAdded($event,3)" type="file" style="display:none;" />
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="card-img-top" [src]='url[4]' alt="Card image cap">
-          <img *ngIf="isAdded(4)" (click)="clearImage(4)" src="../../../assets/images/delete.png" class="over">
-          <div class="card-body">
-            <a (click)="openUpload($event,4)" class="test btn">+</a>
-            <input id="upload4" name="photo" accept="image/*" (change)="onImageAdded($event,4)" type="file" style="display:none;" />
-          </div>
-        </div>
+      <div style="margin-top: 20px;">
+        <label>Upload Video Tour</label>
+        <input type="text" class="form-control ng-pristine ng-valid ng-touched" placeholder="Video URL" formControlName="youtube">
       </div>
     </div>
 
