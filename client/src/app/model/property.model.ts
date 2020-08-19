@@ -28,6 +28,7 @@ export class Property {
        public longitude?:number,
        public latitude?:number,
 
+       public address_object?:string,
        //icons
        public internet?:boolean,
        public cableTV?:boolean,

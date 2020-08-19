@@ -15,7 +15,7 @@
           <div [hidden]="!form.controls['title'].errors.required">
             Valid Title is required.
           </div>
-          
+
         </div>
       </div>
 
@@ -161,18 +161,16 @@
       <div class="form-group col-md-6">
         <label for="inputElec">Electricity bill</label>
         <select class="inputElec form-control" formControlName="electricity">
-          <option value="" disabled>Is eletricity included in the bill?</option>
-          <option value="">Included</option>
-          <option value="">Not Included</option>
+          <option value="Included">Included</option>
+          <option value="Not Included">Not Included</option>
         </select>
       </div>
 
       <div class="form-group col-md-6">
         <label for="inputWater">Water bill</label>
         <select class="inputWater form-control" formControlName="water">
-          <option value="" disabled>Is Water included in the bill?</option>
-          <option value="">Included</option>
-          <option value="">Not Included</option>
+          <option value="Included">Included</option>
+          <option value="Not Included">Not Included</option>
         </select>
 
       </div>
@@ -180,9 +178,8 @@
       <div class="form-group col-md-6">
         <label for="inputGas">Gas bill</label>
         <select class="inputGas form-control" formControlName="gas">
-          <option value="" disabled>Is gas included in the bill?</option>
-          <option value="">Included</option>
-          <option value="">Not Included</option>
+          <option value="Included">Included</option>
+          <option value="Not Included">Not Included</option>
         </select>
 
       </div>
@@ -190,9 +187,8 @@
       <div class="form-group col-md-6">
         <label for="inputWifi">Wifi bill</label>
         <select class="inputWifi form-control" formControlName="wifi">
-          <option value="" disabled>Is wifi included in the bill?</option>
-          <option value="">Included</option>
-          <option value="">Not Included</option>
+          <option value="Included">Included</option>
+          <option value="Not Included">Not Included</option>
         </select>
       </div>
 
@@ -223,11 +219,12 @@
 
     </div>
 
-    <!--Street-->
+    <!--Street/avail-->
     <div class="form-row justify-content-center toCent" style="max-width:500px">
       <div class="form-group col-md-6">
         <label for="inputStreet">Street</label>
-        <input type="text" class="form-control" id="inputStreet" placeholder="Enter your street" formControlName="street" (onLocationSelected)="onLocationSelected($event)" matGoogleMapsAutocomplete matInput>
+        <input type="text" class="form-control" id="inputStreet" value="" placeholder="Enter your street" formControlName="street" (onLocationSelected)="onLocationSelected($event)" matGoogleMapsAutocomplete matInput>
+        <input id="street" type="hidden" [value]="full_address">
         <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
           <div [hidden]="!form.controls['street'].errors.required">
             Valid street name is required.

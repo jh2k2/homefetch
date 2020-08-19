@@ -22,6 +22,9 @@ const PropertySchema = mongoose.Schema({
     type: Number,
     required: true
   },
+  address_object: {
+    type: String
+  },
   area: {
     type: Number,
     required: true

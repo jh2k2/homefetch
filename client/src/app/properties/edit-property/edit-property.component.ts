@@ -27,6 +27,7 @@ export class EditPropertyComponent implements OnInit {
 
         });
     });
+
   }
 
   sendData(data) {

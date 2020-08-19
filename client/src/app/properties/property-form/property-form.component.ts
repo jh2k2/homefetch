@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
 import { Router } from '@angular/router';
 import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-property-form',
@@ -20,7 +21,7 @@ export class PropertyFormComponent implements OnInit {
 
   public user: User;
 
-  @Input() prop: Property = { deposit: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, street: null, electricity: 'included', water: 'included', gas: 'included', wifi:'included' };
+  @Input() prop: Property = { deposit: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, remain:null, street: null, electricity: 'included', water: 'included', gas: 'included', wifi: 'included', address_object: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
 
@@ -46,10 +47,18 @@ export class PropertyFormComponent implements OnInit {
   public fileToUpload: File[] = [];
   public isAddedFile = [];
   public isClicked = [];
+  public address_object;
+  public full_address;
 
   constructor(private router: Router, private propSer: PropertyService, private userSer: UserService) { }
 
   ngOnInit() {
+    $(document).ready(() => {
+      (<HTMLInputElement>document.getElementById('inputStreet')).value = (<HTMLInputElement>document.getElementById('street')).value;
+    });
+    this.full_address = this.prop.street + ', ' + this.prop.remain;
+
+
     this.userSer.getSettings().subscribe(
       data => {
         this.user = data.user;
@@ -57,6 +66,8 @@ export class PropertyFormComponent implements OnInit {
           this.router.navigate(['/']);
         }
       });
+
+    this.address_object = JSON.parse(this.prop.address_object);
 
     this.form = new FormGroup({
       deposit: new FormControl(this.prop.deposit, [Validators.required, Validators.min(50), Validators.max(10000)]),
@@ -116,11 +127,22 @@ export class PropertyFormComponent implements OnInit {
   onSubmit() {
     if (confirm("Are you sure about the accuracy of these informations?")) {
     } else {
+      //console.log(JSON.parse(this.prop.address_object));
+      console.log(this.address_object);
       return;
     }
 
-    let test = this.form.value.street.formatted_address.split(' ');
-    test = test[test.length - 2] + ' ' + test[test.length - 1];
+    let test = "";
+    try {
+      test = this.form.value.street.formatted_address.split(' ');
+      test = test[test.length - 2] + ' ' + test[test.length - 1];
+
+      this.address_object = this.form.value.street;
+
+    } catch(e) {
+      test = this.prop.remain;
+    }
+
 
     const property = new Property(
       this.form.value.deposit,
@@ -140,11 +162,12 @@ export class PropertyFormComponent implements OnInit {
       this.form.value.water,
       this.form.value.gas,
       this.form.value.wifi,
-      this.form.value.street.name,
+      this.address_object.name,
       test,
-      this.form.value.street.vicinity,
+      this.address_object.vicinity,
       this.longitude,
       this.latitude,
+      JSON.stringify(this.address_object),
       this.isActive(1),
       this.isActive(2),
       this.isActive(3),
@@ -222,5 +245,6 @@ export class PropertyFormComponent implements OnInit {
     if (num == 5) element = document.getElementById('upload5') as HTMLElement;
     element.click();
   }
+
 
 }
