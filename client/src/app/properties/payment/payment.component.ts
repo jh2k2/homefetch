@@ -34,13 +34,21 @@ export class PaymentComponent implements OnInit {
   public taken;
   public isDataLoaded = false;
   public hasWaitlist = true;
+  public from;
+  public til;
 
   constructor( private router: Router, private toastr: ToastrService, private route: ActivatedRoute, private paySer: PaymentService, private propSer: PropertyService, private userSer: UserService) { }
 
   ngOnInit(): void {
 
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.taken = params.get('id');
+    this.route.paramMap.subscribe(params => {
+      let sub = params.get('id');
+      let final = sub.split("&");
+      this.taken = final[0];
+      this.from = final[1];
+      this.til = final[2];
+
+      console.log(this.from + this.til);
       this.propSer.viewProperty(this.taken).subscribe(
         data => {
 

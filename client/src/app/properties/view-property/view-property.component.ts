@@ -130,18 +130,13 @@ export class ViewPropertyComponent implements OnInit {
   }
 
   payProperty(prop) {
-    this.router.navigate(['/properties/payment', prop._id]);
+    let param = this.property._id + "&" + this.form.value.from + "&" + this.form.value.til;
+    this.router.navigate(['/properties/payment',  param]);
   }
 
   isActive(num) {
     return this.isClicked[num] == true;
   }
 
-  getDate(s) {
-    var b = s.split(/\D+/);
-    var c = new Date(Date.UTC(b[0], --b[1], b[2]));
-    var result = c.toString().split(" ");
-    return result[1] + " " + result[2] + ", " + result[3];
-  }
 
 }
