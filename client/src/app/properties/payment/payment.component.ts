@@ -48,7 +48,6 @@ export class PaymentComponent implements OnInit {
       this.from = final[1];
       this.til = final[2];
 
-      console.log(this.from + this.til);
       this.propSer.viewProperty(this.taken).subscribe(
         data => {
 

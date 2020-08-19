@@ -3126,7 +3126,6 @@ var PaymentComponent = /** @class */ (function () {
             _this.taken = final[0];
             _this.from = final[1];
             _this.til = final[2];
-            console.log(_this.from + _this.til);
             _this.propSer.viewProperty(_this.taken).subscribe(function (data) {
                 if (data.prop.approved != 1) {
                     _this.router.navigate(['/']);
@@ -3808,11 +3807,19 @@ var ViewPropertyComponent = /** @class */ (function () {
         this.router.navigate(['/users/profile/', this.property.user.userName]);
     };
     ViewPropertyComponent.prototype.payProperty = function (prop) {
-        var param = this.property._id + "&" + this.form.value.from + "&" + this.form.value.til;
+        var a = this.form.value.from.toString().split(" ");
+        var b = this.form.value.til.toString().split(" ");
+        var param = prop._id + "&" + a[1] + " " + a[2] + " " + a[3] + "&" + b[1] + " " + b[2] + " " + b[3];
         this.router.navigate(['/properties/payment', param]);
     };
     ViewPropertyComponent.prototype.isActive = function (num) {
         return this.isClicked[num] == true;
+    };
+    ViewPropertyComponent.prototype.getDate = function (s) {
+        var b = s.split(/\D+/);
+        var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+        var result = c.toString().split(" ");
+        return result[1] + " " + result[2] + ", " + result[3];
     };
     ViewPropertyComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },

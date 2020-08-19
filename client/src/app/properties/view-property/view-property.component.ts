@@ -51,6 +51,7 @@ export class ViewPropertyComponent implements OnInit {
       from: new FormControl('', [Validators.required]),
       til: new FormControl('', [Validators.required])
     });
+
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
     const currentDate = new Date().getDate();
@@ -130,13 +131,21 @@ export class ViewPropertyComponent implements OnInit {
   }
 
   payProperty(prop) {
-    let param = this.property._id + "&" + this.form.value.from + "&" + this.form.value.til;
-    this.router.navigate(['/properties/payment',  param]);
+    let a = this.form.value.from.toString().split(" ");
+    let b = this.form.value.til.toString().split(" ");
+    let param = prop._id + "&" + a[1] + " " + a[2] + " " + a[3] + "&" + b[1] + " " + b[2] + " " + b[3];
+    this.router.navigate(['/properties/payment', param]);
   }
 
   isActive(num) {
     return this.isClicked[num] == true;
   }
 
+  getDate(s) {
+    var b = s.split(/\D+/);
+    var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+    var result = c.toString().split(" ");
+    return result[1] + " " + result[2] + ", " + result[3];
+  }
 
 }
