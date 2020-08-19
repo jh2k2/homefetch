@@ -10,12 +10,57 @@
     }
 }
 
+.bounding-box {
+  background-color: white;
+  margin: 40px 0;
+  padding: 35px 35px 49px;
+}
+
+.form-group {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+h2 {
+  font-family: "Circular Std Book", sans-serif;
+  font-size: 30px;
+  margin: 14px 0 20px;
+  text-align: left;
+  color: #db2d8e;
+}
+
+h3 {
+  font-size: 20px;
+  font-family: "Circular std book", sans-serif;
+  margin-top: 20px;
+}
+
+textarea {
+  max-height: 232px;
+  min-height: 232px;
+}
+
 .overLine{
     text-decoration: line-through;
 }
+
+.error-msg {
+  font-size: 10px;
+  color: red;
+  margin-top: 4px;
+}
+
+.form-control {
+  height: auto;
+  padding: .75em;
+}
+
 label{
     font-family: 'Roboto', sans-serif;
-    padding-top:15px;
+    padding-top: 8px;
+    font-size: 13px;
+    color: #727679;
+    font-weight: 100;
 }
 
 td{
@@ -82,7 +127,7 @@ table{
 }
 
 .opi{
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 .card-body{
@@ -95,4 +140,43 @@ table{
   color: #eee;
   font-family: 'Circular Std Bold';
   margin-bottom:20px;
+}
+
+.body-row {
+  border-bottom: 1px solid #ecf2f5;
+}
+
+.body-row .label {
+  width: 70%;
+}
+
+.body-row td {
+  text-transform: capitalize;
+  font-weight: 100;
+}
+
+#amenities td {
+  padding: 20px 0;
+}
+
+.disapir {
+  float: left;
+  padding: .5rem;
+  margin: 0 12px 12px 0;
+  font-size: 12px;
+  background-color: #F2F2F2;
+  border-radius: 4px;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.disapir label {
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.iconEdit {
+  height: 16px;
+  width: auto;
+  margin-right: 3px;
 }

@@ -52,43 +52,49 @@ router.get('/allbyid', (req, res, next) => {
   });
 });
 
-router.post('/add', upload.array('photo', 4), passport.authenticate('jwt', {
+router.post('/add', upload.fields([{
+  name: 'photo',
+  maxCount: 4
+}, {
+  name: 'floor',
+  maxCount: 1
+}]), passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
   var itsMe = JSON.parse(req.body.thisProp);
   let prop = new Property(itsMe);
   prop.user = req.user._id;
-  if (req.files[0] != undefined) {
-    prop.image1 = req.files[0].filename;
-    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[0].filename, {
+  if (req.files['photo'][0] != undefined) {
+    prop.image1 = req.files['photo'][0].filename;
+    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][0].filename, {
       use_filename: true,
       unique_filename: false
     });
   }
-  if (req.files[1] != undefined) {
-    prop.image2 = req.files[1].filename;
-    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[1].filename, {
+  if (req.files['photo'][1] != undefined) {
+    prop.image2 = req.files['photo'][1].filename;
+    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][1].filename, {
       use_filename: true,
       unique_filename: false
     });
   }
-  if (req.files[2] != undefined) {
-    prop.image3 = req.files[2].filename;
-    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[2].filename, {
+  if (req.files['photo'][2] != undefined) {
+    prop.image3 = req.files['photo'][2].filename;
+    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][2].filename, {
       use_filename: true,
       unique_filename: false
     });
   }
-  if (req.files[3] != undefined) {
-    prop.image4 = req.files[3].filename;
-    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[3].filename, {
+  if (req.files['photo'][3] != undefined) {
+    prop.image4 = req.files['photo'][3].filename;
+    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][3].filename, {
       use_filename: true,
       unique_filename: false
     });
   }
-  if (req.files[4] != undefined) {
-    prop.image5 = req.files[4].filename;
-    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[4].filename, {
+  if (req.files['floor'][0] != undefined) {
+    prop.image5 = req.files['floor'][0].filename;
+    cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['floor'][0].filename, {
       use_filename: true,
       unique_filename: false
     });
@@ -139,12 +145,20 @@ router.get('/edit/:id', passport.authenticate('jwt', {
 });
 
 
-router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt', {
+router.patch('/edit/:id', upload.fields([{
+  name: 'photo',
+  maxCount: 4
+}, {
+  name: 'floor',
+  maxCount: 1
+}]), passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
+  console.log(req.files['floor']);
   Property.getPropertyById(req.params.id.toString(), (err, prop) => {
+
     if (err)
-      return res.status(500).send("Server error!");
+      return res.status(500).send("Server error!" + err);
     else if (!prop)
       return res.status(422).send("Property not found");
     else {
@@ -156,40 +170,43 @@ router.patch('/edit/:id', upload.array('photo', 4), passport.authenticate('jwt',
         if (itsMe.image2 != prop.image2 && itsMe.image2 == "no") deleteFile(prop.image2);
         if (itsMe.image3 != prop.image3 && itsMe.image3 == "no") deleteFile(prop.image3);
         if (itsMe.image4 != prop.image4 && itsMe.image4 == "no") deleteFile(prop.image4);
-        for (i = 0; i < 6; i++) {
-          if (req.files[i] != undefined)
+        if (itsMe.image5 != prop.image5 && itsMe.image5 == "no") deleteFile(prop.image5);
+        for (i = 0; i < 4; i++) {
+          if (req.files['photo'][i] != undefined)
             if (itsMe.image1 == "no") {
-              itsMe.image1 = req.files[i].filename;
-              cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
+              itsMe.image1 = req.files['photo'][i].filename;
+              cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][i].filename, {
                 use_filename: true,
                 unique_filename: false
               });
             }
           else if (itsMe.image2 == "no") {
-            itsMe.image2 = req.files[i].filename;
-            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
+            itsMe.image2 = req.files['photo'][i].filename;
+            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][i].filename, {
               use_filename: true,
               unique_filename: false
             });
           } else if (itsMe.image3 == "no") {
-            itsMe.image3 = req.files[i].filename;
-            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
+            itsMe.image3 = req.files['photo'][i].filename;
+            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][i].filename, {
               use_filename: true,
               unique_filename: false
             });
           } else if (itsMe.image4 == "no") {
-            itsMe.image4 = req.files[i].filename;
-            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
-              use_filename: true,
-              unique_filename: false
-            });
-          }  else if (itsMe.image5 == "no") {
-            itsMe.image5 = req.files[i].filename;
-            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files[i].filename, {
+            itsMe.image4 = req.files['photo'][i].filename;
+            cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['photo'][i].filename, {
               use_filename: true,
               unique_filename: false
             });
           }
+          if (req.files['floor'][0] != undefined)
+            if (itsMe.image5 == "no") {
+              itsMe.image5 = req.files['floor'][0].filename;
+              cloudinary.v2.uploader.upload("./uploads/properties/" + req.files['floor'][0].filename, {
+                use_filename: true,
+                unique_filename: false
+              });
+            }
 
           Property.saveModProperty(req.params.id.toString(), itsMe, (err) => {
             if (err)

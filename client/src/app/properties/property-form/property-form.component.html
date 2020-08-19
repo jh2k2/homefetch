@@ -1,358 +1,361 @@
-<div class="container-fluid" style="padding-top:120px">
+<div class="container-fluid" style="padding: 120px 100px; background-color: #F7F5F5;">
   <div style="text-align:center;">
     <h2>Apartments</h2>
   </div>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <!--Title/Area-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
+    <div class="bounding-box">
+      <h2>Basic Information</h2>
 
-      <div class="form-group col-md-6">
-        <label for="inputTitle">Title</label>
-        <input type="text" class="form-control" id="inputTitle" placeholder="Enter an attractive title" formControlName="title">
-        <div *ngIf="form.controls['title'].errors && !form.controls['title'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['title'].errors.required">
-            Valid Title is required.
+      <!--Title/Area-->
+      <div class="form-row justify-content-center toCent">
+        <div class="form-group col-md-4 pl-0">
+          <label for="inputTitle">Property Title</label>
+          <input type="text" class="form-control" id="inputTitle" placeholder="Enter an attractive title" formControlName="title">
+          <div *ngIf="form.controls['title'].errors && !form.controls['title'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['title'].errors.required">
+              Valid Title is required.
+            </div>
           </div>
+        </div>
 
+        <div class="form-group col-md-2">
+          <label for="inputArea">Area</label>
+          <input type="number" class="form-control" id="inputArea" placeholder="Enter area in m2" formControlName="area">
+          <div *ngIf="form.controls['area'].errors && !form.controls['area'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['area'].errors.required">
+              Valid area number is required.
+            </div>
+            <div [hidden]="!form.controls['area'].errors.min">
+              Area is too small (min 3).
+            </div>
+            <div [hidden]="!form.controls['area'].errors.max">
+              Area is too big (max 1000).
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6 pr-0">
+          <label for="inputStreet">Address</label>
+          <input type="text" class="form-control" id="inputStreet" value="" placeholder="Enter your street" formControlName="street" (onLocationSelected)="onLocationSelected($event)" matGoogleMapsAutocomplete matInput>
+          <input id="street" type="hidden" [value]="full_address">
+          <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['street'].errors.required">
+              Valid address is required.
+            </div>
+            <div [hidden]="!form.controls['street'].errors.minlength">
+              Valid address is required.
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="form-group col-md-6">
-        <label for="inputArea">Area</label>
-        <input type="number" class="form-control" id="inputArea" placeholder="Enter area in m2" formControlName="area">
-        <div *ngIf="form.controls['area'].errors && !form.controls['area'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['area'].errors.required">
-            Valid area number is required.
+      <!--Room/Bathrooms-->
+      <div class="form-row justify-content-center toCent">
+
+        <div class="form-group col-md-3 pl-0">
+          <label for="inputBathrooms">Bathrooms</label>
+          <input type="number" class="form-control" id="inputBathrooms" placeholder="Enter number of bath rooms" formControlName="bathrooms">
+          <div *ngIf="form.controls['bathrooms'].errors && !form.controls['bathrooms'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['bathrooms'].errors.required">
+              Valid bathrooms number is required.
+            </div>
           </div>
-          <div [hidden]="!form.controls['area'].errors.min">
-            Area is too small (min 3).
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="inputRooms">Bedrooms</label>
+          <input type="number" class="form-control" id="inputRooms" placeholder="Enter number of rooms" formControlName="rooms">
+          <div *ngIf="form.controls['rooms'].errors && !form.controls['rooms'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['rooms'].errors.required">
+              Valid rooms number is required.
+            </div>
+            <div [hidden]="!form.controls['rooms'].errors.max">
+              Room number is too big(max 10)
+            </div>
           </div>
-          <div [hidden]="!form.controls['area'].errors.max">
-            Area is too big (max 1000).
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="inputMonthly">Monthly Rent (€)</label>
+          <input type="number" class="form-control" id="inputMonthly" placeholder="Enter the monthly rent" formControlName="monthly">
+          <div *ngIf="form.controls['monthly'].errors && !form.controls['monthly'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['monthly'].errors.required">
+              Valid Monthly Rent is required.
+            </div>
+            <div [hidden]="!form.controls['monthly'].errors.min">
+              Rent is too little (min 50).
+            </div>
+            <div [hidden]="!form.controls['monthly'].errors.max">
+              Rent is too much (max 10000).
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-3 pr-0">
+          <label for="inputDeposit">Deposit (€)</label>
+          <input type="number" class="form-control" id="inputDeposit" placeholder="Enter the deposit for the property" formControlName="deposit">
+          <div *ngIf="form.controls['deposit'].errors && !form.controls['deposit'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['deposit'].errors.required">
+              Valid deposit is required.
+            </div>
+            <div [hidden]="!form.controls['deposit'].errors.min">
+              Deposit is too little (min 50).
+            </div>
+            <div [hidden]="!form.controls['deposit'].errors.max">
+              Deposit is too much (max 10000).
+            </div>
           </div>
         </div>
       </div>
 
+      <!--Minstay/Maxstay-->
+      <div class="form-row justify-content-center toCent">
+        <div class="form-group col-md-4 pl-0">
+          <label for="inputMinstay">Minimum days stay</label>
+          <input type="number" class="form-control" id="inputMinstay" placeholder="Enter Minimum stay in days" formControlName="minstay">
+          <div *ngIf="form.controls['minstay'].errors && !form.controls['minstay'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['minstay'].errors.required">
+              Valid minimum stay is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputMaxstay">Maximum days stay(0 if none)</label>
+          <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in days(0 if none)" formControlName="maxstay">
+          <div *ngIf="form.controls['maxstay'].errors && !form.controls['maxstay'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['maxstay'].errors.required">
+              Valid maximum stay is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 pr-0">
+          <label for="inputAvailable">Available Date</label>
+          <input type="date" class="form-control" id="inputAvailable" formControlName="available">
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center toCent">
+        <div class="form-group col-md-12 px-0">
+          <label for="inputDescription">Description</label>
+          <textarea type="textarea" class="form-control" id="inputDescription" placeholder="Provide a detailed description of your home" formControlName="description"></textarea>
+          <div *ngIf="form.controls['description'].errors && !form.controls['description'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['description'].errors.required">
+              Valid Description is needed!
+            </div>
+            <div [hidden]="!form.controls['description'].errors.minlength">
+              Description is too short (min 40).
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!--Description/Rules-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
+    <div class="bounding-box">
+      <h2>Rules & Policies</h2>
 
-      <div class="form-group col-md-6">
-        <label for="inputDescription">Description</label>
-        <textarea type="textarea" class="form-control" id="inputDescription" placeholder="Provide a detailed description of your home" formControlName="description"></textarea>
-        <div *ngIf="form.controls['description'].errors && !form.controls['description'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['description'].errors.required">
-            Valid Description is needed!
-          </div>
-          <div [hidden]="!form.controls['description'].errors.minlength">
-            Description is too short (min 40).
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputRules">Rules</label>
-        <textarea type="number" class="form-control" id="inputRules" placeholder="Provide a set of rules for your tenant" formControlName="rules"></textarea>
-        <div *ngIf="form.controls['rules'].errors && !form.controls['rules'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['rules'].errors.required">
-            Valid Rule Sets are required.
+      <!--Description/Rules-->
+      <div class="form-row justify-content-center toCent">
+        <div class="form-group col-md-12 px-0">
+          <label for="inputRules">Rules</label>
+          <textarea type="number" class="form-control" id="inputRules" placeholder="Provide a set of rules for your tenant" formControlName="rules"></textarea>
+          <div *ngIf="form.controls['rules'].errors && !form.controls['rules'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['rules'].errors.required">
+              Valid Rule Sets are required.
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="form-row justify-content-center toCent">
+        <div class="form-group col-md-6 pl-0">
+          <label for="inputDocuments">Documents</label>
+          <textarea type="textarea" class="form-control" id="inputDocuments" placeholder="Provide needed documents from the tenants" formControlName="documents"></textarea>
+          <div *ngIf="form.controls['documents'].errors && !form.controls['documents'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['documents'].errors.required">
+              Valid Document is needed!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6 pr-0">
+          <label for="inputLandlordrules">Landlord Policies</label>
+          <textarea type="number" class="form-control" id="inputLandlordrules" placeholder="Provide a set of rules for yourself for the tenants to see" formControlName="landlordrules"></textarea>
+          <div *ngIf="form.controls['landlordrules'].errors && !form.controls['landlordrules'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['landlordrules'].errors.required">
+              Valid Rule Sets are required.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!--Documents/Landlord policies-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
+    <div class="bounding-box">
+      <h2>Features & Amenities</h2>
 
-      <div class="form-group col-md-6">
-        <label for="inputDocuments">Documents</label>
-        <textarea type="textarea" class="form-control" id="inputDocuments" placeholder="Provide needed documents from the tenants" formControlName="documents"></textarea>
-        <div *ngIf="form.controls['documents'].errors && !form.controls['documents'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['documents'].errors.required">
-            Valid Document is needed!
+      <div class="form-row" style="padding: 0 7px;">
+        <div class="form-group col-md-8 pl-0">
+          <h3>Amenities</h3>
+          <table style="width: 100%;" id="amenities">
+            <tr class="body-row">
+              <td class="label">Electricity</td>
+              <td>
+                <select class="inputElec form-control" formControlName="electricity">
+                  <option value="Included">Included</option>
+                  <option value="Not Included">Not Included</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr class="body-row">
+              <td class="label">Water</td>
+              <td>
+                <select class="inputWater form-control" formControlName="water">
+                  <option value="Included">Included</option>
+                  <option value="Not Included">Not Included</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr class="body-row">
+              <td class="label">Gas</td>
+              <td>
+                <select class="inputGas form-control" formControlName="gas">
+                  <option value="Included">Included</option>
+                  <option value="Not Included">Not Included</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr class="body-row">
+              <td class="label">Internet</td>
+              <td>
+                <select class="inputWifi form-control" formControlName="wifi">
+                  <option value="Included">Included</option>
+                  <option value="Not Included">Not Included</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class=" form-group col-md-4 pr-0">
+          <h3>Additional Features</h3>
+          <div style="margin-top: 40px;">
+            <div (click)='changeI(1)' class="disapir" [class.opi]="!isActive(1)">
+              <img [class.opi]="!isActive(1)" class="iconEdit" [src]='iconURL[1]'>
+              <label [class.overLine]="!isActive(1)">Internet</label>
+            </div>
+            <div (click)='changeI(2)' class="disapir" [class.opi]="!isActive(2)">
+              <img [class.opi]="!isActive(2)" class="iconEdit" [src]='iconURL[2]'>
+              <label [class.overLine]="!isActive(2)">Cable TV</label>
+            </div>
+            <div (click)='changeI(3)' class="disapir" [class.opi]="!isActive(3)">
+              <img [class.opi]="!isActive(3)" class="iconEdit" [src]='iconURL[3]'>
+              <label [class.overLine]="!isActive(3)">Double bed</label>
+            </div>
+            <div (click)='changeI(4)' class="disapir" [class.opi]="!isActive(4)">
+              <img [class.opi]="!isActive(4)" class="iconEdit" [src]='iconURL[4]'>
+              <label [class.overLine]="!isActive(4)">Single bed</label>
+            </div>
+            <div (click)='changeI(5)' class="disapir" [class.opi]="!isActive(5)">
+              <img [class.opi]="!isActive(5)" class="iconEdit" [src]='iconURL[5]'>
+              <label [class.overLine]="!isActive(5)">Air conditioning</label>
+            </div>
+            <div (click)='changeI(6)' class="disapir" [class.opi]="!isActive(6)">
+              <img [class.opi]="!isActive(6)" class="iconEdit" [src]='iconURL[6]'>
+              <label [class.overLine]="!isActive(6)">Fridge</label>
+            </div>
+            <div (click)='changeI(7)' class="disapir" [class.opi]="!isActive(7)">
+              <img [class.opi]="!isActive(7)" class="iconEdit" [src]='iconURL[7]'>
+              <label [class.overLine]="!isActive(7)">Stove</label>
+            </div>
+            <div (click)='changeI(8)' class="disapir" [class.opi]="!isActive(8)">
+              <img [class.opi]="!isActive(8)" class="iconEdit" [src]='iconURL[8]'>
+              <label [class.overLine]="!isActive(8)">Washing machine</label>
+            </div>
+            <div (click)='changeI(9)' class="disapir" [class.opi]="!isActive(9)">
+              <img [class.opi]="!isActive(9)" class="iconEdit" [src]='iconURL[9]'>
+              <label [class.overLine]="!isActive(9)">Bathtub</label>
+            </div>
+            <div (click)='changeI(10)' class="disapir" [class.opi]="!isActive(10)">
+              <img [class.opi]="!isActive(10)" class="iconEdit" [src]='iconURL[10]'>
+              <label [class.overLine]="!isActive(10)">Microwave</label>
+            </div>
+            <div (click)='changeI(11)' class="disapir" [class.opi]="!isActive(11)">
+              <img [class.opi]="!isActive(11)" class="iconEdit" [src]='iconURL[11]'>
+              <label [class.overLine]="!isActive(11)">Landline</label>
+            </div>
+            <div (click)='changeI(12)' class="disapir" [class.opi]="!isActive(12)">
+              <img [class.opi]="!isActive(12)" class="iconEdit" [src]='iconURL[12]'>
+              <label [class.overLine]="!isActive(12)">Fireplace</label>
+            </div>
+            <div class="spacer" style="clear: both;"></div>
           </div>
         </div>
       </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputLandlordrules">Landlord Policies</label>
-        <textarea type="number" class="form-control" id="inputLandlordrules" placeholder="Provide a set of rules for yourself for the tenants to see" formControlName="landlordrules"></textarea>
-        <div *ngIf="form.controls['landlordrules'].errors && !form.controls['landlordrules'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['landlordrules'].errors.required">
-            Valid Rule Sets are required.
-          </div>
-        </div>
-      </div>
-
     </div>
-
-    <!--Room/Bathrooms-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
-
-      <div class="form-group col-md-6">
-        <label for="inputBathrooms">Bathrooms</label>
-        <input type="number" class="form-control" id="inputBathrooms" placeholder="Enter number of bath rooms" formControlName="bathrooms">
-        <div *ngIf="form.controls['bathrooms'].errors && !form.controls['bathrooms'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['bathrooms'].errors.required">
-            Valid bathrooms number is required.
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputRooms">Bedrooms</label>
-        <input type="number" class="form-control" id="inputRooms" placeholder="Enter number of rooms" formControlName="rooms">
-        <div *ngIf="form.controls['rooms'].errors && !form.controls['rooms'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['rooms'].errors.required">
-            Valid rooms number is required.
-          </div>
-          <div [hidden]="!form.controls['rooms'].errors.max">
-            Room number is too big(max 10)
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!--Deposit/Fee-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
-
-      <div class="form-group col-md-6">
-        <label for="inputDeposit">Deposit</label>
-        <input type="number" class="form-control" id="inputDeposit" placeholder="Enter deposit in euros" formControlName="deposit">
-        <div *ngIf="form.controls['deposit'].errors && !form.controls['deposit'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['deposit'].errors.required">
-            Valid Deposit is required.
-          </div>
-          <div [hidden]="!form.controls['deposit'].errors.min">
-            Deposit is too small (min 50).
-          </div>
-          <div [hidden]="!form.controls['deposit'].errors.max">
-            Deposit is too big (max 10000).
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputMonthly">Monthly Fee</label>
-        <input type="number" class="form-control" id="inputMonthly" placeholder="Enter monthly fee in euros" formControlName="monthly">
-        <div *ngIf="form.controls['monthly'].errors && !form.controls['monthly'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['monthly'].errors.required">
-            Valid Monthly Fee is required.
-          </div>
-          <div [hidden]="!form.controls['monthly'].errors.min">
-            Fee is too small (min 50).
-          </div>
-          <div [hidden]="!form.controls['monthly'].errors.max">
-            Fee is too big (max 10000).
-          </div>
-        </div>
-      </div>
-
-    </div>
-
     <!--bills-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
 
-      <div class="form-group col-md-6">
-        <label for="inputElec">Electricity bill</label>
-        <select class="inputElec form-control" formControlName="electricity">
-          <option value="Included">Included</option>
-          <option value="Not Included">Not Included</option>
-        </select>
-      </div>
+    <div class="bounding-box">
+      <!--put your media stuff here-->
 
-      <div class="form-group col-md-6">
-        <label for="inputWater">Water bill</label>
-        <select class="inputWater form-control" formControlName="water">
-          <option value="Included">Included</option>
-          <option value="Not Included">Not Included</option>
-        </select>
+      <h2>Upload Media</h2>
 
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputGas">Gas bill</label>
-        <select class="inputGas form-control" formControlName="gas">
-          <option value="Included">Included</option>
-          <option value="Not Included">Not Included</option>
-        </select>
-
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputWifi">Wifi bill</label>
-        <select class="inputWifi form-control" formControlName="wifi">
-          <option value="Included">Included</option>
-          <option value="Not Included">Not Included</option>
-        </select>
-      </div>
-
-    </div>
-
-    <!--Minstay/Maxstay-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
-
-      <div class="form-group col-md-6">
-        <label for="inputMinstay">Minimum days stay</label>
-        <input type="number" class="form-control" id="inputMinstay" placeholder="Enter Minimum stay in days" formControlName="minstay">
-        <div *ngIf="form.controls['minstay'].errors && !form.controls['minstay'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['minstay'].errors.required">
-            Valid minimum stay is required.
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputMaxstay">Maximum days stay(0 if none)</label>
-        <input type="number" class="form-control" id="inputMaxstay" placeholder="Enter Maximum stay in days(0 if none)" formControlName="maxstay">
-        <div *ngIf="form.controls['maxstay'].errors && !form.controls['maxstay'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['maxstay'].errors.required">
-            Valid maximum stay is required.
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!--Street/avail-->
-    <div class="form-row justify-content-center toCent" style="max-width:500px">
-      <div class="form-group col-md-6">
-        <label for="inputStreet">Street</label>
-        <input type="text" class="form-control" id="inputStreet" value="" placeholder="Enter your street" formControlName="street" (onLocationSelected)="onLocationSelected($event)" matGoogleMapsAutocomplete matInput>
-        <input id="street" type="hidden" [value]="full_address">
-        <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
-          <div [hidden]="!form.controls['street'].errors.required">
-            Valid street name is required.
-          </div>
-          <div [hidden]="!form.controls['street'].errors.minlength">
-            Valid street Name is required.
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="inputAvailable">Available Date</label>
-        <input type="date" class="form-control" id="inputAvailable" formControlName="available">
-      </div>
-    </div>
-
-
-  <!--Floor plan-->
-  <div class="card">
-    <img class="card-img-top" [src]='url[5]' alt="Card image cap">
-    <img *ngIf="isAdded(5)" (click)="clearImage(5)" src="../../../assets/images/delete.png" class="over">
-    <div class="card-body">
-      <a (click)="openUpload($event,5)" class="test btn">+</a>
-      <input id="upload5" name="photo" accept="image/*" (change)="onImageAdded($event,5)" type="file" style="display:none;" />
-    </div>
-  </div>
-
-
-
-
-    <div class="row justify-content-center" style="margin-top:20px;">
-      <div class="card ">
-        <img class="card-img-top" [src]='url[1]' alt="Card image cap">
-        <img *ngIf="isAdded(1)" (click)="clearImage(1)" src="../../../assets/images/delete.png" class="over">
-        <div class="card-body">
-          <a (click)="openUpload($event,1)" class="test btn">+</a>
-          <input id="upload" name="photo" accept="image/*" (change)="onImageAdded($event,1)" type="file" style="display:none;" />
-        </div>
-      </div>
-
+      <!--Floor plan-->
       <div class="card">
-        <img class="card-img-top" [src]='url[2]' alt="Card image cap">
-        <img *ngIf="isAdded(2)" (click)="clearImage(2)" src="../../../assets/images/delete.png" class="over">
+        <img class="card-img-top" [src]='url[5]' alt="Card image cap">
+        <img *ngIf="isAdded(5)" (click)="clearImage(5)" src="../../../assets/images/delete.png" class="over">
         <div class="card-body">
-          <a (click)="openUpload($event,2)" class="test btn ">+</a>
-          <input id="upload2" name="photo" accept="image/*" (change)="onImageAdded($event,2)" type="file" style="display:none;" />
+          <a (click)="openUpload($event,5)" class="test btn">+</a>
+          <input id="upload5" name="photo" accept="image/*" (change)="onImageAdded($event,5)" type="file" style="display:none;" />
         </div>
       </div>
 
-      <div class="card">
-        <img class="card-img-top" [src]='url[3]' alt="Card image cap">
-        <img *ngIf="isAdded(3)" (click)="clearImage(3)" src="../../../assets/images/delete.png" class="over">
-        <div class="card-body">
-          <a (click)="openUpload($event,3)" class="test btn">+</a>
-          <input id="upload3" name="photo" accept="image/*" (change)="onImageAdded($event,3)" type="file" style="display:none;" />
+      <div class="row justify-content-center" style="margin-top:20px;">
+        <div class="card ">
+          <img class="card-img-top" [src]='url[1]' alt="Card image cap">
+          <img *ngIf="isAdded(1)" (click)="clearImage(1)" src="../../../assets/images/delete.png" class="over">
+          <div class="card-body">
+            <a (click)="openUpload($event,1)" class="test btn">+</a>
+            <input id="upload" name="photo" accept="image/*" (change)="onImageAdded($event,1)" type="file" style="display:none;" />
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-img-top" [src]='url[2]' alt="Card image cap">
+          <img *ngIf="isAdded(2)" (click)="clearImage(2)" src="../../../assets/images/delete.png" class="over">
+          <div class="card-body">
+            <a (click)="openUpload($event,2)" class="test btn ">+</a>
+            <input id="upload2" name="photo" accept="image/*" (change)="onImageAdded($event,2)" type="file" style="display:none;" />
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-img-top" [src]='url[3]' alt="Card image cap">
+          <img *ngIf="isAdded(3)" (click)="clearImage(3)" src="../../../assets/images/delete.png" class="over">
+          <div class="card-body">
+            <a (click)="openUpload($event,3)" class="test btn">+</a>
+            <input id="upload3" name="photo" accept="image/*" (change)="onImageAdded($event,3)" type="file" style="display:none;" />
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-img-top" [src]='url[4]' alt="Card image cap">
+          <img *ngIf="isAdded(4)" (click)="clearImage(4)" src="../../../assets/images/delete.png" class="over">
+          <div class="card-body">
+            <a (click)="openUpload($event,4)" class="test btn">+</a>
+            <input id="upload4" name="photo" accept="image/*" (change)="onImageAdded($event,4)" type="file" style="display:none;" />
+          </div>
         </div>
       </div>
-
-      <div class="card">
-        <img class="card-img-top" [src]='url[4]' alt="Card image cap">
-        <img *ngIf="isAdded(4)" (click)="clearImage(4)" src="../../../assets/images/delete.png" class="over">
-        <div class="card-body">
-          <a (click)="openUpload($event,4)" class="test btn">+</a>
-          <input id="upload4" name="photo" accept="image/*" (change)="onImageAdded($event,4)" type="file" style="display:none;" />
-        </div>
-      </div>
-
-
     </div>
-    <table align='center'>
-      <tr>
-        <td (click)='changeI(1)'>
-          <img [class.opi]="!isActive(1)" class="iconEdit" [src]='iconURL[1]'>
-          <label class="disapir" [class.overLine]="!isActive(1)">Internet</label>
-        </td>
-        <td (click)='changeI(2)'>
-          <img [class.opi]="!isActive(2)" class="iconEdit" [src]='iconURL[2]'>
-          <label class="disapir" [class.overLine]="!isActive(2)">Cable TV</label>
-        </td>
-        <td (click)='changeI(3)'>
-          <img [class.opi]="!isActive(3)" class="iconEdit" [src]='iconURL[3]'>
-          <label class="disapir" [class.overLine]="!isActive(3)">Double bed</label>
-        </td>
-        <td (click)='changeI(4)'>
-          <img [class.opi]="!isActive(4)" class="iconEdit" [src]='iconURL[4]'>
-          <label class="disapir" [class.overLine]="!isActive(4)">Single bed</label>
-        </td>
-      </tr>
-      <tr>
-        <td (click)='changeI(5)'>
-          <img [class.opi]="!isActive(5)" class="iconEdit" [src]='iconURL[5]'>
-          <label class="disapir" [class.overLine]="!isActive(5)">Air conditioning</label>
-        </td>
-        <td (click)='changeI(6)'>
-          <img [class.opi]="!isActive(6)" class="iconEdit" [src]='iconURL[6]'>
-          <label class="disapir" [class.overLine]="!isActive(6)">Fridge</label>
-        </td>
-        <td (click)='changeI(7)'>
-          <img [class.opi]="!isActive(7)" class="iconEdit" [src]='iconURL[7]'>
-          <label class="disapir" [class.overLine]="!isActive(7)">Stove</label>
-        </td>
-        <td (click)='changeI(8)'>
-          <img [class.opi]="!isActive(8)" class="iconEdit" [src]='iconURL[8]'>
-          <label class="disapir" [class.overLine]="!isActive(8)">Washing machine</label>
-        </td>
-      </tr>
-      <tr>
-        <td (click)='changeI(9)'>
-          <img [class.opi]="!isActive(9)" class="iconEdit" [src]='iconURL[9]'>
-          <label class="disapir" [class.overLine]="!isActive(9)">Bathtub</label>
-        </td>
-        <td (click)='changeI(10)'>
-          <img [class.opi]="!isActive(10)" class="iconEdit" [src]='iconURL[10]'>
-          <label class="disapir" [class.overLine]="!isActive(10)">Microwave</label>
-        </td>
-        <td (click)='changeI(11)'>
-          <img [class.opi]="!isActive(11)" class="iconEdit" [src]='iconURL[11]'>
-          <label class="disapir" [class.overLine]="!isActive(11)">Landline</label>
-        </td>
-        <td (click)='changeI(12)'>
-          <img [class.opi]="!isActive(12)" class="iconEdit" [src]='iconURL[12]'>
-          <label class="disapir" [class.overLine]="!isActive(12)">Fireplace</label>
-        </td>
-      </tr>
-    </table>
 
     <div class="row justify-content-center ">
-      <button type="submit" id="login-button" [disabled]="!form.valid" class="btn btn-lg btn-block login">Save apartment</button>
+      <button style="width: calc(100% - 30px);" type="submit" id="login-button" [disabled]="!form.valid" class="btn btn-lg btn-block login">Save apartment</button>
     </div>
   </form>
 </div>

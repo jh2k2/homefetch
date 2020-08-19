@@ -31,7 +31,7 @@ export class PropertyService {
     if (file2 != null) formData.append('photo', file2, file2.name);
     if (file3 != null) formData.append('photo', file3, file3.name);
     if (file4 != null) formData.append('photo', file4, file4.name);
-    if (file4 != null) formData.append('photo', file4, file5.name);
+    if (file5 != null) formData.append('floor', file5, file5.name);
     const headers = new Headers({ 'Authorization': localStorage.getItem('token') });
     return this.http.post(this.rootUrl + 'add', formData, { headers: headers }).pipe(map((response: Response) => response), catchError((error: Response) => {
       this.errorService.handleError(error);
@@ -48,7 +48,7 @@ export class PropertyService {
     if (file2 != null) formData.append('photo', file2, file2.name);
     if (file3 != null) formData.append('photo', file3, file3.name);
     if (file4 != null) formData.append('photo', file4, file4.name);
-    if (file4 != null) formData.append('photo', file4, file5.name);
+    if (file5 != null) formData.append('floor', file5, file5.name);
     const headers = new Headers({ 'Authorization': localStorage.getItem('token') });
     return this.http.patch(this.rootUrl + 'edit/' + id, formData, { headers: headers }).pipe(map((response: Response) => response), catchError((error: Response) => {
       this.errorService.handleError(error);

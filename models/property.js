@@ -107,6 +107,10 @@ const PropertySchema = mongoose.Schema({
     type: String,
     default: 'no'
   },
+  image5: {
+    type: String,
+    default: 'no'
+  },
   internet: {
     type: Boolean,
     default: false

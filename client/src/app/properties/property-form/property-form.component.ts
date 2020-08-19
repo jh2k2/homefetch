@@ -28,6 +28,7 @@ export class PropertyFormComponent implements OnInit {
   public url = ["", "../../../assets/images/placeholder.jpg",
     "../../../assets/images/placeholder.jpg",
     "../../../assets/images/placeholder.jpg",
+    "../../../assets/images/placeholder.jpg",
     "../../../assets/images/placeholder.jpg"];
   public iconURL = ['', "../../../assets/icons/B-wireless-network.png",
     "../../../assets/icons/B-hdtv.png",
@@ -127,8 +128,6 @@ export class PropertyFormComponent implements OnInit {
   onSubmit() {
     if (confirm("Are you sure about the accuracy of these informations?")) {
     } else {
-      //console.log(JSON.parse(this.prop.address_object));
-      console.log(this.address_object);
       return;
     }
 
