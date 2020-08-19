@@ -172,4 +172,11 @@ export class PaymentComponent implements OnInit {
       document.querySelector("#button-text").classList.remove("hidden");
     }
   };
+
+  getDate(s) {
+    var b = s.split(/\D+/);
+    var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+    var result = c.toString().split(" ");
+    return result[1] + " " + result[2] + ", " + result[3];
+  }
 }

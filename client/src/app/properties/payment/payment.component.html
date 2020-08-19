@@ -1,56 +1,107 @@
-<div *ngIf='isDataLoaded' class="container mt-5">
+<div *ngIf='isDataLoaded' class="container-fluid" style="margin-top: 110px; padding: 0 80px;">
   <div class="row">
-    <tr>
-      <td>Tenant: {{users.fullname}}</td>
-      <td>Landlord: {{property.user.userName}}</td>
-      <td>Housing Address: {{property.street}}, {{property.remain}}</td>
-      <td>Available for Move in: {{property.available}}</td>
-      <td>Pricing: {{property.deposit}} €</td>
-      <td>Transaction Fee: {{fee}} €</td>
-      <td>Total fee: {{total}} €</td>
-    </tr>
+    <div class="col-md-6" style="padding-right: 40px;">
+      <h2>Application Details</h2>
+      <table style ="width: 100%;" id="application-details">
+        <tr class="body-row">
+          <td class="label">Tenant:</td>
+          <td>{{users.fullname}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Landlord:</td>
+          <td>{{property.user.userName}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Housing Address:</td>
+          <td>{{property.street}}, {{property.remain}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Requested Move In:</td>
+          <td>{{from}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Planned Move Out:</td>
+          <td>{{til}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Housing Address:</td>
+          <td>{{property.street}}, {{property.remain}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Available for Move in:</td>
+          <td>{{getDate(property.available)}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Deposit:</td>
+          <td>{{property.deposit}} €</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Transaction Fee:</td>
+          <td>{{fee}} €</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label"><b>Total Due:</b></td>
+          <td><b>{{total}} €</b></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-6" style="padding-left: 40px;">
+      <form id="payment-form">
+        <h2 style="margin-bottom: 24px;">Shipping &amp; Billing Information</h2>
+        <fieldset class="with-state">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <span>Name</span>
+              <input name="name" class="field" placeholder="Jenny Rosen" required>
+            </div>
+            <div class="form-group col-md-6">
+              <span>Email</span>
+              <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span>Address</span>
+            <input name="address" class="field" placeholder="185 Berry Street Suite 550">
+          </div>
+
+          <div class="row">
+            <div class="form-group city col-md-4">
+              <span>City</span>
+              <input name="city" class="field" placeholder="San Francisco">
+            </div>
+            <div class="form-group state col-md-4">
+              <span>State</span>
+              <input name="state" class="field" placeholder="CA">
+            </div>
+            <div class="form-group zip col-md-4">
+              <span>ZIP</span>
+              <input name="postal_code" class="field" placeholder="94107">
+            </div>
+          </div>
+        </fieldset>
+
+        <div id="card-element" style="margin-top: 14px;">
+          <!--Stripe.js injects the Card Element-->
+        </div>
+        <button id="submit">
+          <div class="spinner hidden" id="spinner"></div>
+          <span id="button-text">Pay</span>
+        </button>
+        <p id="card-error" role="alert"></p>
+      </form>
+    </div>
   </div>
-
-  <hr>
-
-  <form id="payment-form">
-      <h2>Shipping &amp; Billing Information</h2>
-      <fieldset class="with-state">
-        <label>
-          <span>Name</span>
-          <input name="name" class="field" placeholder="Jenny Rosen" required>
-        </label>
-        <label>
-          <span>Email</span>
-          <input name="email" type="email" class="field" placeholder="jenny@example.com" required>
-        </label>
-        <label>
-          <span>Address</span>
-          <input name="address" class="field" placeholder="185 Berry Street Suite 550">
-        </label>
-        <label class="city">
-          <span>City</span>
-          <input name="city" class="field" placeholder="San Francisco">
-        </label>
-        <label class="state">
-          <span>State</span>
-          <input name="state" class="field" placeholder="CA">
-        </label>
-        <label class="zip">
-          <span>ZIP</span>
-          <input name="postal_code" class="field" placeholder="94107">
-        </label>
-      </fieldset>
-
-      <div id="card-element">
-        <!--Stripe.js injects the Card Element-->
-      </div>
-      <button id="submit">
-        <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Pay</span>
-      </button>
-      <p id="card-error" role="alert"></p>
-  </form>
 
 
   <p class="mt-5">
