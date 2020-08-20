@@ -295,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"loaded\" style=\"padding: 120px 0; min-height:100vh\">\n  <h3> User Request:</h3>\n  <hr>\n  <div class=\"\" *ngIf=\"!noRequest\">\n\n    <h6> {{tenant.userName}}</h6>\n    <h6>{{tenant.from}} -> {{tenant.til}}</h6>\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"refund()\">Reject and Refund</button>\n    <button class=\"btn btn-success\" type=\"button\" (click)=\"accept()\">Accept and notify</button>\n  </div>\n\n  <div class=\"container\" *ngIf=\"noRequest\">\n    <h1 class=\"h-font\"> No Request</h1>\n\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"loaded\" style=\"padding: 120px 0; min-height:100vh\">\n  <h3> User Request:</h3>\n  <hr>\n  <div class=\"\" *ngIf=\"!noRequest\">\n\n    <h6> {{tenant.userName}}</h6>\n    <h6>{{tenant.from}} -> {{tenant.til}}</h6>\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"refund()\">Reject and Refund</button>\n    <button class=\"btn btn-success\" type=\"button\" (click)=\"accept()\">Accept and notify</button>\n  </div>\n\n  <div class=\"container\" *ngIf=\"noRequest\">\n    <h4 class=\"h-font\"> No Request</h4>\n\n  </div>\n</div>\n");
 
 /***/ }),
 
