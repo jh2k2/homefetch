@@ -6,6 +6,49 @@
       <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
       <div class="card-body" style="padding-top:5px;">
         <h6 class="card-subtitle text-truncate">Waitlist</h6>
+        <table style ="width: 100%;" id="application-details">
+
+          <h6 class="card-subtitle text-truncate" style="color:black">Awaiting Response</h6>
+          <tr class="body-row">
+            <td class="label">users:</td>
+            <td>{{users.firstName}} {{users.lastName}}</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Requested prop:</td>
+            <td>{{prop.street}}, {{prop.remain}}</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Requested Move In:</td>
+            <td>{{users.from}}</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Planned Move Out:</td>
+            <td>{{users.til}}</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Available for Move in:</td>
+            <td>{{getDate(prop.available)}}</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Monthly Rent:</td>
+            <td>{{prop.monthly}} €</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label">Deposit:</td>
+            <td>{{prop.deposit}} €</td>
+          </tr>
+
+          <tr class="body-row">
+            <td class="label"><b>Total Due:</b></td>
+            <td><b>{{total}} €</b></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -13,14 +56,9 @@
   <div class="card" style="width: 13rem; margin:5px 7px 5px; display:inline-block;" *ngIf="haveReject">
     <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
     <div class="card-body" style="padding-top:5px;">
-      <h6 class="card-subtitle text-truncate" style="color:red">Rejected</h6>
-    </div>
-  </div>
-
-    <label for="over">Click here to view property </label>
-    <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
-    <div class="card-body" style="padding-top:5px;" *ngIf="haveAccept">
       <table style ="width: 100%;" id="application-details">
+
+        <h6 class="card-subtitle text-truncate" style="color:red">Rejected</h6>
         <tr class="body-row">
           <td class="label">users:</td>
           <td>{{users.firstName}} {{users.lastName}}</td>
@@ -48,7 +86,7 @@
 
         <tr class="body-row">
           <td class="label">Monthly Rent:</td>
-          <td>{{prop.monthly}}</td>
+          <td>{{prop.monthly}} €</td>
         </tr>
 
         <tr class="body-row">
@@ -61,7 +99,55 @@
           <td><b>{{total}} €</b></td>
         </tr>
       </table>
-      <h6 class="card-subtitle text-truncate" style="color:green">Accepted</h6>
+    </div>
+  </div>
+
+    <label for="over">Click here to view property </label>
+    <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
+    <div class="card-body" style="padding-top:5px;" *ngIf="haveAccept">
+      <table style ="width: 100%;" id="application-details">
+
+        <h6 class="card-subtitle text-truncate" style="color:green">Accepted</h6>
+        <tr class="body-row">
+          <td class="label">users:</td>
+          <td>{{users.firstName}} {{users.lastName}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Requested prop:</td>
+          <td>{{prop.street}}, {{prop.remain}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Requested Move In:</td>
+          <td>{{users.from}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Planned Move Out:</td>
+          <td>{{users.til}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Available for Move in:</td>
+          <td>{{getDate(prop.available)}}</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Monthly Rent:</td>
+          <td>{{prop.monthly}} €</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label">Deposit:</td>
+          <td>{{prop.deposit}} €</td>
+        </tr>
+
+        <tr class="body-row">
+          <td class="label"><b>Total Due:</b></td>
+          <td><b>{{total}} €</b></td>
+        </tr>
+      </table>
 
     </div>
   </div>
