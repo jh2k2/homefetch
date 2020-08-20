@@ -31,27 +31,25 @@ export class WaitlistComponent implements OnInit {
         }
 
         this.usersRequest = data.user.request;
-        if (this.usersRequest == "none") {
-          this.haveWaitlist = false;
-
+        if (data.user.request == "none") {
           if (data.user.reject != "none" && data.user.reject != undefined) {
             this.propSer.getAllPropertiesById({ params: { id: data.user.reject } }).subscribe(
               data => {
-                this.reject = data.obj;
+                this.prop = data.obj;
                 this.haveReject = true;
               });
-          }
-
-
-          if (data.user.accept != "none" && data.user.accept != undefined) {
+          } else if (data.user.accept != "none" && data.user.accept != undefined) {
             this.propSer.getAllPropertiesById({ params: { id: data.user.accept } }).subscribe(
               data => {
-                this.reject = data.obj;
+                this.prop = data.obj;
                 this.haveAccept = true;
               });
+          } else {
+            this.haveWaitlist = false;
           }
+
         } else {
-          this.propSer.getAllPropertiesById({ params: { id: this.usersRequest } }).subscribe(
+          this.propSer.getAllPropertiesById({ params: { id: data.user.request  } }).subscribe(
             data => {
               this.prop = data.obj;
               this.haveWaitlist = true;

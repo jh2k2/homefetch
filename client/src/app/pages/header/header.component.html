@@ -8,7 +8,7 @@
       <ul>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/search/Barcelona, Spain']">Search Properties</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/hiw']">How It Works</a></li>
-        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/about']">About Us</a></li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/about']">About</a></li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/landlordreg']">Become a landlord</a></li>
         <li *ngIf="!isLoggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/register']">Become a Tenant</a></li>
         <li *ngIf="!isLoggedIn()" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/users/login']">Log In</a></li>

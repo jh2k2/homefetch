@@ -1,6 +1,6 @@
-<div *ngIf="loaded" class="container" style="max-width:900px; text-align:center; padding-top:120px">
-  <h2>My Waitlist</h2>
-
+<div *ngIf="loaded" class="container" style="max-width:900px; text-align:center; height:100%; padding: 120px 0">
+  <h2 class="h-font">My Request</h2>
+  <hr style="width:20%">
   <div *ngIf="haveWaitlist">
     <div class="card" style="width: 13rem; margin:5px 7px 5px; display:inline-block;">
       <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
@@ -13,14 +13,16 @@
   <div class="card" style="width: 13rem; margin:5px 7px 5px; display:inline-block;" *ngIf="haveReject">
     <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
     <div class="card-body" style="padding-top:5px;">
-      <h6 class="card-subtitle text-truncate">Rejected</h6>
+      <h6 class="card-subtitle text-truncate" style="color:red">Rejected</h6>
     </div>
   </div>
 
   <div class="card" style="width: 13rem; margin:5px 7px 5px; display:inline-block;" *ngIf="haveAccept">
     <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
     <div class="card-body" style="padding-top:5px;">
-      <h6 class="card-subtitle text-truncate">Accepted</h6>
+      <h6 class="card-subtitle text-truncate" style="color:green">Accepted</h6>
+      <hr>
+      <h6 class="card-subtitle text-truncate">{{prop.title}}</h6>
     </div>
   </div>
 

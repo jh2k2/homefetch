@@ -1,6 +1,6 @@
-<div *ngIf="isLoaded">
+<div *ngIf="isLoaded" style="padding: 120px 0">
   <div *ngIf="user.admin!=0" class="container" style="text-align:center;">
-    <h2 style="margin-bottom:10px;">Welcome to admin panel!</h2>
+    <h2 style="margin-bottom:10px;">Admin Panel</h2>
     <button class="btn btn-outline-primary btn-lg move" (click)="setChoise(1)"><i class="fa fa-user"></i> Users</button>
     <button class="btn btn-outline-secondary btn-lg move " (click)="setChoise(2)"><i class="fa fa-home"></i> Properties</button>
     <app-admin-users *ngIf="chouse==1"></app-admin-users>

@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PropertyService } from '../../services/property.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
 import { Property } from '../../model/property.model';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import $ from 'jquery';
 declare let google: any;
 import { AgmMap } from '@agm/core';
@@ -17,7 +17,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./view-property.component.css']
 })
 export class ViewPropertyComponent implements OnInit {
-    @ViewChild('agmMap') agmMap: AgmMap
+  @ViewChild('agmMap') agmMap: AgmMap
 
   latitude: Number;
   longitude: Number;
@@ -82,9 +82,11 @@ export class ViewPropertyComponent implements OnInit {
 
           this.amount = data.prop.deposit;
           this.property = data.prop;
-          this.property.youtube = this.sanitizer.bypassSecurityTrustResourceUrl(data.prop.youtube.replace('watch?v=','embed/'));
           this.property.longitude = data.prop.longitude;
           this.property.latitude = data.prop.latitude;
+          if (data.prop.youtube != undefined) {
+            this.property.youtube = this.sanitizer.bypassSecurityTrustResourceUrl(data.prop.youtube.replace('watch?v=', 'embed/'));
+          }
           this.property.user = data.user;
           this.isClicked[1] = data.prop.internet,
             this.isClicked[2] = data.prop.cableTV,
