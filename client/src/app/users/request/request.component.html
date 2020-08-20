@@ -3,7 +3,9 @@
   <hr style="width:10%">
   <div class="" *ngIf="!noRequest">
 
-    <h6> {{tenant.userName}}</h6>
+    <h6>username: {{tenant.userName}}</h6>
+    <h6>name: {{tenant.fullname}}</h6>
+    <h6>Requested: {{tenant.request}}</h6>
     <h6>{{tenant.from}} -> {{tenant.til}}</h6>
     <button class="btn btn-danger" type="button" (click)="refund()">Reject and Refund</button>
     <button class="btn btn-success" type="button" (click)="accept()">Accept and notify</button>

@@ -36,6 +36,8 @@ export class ViewPropertyComponent implements OnInit {
     "../../../assets/icons/B-landline.png",
     "../../../assets/icons/B-fireplace.png"
   ];
+  image = true;
+  downloadimage = false;
   public taken;
   public isClicked = [];
   public url;
@@ -114,8 +116,6 @@ export class ViewPropertyComponent implements OnInit {
           if (this.images.length == 0)
             this.images.push(this.propSer.getImateUrl("no"));
 
-
-
           if (this.isLoggedIn()) {
             this.userSer.getSettings().subscribe(
               data => {
@@ -134,9 +134,31 @@ export class ViewPropertyComponent implements OnInit {
     });
   }
 
-  left() { if (this.pos == 0) { this.pos = this.images.length - 1; } else this.pos = this.pos - 1; }
+  left() {
+    if (this.downloadimage == true) {
+      this.downloadimage = false;
+      this.image = true;
+    } else if (this.pos == 0) {
+      this.downloadimage = true;
+      this.image = false;
+      this.pos = this.images.length - 1;
+    } else {
+      this.pos = this.pos - 1;
+    }
+  }
 
-  right() { if (this.pos == this.images.length - 1) { this.pos = 0; } else this.pos = this.pos + 1; }
+  right() {
+    if (this.downloadimage == true) {
+      this.downloadimage = false;
+      this.image = true;
+    } else if (this.pos == this.images.length - 1) {
+      this.downloadimage = true;
+      this.image = false;
+      this.pos = 0;
+    } else {
+      this.pos = this.pos + 1;
+    }
+  }
 
   isLoggedIn() {
     if (this.userSer.isLoggedIn()) {
@@ -161,6 +183,10 @@ export class ViewPropertyComponent implements OnInit {
 
   isActive(num) {
     return this.isClicked[num] == true;
+  }
+
+  seemore() {
+    window.open(this.property.moreimage, "_blank");
   }
 
   goForProp(prop) { this.router.navigate(['/properties/view', prop._id]); }

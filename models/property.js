@@ -32,6 +32,9 @@ const PropertySchema = mongoose.Schema({
   youtube: {
     type: String
   },
+  moreimage: {
+    type: String
+  },
   available: {
     type: Date,
   },

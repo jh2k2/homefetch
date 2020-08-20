@@ -63,6 +63,7 @@ export class RequestComponent implements OnInit {
     this.tenant.accept = this.tenant.request;
     this.tenant.request = "none";
 
+    
     for (var i = 0; i < this.owner.userRequest.length; i++) {
       if (this.owner.userRequest[i] == this.tenant.userName) {
         this.owner.userRequest.splice(i, 1);

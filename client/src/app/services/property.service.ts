@@ -23,6 +23,19 @@ export class PropertyService {
     this.messageSource.next(data);
   }
 
+  approveProp(prop: Property) {
+    var body = JSON.stringify(prop);
+    const headers = new Headers({ 'Content-Type': 'application/json', 'Authorization': localStorage.getItem('token') });
+    return this.http.patch(this.rootUrl + 'approve', body, { headers: headers }).pipe(
+      map((response: Response) => {
+        return response.json();
+      }), catchError((error: Response) => {
+        this.errorService.handleError(error);
+        return throwError(error);
+      })
+    );
+  }
+
   addProperty(property: Property, file1: File, file2: File, file3: File, file4: File, file5: File) {
     const body = JSON.stringify(property);
     const formData: FormData = new FormData();

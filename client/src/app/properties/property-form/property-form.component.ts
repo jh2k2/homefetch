@@ -21,7 +21,7 @@ export class PropertyFormComponent implements OnInit {
 
   public user: User;
 
-  @Input() prop: Property = { deposit: null, youtube: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, remain: null, street: null, electricity: 'included', water: 'included', gas: 'included', wifi: 'included', address_object: null };
+  @Input() prop: Property = { deposit: null, moreimage: null, youtube: null, monthly: null, rooms: null, area: null, available: null, minstay: null, maxstay: null, title: null, description: null, rules: null, documents: null, landlordrules: null, bathrooms: null, remain: null, street: null, electricity: 'included', water: 'included', gas: 'included', wifi: 'included', address_object: null };
   @Output() public event = new EventEmitter();
   form: FormGroup;
 
@@ -85,6 +85,7 @@ export class PropertyFormComponent implements OnInit {
       landlordrules: new FormControl(this.prop.rules, [Validators.required]),
       bathrooms: new FormControl(this.prop.bathrooms, [Validators.required]),
       youtube: new FormControl(this.prop.youtube),
+      moreimage: new FormControl(this.prop.moreimage),
       street: new FormControl(this.prop.street, [Validators.required, Validators.minLength(2)]),
       electricity: new FormControl(this.prop.electricity),
       water: new FormControl(this.prop.water),
@@ -169,6 +170,7 @@ export class PropertyFormComponent implements OnInit {
       this.latitude,
       JSON.stringify(this.address_object),
       this.form.value.youtube,
+      this.form.value.moreimage,
       this.isActive(1),
       this.isActive(2),
       this.isActive(3),

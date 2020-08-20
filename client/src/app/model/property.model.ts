@@ -30,6 +30,7 @@ export class Property {
 
        public address_object?:string,
        public youtube?:string,
+       public moreimage?:string,
        //icons
        public internet?:boolean,
        public cableTV?:boolean,
