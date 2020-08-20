@@ -20,12 +20,16 @@ export class WaitlistComponent implements OnInit {
   public loaded = false;
   public haveReject = false;
   public haveAccept = false;
+  public fee;
+  public total;
+  public owner;
 
   constructor(private propSer: PropertyService, private router: Router, private userSer: UserService) { }
 
   ngOnInit() {
     this.userSer.getSettings().subscribe(
       data => {
+        this.users = data.user;
         if (data.user.landlord == 1) {
           this.router.navigate(['/']);
         }
@@ -35,32 +39,49 @@ export class WaitlistComponent implements OnInit {
           if (data.user.reject != "none" && data.user.reject != undefined) {
             this.propSer.getAllPropertiesById({ params: { id: data.user.reject } }).subscribe(
               data => {
+
                 this.prop = data.obj;
+                this.fee = data.obj.deposit * .3;
+                this.total = this.fee + data.obj.deposit;
                 this.haveReject = true;
+
+                this.loaded = true;
+
               });
           } else if (data.user.accept != "none" && data.user.accept != undefined) {
             this.propSer.getAllPropertiesById({ params: { id: data.user.accept } }).subscribe(
               data => {
+
                 this.prop = data.obj;
+                this.fee = data.obj.deposit * .3;
+                this.total = this.fee + data.obj.deposit;
                 this.haveAccept = true;
+
+                this.loaded = true;
               });
           } else {
             this.haveWaitlist = false;
           }
 
         } else {
-          this.propSer.getAllPropertiesById({ params: { id: data.user.request  } }).subscribe(
+          this.propSer.getAllPropertiesById({ params: { id: data.user.request } }).subscribe(
             data => {
+
               this.prop = data.obj;
+              this.fee = data.obj.deposit * .3;
+              this.total = this.fee + data.obj.deposit;
               this.haveWaitlist = true;
+
+              this.loaded = true;
             });
+
         }
 
         if (data.user.landlord == 1) {
           this.router.navigate(['/']);
         }
 
-        this.loaded = true;
+
       });
 
   }
@@ -77,6 +98,13 @@ export class WaitlistComponent implements OnInit {
 
   viewProp(prop) {
     this.router.navigate(['/properties/view', prop._id]);
+  }
+
+  getDate(s) {
+    var b = s.split(/\D+/);
+    var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+    var result = c.toString().split(" ");
+    return result[1] + " " + result[2] + ", " + result[3];
   }
 
 

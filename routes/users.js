@@ -119,8 +119,8 @@ router.get('/settings', passport.authenticate('jwt', {
   return res.status(200).json({
     user: {
       _id: user._id,
-      name: user.firstName,
-      last: user.lastName,
+      firstName: user.firstName,
+      lastName: user.lastName,
       userName: user.userName,
       email: user.email,
       phone: user.phone,
@@ -134,7 +134,9 @@ router.get('/settings', passport.authenticate('jwt', {
       userRequest: user.userRequest,
       paymentId: user.paymentId,
       reject: user.reject,
-      accept: user.accept
+      accept: user.accept,
+      from: user.from,
+      til: user.til
     }
   });
 });

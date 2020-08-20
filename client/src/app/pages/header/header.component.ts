@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
         this.userSer.getSettings().subscribe(
           data => {
             this.users.name = data.user.name;
-            this.users.fullname = data.user.name + ' ' + data.user.last;
+            this.users.fullname = data.user.firstName + ' ' + data.user.lastName;
             this.users.email = data.user.email;
             this.users.username = data.user.userName;
             this.url = this.userSer.getAvatarURL(data.user.avatar);

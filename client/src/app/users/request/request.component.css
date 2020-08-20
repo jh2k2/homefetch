@@ -1,0 +1,21 @@
+
+.body-row {
+  border-bottom: 1px solid #ecf2f5;
+}
+
+.body-row .label {
+  width: 70%;
+}
+
+.body-row td {
+  text-transform: capitalize;
+  font-weight: 100;
+}
+
+#submit {
+  background: #db2d8e;
+}
+
+#application-details td {
+  padding: 20px 0;
+}

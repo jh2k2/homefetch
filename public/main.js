@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf='isDataLoaded' class=\"container-fluid\" style=\"margin-top: 110px; padding: 0 80px;\">\n  <div class=\"row\">\n    <div class=\"col-md-6\" style=\"padding-right: 40px;\">\n      <h2>Application Details</h2>\n      <table style =\"width: 100%;\" id=\"application-details\">\n        <tr class=\"body-row\">\n          <td class=\"label\">Tenant:</td>\n          <td>{{users.fullname}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Landlord:</td>\n          <td>{{property.user.userName}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Housing Address:</td>\n          <td>{{property.street}}, {{property.remain}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Requested Move In:</td>\n          <td>{{from}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Planned Move Out:</td>\n          <td>{{til}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Available for Move in:</td>\n          <td>{{getDate(property.available)}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Deposit:</td>\n          <td>{{property.deposit}} €</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Transaction Fee:</td>\n          <td>{{fee}} €</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\"><b>Total Due:</b></td>\n          <td><b>{{total}} €</b></td>\n        </tr>\n      </table>\n    </div>\n\n    <div class=\"col-md-6\" style=\"padding-left: 40px;\">\n      <form id=\"payment-form\">\n        <h2 style=\"margin-bottom: 24px;\">Shipping &amp; Billing Information</h2>\n        <fieldset class=\"with-state\">\n          <div class=\"row\">\n            <div class=\"form-group col-md-6\">\n              <span>Name</span>\n              <input name=\"name\" class=\"field\" placeholder=\"Jenny Rosen\" required>\n            </div>\n            <div class=\"form-group col-md-6\">\n              <span>Email</span>\n              <input name=\"email\" type=\"email\" class=\"field\" placeholder=\"jenny@example.com\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <span>Address</span>\n            <input name=\"address\" class=\"field\" placeholder=\"185 Berry Street Suite 550\">\n          </div>\n\n          <div class=\"row\">\n            <div class=\"form-group city col-md-4\">\n              <span>City</span>\n              <input name=\"city\" class=\"field\" placeholder=\"San Francisco\">\n            </div>\n            <div class=\"form-group state col-md-4\">\n              <span>State</span>\n              <input name=\"state\" class=\"field\" placeholder=\"CA\">\n            </div>\n            <div class=\"form-group zip col-md-4\">\n              <span>ZIP</span>\n              <input name=\"postal_code\" class=\"field\" placeholder=\"94107\">\n            </div>\n          </div>\n        </fieldset>\n\n        <div id=\"card-element\" style=\"margin-top: 14px;\">\n          <!--Stripe.js injects the Card Element-->\n        </div>\n        <button id=\"submit\">\n          <div class=\"spinner hidden\" id=\"spinner\"></div>\n          <span id=\"button-text\">Pay</span>\n        </button>\n        <p id=\"card-error\" role=\"alert\"></p>\n      </form>\n    </div>\n  </div>\n\n\n  <p class=\"mt-5\">\n    Try it out using the test card number <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any expiration date in the future, and a random five-digit U.S. ZIP code.\n  </p>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf='isDataLoaded' class=\"container-fluid\" style=\"margin-top: 110px; padding: 0 80px;\">\n  <div class=\"row\">\n    <div class=\"col-md-6\" style=\"padding-right: 40px;\">\n      <h2>Application Details</h2>\n      <table style =\"width: 100%;\" id=\"application-details\">\n        <tr class=\"body-row\">\n          <td class=\"label\">Tenant:</td>\n          <td>{{user.fullname}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Landlord:</td>\n          <td>{{property.user.userName}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Housing Address:</td>\n          <td>{{property.street}}, {{property.remain}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Requested Move In:</td>\n          <td>{{user.from}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Planned Move Out:</td>\n          <td>{{user.til}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Available for Move in:</td>\n          <td>{{getDate(property.available)}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Deposit:</td>\n          <td>{{property.deposit}} €</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Transaction Fee:</td>\n          <td>{{fee}} €</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\"><b>Total Due:</b></td>\n          <td><b>{{total}} €</b></td>\n        </tr>\n      </table>\n    </div>\n\n    <div class=\"col-md-6\" style=\"padding-left: 40px;\">\n      <form id=\"payment-form\">\n        <h2 style=\"margin-bottom: 24px;\">Shipping &amp; Billing Information</h2>\n        <fieldset class=\"with-state\">\n          <div class=\"row\">\n            <div class=\"form-group col-md-6\">\n              <span>Name</span>\n              <input name=\"name\" class=\"field\" placeholder=\"Jenny Rosen\" required>\n            </div>\n            <div class=\"form-group col-md-6\">\n              <span>Email</span>\n              <input name=\"email\" type=\"email\" class=\"field\" placeholder=\"jenny@example.com\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <span>Address</span>\n            <input name=\"address\" class=\"field\" placeholder=\"185 Berry Street Suite 550\">\n          </div>\n\n          <div class=\"row\">\n            <div class=\"form-group city col-md-4\">\n              <span>City</span>\n              <input name=\"city\" class=\"field\" placeholder=\"San Francisco\">\n            </div>\n            <div class=\"form-group state col-md-4\">\n              <span>State</span>\n              <input name=\"state\" class=\"field\" placeholder=\"CA\">\n            </div>\n            <div class=\"form-group zip col-md-4\">\n              <span>ZIP</span>\n              <input name=\"postal_code\" class=\"field\" placeholder=\"94107\">\n            </div>\n          </div>\n        </fieldset>\n\n        <div id=\"card-element\" style=\"margin-top: 14px;\">\n          <!--Stripe.js injects the Card Element-->\n        </div>\n        <button id=\"submit\">\n          <div class=\"spinner hidden\" id=\"spinner\"></div>\n          <span id=\"button-text\">Pay</span>\n        </button>\n        <p id=\"card-error\" role=\"alert\"></p>\n      </form>\n    </div>\n  </div>\n\n\n  <p class=\"mt-5\">\n    Try it out using the test card number <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any expiration date in the future, and a random five-digit U.S. ZIP code.\n  </p>\n</div>\n");
 
 /***/ }),
 
@@ -295,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"loaded\" style=\"padding: 120px 0; min-height:100vh\">\n  <h1> User Request:</h1>\n  <hr style=\"width:10%\">\n  <div class=\"\" *ngIf=\"!noRequest\">\n\n    <h6>username: {{tenant.userName}}</h6>\n    <h6>name: {{tenant.fullname}}</h6>\n    <h6>Requested: {{tenant.request}}</h6>\n    <h6>{{tenant.from}} -> {{tenant.til}}</h6>\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"refund()\">Reject and Refund</button>\n    <button class=\"btn btn-success\" type=\"button\" (click)=\"accept()\">Accept and notify</button>\n  </div>\n\n  <div class=\"\" *ngIf=\"noRequest\">\n    <h6 class=\"h-font\"> No Request</h6>\n\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"loaded\" style=\"padding: 120px 0; min-height:100vh\">\n  <h1> User Request:</h1>\n  <hr style=\"width:10%; margin-left: 0;\">\n  <div class=\"\" *ngIf=\"!noRequest\">\n\n    <table style =\"width: 100%;\" id=\"application-details\">\n      <tr class=\"body-row\">\n        <td class=\"label\">Tenant:</td>\n        <td>{{tenant.firstName}} {{tenant.lastName}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Landlord:</td>\n        <td>{{owner.firstName}} {{owner.lastName}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Requested Property:</td>\n        <td>{{property.street}}, {{property.remain}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Requested Move In:</td>\n        <td>{{tenant.from}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Planned Move Out:</td>\n        <td>{{tenant.til}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Available for Move in:</td>\n        <td>{{getDate(property.available)}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Monthly Rent:</td>\n        <td>{{property.monthly}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Deposit:</td>\n        <td>{{property.deposit}} €</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\"><b>Total Due:</b></td>\n        <td><b>{{total}} €</b></td>\n      </tr>\n    </table>\n\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"refund()\">Reject and Refund</button>\n    <button class=\"btn btn-success\" type=\"button\" (click)=\"accept()\">Accept and notify</button>\n  </div>\n\n  <div class=\"\" *ngIf=\"noRequest\">\n    <h6 class=\"h-font\"> No Request</h6>\n\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -321,7 +321,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"loaded\" class=\"container\" style=\"max-width:900px; text-align:center; min-height:100vh; padding: 120px 0\">\n  <h2 class=\"h-font\">My Request</h2>\n  <hr style=\"width:20%\">\n  <div *ngIf=\"haveWaitlist\">\n    <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\">\n      <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n      <div class=\"card-body\" style=\"padding-top:5px;\">\n        <h6 class=\"card-subtitle text-truncate\">Waitlist</h6>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\" *ngIf=\"haveReject\">\n    <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n    <div class=\"card-body\" style=\"padding-top:5px;\">\n      <h6 class=\"card-subtitle text-truncate\" style=\"color:red\">Rejected</h6>\n    </div>\n  </div>\n\n  <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\" *ngIf=\"haveAccept\">\n    <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n    <div class=\"card-body\" style=\"padding-top:5px;\">\n      <h6 class=\"card-subtitle text-truncate\" style=\"color:green\">Accepted</h6>\n      <hr>\n      <h6 class=\"card-subtitle text-truncate\">{{prop.title}}</h6>\n    </div>\n  </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"loaded\" class=\"container\" style=\"max-width:900px; text-align:center; min-height:100vh; padding: 120px 0\">\n  <h2 class=\"h-font\">My Request</h2>\n  <hr style=\"width:20%\">\n  <div *ngIf=\"haveWaitlist\">\n    <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\">\n      <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n      <div class=\"card-body\" style=\"padding-top:5px;\">\n        <h6 class=\"card-subtitle text-truncate\">Waitlist</h6>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"card\" style=\"width: 13rem; margin:5px 7px 5px; display:inline-block;\" *ngIf=\"haveReject\">\n    <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n    <div class=\"card-body\" style=\"padding-top:5px;\">\n      <h6 class=\"card-subtitle text-truncate\" style=\"color:red\">Rejected</h6>\n    </div>\n  </div>\n\n    <label for=\"over\">Click here to view property </label>\n    <img src=\"../../../assets/images/view.png\" class=\"over\" (click)=\"viewProp(prop)\">\n    <div class=\"card-body\" style=\"padding-top:5px;\" *ngIf=\"haveAccept\">\n      <table style =\"width: 100%;\" id=\"application-details\">\n        <tr class=\"body-row\">\n          <td class=\"label\">users:</td>\n          <td>{{users.firstName}} {{users.lastName}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Requested prop:</td>\n          <td>{{prop.street}}, {{prop.remain}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Requested Move In:</td>\n          <td>{{users.from}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Planned Move Out:</td>\n          <td>{{users.til}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Available for Move in:</td>\n          <td>{{getDate(prop.available)}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Monthly Rent:</td>\n          <td>{{prop.monthly}}</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\">Deposit:</td>\n          <td>{{prop.deposit}} €</td>\n        </tr>\n\n        <tr class=\"body-row\">\n          <td class=\"label\"><b>Total Due:</b></td>\n          <td><b>{{total}} €</b></td>\n        </tr>\n      </table>\n      <h6 class=\"card-subtitle text-truncate\" style=\"color:green\">Accepted</h6>\n\n    </div>\n  </div>\n");
 
 /***/ }),
 
@@ -2057,7 +2057,7 @@ var HeaderComponent = /** @class */ (function () {
                 this.wait = true;
                 this.userSer.getSettings().subscribe(function (data) {
                     _this.users.name = data.user.name;
-                    _this.users.fullname = data.user.name + ' ' + data.user.last;
+                    _this.users.fullname = data.user.firstName + ' ' + data.user.lastName;
                     _this.users.email = data.user.email;
                     _this.users.username = data.user.userName;
                     _this.url = _this.userSer.getAvatarURL(data.user.avatar);
@@ -5152,7 +5152,7 @@ var Register1Component = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXJzL3JlcXVlc3QvcmVxdWVzdC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.body-row {\n  border-bottom: 1px solid #ecf2f5;\n}\n\n.body-row .label {\n  width: 70%;\n}\n\n.body-row td {\n  text-transform: capitalize;\n  font-weight: 100;\n}\n\n#submit {\n  background: #db2d8e;\n}\n\n#application-details td {\n  padding: 20px 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlcnMvcmVxdWVzdC9yZXF1ZXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0UsZ0NBQWdDO0FBQ2xDOztBQUVBO0VBQ0UsVUFBVTtBQUNaOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC91c2Vycy9yZXF1ZXN0L3JlcXVlc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLmJvZHktcm93IHtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNlY2YyZjU7XG59XG5cbi5ib2R5LXJvdyAubGFiZWwge1xuICB3aWR0aDogNzAlO1xufVxuXG4uYm9keS1yb3cgdGQge1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbiAgZm9udC13ZWlnaHQ6IDEwMDtcbn1cblxuI3N1Ym1pdCB7XG4gIGJhY2tncm91bmQ6ICNkYjJkOGU7XG59XG5cbiNhcHBsaWNhdGlvbi1kZXRhaWxzIHRkIHtcbiAgcGFkZGluZzogMjBweCAwO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -5200,17 +5200,22 @@ var RequestComponent = /** @class */ (function () {
     }
     RequestComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userSer.getSettings().subscribe(function (data) {
-            _this.owner = data.user;
-            if (data.user.userRequest.length > 0) {
-                _this.userSer.getProfile(data.user.userRequest[0]).subscribe(function (data) {
-                    _this.tenant = data.user;
+        this.userSer.getSettings().subscribe(function (data1) {
+            _this.owner = data1.user;
+            if (data1.user.userRequest.length > 0) {
+                _this.userSer.getProfile(data1.user.userRequest[0]).subscribe(function (data2) {
+                    _this.tenant = data2.user;
+                    _this.propSer.viewProperty(data2.user.request).subscribe(function (data3) {
+                        _this.property = data3.prop;
+                        _this.fee = data3.prop.deposit * .3;
+                        _this.total = _this.fee + data3.prop.deposit;
+                        _this.loaded = true;
+                    });
                 });
             }
             else {
                 _this.noRequest = true;
             }
-            _this.loaded = true;
         });
     };
     RequestComponent.prototype.refund = function () {
@@ -5218,7 +5223,6 @@ var RequestComponent = /** @class */ (function () {
         this.tenant.paymentId = "none";
         this.tenant.reject = this.tenant.request;
         this.tenant.request = "none";
-        console.log(this.tenant);
         for (var i = 0; i < this.owner.userRequest.length; i++) {
             if (this.owner.userRequest[i] == this.tenant.userName) {
                 this.owner.userRequest.splice(i, 1);
@@ -5240,6 +5244,12 @@ var RequestComponent = /** @class */ (function () {
         this.userSer.setData(this.tenant).subscribe();
         this.router.navigate(['/users/property']);
         i;
+    };
+    RequestComponent.prototype.getDate = function (s) {
+        var b = s.split(/\D+/);
+        var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+        var result = c.toString().split(" ");
+        return result[1] + " " + result[2] + ", " + result[3];
     };
     RequestComponent.ctorParameters = function () { return [
         { type: _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
@@ -5523,7 +5533,7 @@ var UsersModule = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXJzL3dhaXRsaXN0L3dhaXRsaXN0LmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.body-row {\n  border-bottom: 1px solid #ecf2f5;\n}\n\n.body-row .label {\n  width: 70%;\n}\n\n.body-row td {\n  text-transform: capitalize;\n  font-weight: 100;\n}\n\n#submit {\n  background: #db2d8e;\n}\n\n#application-details td {\n  padding: 20px 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlcnMvd2FpdGxpc3Qvd2FpdGxpc3QuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxnQ0FBZ0M7QUFDbEM7O0FBRUE7RUFDRSxVQUFVO0FBQ1o7O0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL3VzZXJzL3dhaXRsaXN0L3dhaXRsaXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5ib2R5LXJvdyB7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZWNmMmY1O1xufVxuXG4uYm9keS1yb3cgLmxhYmVsIHtcbiAgd2lkdGg6IDcwJTtcbn1cblxuLmJvZHktcm93IHRkIHtcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XG4gIGZvbnQtd2VpZ2h0OiAxMDA7XG59XG5cbiNzdWJtaXQge1xuICBiYWNrZ3JvdW5kOiAjZGIyZDhlO1xufVxuXG4jYXBwbGljYXRpb24tZGV0YWlscyB0ZCB7XG4gIHBhZGRpbmc6IDIwcHggMDtcbn1cbiJdfQ== */");
 
 /***/ }),
 
@@ -5569,6 +5579,7 @@ var WaitlistComponent = /** @class */ (function () {
     WaitlistComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userSer.getSettings().subscribe(function (data) {
+            _this.users = data.user;
             if (data.user.landlord == 1) {
                 _this.router.navigate(['/']);
             }
@@ -5577,13 +5588,19 @@ var WaitlistComponent = /** @class */ (function () {
                 if (data.user.reject != "none" && data.user.reject != undefined) {
                     _this.propSer.getAllPropertiesById({ params: { id: data.user.reject } }).subscribe(function (data) {
                         _this.prop = data.obj;
+                        _this.fee = data.obj.deposit * .3;
+                        _this.total = _this.fee + data.obj.deposit;
                         _this.haveReject = true;
+                        _this.loaded = true;
                     });
                 }
                 else if (data.user.accept != "none" && data.user.accept != undefined) {
                     _this.propSer.getAllPropertiesById({ params: { id: data.user.accept } }).subscribe(function (data) {
                         _this.prop = data.obj;
+                        _this.fee = data.obj.deposit * .3;
+                        _this.total = _this.fee + data.obj.deposit;
                         _this.haveAccept = true;
+                        _this.loaded = true;
                     });
                 }
                 else {
@@ -5593,13 +5610,15 @@ var WaitlistComponent = /** @class */ (function () {
             else {
                 _this.propSer.getAllPropertiesById({ params: { id: data.user.request } }).subscribe(function (data) {
                     _this.prop = data.obj;
+                    _this.fee = data.obj.deposit * .3;
+                    _this.total = _this.fee + data.obj.deposit;
                     _this.haveWaitlist = true;
+                    _this.loaded = true;
                 });
             }
             if (data.user.landlord == 1) {
                 _this.router.navigate(['/']);
             }
-            _this.loaded = true;
         });
     };
     WaitlistComponent.prototype.getImage = function (prop) {
@@ -5618,6 +5637,12 @@ var WaitlistComponent = /** @class */ (function () {
     };
     WaitlistComponent.prototype.viewProp = function (prop) {
         this.router.navigate(['/properties/view', prop._id]);
+    };
+    WaitlistComponent.prototype.getDate = function (s) {
+        var b = s.split(/\D+/);
+        var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+        var result = c.toString().split(" ");
+        return result[1] + " " + result[2] + ", " + result[3];
     };
     WaitlistComponent.ctorParameters = function () { return [
         { type: _services_property_service__WEBPACK_IMPORTED_MODULE_2__["PropertyService"] },

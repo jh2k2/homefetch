@@ -18,23 +18,38 @@ export class RequestComponent implements OnInit {
   public tenant: User;
   public userRequest;
   public owner: User;
+  public property;
+  public fee;
+  public total;
   public noRequest = false;
 
   constructor(private userSer: UserService, private propSer: PropertyService, private router: Router, private paySer: PaymentService) { }
 
   ngOnInit(): void {
 
-    this.userSer.getSettings().subscribe(data => {
-      this.owner = data.user;
-      if (data.user.userRequest.length > 0) {
-        this.userSer.getProfile(data.user.userRequest[0]).subscribe((data) => {
-          this.tenant = data.user;
+    this.userSer.getSettings().subscribe(data1 => {
+      this.owner = data1.user;
+      if (data1.user.userRequest.length > 0) {
+
+        this.userSer.getProfile(data1.user.userRequest[0]).subscribe((data2) => {
+          this.tenant = data2.user;
+
+          this.propSer.viewProperty(data2.user.request).subscribe(
+            data3 => {
+              this.property = data3.prop;
+
+              this.fee = data3.prop.deposit * .3;
+              this.total = this.fee + data3.prop.deposit;
+
+              this.loaded = true;
+            });
+
         });
+
       } else {
         this.noRequest = true;
       }
 
-      this.loaded = true;
     });
 
 
@@ -46,7 +61,6 @@ export class RequestComponent implements OnInit {
     this.tenant.paymentId = "none";
     this.tenant.reject = this.tenant.request;
     this.tenant.request = "none";
-    console.log(this.tenant);
 
     for (var i = 0; i < this.owner.userRequest.length; i++) {
       if (this.owner.userRequest[i] == this.tenant.userName) {
@@ -63,7 +77,7 @@ export class RequestComponent implements OnInit {
     this.tenant.accept = this.tenant.request;
     this.tenant.request = "none";
 
-    
+
     for (var i = 0; i < this.owner.userRequest.length; i++) {
       if (this.owner.userRequest[i] == this.tenant.userName) {
         this.owner.userRequest.splice(i, 1);
@@ -71,7 +85,14 @@ export class RequestComponent implements OnInit {
     }
     this.userSer.setData(this.owner).subscribe();
     this.userSer.setData(this.tenant).subscribe();
-    this.router.navigate(['/users/property']);i
+    this.router.navigate(['/users/property']); i
+  }
+
+  getDate(s) {
+    var b = s.split(/\D+/);
+    var c = new Date(Date.UTC(b[0], --b[1], b[2]));
+    var result = c.toString().split(" ");
+    return result[1] + " " + result[2] + ", " + result[3];
   }
 
 }
