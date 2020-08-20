@@ -1,7 +1,8 @@
 <div class="container" *ngIf="loaded" style="padding: 120px 0; min-height:100vh">
+  <h3> User Request:</h3>
+  <hr>
   <div class="" *ngIf="!noRequest">
-    <h3> User Request:</h3>
-    <hr>
+
     <h6> {{tenant.userName}}</h6>
     <h6>{{tenant.from}} -> {{tenant.til}}</h6>
     <button class="btn btn-danger" type="button" (click)="refund()">Reject and Refund</button>
@@ -10,6 +11,6 @@
 
   <div class="container" *ngIf="noRequest">
     <h1 class="h-font"> No Request</h1>
-    <hr>
+
   </div>
 </div>
