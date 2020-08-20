@@ -60,7 +60,7 @@ export class ViewPropertyComponent implements OnInit {
         event.target === document.getElementById('map') ||
         event.target === document.getElementById('video')) {
         for (let i = 0; i < document.getElementsByClassName('modal').length; i++) {
-          document.getElementsByClassName('modal')[i].style.display = 'none';
+          //document.getElementsByClassName('modal')[i].style.display = 'none';
         }
       }
     }
