@@ -339,12 +339,12 @@
 }
 
 .affix-permanent .transparent {
-  display:none!important;  
+  display:none!important;
 }
 
 .affix-permanent {
   padding: 0;
-  background-color: #111;
+  background-color: #000080;
   margin: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
@@ -433,7 +433,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #111;
+    background-color: #000080;
     /*same background color of affix-permanentbar*/
     background-position: center top;
   }
@@ -457,7 +457,7 @@
 
 .affix {
   padding: 0;
-  background-color: #111
+  background-color: #000080;
 }
 
 .black {

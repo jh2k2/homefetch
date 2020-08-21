@@ -8,7 +8,7 @@
             <input id="search" formControlName="vicinity" type="text" placeholder="Select City" aria-label="Number" matInput [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
               <mat-option value="Barcelona, Spain">Barcelona, Spain</mat-option>
-              <mat-option value="Madrid, Spain">Madrid, Spain</mat-option>
+              <mat-option value="" disabled>More Cities Coming Soon</mat-option>
               <!-- TODO: Other -->
             </mat-autocomplete>
             <button type="submit" id="searchbutton">Search</button>

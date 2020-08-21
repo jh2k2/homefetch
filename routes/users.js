@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
@@ -7,8 +9,6 @@ const config = require('../config/database');
 
 const User = require('../models/user');
 const Property = require('../models/property');
-const stripe = require('stripe')('sk_test_51H5eexCD60PLVDzGiWagEND9xj8oSC1qBHQFptBMha8a7gRSQuFdQSnoAiYfDi9nvsy59EzpO31HuW4iqiFwC2o700Wk5SWYM8');
-
 
 const fs = require('fs');
 const multer = require('multer');
@@ -32,6 +32,8 @@ var upload = multer({
   storage: storage
 });
 
+
+
 router.post('/register', (req, res, next) => {
   let newUser = new User(req.body);
   User.addUser(newUser, (err) => {
@@ -43,6 +45,37 @@ router.post('/register', (req, res, next) => {
     return res.status(201).send("User created!");
   });
 });
+
+// POST route from contact form
+router.post('/contact', (req, res) => {
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: '',
+      pass: ''
+    }
+  })
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: 'Homefetch Contact', // This is ignored by Gmail
+    to: 'support@homefetch.es',
+    subject: req.body.subject,
+    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+  }
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.status(201).send('Contact Sent');
+    } else {
+      res.status(500).send('Failed to send contact');
+    }
+  })
+})
 
 router.post('/login', (req, res, next) => {
   const email = req.body.email;

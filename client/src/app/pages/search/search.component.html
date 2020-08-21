@@ -5,10 +5,10 @@
       <div id="search-container">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <input class="form-control" id="search2" formControlName="vicinity" type="text" placeholder="Find Vicinity" aria-label="Number" matInput [matAutocomplete]="auto">
+            <input class="form-control" id="search2" formControlName="vicinity" type="text" placeholder="Search City" aria-label="Number" matInput [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" value="form.value.vicinity">
               <mat-option value="Barcelona, Spain">Barcelona, Spain</mat-option>
-              <mat-option value="Madrid, Spain">Madrid, Spain</mat-option>
+              <mat-option value="" disabled>More Cities Coming Soon</mat-option>
               <!-- TODO: Other -->
             </mat-autocomplete>
             <button type="submit" class="btn btn-success">Search</button>

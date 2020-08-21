@@ -3,12 +3,15 @@
   <div class="form-contact">
     <h2 class="contact">Contact</h2>
     <hr style="width:20%">
-    <input class="form-control name t-font" placeholder="Name" type="text" required autofocus>
-    <input class="form-control email t-font" placeholder="Email Address" type="text" formControlName="email" required>
-    <input class="form-control t-font" placeholder="Subject" type="text" required>
-    <textarea class="message form-control t-font" placeholder="Message" name="name" id="message" style="resize: none"></textarea>
 
-    <button class="btn btn-lg btn-block submit" type="submit">Submit</button>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input class="form-control name t-font" placeholder="Name" type="text" formControlName="name">
+      <input class="form-control email t-font" placeholder="Email Address" type="text" formControlName="email" />
+      <input class="form-control t-font" placeholder="Subject" type="text" formControlName="subject">
+      <textarea class="message form-control t-font" placeholder="Message" name="name" id="message" style="resize: none" formControlName="message"></textarea>
+
+      <button class="btn btn-lg btn-block submit" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
   </div>
 
 </div>

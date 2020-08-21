@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+import { Contact } from '../model/contact.model';
 import { Http, Headers, Response } from '@angular/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -55,6 +56,17 @@ export class UserService {
     })
     );
   }
+
+  contact(contact: Contact) {
+    const body = JSON.stringify(contact);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post(this.rootUrl + 'contact', body, { headers: headers }).pipe(map((response: Response) => response), catchError((error: Response) => {
+      this.errorService.handleError(error);
+      return throwError(error);
+    })
+    );
+  }
+
 
   login(user: User) {
     const body = JSON.stringify(user);

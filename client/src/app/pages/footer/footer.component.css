@@ -8,6 +8,7 @@ footer {
 footer p {
   margin: 0px;
   line-height: 100%;
+  font-size: 14px;
 }
 
 footer a {
@@ -21,7 +22,7 @@ footer li {
 }
 
 .text-uppercase {
-  text-transform: uppercase!important;
+  text-transform: uppercase !important;
   font-family: "Circular STD Bold", sans-serif;
   font-size: 18px;
   letter-spacing: 1.5px;

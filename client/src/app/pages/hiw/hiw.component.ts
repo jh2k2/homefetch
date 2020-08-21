@@ -13,6 +13,8 @@ export class HiwComponent implements OnInit {
   ngOnInit(): void {
     $('.pill-half').click(function() {
       const pill = document.getElementsByClassName('pill-half');
+
+
       for (let i = 0; i < pill.length; i++) {
         document.getElementsByClassName('pill-half')[i].classList.remove('active');
       }
