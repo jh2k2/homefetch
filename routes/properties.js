@@ -147,7 +147,7 @@ router.get('/edit/:id', passport.authenticate('jwt', {
       return res.status(500).send("Server error!");
     if (!prop)
       return res.status(422).send("Property not found");
-    if (prop.user.toString() != req.user._id.toString())
+    if (prop.user.toString() != req.user._id.toString() && prop.user.admin == 0)
       return res.status(403).send("You dont own the property");
     else return res.status(200).json({
       prop: prop
@@ -172,7 +172,7 @@ router.patch('/edit/:id', upload.fields([{
     else if (!prop)
       return res.status(422).send("Property not found");
     else {
-      if (prop.user.toString() != req.user._id.toString())
+      if (prop.user.toString() != req.user._id.toString() && prop.user.admin == 0)
         return res.status(403).send("You dont own the property");
       else {
         var itsMe = JSON.parse(req.body.thisProp);
@@ -240,7 +240,7 @@ router.delete('/delete/:id', passport.authenticate('jwt', {
       return res.status(500).send("Server error!");
     if (!prop)
       return res.status(422).send("Property not found");
-    if (prop.user.toString() != req.user._id.toString())
+    if (prop.user.toString() != req.user._id.toString() && prop.user.admin == 0)
       return res.status(403).send("You dont own the property");
     prop.remove((err) => {
       if (err)
