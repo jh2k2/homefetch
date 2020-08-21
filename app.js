@@ -70,7 +70,7 @@ app.get('**', (req, res) => {
   res.sendfile(__dirname + '/public/index.html');
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 app.listen(port, () => {
   console.log("server started on port: " + port);

@@ -1893,7 +1893,7 @@ var ContactComponent = /** @class */ (function () {
             closeButton: true,
             positionClass: 'toast-bottom-right'
         });
-        this.router.navigate('[' / ']');
+        this.router.navigate(['/']);
     };
     ContactComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },

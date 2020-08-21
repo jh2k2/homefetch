@@ -70,9 +70,9 @@ router.post('/contact', (req, res) => {
   // Attempt to send the email
   smtpTrans.sendMail(mailOpts, (error, response) => {
     if (error) {
-      res.status(201).send('Contact Sent');
+      res.status(500).send('Failed to send contact: ' + error);
     } else {
-      res.status(500).send('Failed to send contact');
+      res.status(201).send('Contact Sent');
     }
   })
 })

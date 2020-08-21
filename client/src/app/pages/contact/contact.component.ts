@@ -44,7 +44,7 @@ export class ContactComponent implements OnInit {
       positionClass: 'toast-bottom-right'
     });
 
-    this.router.navigate('['/']');
+    this.router.navigate(['/']);
   }
 
 }
