@@ -5,8 +5,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('./config/database');
-var fs = require('fs');
-var https = require('https');
 var logger = require('morgan');
 
 
@@ -65,10 +63,7 @@ app.post("/refund-payment", async (req, res) => {
   console.log('test');
 })
 
-const server = https.createServer({
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem')
-}, app);
+
 
 
 app.get('**', (req, res) => {
@@ -77,4 +72,6 @@ app.get('**', (req, res) => {
 
 const port = process.env.PORT || 80;
 
-server.listen(port, '0.0.0.0');
+app.listen(port, () => {
+  console.log("server started on port: " + port);
+});
