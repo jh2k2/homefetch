@@ -54,7 +54,7 @@ app.use('/propertie', properties);
 app.post("/create-payment-intent", async (req, res, next) => {
   const paymentIntent = await stripe.paymentIntents.create({
     //TODO
-    amount: (req.body.deposit * 100) + (req.body.deposit * .3 * 100),
+    amount: (req.body.deposit * 100) + (req.body.monthly * .3 * 100),
     currency: "usd"
   });
   res.send({
