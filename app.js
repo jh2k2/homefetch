@@ -85,7 +85,7 @@ const credentials = {
 
 const httpServer = http.createServer(app);
 
-httpServer.use((req, res, next) => {
+httpServer.get('*', (req, res, next) => {
     return res.redirect('https://' + req.headers.host + req.url);
 });
 
