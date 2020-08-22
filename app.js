@@ -92,6 +92,11 @@ httpServer.listen(port, () => {
   console.log("server started on port: " + port);
 });
 
+httpServer.use((req, res, next) => {
+  if (req.headers.host === 'homefetch.es')
+    return res.redirect(443, 'https://www.homefetch.es');
+});
+
 httpsServer.listen(443, () => {
 	console.log('HTTPS Server running on port 443');
 });
