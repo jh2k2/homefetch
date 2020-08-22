@@ -73,8 +73,8 @@ app.get('**', (req, res) => {
 });
 
 app.use((req, res, next) => {
-  if (req.headers.host === 'homefetch.es')
-    return res.redirect(443, 'https://www.homefetch.es');
+  if (req.headers['x-forwarded-proto'] !== 'https')
+      return res.redirect('https://' + req.headers.host + req.url);
 });
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/privkey.pem', 'utf8');
