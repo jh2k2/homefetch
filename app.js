@@ -72,10 +72,6 @@ app.get('**', (req, res) => {
   res.sendfile(__dirname + '/public/index.html');
 });
 
-app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https')
-      return res.redirect('https://' + req.headers.host + req.url);
-});
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/cert.pem', 'utf8');
@@ -87,8 +83,13 @@ const credentials = {
 	ca: ca
 };
 
-
 const httpServer = http.createServer(app);
+
+http.use((req, res, next) => {
+    return res.redirect('https://' + req.headers.host + req.url);
+});
+
+
 const httpsServer = https.createServer(credentials, app);
 
 const port = process.env.PORT || 80;
