@@ -59,7 +59,7 @@ export class PaymentComponent implements OnInit {
           this.amount = data.prop.deposit;
           this.property = data.prop;
           this.property.user = data.user;
-          this.fee = this.amount * .3;
+          this.fee = data.prop.monthly * .3;
           this.total = this.fee + this.amount;
 
           this.userSer.getProfile(this.property.user.userName).subscribe(

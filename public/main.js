@@ -3199,7 +3199,7 @@ var PaymentComponent = /** @class */ (function () {
                 _this.amount = data.prop.deposit;
                 _this.property = data.prop;
                 _this.property.user = data.user;
-                _this.fee = _this.amount * .3;
+                _this.fee = data.prop.monthly * .3;
                 _this.total = _this.fee + _this.amount;
                 _this.userSer.getProfile(_this.property.user.userName).subscribe(function (data) {
                     _this.owner = data.user;
@@ -5275,7 +5275,7 @@ var RequestComponent = /** @class */ (function () {
                     _this.tenant = data2.user;
                     _this.propSer.viewProperty(data2.user.request).subscribe(function (data3) {
                         _this.property = data3.prop;
-                        _this.fee = data3.prop.deposit * .3;
+                        _this.fee = data3.prop.monthly * .3;
                         _this.total = _this.fee + data3.prop.deposit;
                         _this.loaded = true;
                     });

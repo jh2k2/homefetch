@@ -38,7 +38,7 @@ export class RequestComponent implements OnInit {
             data3 => {
               this.property = data3.prop;
 
-              this.fee = data3.prop.deposit * .3;
+              this.fee = data3.prop.monthly * .3;
               this.total = this.fee + data3.prop.deposit;
 
               this.loaded = true;
