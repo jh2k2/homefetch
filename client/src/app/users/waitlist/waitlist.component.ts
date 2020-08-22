@@ -41,7 +41,7 @@ export class WaitlistComponent implements OnInit {
               data => {
 
                 this.prop = data.obj;
-                this.fee = data.obj.deposit * .3;
+                this.fee = data.obj.monthly * .3;
                 this.total = this.fee + data.obj.deposit;
                 this.haveReject = true;
 
@@ -53,7 +53,7 @@ export class WaitlistComponent implements OnInit {
               data => {
 
                 this.prop = data.obj;
-                this.fee = data.obj.deposit * .3;
+                this.fee = data.obj.monthly * .3;
                 this.total = this.fee + data.obj.deposit;
                 this.haveAccept = true;
 
@@ -68,7 +68,7 @@ export class WaitlistComponent implements OnInit {
             data => {
 
               this.prop = data.obj;
-              this.fee = data.obj.deposit * .3;
+              this.fee = data.obj.monthly * .3;
               this.total = this.fee + data.obj.deposit;
               this.haveWaitlist = true;
 
