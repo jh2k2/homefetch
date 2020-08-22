@@ -5,6 +5,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('./config/database');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 var logger = require('morgan');
 
 
@@ -31,6 +34,7 @@ app.set('views', __dirname + '/public');
 app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname, { dotfiles: 'allow' } ));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
@@ -64,11 +68,23 @@ app.post("/refund-payment", async (req, res) => {
 })
 
 
-
-
 app.get('**', (req, res) => {
   res.sendfile(__dirname + '/public/index.html');
 });
+
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/chain.pem', 'utf8');
+
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
+};
+
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 
 const port = process.env.PORT || 80;
 
