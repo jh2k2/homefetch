@@ -295,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"loaded\" style=\"padding: 120px 0; min-height:100vh\">\n  <h1> User Request:</h1>\n  <hr style=\"width:10%; margin-left: 0;\">\n  <div class=\"\" *ngIf=\"!noRequest\">\n\n    <table style =\"width: 100%;\" id=\"application-details\">\n      <tr class=\"body-row\">\n        <td class=\"label\">Tenant:</td>\n        <td>{{tenant.firstName}} {{tenant.lastName}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Landlord:</td>\n        <td>{{owner.firstName}} {{owner.lastName}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Requested Property:</td>\n        <td>{{property.street}}, {{property.remain}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Requested Move In:</td>\n        <td>{{tenant.from}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Planned Move Out:</td>\n        <td>{{tenant.til}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Available for Move in:</td>\n        <td>{{getDate(property.available)}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Monthly Rent:</td>\n        <td>{{property.monthly}} €</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Deposit:</td>\n        <td>{{property.deposit}} €</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\"><b>Total Due:</b></td>\n        <td><b>{{total}} €</b></td>\n      </tr>\n    </table>\n\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"refund()\">Reject and Refund</button>\n    <button class=\"btn btn-success\" type=\"button\" (click)=\"accept()\">Accept and notify</button>\n  </div>\n\n  <div class=\"\" *ngIf=\"noRequest\">\n    <h6 class=\"h-font\"> No Request</h6>\n\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"loaded\" style=\"padding: 120px 0; min-height:100vh\">\n  <h1> User Request:</h1>\n  <hr style=\"width:10%; margin-left: 0;\">\n  <div class=\"\" *ngIf=\"!noRequest\">\n\n    <table style =\"width: 100%;\" id=\"application-details\">\n      <tr class=\"body-row\">\n        <td class=\"label\">Tenant:</td>\n        <td>{{tenant.firstName}} {{tenant.lastName}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Landlord:</td>\n        <td>{{owner.firstName}} {{owner.lastName}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Requested Property:</td>\n        <td>{{property.street}}, {{property.remain}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Requested Move In:</td>\n        <td>{{tenant.from}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Planned Move Out:</td>\n        <td>{{tenant.til}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Available for Move in:</td>\n        <td>{{getDate(property.available)}}</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Monthly Rent:</td>\n        <td>{{property.monthly}} €</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\">Deposit:</td>\n        <td>{{property.deposit}} €</td>\n      </tr>\n\n      <tr class=\"body-row\">\n        <td class=\"label\"><b>Total Due:</b></td>\n        <td><b>{{total}} €</b></td>\n      </tr>\n    </table>\n\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"refund()\">Reject and Refund</button>\n    <button class=\"btn btn-success\" type=\"button\" (click)=\"accept()\">Accept and notify</button>\n  </div>\n\n  <div class=\"\" *ngIf=\"noRequest\">\n    <h6 class=\"h-font\">No Request</h6>\n\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -3180,7 +3180,7 @@ var PaymentComponent = /** @class */ (function () {
         this.paySer = paySer;
         this.propSer = propSer;
         this.userSer = userSer;
-        this.stripe = Stripe("pk_test_51H5eexCD60PLVDzGszeUoz3G56Mdq0sdEarNrw9YldO0LGsBS6jSXk2xyr2kjHf461kSbk2fLr8ooryiWX0Op1W5003LikPyZB");
+        this.stripe = Stripe("pk_live_51HImo7BE8vXkvU650UFzvP8c7icC0ZiBxHG23LAQDKC5sFs82xp587PdlS4VJgG95gjtUUXPPQ2g7qVwFSq3XYP400yMBo39Uz");
         this.isDataLoaded = false;
         this.hasWaitlist = true;
     }
@@ -5273,12 +5273,18 @@ var RequestComponent = /** @class */ (function () {
             if (data1.user.userRequest.length > 0) {
                 _this.userSer.getProfile(data1.user.userRequest[0]).subscribe(function (data2) {
                     _this.tenant = data2.user;
-                    _this.propSer.viewProperty(data2.user.request).subscribe(function (data3) {
-                        _this.property = data3.prop;
-                        _this.fee = data3.prop.monthly * .3;
-                        _this.total = _this.fee + data3.prop.deposit;
+                    if (data2.user.request == "none") {
+                        _this.noRequest = true;
                         _this.loaded = true;
-                    });
+                    }
+                    else {
+                        _this.propSer.viewProperty(data2.user.request).subscribe(function (data3) {
+                            _this.property = data3.prop;
+                            _this.fee = data3.prop.monthly * .3;
+                            _this.total = _this.fee + data3.prop.deposit;
+                            _this.loaded = true;
+                        });
+                    }
                 });
             }
             else {

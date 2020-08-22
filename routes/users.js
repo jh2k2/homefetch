@@ -54,8 +54,8 @@ router.post('/contact', (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: 'm.omar@homefetch.com',
-      pass: 'Homefetch20'
+      user: 'homefetch2020@gmail.com',
+      pass: 'homefetch20'
     }
   })
 

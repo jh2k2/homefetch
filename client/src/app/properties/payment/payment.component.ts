@@ -15,7 +15,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  public stripe = Stripe("pk_test_51H5eexCD60PLVDzGszeUoz3G56Mdq0sdEarNrw9YldO0LGsBS6jSXk2xyr2kjHf461kSbk2fLr8ooryiWX0Op1W5003LikPyZB");
+  public stripe = Stripe("pk_live_51HImo7BE8vXkvU650UFzvP8c7icC0ZiBxHG23LAQDKC5sFs82xp587PdlS4VJgG95gjtUUXPPQ2g7qVwFSq3XYP400yMBo39Uz");
   public elements;
   public style;
   public card;

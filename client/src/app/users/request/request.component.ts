@@ -34,17 +34,22 @@ export class RequestComponent implements OnInit {
         this.userSer.getProfile(data1.user.userRequest[0]).subscribe((data2) => {
           this.tenant = data2.user;
 
-          this.propSer.viewProperty(data2.user.request).subscribe(
-            data3 => {
-              this.property = data3.prop;
+          if (data2.user.request == "none") {
+            this.noRequest = true;
+            this.loaded = true;
+          } else {
+            this.propSer.viewProperty(data2.user.request).subscribe(
+              data3 => {
+                this.property = data3.prop;
 
-              this.fee = data3.prop.monthly * .3;
-              this.total = this.fee + data3.prop.deposit;
+                this.fee = data3.prop.monthly * .3;
+                this.total = this.fee + data3.prop.deposit;
 
-              this.loaded = true;
-            });
-
+                this.loaded = true;
+              });
+          }
         });
+
 
       } else {
         this.noRequest = true;
