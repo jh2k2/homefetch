@@ -72,6 +72,11 @@ app.get('**', (req, res) => {
   res.sendfile(__dirname + '/public/index.html');
 });
 
+app.use((req, res, next) => {
+  if (req.headers.host === 'homefetch.es')
+    return res.redirect(443, 'https://www.homefetch.es');
+});
+
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/chain.pem', 'utf8');
@@ -92,10 +97,6 @@ httpServer.listen(port, () => {
   console.log("server started on port: " + port);
 });
 
-httpServer.use((req, res, next) => {
-  if (req.headers.host === 'homefetch.es')
-    return res.redirect(443, 'https://www.homefetch.es');
-});
 
 httpsServer.listen(443, () => {
 	console.log('HTTPS Server running on port 443');
