@@ -31,11 +31,6 @@
   font-size: 1rem;
 }
 
-.nav div.logo a:hover {
-  color: #fff;
-  transition-duration: 0.2s;
-}
-
 .nav div.main_list {
   height: 65px;
   float: right;
@@ -63,10 +58,6 @@
   line-height: 65px;
   font-size: 1rem;
   transition-duration: 0.2s;
-}
-
-.nav div.main_list ul li a:hover {
-  color: #fff;
 }
 
 /* Home section */
@@ -507,6 +498,10 @@
   padding-left: 15%;
   padding-right: 15%;
   font-size: 20px;
+}
+
+.affix a, .affix-permanent a {
+  color: white !important;
 }
 
 @media all and (max-width:700px) {

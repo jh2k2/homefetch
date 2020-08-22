@@ -67,11 +67,6 @@ html {
   margin-top: 20px;
 }
 
-body {
-  max-width: 100vw;
-  overflow: x;
-}
-
 .redirect:focus {
   outline: none;
 }
@@ -87,4 +82,6 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
 }
