@@ -34,7 +34,9 @@ app.set('views', __dirname + '/public');
 app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname, { dotfiles: 'allow' } ));
+app.use(express.static(__dirname, {
+  dotfiles: 'allow'
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
@@ -78,17 +80,16 @@ const certificate = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/cert.pem
 const ca = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/chain.pem', 'utf8');
 
 const credentials = {
-	key: privateKey,
-	cert: certificate,
-	ca: ca
+  key: privateKey,
+  cert: certificate,
+  ca: ca
 };
 
-const httpServer = http.createServer(app);
-
-httpServer.get('*', (req, res, next) => {
-    return res.redirect('https://' + req.headers.host + req.url);
-});
-
+const httpServer = http.createServer(function(req, res) {
+  res.writeHead(301, {
+    "Location": "https://" + req.headers['host'] + req.url
+  });
+}, app);
 
 const httpsServer = https.createServer(credentials, app);
 
@@ -100,5 +101,5 @@ httpServer.listen(port, () => {
 
 
 httpsServer.listen(443, () => {
-	console.log('HTTPS Server running on port 443');
+  console.log('HTTPS Server running on port 443');
 });
