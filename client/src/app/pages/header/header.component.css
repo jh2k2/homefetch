@@ -358,7 +358,7 @@
 .affix-permanent {
   color:white;
   padding: 0;
-  background-color: #000080;
+  background-color: #002A4C;
   margin: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
@@ -447,7 +447,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #000080;
+    background-color: #002A4C;
     /*same background color of affix-permanentbar*/
     background-position: center top;
   }
@@ -472,7 +472,7 @@
 
 .affix {
   padding: 0;
-  background-color: #000080;
+  background-color: #002A4C;
 }
 
 .black {

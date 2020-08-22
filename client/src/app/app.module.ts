@@ -31,7 +31,7 @@ import { ErrorService } from './services/error.service';
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDLUqRbtCSwCnz3a9wTjhE22otxiTR-2LI',
+      apiKey: 'AIzaSyC9QVMeqWbuuIVGd00Nl90FGrq682aa_Qg',
       libraries: ['places']
     }),
     MatGoogleMapsAutocompleteModule,
