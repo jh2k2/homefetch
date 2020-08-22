@@ -27,6 +27,7 @@ export class Property {
        public vicinity?:string,
        public longitude?:number,
        public latitude?:number,
+       public floor?:string,
 
        public address_object?:string,
        public youtube?:string,

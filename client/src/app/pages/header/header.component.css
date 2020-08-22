@@ -69,15 +69,13 @@
   color: #fff;
 }
 
-
 /* Home section */
-
 .home {
   width: 100%;
   height: 100vh;
   background-image: url(https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80);
   background-position: center top;
-  background-size:cover;
+  background-size: cover;
 }
 
 .navTrigger {
@@ -92,7 +90,6 @@
 }
 
 /* Media qurey section */
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .container {
     margin: 0;
@@ -103,18 +100,22 @@
   .navTrigger {
     display: block;
   }
+
   .nav div.logo {
     margin-left: 15px;
   }
+
   .nav div.main_list {
     width: 100%;
     height: 0;
     overflow: hidden;
   }
+
   .nav div.show_list {
     height: auto;
     display: none;
   }
+
   .nav div.main_list ul {
     flex-direction: column;
     width: 100%;
@@ -126,25 +127,26 @@
     /*same background color of navbar*/
     background-position: center top;
   }
+
   .nav div.main_list ul li {
     width: 100%;
     text-align: right;
   }
+
   .nav div.main_list ul li a {
     text-align: center;
     width: 100%;
     font-size: 2.4rem;
     padding: 20px;
   }
+
   .nav div.media_button {
     display: block;
   }
 }
 
-
 /* Animation */
 /* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
-
 .navTrigger {
   cursor: pointer;
   width: 30px;
@@ -206,6 +208,7 @@
   50% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(45deg);
   }
@@ -215,6 +218,7 @@
   50% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(45deg);
   }
@@ -224,6 +228,7 @@
   50% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(45deg);
   }
@@ -233,6 +238,7 @@
   50% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(45deg);
   }
@@ -242,9 +248,11 @@
   0% {
     -webkit-transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     -webkit-transform: translateY(9px) rotate(0deg);
   }
+
   100% {
     -webkit-transform: translateY(9px) rotate(135deg);
   }
@@ -254,9 +262,11 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(9px) rotate(0deg);
   }
+
   100% {
     transform: translateY(9px) rotate(135deg);
   }
@@ -266,9 +276,11 @@
   0% {
     -webkit-transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     -webkit-transform: translateY(9px) rotate(0deg);
   }
+
   100% {
     -webkit-transform: translateY(9px) rotate(135deg);
   }
@@ -278,9 +290,11 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(9px) rotate(0deg);
   }
+
   100% {
     transform: translateY(9px) rotate(135deg);
   }
@@ -290,9 +304,11 @@
   0% {
     -webkit-transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     -webkit-transform: translateY(-9px) rotate(0deg);
   }
+
   100% {
     -webkit-transform: translateY(-9px) rotate(135deg);
   }
@@ -302,9 +318,11 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-9px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-9px) rotate(135deg);
   }
@@ -314,9 +332,11 @@
   0% {
     -webkit-transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     -webkit-transform: translateY(-9px) rotate(0deg);
   }
+
   100% {
     -webkit-transform: translateY(-9px) rotate(135deg);
   }
@@ -326,23 +346,26 @@
   0% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-9px) rotate(0deg);
   }
+
   100% {
     transform: translateY(-9px) rotate(135deg);
   }
 }
 
 .affix-permanent .black {
-  display:block!important;
+  display: block !important;
 }
 
 .affix-permanent .transparent {
-  display:none!important;
+  display: none !important;
 }
 
 .affix-permanent {
+  color:white;
   padding: 0;
   background-color: #000080;
   margin: 0;
@@ -368,7 +391,7 @@
 
 .affix-permanent div.logo a {
   text-decoration: none;
-  color: #db2d8e;
+  color: white;
   font-size: 1rem;
 }
 
@@ -400,7 +423,7 @@
 
 .affix-permanent div.main_list ul li a {
   text-decoration: none;
-  color: #db2d8e;
+  color: white!important;
   line-height: 65px;
   font-size: 1rem;
   transition-duration: 0.2s;
@@ -444,6 +467,7 @@
   }
 
   .affix-permanent div.main_list ul li a {
+    color:white;
     text-align: center;
     width: 100%;
     font-size: 2.4rem;
@@ -461,29 +485,32 @@
 }
 
 .black {
-  display:none;
+  display: none;
 }
 
 .affix .black {
-  display:block!important;
+  color: white;
+  display: block !important;
 }
 
 .affix .transparent {
-  display:none!important;
+  display: none !important;
 }
 
 .myH2 {
-  text-align:center;
+  text-align: center;
   font-size: 4rem;
 }
+
 .myP {
   text-align: justify;
-  padding-left:15%;
-  padding-right:15%;
+  padding-left: 15%;
+  padding-right: 15%;
   font-size: 20px;
 }
-@media all and (max-width:700px){
+
+@media all and (max-width:700px) {
   .myP {
-    padding:2%;
+    padding: 2%;
   }
 }

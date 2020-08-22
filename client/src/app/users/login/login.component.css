@@ -9,6 +9,10 @@ body {
   height: 97vh;
 }
 
+.form-index {
+  z-index:300;
+}
+
 svg {
   display: block;
   width: 100%;

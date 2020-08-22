@@ -18,6 +18,10 @@ const PropertySchema = mongoose.Schema({
     type: Number,
     required: true
   },
+  floor: {
+    type: String,
+    default: "N/A"
+  },
   rooms: {
     type: Number,
     required: true
