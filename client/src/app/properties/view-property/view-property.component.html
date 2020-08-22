@@ -45,7 +45,7 @@
 
         <div style="padding: 35px; padding-top: 10px;">
           <p class="title">{{property.title}}</p>
-          <p class="" style="text-align: left; font-size: 14px; color: #727679; font-weight: 100;">{{property.street}}, {{property.remain}}. {{property.floor}}</p>
+          <p class="" style="text-align: left; font-size: 14px; color: #727679; font-weight: 100;">{{property.street}}, {{property.remain}}, floor: {{property.floor}}</p>
           <hr>
           <p class="" style="text-align: left; font-size: 14px; color: #727679; font-weight: 100;"><b>{{property.rooms}} </b>bed · <b>{{property.bathrooms}}</b> bath · <b>{{property.area}}</b> sq m</p>
         </div>
@@ -188,6 +188,12 @@
           </div>
 
           <p class="overview" style="text-align: left; word-wrap: break-word;  white-space: pre-wrap;">{{property.landlordrules}}</p>
+
+          <div style="padding-top: 10px; margin-top: 0;">
+            <p class="title" style="font-size: 20px;">Required Documents</p>
+          </div>
+
+          <p class="overview" style="text-align: left; word-wrap: break-word;  white-space: pre-wrap;">{{property.documents}}</p>
         </div>
       </div>
 
