@@ -50,3 +50,13 @@ footer li {
   display: inline-block;
   margin-left: 10px;
 }
+
+.payment-container img {
+  width: 10%;
+}
+
+.payment-container {
+  display: inline;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
