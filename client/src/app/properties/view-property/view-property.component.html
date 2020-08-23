@@ -7,7 +7,7 @@
           <img *ngIf="image" [src]="images[pos]" style="margin-top:0px; width:auto; height:100%;" class="images">
 
           <!-- see more image -->
-          <div (click)="seemore()" *ngIf="downloadimage && property.moreimage != undefined" style="margin-top:0px; width:100%; height:100%;" class="images see-more">
+          <div (click)="seemore()" *ngIf="downloadimage && property.moreimage != undefined" style="margin-top:0px; width:100%; height:100%;" class="images see-more"></div>
 
           <img *ngIf="downloadimage && property.moreimage == undefined" src="../../../assets/images/seemore.jpg" style="margin-top:0px; width:100%; height:100%;" class="images">
           <div class="left">
