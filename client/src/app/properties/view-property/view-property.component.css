@@ -5,12 +5,6 @@ agm-map {
   width: 100%;
 }
 
-.see-more {
-  background-image: url('../../../assets/images/cmore.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-}
 
 @media only screen and (max-width: 576px) {
   .container {
