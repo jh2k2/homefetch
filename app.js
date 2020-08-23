@@ -74,8 +74,6 @@ app.get('**', (req, res) => {
   res.sendfile(__dirname + '/public/index.html');
 });
 
-/*
-
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/homefetch.es/chain.pem', 'utf8');
@@ -106,8 +104,8 @@ httpServer.listen(port, () => {
 httpsServer.listen(443, () => {
   console.log('HTTPS Server running on port 443');
 });
-*/
 
 
 
-app.listen(80);
+
+//app.listen(80);
