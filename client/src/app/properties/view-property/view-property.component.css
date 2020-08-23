@@ -28,6 +28,16 @@ agm-map {
   margin-right: 8px;
 }
 
+.see-more-text {
+  font-family: 'Circular STD Book', sans-serif;
+  position: absolute;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 60px;
+  width: 100%;
+}
+
 .pop-up {
   font-size: .875rem;
   line-height: 1;
